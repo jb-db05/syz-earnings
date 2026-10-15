@@ -1,6 +1,6 @@
 ---
 name: "syz-earnings"
-description: "Produce Syz post-earnings investment updates (Earnings update PDF: page 1 executive investment summary for all clients, page 2 in-depth analysis with the share price vs. consensus EPS and P/E chart, page 3 disclaimer) from a Bloomberg weekly export. Use for any 'Syz Earnings' request or post-results company update; keep using syz-visual for 'Syz Visual' macro Research Comments."
+description: "Produce Syz post-earnings investment updates (Earnings update as PDF and portrait A4 PowerPoint with the same visual: page 1 executive investment summary for all clients, page 2 in-depth analysis with the share price vs. consensus EPS and P/E chart, page 3 disclaimer) from a Bloomberg weekly export. Use for any 'Syz Earnings' request or post-results company update; keep using syz-visual for 'Syz Visual' macro Research Comments."
 ---
 
 # Syz Earnings: post-earnings investment update
@@ -11,8 +11,9 @@ Where this skill and `syz-house-style` or `syz-visual` differ, **this skill wins
 
 ## Deliverables (every time)
 1. `Earnings_Update_<Ticker>_<QxYYYY>.pdf`: 3-page A4 (page 1 executive investment summary, page 2 in-depth analysis, page 3 source + disclaimer).
-2. The standalone chart PNGs **with** their header/footnote (for decks and LinkedIn): at least the price vs. consensus EPS and P/E chart.
-3. The build script (data → charts → PDF), parameterised for the next quarter.
+2. `Earnings_Update_<Ticker>_<QxYYYY>.pptx`: the same three pages as a **portrait A4 PowerPoint** (21 x 29.7 cm), same margins, type sizes, colours and charts, with native editable text and shapes.
+3. The standalone chart PNGs **with** their header/footnote (for decks and LinkedIn): at least the price vs. consensus EPS and P/E chart.
+4. The build scripts (data → charts → PDF, and `fill.json` → PPTX), parameterised for the next quarter.
 
 ## Inputs
 - **Bloomberg weekly export (.xlsx)**, one sheet, newest row first, header row 1, columns matched by keyword (order does not matter):
@@ -28,7 +29,8 @@ Where this skill and `syz-house-style` or `syz-visual` differ, **this skill wins
 4. **Crop** each chart for the PDF (`crop_for_pdf`): the PDF typesets titles in HTML, so the chart's own header/footnote is removed.
 5. **Write the text** following the Text format rules: page 1 first (the 80% message), then page 2 (the why), with no repetition between them.
 6. **Fill the HTML template** (below), render with WeasyPrint, rasterise all pages and **look at them**.
-7. **Fit to exactly 3 pages** (Fit & QA). Then deliver PDF + PNGs + script.
+7. **Fit to exactly 3 pages** (Fit & QA).
+8. **Build the PowerPoint** from the same content: write `fill.json` (plain text, no HTML entities) and run `build_pptx.js` (below); validate, render with LibreOffice and look at the three slides. Then deliver PDF + PPTX + PNGs + scripts.
 
 ## Setup
 ```bash
@@ -41,6 +43,15 @@ from fontTools.ttLib import TTFont
 for w,n in [(300,'Light'),(400,'Regular'),(600,'SemiBold'),(700,'Bold'),(800,'ExtraBold')]:
     f=TTFont('Nunito.ttf'); instantiateVariableFont(f,{'wght':w},inplace=True); f.save(f'Nunito-{n}.ttf')
 "
+```
+Also install the fonts for LibreOffice (used to render the PPTX for QA) and build the gradient rule image used on the slides:
+```bash
+mkdir -p ~/.local/share/fonts && cp /home/claude/fonts/Nunito-*.ttf ~/.local/share/fonts/ && fc-cache -f
+python3 -c "
+from PIL import Image; import numpy as np
+w=1200; a=np.zeros((4,w,3),dtype=np.uint8); c0=np.array([255,108,14]); c1=np.array([255,197,69])
+for i in range(w): a[:,i,:]=c0+(c1-c0)*i/(w-1)
+Image.fromarray(a).save('/home/claude/syz_gradbar.png')"
 ```
 Fallback for fonts if GitHub is blocked: `npm install @fontsource/nunito`, convert the woff files to ttf with fontTools (`f.flavor=None; f.save()`). Never ship without Nunito. The font is **Nunito** (rounded terminals), not Nunito Sans. Only **Bold (700)** and **ExtraBold (800)** are used in the document and the charts.
 
@@ -460,6 +471,191 @@ for i, p in enumerate(pages): p.save(f"page{i+1}.png")
 print("pages:", len(pages))   # must be 3, then Read page1.png, page2.png and page3.png
 ```
 
+## PowerPoint build: write to `/home/claude/build_pptx.js` verbatim
+The PPTX is generated with `pptxgenjs` (preinstalled) from a `fill.json` that carries the same content as the HTML fill, as **plain text** (real quotes and apostrophes, `·` for separators, no `&middot;`/`&ndash;` entities). It reproduces the PDF page by page: same A4 portrait margins (18/15/12.5/15 mm), same type sizes, Nunito Bold with ExtraBold-weight titles, logo top-right, gradient rule, footer, the single key-numbers box, the two-column strengthen/change block, and the same cropped chart PNGs. Elements flow top to bottom from calibrated text metrics; the script prints each page's bottom edge against the guard line.
+
+```javascript
+// build_pptx.js: Syz Earnings update, portrait A4 PowerPoint with the same visual as the PDF.
+// Usage: node build_pptx.js fill.json out.pptx
+// fill.json carries the same keys as the HTML template (plain text, no HTML entities).
+const pptxgen = require("pptxgenjs");
+const fs = require("fs");
+
+const [fillPath, outPath] = process.argv.slice(2);
+const F = JSON.parse(fs.readFileSync(fillPath, "utf8"));
+
+const NAVY = "202945", BLUEB = "4B5F80", ORANGE = "FF6C0E", AMBER = "FFA400", MINT = "3BAF90";
+const GREY = "6B7280", LIGHT = "9AA0A8", HAIR = "D6D9DE", WHITE = "FFFFFF";
+const FONT = "Nunito";
+const W = 8.27, H = 11.69, ML = 0.59, MR = 0.59, MT = 0.71, MB = 0.49;   // A4 portrait, PDF margins
+const CW = W - ML - MR;
+
+const pres = new pptxgen();
+pres.defineLayout({ name: "A4P", width: W, height: H });
+pres.layout = "A4P";
+pres.theme = { headFontFace: FONT, bodyFontFace: FONT };
+pres.author = "Syz Research"; pres.title = F.TITLE;
+
+// ---- text metrics (Nunito Bold, calibrated against the WeasyPrint render)
+// CSS line-height values from the PDF template; PowerPoint's multiple is relative to ~1.2 x font size
+const LH = 1.42, NAT = 1.2;
+const mult = lh => lh / NAT;
+function lines(text, pt, width) {
+  const cpl = Math.max(10, Math.floor((width * 72) / (pt * 0.475)));
+  return text.split("\n").reduce((n, p) => n + Math.max(1, Math.ceil(p.length / cpl)), 0);
+}
+function hOf(text, pt, width, lh = LH) { return (lines(text, pt, width) * pt * lh) / 72; }
+
+// ---- page chrome
+function chrome(slide, pageNo) {
+  slide.background = { color: WHITE };
+  slide.addImage({ path: F.LOGO, x: W - MR - 0.55, y: 0.18, w: 0.55, h: 0.55 * 186 / 206 });
+  slide.addImage({ path: F.GRADBAR, x: ML, y: MT, w: CW, h: 0.045 });
+  slide.addText(`Syz Research · ${F.DOC_TYPE} · ${F.DATE}`, {
+    x: ML, y: H - MB - 0.02, w: CW / 2, h: 0.2, fontFace: FONT, fontSize: 7, color: LIGHT, bold: true, margin: 0, isTextBox: true, valign: "bottom" });
+  slide.addText(`${pageNo} / 3`, {
+    x: W - MR - CW / 2, y: H - MB - 0.02, w: CW / 2, h: 0.2, fontFace: FONT, fontSize: 7, color: LIGHT, bold: true, margin: 0, align: "right", isTextBox: true, valign: "bottom" });
+  return MT + 0.045 + 0.16;   // y after the gradient rule
+}
+
+// ---- flow helpers (all return the new y)
+function para(slide, y, text, opts = {}) {
+  const pt = opts.pt || 8.7, w = opts.w || CW, x = opts.x || ML;
+  const h = hOf(text, pt, w) + 0.02;
+  slide.addText(text, { x, y, w, h, fontFace: FONT, fontSize: pt, color: opts.color || NAVY, bold: true,
+    align: opts.align || "justify", valign: "top", margin: 0, isTextBox: true, lineSpacingMultiple: mult(LH), paraSpaceAfter: 0 });
+  return y + h + (opts.gap === undefined ? 0.087 : opts.gap);
+}
+function h2(slide, y, text) {
+  slide.addText(text, { x: ML, y, w: CW, h: 0.24, fontFace: FONT, fontSize: 11, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top" });
+  return y + 0.24 + 0.03;
+}
+function chartTitle(slide, y, num, title, sub) {
+  slide.addText([{ text: `Chart ${num}`, options: { color: ORANGE } }, { text: ` · ${title}`, options: { color: NAVY } }],
+    { x: ML, y, w: CW, h: 0.2, fontFace: FONT, fontSize: 9.5, bold: true, margin: 0, isTextBox: true, valign: "top" });
+  y += 0.2;
+  const hs = hOf(sub, 7.2, CW, 1.3);
+  slide.addText(sub, { x: ML, y, w: CW, h: hs, fontFace: FONT, fontSize: 7.2, color: GREY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(1.3) });
+  return y + hs + 0.05;
+}
+function chart(slide, y, path, widthPct, aspect) {
+  const w = CW * widthPct / 100, h = w * aspect;
+  slide.addImage({ path, x: ML + (CW - w) / 2, y, w, h });
+  return y + h + 0.06;
+}
+
+// ================= PAGE 1
+let s = pres.addSlide();
+let y = chrome(s, 1);
+s.addText(`${F.DOC_TYPE} · ${F.THEME}`, { x: ML, y, w: CW, h: 0.18, fontFace: FONT, fontSize: 8, color: ORANGE, bold: true, charSpacing: 1.2, margin: 0, isTextBox: true, valign: "top" });
+y += 0.21;
+const th = hOf(F.TITLE, 17, CW, 1.22);
+s.addText(F.TITLE, { x: ML, y, w: CW, h: th, fontFace: FONT, fontSize: 17, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(1.22) });
+y += th + 0.04;
+s.addText(`${F.DATE} · Syz Research`, { x: ML, y, w: CW, h: 0.18, fontFace: FONT, fontSize: 8.5, color: GREY, bold: true, margin: 0, isTextBox: true, valign: "top" });
+y += 0.18 + 0.13;
+
+if (F.QUOTE) {
+  const qw = CW - 0.2, qh = hOf(F.QUOTE, 9.8, qw, 1.35);
+  s.addShape(pres.ShapeType.rect, { x: ML, y, w: 0.047, h: qh + 0.26, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
+  s.addText(`“${F.QUOTE}”`, { x: ML + 0.2, y: y + 0.02, w: qw, h: qh, fontFace: FONT, fontSize: 9.8, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(1.35) });
+  s.addText(F.QUOTE_WHO, { x: ML + 0.2, y: y + qh + 0.06, w: qw, h: 0.17, fontFace: FONT, fontSize: 7.6, color: GREY, bold: true, margin: 0, isTextBox: true, valign: "top" });
+  y += qh + 0.26 + 0.13;
+}
+
+y = h2(s, y, "Key takeaways");
+for (const t of F.TAKEAWAYS) {
+  const col = t.tag === "pos" ? MINT : t.tag === "neg" ? ORANGE : BLUEB;
+  const tw = CW - 0.65, hh = hOf(t.text, 8.7, tw);
+  s.addText(t.label, { x: ML, y: y + 0.015, w: 0.63, h: hh, fontFace: FONT, fontSize: 7, color: col, bold: true, charSpacing: 0.8, margin: 0, isTextBox: true, valign: "top" });
+  s.addText(t.text, { x: ML + 0.65, y: y - 0.01, w: tw, h: hh, fontFace: FONT, fontSize: 8.7, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(LH) });
+  y += hh + 0.05;
+}
+y += 0.08;
+
+// key numbers strip: the only box on the page
+const kh = 0.74;
+s.addShape(pres.ShapeType.rect, { x: ML, y, w: CW, h: kh, fill: { color: WHITE }, line: { color: NAVY, width: 1.3 } });
+F.KPIS.forEach((k, i) => {
+  const cx = ML + (CW / 4) * i, cw = CW / 4;
+  if (i > 0) s.addShape(pres.ShapeType.line, { x: cx, y: y, w: 0, h: kh, line: { color: HAIR, width: 0.6 } });
+  s.addText(k.label, { x: cx + 0.12, y: y + 0.09, w: cw - 0.2, h: 0.16, fontFace: FONT, fontSize: 7.2, color: GREY, bold: true, margin: 0, isTextBox: true, valign: "top" });
+  s.addText(k.value, { x: cx + 0.12, y: y + 0.25, w: cw - 0.2, h: 0.26, fontFace: FONT, fontSize: 13, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top" });
+  s.addText(k.sub, { x: cx + 0.12, y: y + 0.51, w: cw - 0.2, h: 0.16, fontFace: FONT, fontSize: 7.2, color: k.sign === "pos" ? MINT : k.sign === "neg" ? ORANGE : BLUEB, bold: true, margin: 0, isTextBox: true, valign: "top" });
+});
+y += kh + 0.13;
+
+y = h2(s, y, F.H_P1);
+y = para(s, y, F.P1_PARAGRAPH);
+y = chartTitle(s, y, 1, F.C1_TITLE, F.C1_SUB);
+y = chart(s, y, F.C1_IMG, F.W1, F.C1_ASPECT);
+y = para(s, y, F.C1_COMMENT);
+y += 0.04;
+y = h2(s, y, "Base case and implications");
+y = para(s, y, F.BASE_CASE);
+y += 0.04;
+const colW = CW / 2 - 0.2;
+const uh = hOf(F.UPSIDE, 8.7, colW), dh = hOf(F.DOWNSIDE, 8.7, colW), ch = Math.max(uh, dh) + 0.22;
+s.addShape(pres.ShapeType.line, { x: ML + CW / 2, y, w: 0, h: ch, line: { color: HAIR, width: 0.6 } });
+s.addText("What would strengthen our view", { x: ML, y, w: colW, h: 0.17, fontFace: FONT, fontSize: 7.8, color: ORANGE, bold: true, charSpacing: 1, margin: 0, isTextBox: true, valign: "top" });
+s.addText(F.UPSIDE, { x: ML, y: y + 0.21, w: colW, h: uh, fontFace: FONT, fontSize: 8.7, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(LH) });
+s.addText("What would change our view", { x: ML + CW / 2 + 0.2, y, w: colW, h: 0.17, fontFace: FONT, fontSize: 7.8, color: ORANGE, bold: true, charSpacing: 1, margin: 0, isTextBox: true, valign: "top" });
+s.addText(F.DOWNSIDE, { x: ML + CW / 2 + 0.2, y: y + 0.21, w: colW, h: dh, fontFace: FONT, fontSize: 8.7, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(LH) });
+y += ch;
+console.log("page 1 bottom:", y.toFixed(2), "limit:", (H - MB - 0.25).toFixed(2));
+
+// ================= PAGE 2
+s = pres.addSlide();
+y = chrome(s, 2);
+y = h2(s, y, F.H_A1);
+for (const p of F.A1_PARAGRAPHS) y = para(s, y, p);
+y += 0.04;
+y = h2(s, y, F.H_A2);
+y = para(s, y, F.A2_PARAGRAPH);
+y += 0.04;
+y = h2(s, y, F.H_C2);
+y = chartTitle(s, y, 2, F.C2_TITLE, F.C2_SUB);
+y = chart(s, y, F.C2_IMG, F.W2, F.C2_ASPECT);
+y = para(s, y, F.C2_COMMENT);
+y += 0.04;
+y = h2(s, y, F.H_A3);
+y = para(s, y, F.A3_PARAGRAPH);
+console.log("page 2 bottom:", y.toFixed(2), "limit:", (H - MB - 0.25).toFixed(2));
+
+// ================= PAGE 3: source + disclaimer pinned to the bottom
+s = pres.addSlide();
+chrome(s, 3);
+const legal = F.DISCLAIMER;
+let lh = 0;
+const parts = legal.map(p => { const h = hOf(p, 6.8, CW, 1.4) + 0.06; lh += h; return h; });
+const srcH = 0.2, headH = 0.2;
+let ly = H - MB - 0.35 - lh - srcH - headH - 0.16;
+s.addText([{ text: "SYZ", options: { color: ORANGE } }, { text: ` ${F.SOURCE_LINE}`, options: { color: LIGHT } }],
+  { x: ML, y: ly, w: CW, h: srcH, fontFace: FONT, fontSize: 6.8, bold: true, margin: 0, isTextBox: true, valign: "top" });
+ly += srcH + 0.16;
+s.addText("Disclaimer", { x: ML, y: ly, w: CW, h: headH, fontFace: FONT, fontSize: 6.8, color: ORANGE, bold: true, charSpacing: 1.2, margin: 0, isTextBox: true, valign: "top" });
+ly += headH;
+legal.forEach((p, i) => {
+  s.addText(p, { x: ML, y: ly, w: CW, h: parts[i], fontFace: FONT, fontSize: 6.8, color: LIGHT, bold: true, align: "justify", margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(1.4) });
+  ly += parts[i];
+});
+
+pres.writeFile({ fileName: outPath }).then(() => console.log("written", outPath));
+```
+
+**`fill.json` keys** (all strings unless noted): `LOGO`, `GRADBAR` (absolute paths), `DOC_TYPE`, `THEME`, `DATE`, `TITLE`, `QUOTE` (text without quotation marks; empty string to omit the block), `QUOTE_WHO`, `TAKEAWAYS` (list of `{tag: pos|neg|neu, label, text}`), `KPIS` (four `{label, value, sub, sign: pos|neg|neu}`), `H_P1`, `P1_PARAGRAPH`, `C1_TITLE`, `C1_SUB`, `C1_IMG`, `C1_ASPECT` (image height/width), `W1` (number, % of text width), `C1_COMMENT`, `BASE_CASE`, `UPSIDE`, `DOWNSIDE`, `H_A1`, `A1_PARAGRAPHS` (list of two), `H_A2`, `A2_PARAGRAPH`, `H_C2`, `C2_TITLE`, `C2_SUB`, `C2_IMG`, `C2_ASPECT`, `W2`, `C2_COMMENT`, `H_A3`, `A3_PARAGRAPH`, `SOURCE_LINE`, `DISCLAIMER` (list of the seven fixed paragraphs, taken verbatim from the HTML template with `&rsquo;` turned into a real apostrophe).
+
+**Defaults for the PPTX:** `W1` = 74, `W2` = 80 (the PowerPoint runs Chart 2 four points narrower than the PDF to keep page 2 inside the guard line with the same word budgets). The font face is Nunito; on a machine without Nunito, PowerPoint substitutes and line breaks may shift slightly.
+
+**Build, validate, render:**
+```bash
+node /home/claude/build_pptx.js fill.json Earnings_Update_<Ticker>_<QxYYYY>.pptx     # prints "page N bottom: x limit: y"
+python3 /mnt/skills/public/pptx/scripts/office/validate.py Earnings_Update_<Ticker>_<QxYYYY>.pptx
+python3 /mnt/skills/public/pptx/scripts/office/soffice.py --headless --convert-to pdf Earnings_Update_<Ticker>_<QxYYYY>.pptx
+pdftoppm -jpeg -r 100 Earnings_Update_<Ticker>_<QxYYYY>.pdf slide    # then Read slide-1.jpg, slide-2.jpg, slide-3.jpg
+```
+If a page bottom exceeds the limit, lower `W1`/`W2` by 2 to 4 points (minimum 66 / 74), then tighten prose; never change type sizes or margins.
+
 ## Text format
 **Page plan (fixed):**
 - **Page 1, executive investment summary** (for every reader, including private clients; carries ~80% of the message): kicker → title → dateline → management quote (optional, orange left rule) → **Key takeaways** heading + 3 to 4 tagged lines → the **key numbers strip** (the only box on the page: one Space Blue border, four columns separated by hairlines) → heading + 1 paragraph on what the quarter means for the investment case → Chart 1 + 1 comment paragraph → **Base case and implications** heading + paragraph → two text columns with a hairline divider, **What would strengthen our view** / **What would change our view**. One box on page 1, never more: structure comes from headings, tags and the column divider.
@@ -505,7 +701,7 @@ print("pages:", len(pages))   # must be 3, then Read page1.png, page2.png and pa
 - Institutional, quantified and decisive; first person plural ("We read this as…", "We stay…"). Page 1 is readable by a private client: plain words, every acronym used once in full, no jargon that needs a footnote. Page 2 can be more technical (mix, incremental margins, revisions, multiples).
 - Every claim carries a number: reported vs. consensus in % or bp, guidance in ranges, EPS to one decimal, P/E to one decimal and its premium to the average in %, "highest since <Qx YYYY>" computed from the data.
 - Separate signal from noise: a one-off (FX, tax rate, a pulled-forward order) is named and stripped from the read.
-- No bullet lists outside the Key takeaways box, no exclamation marks, no marketing adjectives. British spelling (stabilised, programme, licence).
+- No bullet lists outside the Key takeaways block, no exclamation marks, no marketing adjectives. British spelling (stabilised, programme, licence).
 - Never invent numbers, consensus figures or quotes. Anything taken from the web is dated in the text and flagged in the reply for a Bloomberg check.
 
 ## Fit & QA (mandatory)
@@ -521,7 +717,8 @@ print("pages:", len(pages))   # must be 3, then Read page1.png, page2.png and pa
    - Chart 2 legible: legend, end labels (price, EPS, P/E) and the P/E average line visible, no label collisions;
    - page 3: source line (no full stop) followed by the full disclaimer, pinned above the footer.
 4. Run `pdffonts` on the output: only Nunito Bold and Nunito ExtraBold (shown as Nunito-Ultra-Bold) may be embedded.
-5. In the reply, report: the data window and last date; the 3 to 5 numbers the document turns on (surprise, guidance, P/E and premium); any figure or quote taken from outside the user's files that needs verifying.
+5. **PowerPoint:** `validate.py` passes; `build_pptx.js` reports both page bottoms below the limit; the three LibreOffice-rendered slides show the same layout as the PDF pages (one box on page 1, no text touching the next heading, footer and logo on every slide, disclaimer pinned to the bottom of slide 3); `markitdown` shows three slides with no leftover placeholder text.
+6. In the reply, report: the data window and last date; the 3 to 5 numbers the document turns on (surprise, guidance, P/E and premium); any figure or quote taken from outside the user's files that needs verifying.
 
 ## Reference instance: ASML Q3 2026 (14 October 2026)
 - **Data:** `ASML.xlsx`, weekly, 1 Jan 2010 to 14 Oct 2026; last price EUR 1,541.8, 12m-forward EPS EUR 50.3, 40-week MA EUR 1,386, 12m-forward P/E 30.6x vs. a 26.0x average since 2010 (an 18% premium).

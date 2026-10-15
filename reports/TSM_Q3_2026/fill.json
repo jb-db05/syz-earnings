@@ -1,0 +1,94 @@
+{
+ "LOGO": "/home/claude/syz_logo_hq.png",
+ "GRADBAR": "/home/claude/syz_gradbar.png",
+ "DOC_TYPE": "Earnings update",
+ "THEME": "Semiconductors",
+ "DATE": "15 October 2026",
+ "TITLE": "TSMC Q3 2026: AI demand lifts the bar again, 2nm is the margin cost",
+ "QUOTE": "",
+ "QUOTE_WHO": "",
+ "TAKEAWAYS": [
+  {
+   "tag": "pos",
+   "label": "Beat",
+   "text": "Revenue of TWD 1,494bn, up 51% on the year and 2.2% above consensus, on AI datacentre demand."
+  },
+  {
+   "tag": "pos",
+   "label": "Raised",
+   "text": "The fourth-quarter guide of 12% to 16% sequential growth lifts 2026 growth to about 44%."
+  },
+  {
+   "tag": "neg",
+   "label": "Watch",
+   "text": "Gross margin of 66.4% sat within guidance but below the 67% to 68% expected, on 2nm dilution."
+  },
+  {
+   "tag": "neu",
+   "label": "Valuation",
+   "text": "19.7x forward earnings: 16% above the 2010 to 2026 average, well below the 23.3x one-year mean."
+  }
+ ],
+ "KPIS": [
+  {
+   "label": "Revenue",
+   "value": "TWD 1,494bn",
+   "sub": "+2.2% vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "Gross margin",
+   "value": "66.4%",
+   "sub": "Below 67–68% expected",
+   "sign": "neg"
+  },
+  {
+   "label": "Q4 revenue guide",
+   "value": "+12–16% q/q",
+   "sub": "Midpoint +14% q/q",
+   "sign": "neu"
+  },
+  {
+   "label": "2026 revenue growth",
+   "value": "c. 44%",
+   "sub": "3–4% above prior estimates",
+   "sign": "pos"
+  }
+ ],
+ "H_P1": "The debate moves from demand to margins",
+ "P1_PARAGRAPH": "TSMC remains the bottleneck of the artificial intelligence (AI) build-out. Revenue cleared the top of guidance by 2% to 3%, and management now expects 2026 growth of “slightly above 40%”, up from “above 30%”. Demand is not the question: the gap between supply and demand for leading-edge wafers is still described as large. The question is the cost of growth, as the 2nm ramp, overseas fabs and rising investment hold the gross margin below its second-quarter peak.",
+ "C1_TITLE": "TSM: Q3 2026 revenue vs. consensus and history",
+ "C1_SUB": "Quarterly revenue, TWD bn · Q3 2026 consensus is the pre-results estimate · Q3 2026 reported in orange",
+ "C1_IMG": "/home/claude/c1_crop.png",
+ "C1_ASPECT": 0.312,
+ "W1": 70,
+ "C1_COMMENT": "Third-quarter revenue rose 51% on the year and 17.6% on the quarter, TWD 32bn above the pre-results estimate. High-performance computing, the platform that carries AI accelerators, grew 22% sequentially, smartphones 10% and automotive 23% on electric-vehicle and driver-assistance demand. The beat came from the leading edge: 3nm capacity is still tight and the 2nm ramp is steeper than planned.",
+ "BASE_CASE": "We stay positive on TSMC and would add on the 13% pullback from the 2 October record. We back the AI-led earnings path: consensus 12-month forward EPS has risen 86% in a year, and the fourth-quarter guide should lift 2026 estimates by a further 2% to 3%. The debate has moved from demand to the margin cost of growth, with 2nm dilution and overseas fabs keeping gross margin in a 66% to 68% band. At 19.7x forward earnings the stock sits below its one-year average after a 39% rise, so earnings, not the multiple, carry the return. The next test is the January 2027 print and the 2027 capex guide.",
+ "UPSIDE": "A first-quarter 2027 gross margin guide at 67% or above despite the 2nm ramp; a 2027 capex budget of USD 80bn or more backed by customer commitments; confirmation of 2027 risk production for the next-generation A14 node.",
+ "DOWNSIDE": "Gross margin below 65% as 2nm and overseas fab dilution compound; capex heading for USD 100bn without matching price increases; any sign that hyperscaler AI budgets for 2027 stall, or new US tariffs on Taiwan-made chips.",
+ "P2_TITLE": "Beyond the key takeaways",
+ "H_A1": "Results: volume beat, margin held in range",
+ "A1_PARAGRAPHS": [
+  "Revenue of TWD 1,494bn beat the TWD 1,462bn pre-results estimate by TWD 32bn and exceeded the top of the guided range by 2% to 3%. The quarter added TWD 224bn of revenue on the second quarter and TWD 504bn on a year ago. The mix tells the story: high-performance computing grew more than twice as fast as smartphones on the quarter, as datacentre accelerators for NVIDIA, AMD and the hyperscalers absorbed most leading-edge output, while automotive added a cyclical leg. Supply, not demand, capped the quarter: N3 capacity remains tight, and a steeper N2 ramp than planned is what lifted revenue above the guided range.",
+  "Gross margin came in at 66.4%, within guidance and 695bp above the 59.5% of Q3 2025, but 130bp below the 67.7% of Q2 2026 and short of the 67% to 68% expected. The dilution is N2: a new node carries heavy depreciation before it scales. On reported revenue, the margin implies gross profit of about TWD 992bn, 2% above the TWD 973bn estimate, so the revenue beat more than offset the margin shortfall in absolute profit. We read the margin as the price of the node transition, not a loss of pricing power."
+ ],
+ "H_A2": "Outlook: capacity, not demand, sets the pace",
+ "A2_PARAGRAPH": "The fourth-quarter guide of 12% to 16% sequential growth, 14% at the midpoint, rests on continued high-performance computing strength and flagship smartphone builds and implies about 44% growth for 2026, 3% to 4% above prior estimates. The 2026 capex budget of USD 60bn to 64bn was reiterated, with “significantly higher” spending flagged for 2027 and 2028; analyst estimates run to USD 80bn to 85bn in 2027 and up to USD 100bn in 2028. The A14 node has been pulled in, with risk production in 2027 and volume manufacturing in 2028, and customer activity already above N2 at the same stage. Advanced packaging moves to 9x reticle sizes in 2027.",
+ "H_C2": "Valuation: earnings have outrun the price",
+ "C2_TITLE": "TSM: share price vs. consensus earnings and valuation",
+ "C2_SUB": "TSM US (ADR), weekly, Jan 2010 to 15 Oct 2026 · Price in USD, consensus 12m-forward EPS in TWD per ADR · 40-week MA · Log scale · Last price on results day",
+ "C2_IMG": "/home/claude/c2_crop.png",
+ "C2_ASPECT": 0.5984,
+ "W2": 90,
+ "C2_COMMENT": "Over 12 months the ADR has risen 39% while consensus 12-month forward EPS rose 86%, so the multiple has compressed from 24.9x a year ago and a 26.4x peak in June to 19.7x, its lowest since June 2025. That is still 16% above the 16.9x average since 2010, but below the 23.3x one-year average. The price stands 3.4% above its 40-week moving average of USD 397 after a 9.3% weekly fall. A further 16% of upgrades at an unchanged price would take the multiple back to its long-run average; analysts put the stock at about 16x 2027 earnings.",
+ "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings, TSMC Q3 2026 results of 15 October 2026, analyst research notes of 12 to 15 October 2026",
+ "DISCLAIMER": [
+  "This communication has been issued and made available to recipients for the purpose of advertising investment services and/or financial instruments. It has been sent for information purposes and cannot be considered as an offer or a personalised recommendation to buy or sell a financial instrument or any other investment or currency. This communication does not constitute investment research within the meaning of regulatory rules applicable in the European Economic Area, or research under the rules of the U.S. Self-Regulatory Organizations.",
+  "This information is made solely for professional and institutional clients as defined by the Swiss Financial Services Act, as well as qualified investors according to the Swiss Collective Investment Schemes Act. It is not intended for retail clients or non-qualified investors and consequently cannot be transmitted to any third party.",
+  "This communication is not directed to any person in any jurisdiction where, by reason of that person’s nationality, residence or otherwise, its dissemination or use is prohibited. It cannot be quoted, reproduced, disclosed, distributed or otherwise referred to, in whole or in part, to any third party without the Bank’s prior written consent.",
+  "This communication may contain information on past performances of a financial product, all kinds of economic and financial valuations and analyses, as well as opinions of the Bank or of third parties. Any market valuations, terms and calculation methods, yields and opinions expressed are subject to change without notice. The information and opinions contained herein have been compiled and provided in good faith, based on information obtained from sources believed to be trustworthy. However, such information has not been independently verified. No guarantee, representation, or warranty of any kind, whether express or implied, is provided by the Bank or by relevant data vendors and other sources with respect to the accuracy, reliability, currentness or exhaustiveness of the information communicated, the methodology employed or the prices contained herein.",
+  "Past performance is not a reliable indicator of current or future results. Any reference to the past performance of an investment does not guarantee its future performance. Fluctuations in exchange rates may adversely affect the value, price or income of any investment.",
+  "Nothing in the present communication constitutes investment, legal, accounting or tax advice. This information is purely objective since it does not take into consideration the personal situation (including financial knowledge and experience), the investment objectives and risk profile of any recipient. Moreover, certain financial instruments mentioned (in particular, but not exclusively, derivatives, options and futures) involve a high risk of loss and may not be suitable. Accordingly, recipients should consult their own advisors on such matters, including but not limited to the possible tax consequences of investing in any financial product mentioned herein, and make their own assessment of the suitability of such investment product.",
+  "Should a recipient make an investment on the basis of the present communication, the recipient alone shall bear the consequences thereof. In no event shall the Bank, its directors, employees, affiliates or agents be held responsible for damages of any kind arising out of the use of all or part of the information provided herein."
+ ]
+}

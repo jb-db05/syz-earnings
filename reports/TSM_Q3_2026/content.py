@@ -40,7 +40,7 @@ P1_PARAGRAPH = ("<p>The quarter matters less for the 3% beat than for what manag
                 "to more than double its 2-nanometre (2nm) capacity in 2027. Demand is no longer the question: the debate "
                 "has moved to how much of it reaches margins and free cash flow.</p>")
 
-C1_TITLE = "TSM: Q3 2026 results and Q4 guide vs. consensus"
+C1_TITLE = "TSM: everything beat except the margin"
 C1_SUB = ("Surprise vs. pre-results consensus in %, gross margin in percentage points &middot; Q4 guide at its "
           "USD 53.3bn midpoint vs. prior consensus &middot; EPS per ADR in USD at the 15 October exchange rate &middot; Revenue and margin consensus approximate")
 C1_COMMENT = ('<p>The pattern is clear: the top line beat, the margin slipped. Revenue and earnings per share (EPS) both beat consensus by about 3%, and the fourth-quarter guide sits around 6.5% above prior expectations, a 14% sequential step-up. The only miss was gross margin, 0.6 points short at 66.4%, entirely from the 2nm ramp, which should fade as yields improve.</p>')

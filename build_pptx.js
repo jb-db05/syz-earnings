@@ -130,6 +130,10 @@ console.log("page 1 bottom:", y.toFixed(2), "limit:", (H - MB - 0.25).toFixed(2)
 // ================= PAGE 2
 s = pres.addSlide();
 y = chrome(s, 2);
+if (F.P2_TITLE) {
+  s.addText(F.P2_TITLE, { x: ML, y, w: CW, h: 0.3, fontFace: FONT, fontSize: 14, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top" });
+  y += 0.3 + 0.08;
+}
 y = h2(s, y, F.H_A1);
 for (const p of F.A1_PARAGRAPHS) y = para(s, y, p);
 y += 0.04;
@@ -140,9 +144,6 @@ y = h2(s, y, F.H_C2);
 y = chartTitle(s, y, 2, F.C2_TITLE, F.C2_SUB);
 y = chart(s, y, F.C2_IMG, F.W2, F.C2_ASPECT);
 y = para(s, y, F.C2_COMMENT);
-y += 0.04;
-y = h2(s, y, F.H_A3);
-y = para(s, y, F.A3_PARAGRAPH);
 console.log("page 2 bottom:", y.toFixed(2), "limit:", (H - MB - 0.25).toFixed(2));
 
 // ================= PAGE 3: source + disclaimer pinned to the bottom

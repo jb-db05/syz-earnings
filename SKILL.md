@@ -1,11 +1,11 @@
 ---
 name: "syz-earnings"
-description: "Produce Syz post-earnings investment updates (Earnings update as PDF and portrait A4 PowerPoint with the same visual: page 1 executive investment summary for all clients, page 2 in-depth analysis with the share price vs. consensus EPS and P/E chart, page 3 disclaimer) from a Bloomberg weekly export. Use for any 'Syz Earnings' request or post-results company update; keep using syz-visual for 'Syz Visual' macro Research Comments."
+description: "Produce Syz post-earnings investment updates (Earnings update as PDF and portrait A4 PowerPoint with the same visual: page 1 executive investment summary for all clients, page 2 'Beyond the key takeaways' in-depth analysis with the share price vs. consensus EPS and P/E chart, page 3 disclaimer) from a Bloomberg weekly export. Use for any 'Syz Earnings' request or post-results company update; keep using syz-visual for 'Syz Visual' macro Research Comments."
 ---
 
 # Syz Earnings: post-earnings investment update
 
-Produce a concise, institutional-quality **Earnings update** on a single company after its results: **page 1 tells investors what they need to know, page 2 helps them understand why**, page 3 carries the source line and the fixed disclaimer. Same page geometry, typography, chart kit and voice as the Syz Research Comment format (`syz-visual`), adapted to a post-results use case.
+Produce a concise, institutional-quality **Earnings update** on a single company after its results: **page 1 tells investors what they need to know (including our positioning), page 2 "Beyond the key takeaways" helps them understand why**, page 3 carries the source line and the fixed disclaimer. Same page geometry, typography, chart kit and voice as the Syz Research Comment format (`syz-visual`), adapted to a post-results use case.
 
 Where this skill and `syz-house-style` or `syz-visual` differ, **this skill wins**. Apply silently; do not describe the style back to the user.
 
@@ -13,21 +13,25 @@ Where this skill and `syz-house-style` or `syz-visual` differ, **this skill wins
 1. `Earnings_Update_<Ticker>_<QxYYYY>.pdf`: 3-page A4 (page 1 executive investment summary, page 2 in-depth analysis, page 3 source + disclaimer).
 2. `Earnings_Update_<Ticker>_<QxYYYY>.pptx`: the same three pages as a **portrait A4 PowerPoint** (21 x 29.7 cm), same margins, type sizes, colours and charts, with native editable text and shapes.
 3. The standalone chart PNGs **with** their header/footnote (for decks and LinkedIn): at least the price vs. consensus EPS and P/E chart.
-4. The build scripts (data → charts → PDF, and `fill.json` → PPTX), parameterised for the next quarter.
+4. The build scripts (data → charts → PDF, and `fill.json` → PPTX), parameterised for the next quarter: keep all text in one `content.py` (HTML entities), a `build_charts.py` with a `PARAMS` dict, and a `build_pdf.py` that fills the template, renders, rasterises and writes `fill.json`.
 
 ## Inputs
 - **Bloomberg weekly export (.xlsx)**, one sheet, newest row first, header row 1, columns matched by keyword (order does not matter):
   `Date | <Ticker> - Last Price (R1) | <Ticker> - BEst EPS (L1) | Moving Average(Simple,40,0) (<Ticker>) | <Ticker> - BEst P/E Ratio`.
-  Reference file: `ASML.xlsx` (877 weekly rows, Jan 2010 to 14 Oct 2026). Trailing empty rows are dropped. `load_bloomberg_sheet()` below reads it.
-- **Results material** the user supplies or points to: press release, presentation, transcript, consensus table. Web-sourced facts (consensus, guidance, quotes) are dated in the text and flagged for a Bloomberg check in the reply.
-- **A management quote**: only from the transcript or press release the user provided or that was verifiably published. Never invent or paraphrase a quote into quotation marks; if no usable quote exists, drop the quote block (set `QUOTE_BLOCK` to an empty string).
+  Reference files: `ASML.xlsx` (877 weekly rows, Jan 2010 to 14 Oct 2026), `VAT.xlsx` (549 rows, Apr 2016 to 15 Oct 2026; consensus EPS only from May 2016). `load_bloomberg_sheet()` below reads it. Trailing empty rows are dropped. **Start the chart window at the first row with consensus EPS** (`df = df[df["eps"].notna()]`), otherwise the log ticks fail on NaN. Check whether the last row is the pre-results close (export taken on results day): if so, say so in the Chart 2 sub-line.
+- **Results material** the user supplies or points to: press release, presentation, transcript, consensus table, broker first takes. Web-sourced facts (consensus, guidance, quotes) are dated in the text and flagged for a Bloomberg check in the reply. Cross-check the headline figures against the company's own release (EQS/ad hoc feed or the IR site) when the user's material is secondary.
+- **A management quote**, sourced in this order, never invented or paraphrased into quotation marks:
+  1. The transcript or press release the user provided.
+  2. If the user provided no quote, check **www.stockanalysis.com**: open the stock's page (`https://stockanalysis.com/quote/<exchange>/<ticker>/`, e.g. `swx/VACN`, or `/stocks/<ticker>/` for US names) and its **Transcripts** tab for the latest earnings or trading-update call; take a verbatim sentence from the CEO or CFO, with name, role, event and date. If the fetch needs a URL permission, ask the user to paste the stockanalysis.com link.
+  3. If no executive is quoted anywhere, a **verbatim company statement from the release** is acceptable, attributed as "<Company>, <Qx YYYY> trading update, ad hoc release of <date> (company statement; no executive is quoted in the release)".
+  4. If none of these yields 20 to 35 usable words that carry the investment message, drop the quote block (`QUOTE` = empty string).
 
 ## Workflow
-1. **Data first, silently.** Load the Bloomberg sheet; note the window, the last date, the last price, 12m-forward EPS, 40-week MA and P/E; compute the P/E average since the start of the window and the premium/discount to it; check whether the price sits above its 40-week MA. From the results material, build the KPI table (reported vs. consensus, guidance vs. consensus). Compute every number you will quote. Never invent or extrapolate.
-2. **Pick the charts.** Chart 2 (page 2) is fixed: `price_eps_pe_chart`. Chart 1 (page 1) is one impactful results chart, by default `bar_chart` of surprises vs. consensus (reported lines + guidance). Another archetype is allowed only if it carries the page-1 message better (see Chart archetypes).
-3. **Setup** (fonts, logo, WeasyPrint), write `syz_charts.py` (below) verbatim and build the charts.
+1. **Data first, silently.** Load the Bloomberg sheet; note the window, the last date, the last price, 12m-forward EPS, 40-week MA and P/E; compute the P/E average since the start of the window and the premium/discount to it, the one-year average P/E, the peak P/E and its date, price and EPS change over 12 months and since the previous results; check whether the price sits above its 40-week MA. From the results material, build the KPI table (reported vs. consensus, guidance vs. consensus). Compute every number you will quote. Never invent or extrapolate. Sanity-check the user's consensus tables: a BQL pull with `fpt=A` returns the last fiscal year, not the last half-year.
+2. **Pick the charts.** Chart 2 (page 2) is fixed: `price_eps_pe_chart`. Chart 1 (page 1) is one impactful results chart: by default `bar_chart` of surprises vs. consensus (reported lines + guidance); for a **trading update with only one or two consensus-comparable lines** (orders and sales), use `bar_chart` of the decisive line in absolute terms instead (prior year, previous record, consensus, reported; reported bar in Tiger Orange). Another archetype is allowed only if it carries the page-1 message better.
+3. **Setup** (fonts, logo, WeasyPrint), write `syz_charts.py` (below) verbatim and build the charts. Extract the three code blocks (chart kit, HTML template, PPTX builder) from this file with a script rather than retyping them: `re.findall(r"```(\w+)\n(.*?)```", skill_md, re.S)`.
 4. **Crop** each chart for the PDF (`crop_for_pdf`): the PDF typesets titles in HTML, so the chart's own header/footnote is removed.
-5. **Write the text** following the Text format rules: page 1 first (the 80% message), then page 2 (the why), with no repetition between them.
+5. **Write the text** following the Text format rules: page 1 first (the 80% message, including our positioning), then page 2 (the why), with no repetition between them. Count words against the budgets with a script before rendering.
 6. **Fill the HTML template** (below), render with WeasyPrint, rasterise all pages and **look at them**.
 7. **Fit to exactly 3 pages** (Fit & QA).
 8. **Build the PowerPoint** from the same content: write `fill.json` (plain text, no HTML entities) and run `build_pptx.js` (below); validate, render with LibreOffice and look at the three slides. Then deliver PDF + PPTX + PNGs + scripts.
@@ -55,12 +59,14 @@ Image.fromarray(a).save('/home/claude/syz_gradbar.png')"
 ```
 Fallback for fonts if GitHub is blocked: `npm install @fontsource/nunito`, convert the woff files to ttf with fontTools (`f.flavor=None; f.save()`). Never ship without Nunito. The font is **Nunito** (rounded terminals), not Nunito Sans. Only **Bold (700)** and **ExtraBold (800)** are used in the document and the charts.
 
-**Logo.** The Syz logo (206x186 RGBA, transparent background, orange gradient) is embedded here so it never has to be located. Write it to `/home/claude/syz_logo_hq.png` before rendering; never use a logo with a white box.
+**Logo.** Use the Syz logo from the project files, `SYZ logo.png` (206x186 RGBA, transparent background, orange gradient): copy it to `/home/claude/syz_logo_hq.png` and validate it before rendering (`Image.open(path).load()`; alpha at the corners must be 0). Never use a logo with a white box, and never ship a page without the logo top-right: WeasyPrint silently drops a broken PNG from the margin box, so check the rasterised pages.
 ```python
-import base64
-LOGO_B64 = "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"
-open("/home/claude/syz_logo_hq.png", "wb").write(base64.b64decode(LOGO_B64))
+from PIL import Image; import numpy as np, glob
+src = [p for p in glob.glob("/root/.claude/uploads/**/*SYZ*logo*.png", recursive=True)][0]
+im = Image.open(src); im.load(); a = np.array(im); assert im.size == (206, 186) and a[0, 0, 3] == 0
+im.save("/home/claude/syz_logo_hq.png")
 ```
+If the file is not in the project, ask the user for it rather than substituting another logo.
 
 ## Chart kit: write to `/home/claude/syz_charts.py` verbatim
 ```python
@@ -198,10 +204,10 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
     # end labels
     last_p, last_e = float(df["price"].iloc[-1]), float(df["eps"].iloc[-1])
     axr.plot(x[-1], last_p, "o", color=BLUEB, ms=5, zorder=5)
-    axr.annotate(f"{last_p:,.0f}", (x[-1], last_p), xytext=(10, 6), textcoords="offset points",
+    axr.annotate(f"{last_p:,.0f}", (x[-1], last_p), xytext=(10, 10), textcoords="offset points",
                  color=BLUEB, fontsize=10.5, fontweight="bold")
     ax1.plot(x[-1], last_e, "o", color=ORANGE, ms=5, zorder=5)
-    ax1.annotate(f"{last_e:,.1f}", (x[-1], last_e), xytext=(10, -14), textcoords="offset points",
+    ax1.annotate(f"{last_e:,.1f}", (x[-1], last_e), xytext=(10, -22), textcoords="offset points",
                  color=ORANGE, fontsize=10.5, fontweight="bold")
 
     # one legend combining both axes
@@ -276,11 +282,12 @@ def crop_for_pdf(src, dst, kind):
 | Archetype | Use for | Fixed geometry |
 |---|---|---|
 | `price_eps_pe_chart` | **Chart 2, always**: share price (Blueberry, rhs, log) with 40-week MA (dashed) and 12m-forward consensus EPS (Orange, lhs, log); 12m-forward P/E vs. its average since the start of the window, shaded orange above / blue-grey below | 12.5x8.6 in, 200 dpi |
-| `bar_chart` | **Chart 1, default**: surprise vs. consensus by line (revenue, gross margin, EBIT, EPS, next-quarter guide, FY outlook); or revisions by segment; positive bars Blueberry, negative bars Tiger Orange | 12.5x5.0 in |
+| `bar_chart` | **Chart 1, default**: surprise vs. consensus by line (revenue, gross margin, EBIT, EPS, next-quarter guide, FY outlook); or revisions by segment; positive bars Blueberry, negative bars Tiger Orange. **Trading-update variant**: the decisive line in absolute terms (prior year, previous record, consensus, reported) with `colors=[BLUEB, BLUEB, BLUEB, ORANGE]`, `fmt="{:,.0f}"`, `zero_line=False`, two-line x labels | 12.5x5.0 in |
 
 - **Colour convention:** reference series Blueberry Blue `#4B5F80`; emphasis series Tiger Orange `#FF6C0E`. Dashed lines navy `(0,(5,4))`. **Negative or bearish = Tiger Orange**, never purple. P/E shading: above average orange α 0.12, below average Blueberry α 0.14.
 - **Log axes** use the 1-2-5 ladder (1, 2, 5, 10, 20, 50 for EPS; 25, 50, 100, 250, 500, 1,000 for price), thousands separators, no minor ticks.
-- **Standalone title** = `<Ticker>: <descriptor>` with a colon, sentence case, e.g. "ASML: share price vs. consensus earnings and valuation". No em dashes anywhere. **Footnote** = `source_line(provider, "<D Mon YYYY>", notes…)`, naming the series, the MA, the log scale and the shading rule; **no full stop at the end**.
+- **End labels** on Chart 2 sit at offsets (10, 10) for the price and (10, -22) for the EPS so they do not collide when both series end at the same height; zoom into the top-right corner of the PNG to check.
+- **Standalone title** = `<Ticker>: <descriptor>` with a colon, sentence case, e.g. "ASML: share price vs. consensus earnings and valuation". No em dashes anywhere. **Footnote** = `source_line(provider, "<D Mon YYYY>", notes…)`, naming the series, the MA, the log scale and the shading rule; **no full stop at the end**. Consensus provenance is described neutrally ("Consensus: Bloomberg pre-results (analyst first takes)"), never by broker name.
 - **Typography in charts:** Nunito Bold for everything, ExtraBold for the figure title (set by `setup_fonts` and `header`).
 - **Other chart types** (a stacked contribution bar, a revisions line) are allowed only if built with `style_ax` + `header` + `source_line`, 12.5 in wide, 200 dpi, margins `left=0.07, right=0.96`; add a crop preset in `CROPS` and check the crop visually.
 
@@ -314,6 +321,7 @@ body { font-family: 'Nunito'; font-weight: 700; color: #202945; font-size: 8.7pt
 .gradbar { height: 3.5px; background: linear-gradient(90deg, #FF6C0E 0%, #FFC545 100%); margin-bottom: 4mm; }
 
 .kicker { font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; color: #FF6C0E; margin-bottom: 1.5mm; }
+.page-title { font-size: 14pt; font-weight: 800; color: #202945; line-height: 1.2; margin-bottom: 3.2mm; }
 h1 { font-size: 17pt; font-weight: 800; color: #202945; line-height: 1.22; margin-bottom: 1.5mm; }
 .dateline { font-size: 8.5pt; color: #6B7280; margin-bottom: 3.2mm; }
 
@@ -410,6 +418,7 @@ img.c2 { width: {{W2}}%; }
 <!-- PAGE 2: in-depth analysis -->
 <div class="pagebreak"></div>
 <div class="gradbar"></div>
+<div class="page-title">{{P2_TITLE}}</div>
 
 <div class="sec first"><h2>{{H_A1}}</h2></div>
 {{A1_PARAGRAPHS}}
@@ -423,8 +432,6 @@ img.c2 { width: {{W2}}%; }
 <img class="chart c2" src="file://{{C2_IMG}}">
 {{C2_COMMENT}}
 
-<div class="sec"><h2>{{H_A3}}</h2></div>
-{{A3_PARAGRAPHS}}
 
 <!-- PAGE 3: source + disclaimer only, pinned to the bottom -->
 <div class="pagebreak"></div>
@@ -444,7 +451,7 @@ img.c2 { width: {{W2}}%; }
 </body>
 </html>
 ```
-**Default values:** `DOC_TYPE` = "Earnings update"; `THEME` = the sector in sentence case ("Semiconductors"); `DATE` = publication date, e.g. "14 October 2026" (dateline and footer); `W1` = 74 (minimum 66), `W2` = 84 (minimum 76); `SOURCE_LINE` = "Source: Syz Research, Bloomberg, company filings" (no full stop). Paragraph placeholders take complete `<p>…</p>` blocks. `TAKEAWAYS` takes `<li>` rows, `KPI_TILES` takes four `<td>` cells, as in the examples below. The image paths are absolute (`/home/claude/c1_crop.png`). The disclaimer text is fixed: never edit, shorten or paraphrase it.
+**Default values:** `DOC_TYPE` = "Earnings update"; `THEME` = the sector in sentence case ("Semiconductors", "Semiconductor equipment"); `DATE` = publication date, e.g. "15 October 2026" (dateline and footer); `P2_TITLE` = "Beyond the key takeaways" (fixed page-2 title, sentence case); `W1` = 76 (range 66 to 80), `W2` = 92 (range 76 to 94); `SOURCE_LINE` = "Source: Syz Research, Bloomberg, company filings" (no full stop), extended with the release ("<Company> ad hoc release of <date>") and "analyst research notes of <date>" when first takes were used, never with broker names. Paragraph placeholders take complete `<p>…</p>` blocks. `TAKEAWAYS` takes `<li>` rows, `KPI_TILES` takes four `<td>` cells, as in the examples below. The image paths are absolute (`/home/claude/c1_crop.png`). The disclaimer text is fixed: never edit, shorten or paraphrase it.
 
 **Takeaway rows and KPI tiles:**
 ```html
@@ -455,7 +462,7 @@ img.c2 { width: {{W2}}%; }
 <td><div class="lbl">Revenue</div><div class="val">EUR 9.2bn</div><div class="sub pos">+4.1% vs. consensus</div></td>
 <td><div class="lbl">Q4 revenue guide</div><div class="val">EUR 9.6bn</div><div class="sub neg">-2.3% vs. consensus</div></td>
 ```
-Tag classes: `pos` Mint Green (beat, raised, upgrade), `neg` Tiger Orange (miss, cut, watch, risk), `neu` Blueberry (valuation, neutral). Tags are coloured words, not pills: one word in sentence case ("Beat", "Raised", "Watch", "Valuation"), ≤ 9 characters so it fits the 16mm column. KPI `sub` classes follow the sign of the surprise.
+Tag classes: `pos` Mint Green (beat, raised, upgrade), `neg` Tiger Orange (miss, cut, watch, risk), `neu` Blueberry (valuation, neutral). Tags are coloured words, not pills: one word in sentence case ("Beat", "Raised", "Watch", "Valuation"), ≤ 9 characters so it fits the 16mm column. KPI `sub` classes follow the sign of the surprise; keep the `sub` line short enough to stay on one line in the PowerPoint tile ("In line, top of guide", not "In line, top of CHF 355–385m guide").
 
 **Fill and render:**
 ```python
@@ -463,6 +470,7 @@ html = open("template.html").read()
 for k, v in fill.items():
     html = html.replace("{{" + k + "}}", str(v))
 assert "{{" not in html, "unfilled placeholder"
+assert "—" not in html, "em dash"
 open("doc.html", "w").write(html)
 from weasyprint import HTML; HTML("doc.html").write_pdf(OUT_PDF)
 from pdf2image import convert_from_path
@@ -472,7 +480,7 @@ print("pages:", len(pages))   # must be 3, then Read page1.png, page2.png and pa
 ```
 
 ## PowerPoint build: write to `/home/claude/build_pptx.js` verbatim
-The PPTX is generated with `pptxgenjs` (preinstalled) from a `fill.json` that carries the same content as the HTML fill, as **plain text** (real quotes and apostrophes, `·` for separators, no `&middot;`/`&ndash;` entities). It reproduces the PDF page by page: same A4 portrait margins (18/15/12.5/15 mm), same type sizes, Nunito Bold with ExtraBold-weight titles, logo top-right, gradient rule, footer, the single key-numbers box, the two-column strengthen/change block, and the same cropped chart PNGs. Elements flow top to bottom from calibrated text metrics; the script prints each page's bottom edge against the guard line.
+The PPTX is generated with `pptxgenjs` (preinstalled) from a `fill.json` that carries the same content as the HTML fill, as **plain text** (real quotes and apostrophes, `·` for separators, no `&middot;`/`&ndash;` entities). It reproduces the PDF page by page: same A4 portrait margins (18/15/12.5/15 mm), same type sizes, Nunito Bold with ExtraBold-weight titles, logo top-right, gradient rule, footer, the single key-numbers box, the two-column strengthen/change block, the page-2 title and the same cropped chart PNGs. Elements flow top to bottom from calibrated text metrics; the script prints each page's bottom edge against the guard line.
 
 ```javascript
 // build_pptx.js: Syz Earnings update, portrait A4 PowerPoint with the same visual as the PDF.
@@ -607,6 +615,10 @@ console.log("page 1 bottom:", y.toFixed(2), "limit:", (H - MB - 0.25).toFixed(2)
 // ================= PAGE 2
 s = pres.addSlide();
 y = chrome(s, 2);
+if (F.P2_TITLE) {
+  s.addText(F.P2_TITLE, { x: ML, y, w: CW, h: 0.3, fontFace: FONT, fontSize: 14, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top" });
+  y += 0.3 + 0.08;
+}
 y = h2(s, y, F.H_A1);
 for (const p of F.A1_PARAGRAPHS) y = para(s, y, p);
 y += 0.04;
@@ -617,9 +629,6 @@ y = h2(s, y, F.H_C2);
 y = chartTitle(s, y, 2, F.C2_TITLE, F.C2_SUB);
 y = chart(s, y, F.C2_IMG, F.W2, F.C2_ASPECT);
 y = para(s, y, F.C2_COMMENT);
-y += 0.04;
-y = h2(s, y, F.H_A3);
-y = para(s, y, F.A3_PARAGRAPH);
 console.log("page 2 bottom:", y.toFixed(2), "limit:", (H - MB - 0.25).toFixed(2));
 
 // ================= PAGE 3: source + disclaimer pinned to the bottom
@@ -643,9 +652,9 @@ legal.forEach((p, i) => {
 pres.writeFile({ fileName: outPath }).then(() => console.log("written", outPath));
 ```
 
-**`fill.json` keys** (all strings unless noted): `LOGO`, `GRADBAR` (absolute paths), `DOC_TYPE`, `THEME`, `DATE`, `TITLE`, `QUOTE` (text without quotation marks; empty string to omit the block), `QUOTE_WHO`, `TAKEAWAYS` (list of `{tag: pos|neg|neu, label, text}`), `KPIS` (four `{label, value, sub, sign: pos|neg|neu}`), `H_P1`, `P1_PARAGRAPH`, `C1_TITLE`, `C1_SUB`, `C1_IMG`, `C1_ASPECT` (image height/width), `W1` (number, % of text width), `C1_COMMENT`, `BASE_CASE`, `UPSIDE`, `DOWNSIDE`, `H_A1`, `A1_PARAGRAPHS` (list of two), `H_A2`, `A2_PARAGRAPH`, `H_C2`, `C2_TITLE`, `C2_SUB`, `C2_IMG`, `C2_ASPECT`, `W2`, `C2_COMMENT`, `H_A3`, `A3_PARAGRAPH`, `SOURCE_LINE`, `DISCLAIMER` (list of the seven fixed paragraphs, taken verbatim from the HTML template with `&rsquo;` turned into a real apostrophe).
+**`fill.json` keys** (all strings unless noted): `LOGO`, `GRADBAR` (absolute paths), `DOC_TYPE`, `THEME`, `DATE`, `TITLE`, `QUOTE` (text without quotation marks; empty string to omit the block), `QUOTE_WHO`, `TAKEAWAYS` (list of `{tag: pos|neg|neu, label, text}`), `KPIS` (four `{label, value, sub, sign: pos|neg|neu}`), `H_P1`, `P1_PARAGRAPH`, `C1_TITLE`, `C1_SUB`, `C1_IMG`, `C1_ASPECT` (image height/width), `W1` (number, % of text width), `C1_COMMENT`, `BASE_CASE`, `UPSIDE`, `DOWNSIDE`, `P2_TITLE`, `H_A1`, `A1_PARAGRAPHS` (list of two), `H_A2`, `A2_PARAGRAPH`, `H_C2`, `C2_TITLE`, `C2_SUB`, `C2_IMG`, `C2_ASPECT`, `W2`, `C2_COMMENT`, `SOURCE_LINE`, `DISCLAIMER` (list of the seven fixed paragraphs, taken verbatim from the HTML template with `&rsquo;` turned into a real apostrophe). Generate `fill.json` from the same `content.py` as the PDF (`html.unescape` on every string, `−` turned into `-`) so the two deliverables cannot drift.
 
-**Defaults for the PPTX:** `W1` = 74, `W2` = 80 (the PowerPoint runs Chart 2 four points narrower than the PDF to keep page 2 inside the guard line with the same word budgets). The font face is Nunito; on a machine without Nunito, PowerPoint substitutes and line breaks may shift slightly.
+**Defaults for the PPTX:** `W1` = 70 (range 66 to 72), `W2` = 88 (range 80 to 90): the PowerPoint runs the charts a few points narrower than the PDF to keep both pages inside the guard line with the same word budgets. The font face is Nunito; on a machine without Nunito, PowerPoint substitutes and line breaks may shift slightly.
 
 **Build, validate, render:**
 ```bash
@@ -654,74 +663,84 @@ python3 /mnt/skills/public/pptx/scripts/office/validate.py Earnings_Update_<Tick
 python3 /mnt/skills/public/pptx/scripts/office/soffice.py --headless --convert-to pdf Earnings_Update_<Ticker>_<QxYYYY>.pptx
 pdftoppm -jpeg -r 100 Earnings_Update_<Ticker>_<QxYYYY>.pdf slide    # then Read slide-1.jpg, slide-2.jpg, slide-3.jpg
 ```
-If a page bottom exceeds the limit, lower `W1`/`W2` by 2 to 4 points (minimum 66 / 74), then tighten prose; never change type sizes or margins.
+If a page bottom exceeds the limit, lower `W1`/`W2` by 2 to 4 points (minimum 66 / 80), then tighten prose to the lower end of the budgets; never change type sizes or margins. The metric is conservative (LibreOffice usually renders with a little more room), but the printed bottoms must be below the limit before delivery.
 
 ## Text format
 **Page plan (fixed):**
-- **Page 1, executive investment summary** (for every reader, including private clients; carries ~80% of the message): kicker → title → dateline → management quote (optional, orange left rule) → **Key takeaways** heading + 3 to 4 tagged lines → the **key numbers strip** (the only box on the page: one Space Blue border, four columns separated by hairlines) → heading + 1 paragraph on what the quarter means for the investment case → Chart 1 + 1 comment paragraph → **Base case and implications** heading + paragraph → two text columns with a hairline divider, **What would strengthen our view** / **What would change our view**. One box on page 1, never more: structure comes from headings, tags and the column divider.
-- **Page 2, in-depth analysis** (for readers who want the why): heading + 2 paragraphs on the results and their drivers → heading + 1 paragraph on outlook and guidance → heading + Chart 2 + 1 comment paragraph on valuation → heading + 1 paragraph on investment implications and positioning. Builds on page 1 without repeating it: page 1 states the conclusion, page 2 shows the evidence.
+- **Page 1, executive investment summary** (for every reader, including private clients; carries ~80% of the message): kicker → title → dateline → management quote (optional, orange left rule) → **Key takeaways** heading + 3 to 4 tagged lines → the **key numbers strip** (the only box on the page: one Space Blue border, four columns separated by hairlines) → heading + 1 paragraph on what the quarter means for the investment case → Chart 1 + 1 comment paragraph → **Base case and implications** heading + 1 paragraph that carries **our stance and positioning** (the regime for the stock, the earnings path we underwrite, the catalyst, the tactical qualifier, the next test) → two text columns with a hairline divider, **What would strengthen our view** / **What would change our view**. One box on page 1, never more: structure comes from headings, tags and the column divider.
+- **Page 2, "Beyond the key takeaways"** (fixed page title, 14pt ExtraBold, for readers who want the why): heading + 2 paragraphs on the results and their drivers → heading + 1 paragraph on outlook and guidance → heading + Chart 2 + 1 comment paragraph on valuation. **No positioning or implications section on page 2**: positioning lives in the page-1 base case. Page 2 builds on page 1 without repeating it: page 1 states the conclusion, page 2 shows the evidence.
 - **Page 3:** gradient rule, source line and the fixed disclaimer pinned to the bottom. Nothing else.
 
 **Word budgets (calibrated to fit, do not exceed):**
 | Element | Words |
 |---|---|
-| Management quote | 20 to 35, plus a one-line attribution (name, role, event, date) |
+| Management quote | 20 to 35, plus a one-line attribution (name, role, event, date; or company statement wording) |
 | Key takeaways | 3 to 4 lines, ≤ 18 words each, one number in each |
-| KPI tiles | 4 tiles: label, value, surprise vs. consensus (or vs. guide) |
-| Investment-case paragraph (H_P1) | 70 to 85 |
+| KPI tiles | 4 tiles: label, value, surprise vs. consensus (or vs. guide), sub line short enough for one line |
+| Investment-case paragraph (H_P1) | 65 to 85 |
 | Chart 1 comment | 55 to 65 |
-| Base case paragraph | 60 to 70 |
-| Strengthen / change columns | 40 to 50 each |
+| Base case and implications paragraph (with positioning) | 95 to 110 |
+| Strengthen / change columns | 36 to 45 each |
 | Results paragraphs (H_A1) | 100 to 115 and 90 to 105 |
 | Outlook paragraph (H_A2) | 95 to 110 |
 | Chart 2 comment | 85 to 100 |
-| Implications paragraph (H_A3) | 90 to 110 |
+
+With the quote block present, page 1 is full at these budgets: keep the investment-case paragraph and the two columns at the lower end, and lower `W1` before cutting anything else.
 
 **Element rules:**
-- **Title:** `<Company> <Qx YYYY>: <conviction message in sentence case>`, ≤ ~70 characters, e.g. "ASML Q3 2026: orders confirm the upcycle, valuation leaves little slack". It states the verdict, not the topic.
-- **Management quote:** lead with it only when it carries the investment message (tone on demand, a guidance commitment, a change of stance). Verbatim from the transcript or release, in `&ldquo;…&rdquo;`, attributed with name, role, event and date. Omit rather than invent.
+- **Title:** `<Company> <Qx YYYY>: <conviction message in sentence case>`, ≤ ~70 characters, e.g. "ASML Q3 2026: orders confirm the upcycle, valuation leaves little slack", "VAT Group Q3 2026: record orders rewrite 2027, upgrades carry the stock". It states the verdict, not the topic.
+- **Management quote:** lead with it only when it carries the investment message (tone on demand, a guidance commitment, a change of stance). Verbatim from the transcript, the release or stockanalysis.com (see Inputs), in `&ldquo;…&rdquo;`, attributed with name, role, event and date, or as a company statement. Omit rather than invent.
 - **Key takeaways:** each line = tag + one fact with a number + its implication. Together they must give a client the whole story in 30 seconds: result, guidance, the main risk, the valuation verdict.
-- **KPI tiles:** the four lines that decided the quarter (typically revenue, EPS, a margin, next-period guidance). Surprise in % or bp, sign-coloured.
-- **Section headings (h2):** five variable ones per document (H_P1, H_A1, H_A2, H_C2, H_A3), plus the two fixed page-1 headings "Key takeaways" and "Base case and implications". Each is a takeaway in sentence case, ≤ ~45 characters, no full stop, e.g. "Results: the beat was mix, not volume", "Valuation: the upcycle is priced, the next leg is not". Don't repeat the H1's verdict. Plain 11pt ExtraBold Space Blue, no rule or accent.
-- **Chart titles in the PDF:** `<span class="num">Chart N</span> &middot; <Ticker>: <descriptor>`. **Chart sub-line:** one line of methodology (series, window, consensus source, MA, log scale, shading), joined by `&middot;`; disclose stale or partial data here.
-- **Base case paragraph:** 2 to 3 sentences: the regime for the stock ("We stay overweight…", "We hold…"), the earnings path we underwrite, one qualifier. No list of triggers inside it.
+- **KPI tiles:** the four lines that decided the quarter (typically revenue, EPS, a margin, next-period guidance; for a trading update: orders, sales, backlog, next-quarter sales guide). Surprise in % or bp, sign-coloured.
+- **Section headings (h2):** four variable ones per document (H_P1, H_A1, H_A2, H_C2), plus the two fixed page-1 headings "Key takeaways" and "Base case and implications" and the fixed page-2 title. Each is a takeaway in sentence case, ≤ ~45 characters, no full stop, e.g. "Results: the beat was mix, not volume", "Outlook: Q4 is capacity-bound, 2027 is reset", "Valuation: the work is done by earnings". Don't repeat the H1's verdict. Plain 11pt ExtraBold Space Blue, no rule or accent.
+- **Chart titles in the PDF:** `<span class="num">Chart N</span> &middot; <Ticker>: <descriptor>`. **Chart sub-line:** one line of methodology (series, window, consensus source, MA, log scale, shading), joined by `&middot;`; disclose stale or partial data here (e.g. "Last price is the 14 October close, before the release"; "Q3 2025 and Q2 2026 derived from reported growth rates").
+- **Base case and implications paragraph:** 4 to 6 sentences: the regime for the stock and what we would do ("We stay positive on VAT and would add on ramp-related weakness"), the earnings path we underwrite with numbers, where the debate has moved, the catalyst (upgrade cycle, multiple vs. its averages), the tactical qualifier (positioning, expectations into the print), and the next test with its date. No list of triggers inside it; those go in the columns.
 - **Strengthen / change columns:** 2 to 3 concrete, observable triggers each (a number, a date, a decision), not generic risk language.
-- **Page 2 valuation comment:** read Chart 2 explicitly: price vs. EPS trend (is price running ahead of earnings?), P/E vs. its average and the premium in %, price vs. 40-week MA, and what multiple the base case implies.
+- **Page 2 valuation comment:** read Chart 2 explicitly: price vs. EPS trend (is price running ahead of earnings? give both 12-month changes), P/E vs. its average and the premium in %, where it came from (previous print, peak), price vs. 40-week MA, and what multiple the base case implies (e.g. "a 10% upgrade at an unchanged price takes the multiple to 36.5x, the long-run average").
 
 **Style rules (mandatory):**
-- **Sentence case throughout**: titles, headings, box heads, tags, chart titles, legends. Uppercase only where grammatically required (tickers, index names, acronyms such as EUV, EPS, P/E).
+- **Sentence case throughout**: titles, headings, page-2 title, box heads, tags, chart titles, legends. Uppercase only where grammatically required (tickers, index names, acronyms such as EUV, EPS, P/E).
+- **Never name brokers or sell-side houses** anywhere in the document, the charts or the source line: no "UBS", "BNP Paribas", "Deutsche Bank", no bank price targets, no peer preferences attributed to a bank. Use neutral wording: "analyst expectations", "analyst estimates published after the release range from X to Y", "several analysts expect EPS upgrades of 10% or more", "analyst first takes", "analyst research notes of <date>". Consensus is "consensus" or "Bloomberg consensus". Broker names may appear in the reply to the user (for the Bloomberg check), not in the deliverables.
 - **No em dashes** anywhere (text, charts, headings). Use a comma, a colon or `&ndash;` only for numeric ranges (2022&ndash;25). Prefer "2010 to 2026" in prose.
 - **Typography**: Nunito Bold (700) for body and ExtraBold (800) for headings, titles, box heads, KPI values and quote text. No Light, Regular or SemiBold anywhere.
 - **Boxes**: only the key numbers strip is boxed: Space Blue `#202945` border 0.45mm, straight corners, no fill. No other box on either page, no blue-filled backgrounds, no rounded corners.
 - **Negative indicators**: Tiger Orange `#FF6C0E` for bearish or negative tags, bars and KPI deltas, never purple.
 - **Sources**: `Source: Syz Research, Bloomberg…` with no full stop at the end, on page 3 and in every chart footnote.
-- Typography uses HTML entities: `&ndash;` for ranges, `&rsquo;` for apostrophes, `&ldquo;…&rdquo;` for quotes, `&amp;`, `&middot;` for separators.
+- Typography uses HTML entities: `&ndash;` for ranges, `&rsquo;` for apostrophes, `&ldquo;…&rdquo;` for quotes, `&amp;`, `&middot;` for separators, `&minus;` for a minus sign in KPI tiles.
 
 **Voice:**
 - Institutional, quantified and decisive; first person plural ("We read this as…", "We stay…"). Page 1 is readable by a private client: plain words, every acronym used once in full, no jargon that needs a footnote. Page 2 can be more technical (mix, incremental margins, revisions, multiples).
 - Every claim carries a number: reported vs. consensus in % or bp, guidance in ranges, EPS to one decimal, P/E to one decimal and its premium to the average in %, "highest since <Qx YYYY>" computed from the data.
-- Separate signal from noise: a one-off (FX, tax rate, a pulled-forward order) is named and stripped from the read.
+- Separate signal from noise: a one-off (FX, tax rate, a pulled-forward order) is named and stripped from the read. For an orders-driven print, say what the company states about double bookings or ordering windows.
 - No bullet lists outside the Key takeaways block, no exclamation marks, no marketing adjectives. British spelling (stabilised, programme, licence).
 - Never invent numbers, consensus figures or quotes. Anything taken from the web is dated in the text and flagged in the reply for a Bloomberg check.
 
 ## Fit & QA (mandatory)
-1. The PDF must be **exactly 3 pages**. Page 1 ends with the two strengthen/change columns; page 2 starts with the results heading and ends with the implications paragraph; page 3 holds only the source line and the disclaimer.
-2. **If a page overflows,** apply these levers in order: reduce `W1` (minimum 66) or `W2` (minimum 76) by 2 to 4 points; tighten the prose to the lower end of the budgets. Never change font sizes, margins, colours, headings or the page plan. Never let a heading or the key numbers strip sit alone at the bottom of a page.
+1. The PDF must be **exactly 3 pages**. Page 1 ends with the two strengthen/change columns; page 2 starts with the page title "Beyond the key takeaways" and the results heading and ends with the Chart 2 valuation comment; page 3 holds only the source line and the disclaimer.
+2. **If a page overflows,** apply these levers in order: reduce `W1` (minimum 66) or `W2` (minimum 76 in the PDF, 80 in the PPTX) by 2 to 4 points; tighten the prose to the lower end of the budgets. Never change font sizes, margins, colours, headings or the page plan. Never let a heading or the key numbers strip sit alone at the bottom of a page. If page 2 has spare room, widen `W2` (up to 94 in the PDF, 90 in the PPTX) rather than adding text.
 3. **Rasterise all three pages at 100 dpi and look at them.** Check for:
-   - logo top-right and gradient rule on every page;
-   - exactly one box on page 1 (the key numbers strip): Space Blue border, square corners, no fill, four columns in one row;
+   - logo top-right and gradient rule on every page (a missing logo means a broken PNG, see Setup);
+   - exactly one box on page 1 (the key numbers strip): Space Blue border, square corners, no fill, four columns in one row, every `sub` line on one line;
    - tags: negative ones in Tiger Orange; no purple anywhere;
-   - no em dash in any text or chart; sentence case everywhere;
-   - five section headings on one line each;
+   - no em dash in any text or chart; sentence case everywhere; no broker name anywhere (`pdftotext … | grep -i "UBS\|BNP\|Deutsche\|Goldman\|Morgan\|Barclays\|Jefferies"` returns nothing);
+   - four section headings and the page-2 title on one line each;
    - footer reads "Syz Research · Earnings update · <date>" with a space after each dot;
    - Chart 2 legible: legend, end labels (price, EPS, P/E) and the P/E average line visible, no label collisions;
    - page 3: source line (no full stop) followed by the full disclaimer, pinned above the footer.
 4. Run `pdffonts` on the output: only Nunito Bold and Nunito ExtraBold (shown as Nunito-Ultra-Bold) may be embedded.
-5. **PowerPoint:** `validate.py` passes; `build_pptx.js` reports both page bottoms below the limit; the three LibreOffice-rendered slides show the same layout as the PDF pages (one box on page 1, no text touching the next heading, footer and logo on every slide, disclaimer pinned to the bottom of slide 3); `markitdown` shows three slides with no leftover placeholder text.
-6. In the reply, report: the data window and last date; the 3 to 5 numbers the document turns on (surprise, guidance, P/E and premium); any figure or quote taken from outside the user's files that needs verifying.
+5. **PowerPoint:** `validate.py` passes; `build_pptx.js` reports both page bottoms below the limit; the three LibreOffice-rendered slides show the same layout as the PDF pages (one box on page 1, no text touching the next heading, footer and logo on every slide, disclaimer pinned to the bottom of slide 3); `markitdown` shows three slides with no leftover placeholder text and no broker name.
+6. In the reply, report: the data window and last date (and whether the last price is pre-results); the 3 to 5 numbers the document turns on (surprise, guidance, P/E and premium); the quote source; any figure or quote taken from outside the user's files that needs verifying, including the broker first takes the neutral wording summarises.
 
-## Reference instance: ASML Q3 2026 (14 October 2026)
+## Reference instances
+**ASML Q3 2026 (14 October 2026)**
 - **Data:** `ASML.xlsx`, weekly, 1 Jan 2010 to 14 Oct 2026; last price EUR 1,541.8, 12m-forward EPS EUR 50.3, 40-week MA EUR 1,386, 12m-forward P/E 30.6x vs. a 26.0x average since 2010 (an 18% premium).
 - **Chart 1:** `bar_chart` of surprises vs. consensus (revenue, gross margin, EBIT, EPS, Q4 guide, FY27 outlook).
 - **Chart 2:** `price_eps_pe_chart`, title "ASML: share price vs. consensus earnings and valuation", footnote `source_line("Bloomberg", "14 Oct 2026", "ASML NA Equity, weekly", "BEst 12m-forward consensus", "40-week simple MA", "Log scale", "P/E shaded above (orange) / below (blue) its 2010-26 average")`.
-- **Headings pattern:** "What the quarter means for the investment case" · "Results: the beat was mix, not volume" · "Outlook: guidance leans on EUV and services" · "Valuation: the upcycle is priced, the next leg is not" · "Investment implications and positioning".
+- **Headings pattern:** "What the quarter means for the investment case" · "Results: the beat was mix, not volume" · "Outlook: guidance leans on EUV and services" · "Valuation: the upcycle is priced, the next leg is not".
+
+**VAT Group Q3 2026 trading update (15 October 2026)**
+- **Data:** `VAT.xlsx`, weekly, window from 27 May 2016 (first consensus EPS) to 15 Oct 2026; last price CHF 635 (the 14 October close, before the release), 12m-forward EPS CHF 15.8, 40-week MA CHF 594, 12m-forward P/E 40.3x vs. a 36.1x average since 2016 (an 11.5% premium), one-year average 47x.
+- **Inputs:** Bloomberg export, a Finanz und Wirtschaft first assessment, a Bloomberg-sourced summary of analyst first takes; figures cross-checked against the EQS ad hoc release. No executive quoted in the release and no transcript yet, so the quote block carried a verbatim company statement from the release.
+- **Chart 1:** `bar_chart` of quarterly order intake in CHF m (Q3 2025 reported, Q2 2026 previous record, Q3 2026 consensus, Q3 2026 reported in orange), title "VACN: Q3 2026 order intake vs. consensus and history".
+- **Title:** "VAT Group Q3 2026: record orders rewrite 2027, upgrades carry the stock". **Headings:** "The debate shifts from demand to delivery" · "Results: orders tripled, sales inflected" · "Outlook: Q4 is capacity-bound, 2027 is reset" · "Valuation: the work is done by earnings".
+- **Fit:** PDF `W1` 72 / `W2` 94; PPTX `W1` 66 / `W2` 90; page bottoms 10.85 and 10.43 vs. the 10.95 guard.

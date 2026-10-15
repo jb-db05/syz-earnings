@@ -132,10 +132,10 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
     # end labels
     last_p, last_e = float(df["price"].iloc[-1]), float(df["eps"].iloc[-1])
     axr.plot(x[-1], last_p, "o", color=BLUEB, ms=5, zorder=5)
-    axr.annotate(f"{last_p:,.0f}", (x[-1], last_p), xytext=(10, 6), textcoords="offset points",
+    axr.annotate(f"{last_p:,.0f}", (x[-1], last_p), xytext=(10, 10), textcoords="offset points",
                  color=BLUEB, fontsize=10.5, fontweight="bold")
     ax1.plot(x[-1], last_e, "o", color=ORANGE, ms=5, zorder=5)
-    ax1.annotate(f"{last_e:,.1f}", (x[-1], last_e), xytext=(10, -14), textcoords="offset points",
+    ax1.annotate(f"{last_e:,.1f}", (x[-1], last_e), xytext=(10, -22), textcoords="offset points",
                  color=ORANGE, fontsize=10.5, fontweight="bold")
 
     # one legend combining both axes

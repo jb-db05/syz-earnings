@@ -26,6 +26,7 @@ body { font-family: 'Nunito'; font-weight: 700; color: #202945; font-size: 8.7pt
 .gradbar { height: 3.5px; background: linear-gradient(90deg, #FF6C0E 0%, #FFC545 100%); margin-bottom: 4mm; }
 
 .kicker { font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; color: #FF6C0E; margin-bottom: 1.5mm; }
+.page-title { font-size: 14pt; font-weight: 800; color: #202945; line-height: 1.2; margin-bottom: 3.2mm; }
 h1 { font-size: 17pt; font-weight: 800; color: #202945; line-height: 1.22; margin-bottom: 1.5mm; }
 .dateline { font-size: 8.5pt; color: #6B7280; margin-bottom: 3.2mm; }
 
@@ -122,6 +123,7 @@ img.c2 { width: {{W2}}%; }
 <!-- PAGE 2: in-depth analysis -->
 <div class="pagebreak"></div>
 <div class="gradbar"></div>
+<div class="page-title">{{P2_TITLE}}</div>
 
 <div class="sec first"><h2>{{H_A1}}</h2></div>
 {{A1_PARAGRAPHS}}
@@ -135,8 +137,6 @@ img.c2 { width: {{W2}}%; }
 <img class="chart c2" src="file://{{C2_IMG}}">
 {{C2_COMMENT}}
 
-<div class="sec"><h2>{{H_A3}}</h2></div>
-{{A3_PARAGRAPHS}}
 
 <!-- PAGE 3: source + disclaimer only, pinned to the bottom -->
 <div class="pagebreak"></div>

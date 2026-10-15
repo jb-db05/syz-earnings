@@ -1,4 +1,6 @@
 import re, sys
+# usage: python3 render_test.py P1 C1 BASE UPDOWN A1 A2 C2 W1 W2   (word budgets, then chart widths in %)
+# e.g.    python3 render_test.py 75 60 100 40 108 100 92 76 92
 def para(n):
     w = ("Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix shift as structural rather than cyclical, and the guidance for Q4 implies a run-rate above the FY27 consensus. The debate now moves from demand to capacity. ").split()
     out = []
@@ -6,7 +8,7 @@ def para(n):
     return " ".join(out[:n]) + "."
 P = lambda n: f"<p>{para(n)}</p>"
 B = dict(p1=int(sys.argv[1]), c1=int(sys.argv[2]), bc=int(sys.argv[3]), ud=int(sys.argv[4]),
-         a1=int(sys.argv[5]), a2=int(sys.argv[6]), c2=int(sys.argv[7]), a3=int(sys.argv[8]), w1=sys.argv[9], w2=sys.argv[10])
+         a1=int(sys.argv[5]), a2=int(sys.argv[6]), c2=int(sys.argv[7]), w1=sys.argv[8], w2=sys.argv[9])
 fill = {
  "DOC_TYPE": "Earnings update", "THEME": "Semiconductors", "DATE": "14 October 2026",
  "TITLE": "ASML Q3 2026: orders confirm the upcycle, valuation leaves little slack",
@@ -33,7 +35,7 @@ fill = {
  "C2_TITLE": "ASML &ndash; share price vs. consensus earnings and valuation",
  "C2_SUB": "ASML NA Equity, weekly &middot; BEst 12m-forward consensus &middot; 40-week simple MA &middot; log scale &middot; P/E shaded above (orange) / below (blue) its 2010 to 2026 average",
  "C2_IMG": "/home/claude/c2_crop.png", "C2_COMMENT": P(B['c2']),
- "H_A3": "Investment implications and positioning", "A3_PARAGRAPHS": P(B['a3']),
+ "P2_TITLE": "Beyond the key takeaways",
  "W1": B['w1'], "W2": B['w2'],
  "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings",
 }

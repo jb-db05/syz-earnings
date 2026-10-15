@@ -8,6 +8,7 @@ PARAMS = {
     "xlsx": "/home/claude/data/TSM.xlsx",
     "ticker": "TSM",
     "asof": "15 Oct 2026",
+    "c2_start": "2010-01-01",
     "out": "/home/claude/out",
     # Chart 1: surprise vs. consensus (revenue and gross-margin consensus approximate, per analyst first takes)
     "c1_labels": ["Q3 revenue", "Q3 EPS", "Q3 gross margin", "Q4 revenue guide"],
@@ -39,28 +40,18 @@ def main(p=PARAMS):
                  fmt=SurpriseFmt(), ylabel="Surprise vs. consensus")
     sc.crop_for_pdf(c1, f"{p['out']}/c1_crop.png", "bar")
 
-    # Chart 2: price in USD per ADR, Bloomberg EPS in TWD per ADR; relabel the EPS currency after drawing
+    # Chart 2: USD only. Bloomberg's BEst EPS for TSM US is in TWD per ADR; restate it in USD per ADR with the
+    # exchange rate Bloomberg itself uses in the P/E (EPS_USD = price / P/E), so price, EPS and P/E stay consistent
     c2 = f"{p['out']}/TSM_chart2_price_eps_pe.png"
-    _savefig = plt.Figure.savefig
-
-    def relabel(fig, *a, **k):
-        ax1 = fig.axes[0]
-        ax1.set_ylabel("12m-forward EPS (TWD per ADR, log scale)", fontsize=10, color=sc.ORANGE, fontweight="bold")
-        leg = ax1.get_legend()
-        for t in leg.get_texts():
-            t.set_text(t.get_text().replace("EPS, USD", "EPS, TWD per ADR"))
-        return _savefig(fig, *a, **k)
-
-    plt.Figure.savefig = relabel
-    try:
-        stats = sc.price_eps_pe_chart(
-            c2, df, "TSM", "TSM: share price vs. consensus earnings and valuation",
-            sc.source_line("Bloomberg", p["asof"], "TSM US Equity (ADR), weekly", "BEst 12m-forward consensus",
-                           "40-week simple MA", "Log scale",
-                           "P/E shaded above (orange) / below (blue) its 2005-26 average"),
-            ccy="USD")
-    finally:
-        plt.Figure.savefig = _savefig
+    d2 = df[df["date"] >= p["c2_start"]].dropna(subset=["pe"]).copy()
+    d2["eps"] = d2["price"] / d2["pe"]
+    d2 = d2.reset_index(drop=True)
+    stats = sc.price_eps_pe_chart(
+        c2, d2, "TSM", "TSM: share price vs. consensus earnings and valuation",
+        sc.source_line("Bloomberg", p["asof"], "TSM US Equity (ADR), weekly", "BEst 12m-forward consensus EPS per ADR in USD",
+                       "40-week simple MA", "Log scale",
+                       "P/E shaded above (orange) / below (blue) its 2010-26 average"),
+        ccy="USD")
     sc.crop_for_pdf(c2, f"{p['out']}/c2_crop.png", "price_eps_pe")
     print(stats)
     return stats

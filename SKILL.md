@@ -166,11 +166,13 @@ def load_bloomberg_sheet(path, sheet=0):
 
 # ---------------------------------------------------------------- archetype: price vs. consensus EPS + P/E panel
 def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=None,
-                       p1_title=None, p2_title=None):
+                       p1_title=None, p2_title=None, eps_ccy=None, eps_desc="12m-forward EPS",
+                       pe_label="12m-forward P/E", price_off=(10, 10), eps_off=(10, -22)):
     """Reference earnings chart. Top: share price (Blueberry, rhs, log) + 40-week MA (dashed) + 12m-forward
     EPS (Orange, lhs, log). Bottom: 12m-forward P/E (Orange) vs. its long-run average (dashed navy), shaded
     orange above / blue-grey below. df from load_bloomberg_sheet(). Returns the numbers quoted in the labels."""
     x = mdates.date2num(df["date"])
+    eps_ccy = eps_ccy or ccy
     p1_title = p1_title or f"Share price and consensus 12m-forward EPS (log scale)"
     p2_title = p2_title or "12m-forward P/E"
     start_year, end_year = df["date"].iloc[0].year, df["date"].iloc[-1].year
@@ -184,8 +186,8 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
     # --- top panel: EPS on the left axis, price + MA on a twin right axis, both log
     style_ax(ax1)
     ax1.set_yscale("log")
-    ax1.plot(x, df["eps"], color=ORANGE, linewidth=2.1, zorder=3, label=f"12m-forward EPS, {ccy} (lhs)")
-    ax1.set_ylabel(f"12m-forward EPS ({ccy}, log scale)", fontsize=10, color=ORANGE, fontweight="bold")
+    ax1.plot(x, df["eps"], color=ORANGE, linewidth=2.1, zorder=3, label=f"{eps_desc}, {eps_ccy} (lhs)")
+    ax1.set_ylabel(f"{eps_desc} ({eps_ccy}, log scale)", fontsize=10, color=ORANGE, fontweight="bold")
     ax1.tick_params(axis="y", colors=ORANGE)
     _log_ticks(ax1, float(df["eps"].min()), float(df["eps"].max()))
     ax1.set_title(p1_title, fontsize=12, fontweight="bold", color=NAVY, loc="left", pad=8)
@@ -204,10 +206,10 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
     # end labels
     last_p, last_e = float(df["price"].iloc[-1]), float(df["eps"].iloc[-1])
     axr.plot(x[-1], last_p, "o", color=BLUEB, ms=5, zorder=5)
-    axr.annotate(f"{last_p:,.0f}", (x[-1], last_p), xytext=(10, 10), textcoords="offset points",
+    axr.annotate(f"{last_p:,.0f}", (x[-1], last_p), xytext=price_off, textcoords="offset points",
                  color=BLUEB, fontsize=10.5, fontweight="bold")
     ax1.plot(x[-1], last_e, "o", color=ORANGE, ms=5, zorder=5)
-    ax1.annotate(f"{last_e:,.1f}", (x[-1], last_e), xytext=(10, -22), textcoords="offset points",
+    ax1.annotate(f"{last_e:,.2f}", (x[-1], last_e), xytext=eps_off, textcoords="offset points",
                  color=ORANGE, fontsize=10.5, fontweight="bold")
 
     # one legend combining both axes
@@ -219,7 +221,7 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
     # --- bottom panel: P/E vs. average
     style_ax(ax2)
     pe = df["pe"].to_numpy(float)
-    ax2.plot(x, pe, color=ORANGE, linewidth=1.9, zorder=3, label="12m-forward P/E")
+    ax2.plot(x, pe, color=ORANGE, linewidth=1.9, zorder=3, label=pe_label)
     ax2.axhline(pe_avg, color=NAVY, linestyle=DASH, linewidth=1.3, zorder=2,
                 label=f"Average since {pe_series.index.map(lambda i: df['date'][i]).min().year}: {pe_avg:.1f}x")
     ax2.fill_between(x, pe, pe_avg, where=pe >= pe_avg, interpolate=True, color=ORANGE, alpha=0.12, zorder=1)
@@ -244,7 +246,7 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
 
 # ---------------------------------------------------------------- generic single-series bar (KPI vs. consensus etc.)
 def bar_chart(path, labels, values, title, subtitle, footnote, colors=None, fmt="{:+.1f}%", ylabel="",
-              zero_line=True, highlight_negative=True):
+              zero_line=True, highlight_negative=True, ylim=None):
     """Simple bar archetype for page 1 (e.g. beat/miss by line, revisions by segment). Positive = Blueberry,
     negative = Tiger Orange (bearish tag colour), unless colors is given."""
     vals = np.asarray(values, float)
@@ -255,6 +257,8 @@ def bar_chart(path, labels, values, title, subtitle, footnote, colors=None, fmt=
     style_ax(ax)
     ax.tick_params(labelsize=12)
     bars = ax.bar(range(len(vals)), vals, color=colors, width=0.62, linewidth=0, zorder=3)
+    if ylim:
+        ax.set_ylim(*ylim)
     if zero_line:
         ax.axhline(0, color=NAVY, linewidth=1.0, zorder=2)
     for b, v in zip(bars, vals):
@@ -285,6 +289,7 @@ def crop_for_pdf(src, dst, kind):
 | `bar_chart` | **Chart 1, default**: surprise vs. consensus by line (revenue, gross margin, EBIT, EPS, next-quarter guide, FY outlook); or revisions by segment; positive bars Blueberry, negative bars Tiger Orange. **Trading-update variant**: the decisive line in absolute terms (prior year, previous record, consensus, reported) with `colors=[BLUEB, BLUEB, BLUEB, ORANGE]`, `fmt="{:,.0f}"`, `zero_line=False`, two-line x labels | 12.5x5.0 in |
 
 - **Colour convention:** reference series Blueberry Blue `#4B5F80`; emphasis series Tiger Orange `#FF6C0E`. Dashed lines navy `(0,(5,4))`. **Negative or bearish = Tiger Orange**, never purple. P/E shading: above average orange α 0.12, below average Blueberry α 0.14.
+- **Non-standard exports:** a daily export (`SMAVG` columns) is resampled to the last trading day of each week with the 40-week MA computed on weekly closes (`deliveries/ABBN_Q32026/build_charts.py`, `load_weekly`). When `BEst EPS` is the current fiscal year (steps each 1 January) or in another currency than the price (ABB: USD EPS, CHF price), pass `eps_ccy`, `eps_desc="Consensus EPS, current fiscal year"`, `pe_label="Consensus P/E"`, never call it 12m-forward, and compare EPS changes within the same fiscal year. If the price ends below the EPS, swap the end-label offsets (`price_off=(10, -16)`, `eps_off=(10, 6)`).
 - **Log axes** use the 1-2-5 ladder (1, 2, 5, 10, 20, 50 for EPS; 25, 50, 100, 250, 500, 1,000 for price), thousands separators, no minor ticks.
 - **End labels** on Chart 2 sit at offsets (10, 10) for the price and (10, -22) for the EPS so they do not collide when both series end at the same height; zoom into the top-right corner of the PNG to check.
 - **Standalone title** = `<Ticker>: <descriptor>` with a colon, sentence case, e.g. "ASML: share price vs. consensus earnings and valuation". No em dashes anywhere. **Footnote** = `source_line(provider, "<D Mon YYYY>", notes…)`, naming the series, the MA, the log scale and the shading rule; **no full stop at the end**. Consensus provenance is described neutrally ("Consensus: Bloomberg pre-results (analyst first takes)"), never by broker name.

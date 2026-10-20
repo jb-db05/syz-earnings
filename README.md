@@ -31,5 +31,6 @@ Sentence case, no em dashes, Nunito Bold and ExtraBold only, one Space Blue bord
 
 ## Changelog
 
+- **20 Oct 2026**: ABB Q3 2026 instance (`deliveries/ABBN_Q32026/`); chart kit options for a daily export with current-fiscal-year EPS in a different currency from the price (`eps_ccy`, `eps_desc`, `pe_label`, end-label offsets) and a `ylim` option on `bar_chart`.
 - **15 Oct 2026**: page-2 title "Beyond the key takeaways"; positioning merged into the page-1 base case (no page-2 positioning section); no broker names; quote sourcing order with stockanalysis.com; logo taken from the project file and validated; Chart 1 trading-update variant (order-intake levels); Chart 2 end-label offsets; chart window starts at the first consensus EPS; updated word budgets and W1/W2 ranges; VAT Group Q3 2026 reference instance.
 - **14 Oct 2026**: portrait A4 PowerPoint output with the same visual as the PDF.

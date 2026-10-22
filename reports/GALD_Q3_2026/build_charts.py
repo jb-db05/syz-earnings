@@ -20,10 +20,15 @@ PARAMS = {
     "bbg": "GALD SW Equity",
     "asof": "22 Oct 2026",
     "price_ccy": "CHF", "eps_ccy": "USD",
-    # Chart 1: Q3 2026 net sales growth at constant currency by category (company release, 22 Oct 2026)
+    # Chart 1: contribution to Q3 2026 group growth at constant currency, pp, weighted by the Q3 2025 sales mix
+    # (Q3 2025 group sales USD 1,289m, release Appendix 2); values as computed by Syz from Appendix 2
     "c1_labels": ["Neuro-\nmodulators", "Fillers and\nbiostimulators", "Dermatological\nskincare",
-                  "Therapeutic\ndermatology", "Group"],
-    "c1_values": [24.1, 4.8, 15.6, 58.9, 26.0],
+                  "Therapeutic\ndermatology"],
+    "c1_contrib": [6.5, 1.1, 4.2, 14.4],       # pp
+    "c1_base": 1289,                           # Q3 2025 group sales, USD m
+    "c1_group": 26.0,                          # reported group growth at constant currency, %
+    # results-day move: the export's last row is replaced by the 21 October close +6% (price and P/E)
+    "day_move_pct": 6.0,
     # dates where the Bloomberg consensus rolls to the next fiscal year (EPS steps up, P/E steps down)
     "fy_rolls": [("2025-01-02", "FY25"), ("2026-01-02", "FY26")],
 }
@@ -45,6 +50,33 @@ def load_daily(path):
     }).dropna(subset=["date"]).sort_values("date").reset_index(drop=True)
     out["eps"] = out["eps"].ffill()
     return out[out["eps"].notna() & out["pe"].notna()].reset_index(drop=True)   # window starts at first consensus
+
+
+def waterfall_chart(path, labels, contrib, total, title, subtitle, footnote):
+    """Growth bridge: each category's contribution in pp stacked from zero (Blueberry, dotted connectors),
+    reported group growth as the closing bar (Tiger Orange). Same geometry as bar_chart so the "bar" crop applies."""
+    vals = np.asarray(contrib, float)
+    starts = np.concatenate([[0], np.cumsum(vals)[:-1]])
+    n = len(vals)
+    fig, ax = plt.subplots(figsize=(12.5, 5.0), dpi=200)
+    fig.subplots_adjust(top=0.80, bottom=0.21, left=0.07, right=0.96)
+    style_ax(ax)
+    ax.tick_params(labelsize=12)
+    ax.bar(range(n), vals, bottom=starts, color=BLUEB, width=0.62, linewidth=0, zorder=3)
+    ax.bar(n, total, color=ORANGE, width=0.62, linewidth=0, zorder=3)
+    tops = starts + vals
+    for i in range(n):
+        ax.plot([i + 0.31, i + 0.69], [tops[i], tops[i]], color=GREY, linestyle=(0, (1, 2)), linewidth=1.1, zorder=2)
+        ax.annotate(f"{vals[i]:+.1f} pp", (i, tops[i]), xytext=(0, 5), textcoords="offset points",
+                    ha="center", fontsize=13, fontweight="bold", color=NAVY)
+    ax.annotate(f"{total:+.1f}%", (n, total), xytext=(0, 5), textcoords="offset points",
+                ha="center", fontsize=13, fontweight="bold", color=NAVY)
+    ax.axhline(0, color=NAVY, linewidth=1.0, zorder=2)
+    ax.set_ylim(0, max(tops.max(), total) * 1.17)
+    ax.set_xticks(range(n + 1))
+    ax.set_xticklabels(list(labels) + ["Group"], fontsize=12.5, color=NAVY, fontweight="bold")
+    header(fig, title, subtitle, footnote)
+    fig.savefig(path, dpi=200, facecolor="white"); plt.close(fig)
 
 
 def bar_chart_2line(*args, **kwargs):
@@ -143,22 +175,26 @@ if __name__ == "__main__":
     P = PARAMS; out = P["out"]; tk = P["ticker"]
     setup_fonts()
 
-    bar_chart_2line(f"{out}/{tk}_chart1_growth_by_category.png", P["c1_labels"], P["c1_values"],
-              f"{tk}: Q3 2026 sales growth by category at constant currency",
-              "Year-on-year growth at constant currency, % · group sales USD 1,632m vs. consensus USD 1,552m (+5.1%)",
-              source_line("Galderma Q3 2026 release", P["asof"], "Product categories as reported by Galderma",
-                          "Consensus: company-compiled, pre-results"),
-              colors=[BLUEB, BLUEB, BLUEB, BLUEB, ORANGE], fmt="{:+.1f}%", zero_line=True)
+    contrib = P["c1_contrib"]
+    waterfall_chart(f"{out}/{tk}_chart1_growth_bridge.png", P["c1_labels"], contrib, P["c1_group"],
+                    f"{tk}: contribution to Q3 2026 group growth (bridge)",
+                    f"Contribution to group growth at constant currency, pp · weighted by Q3 2025 sales "
+                    f"(USD {P['c1_base']:,}m) · sum {sum(contrib):.1f}pp vs. {P['c1_group']:.1f}% reported (rounding)",
+                    source_line("Galderma Q3 2026 trading update, Appendix 2", P["asof"], "Syz calculations"))
 
     df = load_daily(P["xlsx"])
+    k = df.index[-1]; m = 1 + P["day_move_pct"] / 100
+    df.loc[k, "price"] = df.loc[k - 1, "price"] * m
+    df.loc[k, "pe"] = df.loc[k - 1, "pe"] * m
     r = price_eps_pe_chart_fy1(
         f"{out}/{tk}_chart2_price_eps_pe.png", df,
         f"{tk}: share price vs. consensus earnings and valuation",
         source_line("Bloomberg", P["asof"], f"{P['bbg']}, daily", "BEst consensus current-year EPS (USD)",
+                    f"Last price: 21 Oct close +{P['day_move_pct']:.0f}%",
                     "200-day simple MA", "Log scale",
                     f"P/E shaded above (orange) / below (blue) its {df['date'].iloc[0].year}-26 average"),
         fy_rolls=P["fy_rolls"], price_ccy=P["price_ccy"], eps_ccy=P["eps_ccy"])
     print({k: round(v, 2) if isinstance(v, float) else v for k, v in r.items()})
 
-    crop_for_pdf(f"{out}/{tk}_chart1_growth_by_category.png", f"{out}/c1_crop.png", "bar")
+    crop_for_pdf(f"{out}/{tk}_chart1_growth_bridge.png", f"{out}/c1_crop.png", "bar")
     crop_for_pdf(f"{out}/{tk}_chart2_price_eps_pe.png", f"{out}/c2_crop.png", "price_eps_pe")

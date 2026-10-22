@@ -5,7 +5,7 @@ from PIL import Image
 import content as C
 
 OUT = "/home/claude/galderma"
-NAME = f"Earnings_Update_{C.TICKER}_{C.PERIOD}"
+NAME = f"{C.DOC_TYPE.title().replace(' ', '_')}_{C.TICKER}_{C.PERIOD}"
 C1_IMG, C2_IMG = f"{OUT}/c1_crop.png", f"{OUT}/c2_crop.png"
 
 words = lambda s: len(re.sub(r"&\w+;", "", s).split())
@@ -35,6 +35,8 @@ fill = {
 }
 
 tpl = open("/home/claude/template.html").read()
+if not C.THEME:   # kicker without a theme: drop the separator
+    tpl = tpl.replace("{{DOC_TYPE}} &middot; {{THEME}}</div>", "{{DOC_TYPE}}</div>")
 doc = tpl
 for k, v in fill.items():
     doc = doc.replace("{{" + k + "}}", str(v))

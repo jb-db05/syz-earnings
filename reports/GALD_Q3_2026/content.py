@@ -4,8 +4,8 @@ TICKER, PERIOD = "GALD", "Q32026"
 W1, W2 = 74, 94            # PDF chart widths, % of text width
 W1_PPTX, W2_PPTX = 68, 90  # PPTX chart widths
 
-DOC_TYPE = "Earnings update"
-THEME = "Dermatology"
+DOC_TYPE = "Sales update"
+THEME = ""                 # empty: kicker shows the document type only
 DATE = "22 October 2026"
 TITLE = ('Galderma Q3 2026: a beat, a raise and a rally')
 

@@ -27,7 +27,7 @@ C = {
 ],
 
 "H_P1": "What the quarter means for the investment case",
-"P1_PARAGRAPH": "<p>The quarter shows Atlas Copco running at two speeds. Vacuum Technique is riding the semiconductor investment cycle: organic orders up 82%, revenue up 28% and the margin up to 22.2% despite the cost of adding capacity. Compressor Technique, the largest and most profitable division, grew orders by only 6% and gave up 1.7 points of margin. Investors priced the second story, not the record order book, and sent the shares down 7.1% on the day.</p>",
+"P1_PARAGRAPH": "<p>Atlas Copco now runs at two speeds. Vacuum Technique is riding the semiconductor investment cycle: organic orders up 82%, revenue up 28% and the margin up to 22.2% despite ramp-up costs. Compressor Technique, the profit engine, grew orders by only 6% and gave up 1.7 points of margin. The shares fell 7.1% on the day: the beat rested on vacuum orders partly pulled forward, compressor prices will lag cost inflation, and a crowded stock close to its record needed more.</p>",
 
 "C1_TITLE": "ATCO: Q3 2026 organic order growth by business area",
 "C1_SUB": "Organic growth in orders received, Q3 2026 vs. Q3 2025 &middot; Group consensus: pre-results analyst expectations &middot; Source: company, Bloomberg",

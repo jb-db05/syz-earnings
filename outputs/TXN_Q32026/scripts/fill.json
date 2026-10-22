@@ -1,0 +1,94 @@
+{
+ "LOGO": "/home/claude/syz_logo_hq.png",
+ "GRADBAR": "/home/claude/syz_gradbar.png",
+ "DOC_TYPE": "Earnings update",
+ "THEME": "Semiconductors",
+ "DATE": "22 October 2026",
+ "TITLE": "Texas Instruments Q3 2026: upcycle broadens, earnings must do the work",
+ "QUOTE": "",
+ "QUOTE_WHO": "",
+ "TAKEAWAYS": [
+  {
+   "tag": "pos",
+   "label": "Beat",
+   "text": "Revenue USD 6.06bn (+28% year on year) and EPS USD 2.62 beat consensus by 2% and 9%."
+  },
+  {
+   "tag": "pos",
+   "label": "Raised",
+   "text": "Q4 guide midpoints of USD 6.05bn revenue and USD 2.62 EPS sit 6% and 14% above consensus."
+  },
+  {
+   "tag": "neg",
+   "label": "Watch",
+   "text": "Nearly 45% of analysts stay neutral or negative after the print, citing valuation and capital intensity."
+  },
+  {
+   "tag": "neu",
+   "label": "Valuation",
+   "text": "32.4x forward earnings, 48% above the 2010 to 2026 average: upgrades, not the multiple, must drive returns."
+  }
+ ],
+ "KPIS": [
+  {
+   "label": "Revenue",
+   "value": "USD 6.06bn",
+   "sub": "+2.4% vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "EPS",
+   "value": "USD 2.62",
+   "sub": "+8.7% vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "Operating margin",
+   "value": "47.5%",
+   "sub": "+290bp vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "Q4 revenue guide",
+   "value": "USD 6.05bn",
+   "sub": "+5.6% vs. consensus",
+   "sign": "pos"
+  }
+ ],
+ "H_P1": "The cycle is now showing up in margins",
+ "P1_PARAGRAPH": "For investors, the quality of the beat matters more than its size. Revenue rose 11% from the second quarter, ahead of the 8% the company had guided, and operating margin reached 47.5%, 13.4 percentage points higher than a year ago. Texas Instruments’ heavy investment in its own 300mm factories is now paying back: rising volumes absorb fixed costs, so most of each extra dollar of sales drops to profit. We read this as the early part of an earnings upswing, not a peak.",
+ "C1_TITLE": "TXN: Q3 2026 results and Q4 guidance vs. consensus",
+ "C1_SUB": "Reported Q3 2026 and Q4 2026 guidance midpoints vs. Bloomberg consensus · Revenue, EPS and guidance in %, margins in percentage points",
+ "C1_IMG": "/home/claude/txn/c1_crop.png",
+ "C1_ASPECT": 0.312,
+ "W1": 72,
+ "C1_COMMENT": "Every line beat, and the forward lines beat by more. The Q4 earnings per share guide of USD 2.62 at the midpoint is 14% above consensus and flat on Q3, in a quarter that is usually seasonally softer. Annualised, that run-rate is USD 10.5 a share, 19% above the USD 8.8 consensus for the next twelve months: we expect estimates to rise.",
+ "BASE_CASE": "We stay positive on Texas Instruments but would not chase the stock at USD 286; we would add on pullbacks towards the 40-week moving average, now close to USD 260. We underwrite consensus 12m-forward earnings per share moving from USD 8.8 towards USD 10 over the next two quarters, as the Q4 run-rate, analog price increases and customer restocking feed through. The debate has moved from whether the cycle has turned to how much of it the multiple already pays for. At 32.4 times forward earnings, the catalyst is upgrades, not a re-rating. The next test is the Q4 print and the 2027 capital spending plan in late January.",
+ "UPSIDE": "Consensus 12m-forward EPS passing the 2022 peak of USD 9.5 by the Q4 print; confirmation in January that analog price increases extend into 2027 contracts; distributor and customer inventories starting to rebuild, which management says has not yet begun.",
+ "DOWNSIDE": "A Q1 2027 revenue guide weaker than the usual seasonal decline, which would point to Q4 pull-ins; a 2027 capital spending plan that keeps free cash flow below the trailing USD 8.4bn; the P/E holding above 30x while earnings upgrades stall.",
+ "P2_TITLE": "Beyond the key takeaways",
+ "H_A1": "Results: volume and mix now, pricing later",
+ "A1_PARAGRAPHS": [
+  "Q3 revenue of USD 6.06bn rose 28% year on year and 11% sequentially, beating the guidance midpoint of USD 5.90bn and consensus of USD 5.92bn. Analog, about 81% of sales, grew 32% to USD 4.91bn; Embedded Processing rose 21% to USD 858m. By end market, Industrial grew more than 40% to an all-time high and Data Center nearly doubled (+95%), driven by power management chips for AI servers. Automotive also set a record. Management sees demand as broad across regions and most end markets, and says customers are not yet building inventory: this is end demand, not restocking.",
+  "The margin read is the stronger signal. Gross margin reached 64.2%, 2.4 percentage points above consensus and 6.8 points above Q3 2025, as higher utilisation of the 300mm fabs spread fixed costs over more wafers. Operating margin of 47.5% was 13.4 points higher year on year, and EPS of USD 2.62 rose 77% despite a one-cent charge outside the original guidance. Operating cash flow was USD 3.42bn in the quarter and trailing free cash flow USD 8.4bn, helped by CHIPS Act incentives. Pricing played only a small part: increases started in the second half of 2026."
+ ],
+ "H_A2": "Outlook: Q4 holds flat, 2027 adds pricing",
+ "A2_PARAGRAPH": "Q4 guidance of USD 5.8 to 6.3bn revenue and USD 2.45 to 2.79 EPS sits 6% and 14% above consensus at the midpoints. The more important message concerns 2027. Management expects price increases across analog, power and microcontrollers to contribute more once current negotiations close, while some competitors quote lead times of up to 52 weeks on specialised parts against about six months at Texas Instruments. That gap should let the company gain share as supply tightens. Restocking has not started, which leaves a second leg of demand ahead. The quarterly dividend rises 7% to USD 1.52, and USD 5.8bn was returned to shareholders over twelve months.",
+ "H_C2": "Valuation: the multiple is already full",
+ "C2_TITLE": "TXN: share price vs. consensus earnings and valuation",
+ "C2_SUB": "Weekly, January 2010 to 22 October 2026 · Bloomberg consensus 12m-forward EPS · 40-week simple MA · Log scale · Last price USD 285.71 on 22 October, the first session after the release",
+ "C2_IMG": "/home/claude/txn/c2_crop.png",
+ "C2_ASPECT": 0.5984,
+ "W2": 90,
+ "C2_COMMENT": "The share price has risen 67% over twelve months, ahead of a 54% increase in consensus 12m-forward EPS, so part of the rally came from the multiple. Since the July results the pattern has reversed: estimates are up 13% while the price is 2% lower, taking the P/E from 37.5x to 32.4x. That is still 48% above the 21.9x average since 2010, though below the 43.1x peak of November 2024. The price sits 10% above its 40-week average. If consensus reaches the USD 10.5 Q4 run-rate, the multiple falls to 27.3x at today’s price.",
+ "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings, Texas Instruments Q3 2026 earnings release of 21 October 2026, analyst research notes of 22 October 2026",
+ "DISCLAIMER": [
+  "This communication has been issued and made available to recipients for the purpose of advertising investment services and/or financial instruments. It has been sent for information purposes and cannot be considered as an offer or a personalised recommendation to buy or sell a financial instrument or any other investment or currency. This communication does not constitute investment research within the meaning of regulatory rules applicable in the European Economic Area, or research under the rules of the U.S. Self-Regulatory Organizations.",
+  "This information is made solely for professional and institutional clients as defined by the Swiss Financial Services Act, as well as qualified investors according to the Swiss Collective Investment Schemes Act. It is not intended for retail clients or non-qualified investors and consequently cannot be transmitted to any third party.",
+  "This communication is not directed to any person in any jurisdiction where, by reason of that person’s nationality, residence or otherwise, its dissemination or use is prohibited. It cannot be quoted, reproduced, disclosed, distributed or otherwise referred to, in whole or in part, to any third party without the Bank’s prior written consent.",
+  "This communication may contain information on past performances of a financial product, all kinds of economic and financial valuations and analyses, as well as opinions of the Bank or of third parties. Any market valuations, terms and calculation methods, yields and opinions expressed are subject to change without notice. The information and opinions contained herein have been compiled and provided in good faith, based on information obtained from sources believed to be trustworthy. However, such information has not been independently verified. No guarantee, representation, or warranty of any kind, whether express or implied, is provided by the Bank or by relevant data vendors and other sources with respect to the accuracy, reliability, currentness or exhaustiveness of the information communicated, the methodology employed or the prices contained herein.",
+  "Past performance is not a reliable indicator of current or future results. Any reference to the past performance of an investment does not guarantee its future performance. Fluctuations in exchange rates may adversely affect the value, price or income of any investment.",
+  "Nothing in the present communication constitutes investment, legal, accounting or tax advice. This information is purely objective since it does not take into consideration the personal situation (including financial knowledge and experience), the investment objectives and risk profile of any recipient. Moreover, certain financial instruments mentioned (in particular, but not exclusively, derivatives, options and futures) involve a high risk of loss and may not be suitable. Accordingly, recipients should consult their own advisors on such matters, including but not limited to the possible tax consequences of investing in any financial product mentioned herein, and make their own assessment of the suitability of such investment product.",
+  "Should a recipient make an investment on the basis of the present communication, the recipient alone shall bear the consequences thereof. In no event shall the Bank, its directors, employees, affiliates or agents be held responsible for damages of any kind arising out of the use of all or part of the information provided herein."
+ ]
+}

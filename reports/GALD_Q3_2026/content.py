@@ -7,7 +7,7 @@ W1_PPTX, W2_PPTX = 68, 90  # PPTX chart widths
 DOC_TYPE = "Earnings update"
 THEME = "Dermatology"
 DATE = "22 October 2026"
-TITLE = ('Galderma Q3 2026: beat and raise, now upgrades must follow')
+TITLE = ('Galderma Q3 2026: beat and raise, upgrades to lower the P/E')
 
 QUOTE = ("With a stronger-than-anticipated trajectory in the first nine months, especially in Therapeutic Dermatology, "
          "across both Nemluvio and the mature portfolio, as well as in Dermatological Skincare and Neuromodulators, "
@@ -32,7 +32,7 @@ H_P1 = "What the quarter means for the investment case"
 P1 = ('This is the second beat and raise in a row, and the key message is breadth. Therapeutic dermatology grew 58.9%, but neuromodulators (+24.1%) and dermatological skincare (+15.6%) also ran well ahead of their markets: the quarter does not rest on Nemluvio alone. With the sales guide raised by more than three points and the margin target held, analysts expect 2026 sales and core EBITDA about 1.5% above prior consensus.')
 
 C1_TITLE = "GALD: Q3 2026 sales growth by category at constant currency"
-C1_SUB = ('Year-on-year growth at constant currency, % &middot; group sales USD 1,632m vs. consensus USD 1,552m (+5.1%) &middot; categories are operating KPIs')
+C1_SUB = ('Year-on-year growth at constant currency, % &middot; group sales USD 1,632m vs. consensus USD 1,552m (+5.1%) &middot; Galderma product categories')
 C1_COMMENT = ('Every category grew, three of four at a double-digit rate. Neuromodulators were helped by US shipments shifted from Q2, which flatters the quarter, but Dysport share gains and the Relfydess roll-out, approved in 37 markets, are structural. Fillers and biostimulators, at 4.8%, are the soft spot: the market is weak and last year included the Sculptra launch in China.')
 
 BASE_CASE = ('We stay positive on Galderma and would add on weakness towards the 200-day moving average (CHF 162). Our base case is 2026 sales growth of about 23% at constant currency, a core EBITDA margin near 26% and consensus earnings per share of USD 4.80 edging higher after the raise. The debate has moved from whether Galderma can grow to whether it can hold the pace through generic erosion, the Relfydess delay and the ZO Skin Health integration. With the shares up 4.2% on the day and 2% below their June record, the easy re-rating is done. The next test is the full-year release in early 2027.')

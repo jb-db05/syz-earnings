@@ -146,7 +146,7 @@ if __name__ == "__main__":
     bar_chart_2line(f"{out}/{tk}_chart1_growth_by_category.png", P["c1_labels"], P["c1_values"],
               f"{tk}: Q3 2026 sales growth by category at constant currency",
               "Year-on-year growth at constant currency, % · group sales USD 1,632m vs. consensus USD 1,552m (+5.1%)",
-              source_line("Galderma Q3 2026 release", P["asof"], "Categories are operating KPIs, not reported segments",
+              source_line("Galderma Q3 2026 release", P["asof"], "Product categories as reported by Galderma",
                           "Consensus: company-compiled, pre-results"),
               colors=[BLUEB, BLUEB, BLUEB, BLUEB, ORANGE], fmt="{:+.1f}%", zero_line=True)
 

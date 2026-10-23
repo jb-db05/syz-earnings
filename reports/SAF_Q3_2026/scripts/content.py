@@ -27,7 +27,7 @@ C = {
 ],
 
 "H_P1": "What the quarter means for the investment case",
-"P1_PARAGRAPH": "<p>The shares fell 6.2% today, and 9.7% over two sessions, although the quarter was solid: revenue matched consensus and the civil aftermarket kept growing. But unchanged guidance offers no catalyst for upgrades, with consensus operating income already above the range. Near term, jet fuel at $100 or more, the proposed extension of the French surtax and GE&rsquo;s caution feed fears of workscope compression and weaker pricing. The call pushed back: management expects workscopes to &ldquo;remain at this high level next year&rdquo;.</p>",
+"P1_PARAGRAPH": "<p>The shares fell 6.2% today although the quarter was solid: revenue matched consensus and the civil aftermarket kept growing. But unchanged guidance offers no catalyst for upgrades, with consensus already above the range. Jet fuel at $100 or more, the proposed extension of the French surtax and GE&rsquo;s caution feed fears of workscope compression and weaker pricing. The call pushed back: management expects workscopes to &ldquo;remain at this high level next year&rdquo;.</p>",
 
 "C1_TITLE": "SAF: Q3 2026 revenue and 2026 guidance vs. consensus",
 "C1_SUB": "% vs. consensus &middot; Q3: company-compiled consensus &middot; FY26: guidance midpoints vs. consensus per analyst first takes",

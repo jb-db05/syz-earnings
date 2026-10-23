@@ -1,0 +1,94 @@
+{
+ "LOGO": "/home/claude/syz_logo_hq.png",
+ "GRADBAR": "/home/claude/syz_gradbar.png",
+ "DOC_TYPE": "Earnings update",
+ "THEME": "Aerospace and defence",
+ "DATE": "23 October 2026",
+ "TITLE": "Safran Q3 2026: no upgrade, the de-rating overshoots",
+ "QUOTE": "",
+ "QUOTE_WHO": "",
+ "H_P1": "What the quarter means for the investment case",
+ "C1_TITLE": "SAF: Q3 2026 revenue and 2026 guidance vs. consensus",
+ "C1_SUB": "% vs. consensus · Q3: company-compiled consensus · FY26: guidance midpoints vs. consensus per analyst first takes",
+ "BASE_CASE": "We stay positive on Safran and would build positions on this weakness. The earnings path we underwrite is intact: 2026 operating income of EUR 6.4bn to EUR 6.5bn, a 2028 target of EUR 7bn to EUR 7.5bn that management said in July may be revisited, and profits on LEAP-1B maintenance contracts recognised from early 2027, which moves earnings into next year rather than removing them. The debate has moved from engine deliveries to the durability of heavy maintenance spending. The catalyst is 2027 guidance at the full-year results in February 2027. Near term, jet fuel and French tax headlines can keep the shares under pressure.",
+ "UPSIDE": "2027 guidance in February implying operating income growth above 10%; heavy CFM56 shop visits holding, as management expected in July; advance payments on India’s 114 Rafale order, which are not in guidance; LEAP deliveries reaching high-teens growth for 2026.",
+ "DOWNSIDE": "Evidence of workscope compression, with airlines deferring heavy CFM56 shop visits while jet fuel stays above $100; the French surtax extended into 2027 at the 2026 level; LEAP delivery growth short of the high-teens target, pointing to supply-chain strain.",
+ "P2_TITLE": "Beyond the key takeaways",
+ "H_A1": "Results: the aftermarket still carries the group",
+ "H_A2": "Outlook: guidance held, upside pushed to 2027",
+ "H_C2": "Valuation: the multiple has done the adjusting",
+ "C2_TITLE": "SAF: share price vs. consensus earnings and valuation",
+ "C2_SUB": "Weekly, Sep 2005 to 23 Oct 2026 · Bloomberg BEst 12m-forward EPS · 40-week MA · Log scale · Last price: 23 October, intraday, after the release",
+ "SOURCE_LINE": "Source: Syz Research, Bloomberg, Safran Q3 2026 revenue release of 23 October 2026, Safran H1 2026 earnings call of 28 July 2026, analyst research notes of 23 October 2026",
+ "TAKEAWAYS": [
+  {
+   "tag": "pos",
+   "label": "In line",
+   "text": "Q3 revenue of EUR 9.0bn was in line; propulsion aftermarket rose 18.7% and defence beat."
+  },
+  {
+   "tag": "neg",
+   "label": "No raise",
+   "text": "Targets were only confirmed: the EUR 6.45bn operating income midpoint sits 2.1% below consensus."
+  },
+  {
+   "tag": "neg",
+   "label": "Watch",
+   "text": "Jet fuel above $100 and a French surtax worth about EUR 500m this year cloud 2027."
+  },
+  {
+   "tag": "neu",
+   "label": "Valuation",
+   "text": "The shares fell 6.2% to 27.0x forward earnings, below their five-year average of 30.0x."
+  }
+ ],
+ "KPIS": [
+  {
+   "label": "Q3 revenue",
+   "value": "EUR 9.0bn",
+   "sub": "+13.4% organic, in line",
+   "sign": "neu"
+  },
+  {
+   "label": "Propulsion aftermarket",
+   "value": "+18.7%",
+   "sub": "Original equipment +3.5%",
+   "sign": "pos"
+  },
+  {
+   "label": "LEAP deliveries",
+   "value": "535",
+   "sub": "+5% y/y",
+   "sign": "neu"
+  },
+  {
+   "label": "FY26 op. income guide",
+   "value": "EUR 6.4–6.5bn",
+   "sub": "-2.1% vs. consensus",
+   "sign": "neg"
+  }
+ ],
+ "P1_PARAGRAPH": "The quarter itself was sound: revenue matched consensus, the engine aftermarket kept growing close to 20% and defence equipment beat. What disappointed was the absence of a second guidance upgrade after July’s raise, with operating income held at EUR 6.4bn to EUR 6.5bn while consensus already sat above the range. With jet fuel above $100, a French surtax likely to be extended and a cautious read-across from GE, investors now question how long airlines keep spending heavily on engine maintenance.",
+ "C1_COMMENT": "The reported lines were in line or better: group revenue matched the company-compiled consensus within 0.1% and Equipment & Defense beat by 2.5%. Aircraft Interiors missed by 1.3%, as seat certification delays flagged in July persist. The two bars on the right carry the message: confirmed targets sit about 2% below consensus, so estimates edge down rather than up into the full-year results.",
+ "A1_PARAGRAPHS": [
+  "Revenue reached EUR 9.0bn, up 14.7% reported and 13.4% organically, in line with the EUR 8.99bn company-compiled consensus. Propulsion grew 13.2% organically. The mix remains the story: aftermarket revenue rose 18.7% and services 19.0% in dollars, while original equipment grew only 3.5%. LEAP deliveries reached 535 engines, up 5%, a sharp slowdown after 41% growth in the first half, which leaves a heavy fourth quarter to meet the high-teens target for the year. Aftermarket-led growth is good for profit: in the first half it lifted the propulsion margin to a record 24.5%, above the 22% to 24% range, and the group margin to 18.4%.",
+  "Equipment & Defense revenue rose 16% organically to EUR 3.62bn, against EUR 3.53bn expected, the strongest division in the quarter. Reported growth is flattered by the integration of the Collins actuation business and by the transfer of Safran Ventilation Systems from Aircraft Interiors at the start of 2026. Aircraft Interiors grew 6% organically to EUR 751m, against EUR 761m expected; seat deliveries remain capped by certification delays that management in July called an industry issue. Safran reports no profit figures at the third quarter, so the margin read waits for February."
+ ],
+ "A2_PARAGRAPH": "Safran confirmed the 2026 targets raised in July: revenue growth in the mid-teens, recurring operating income of EUR 6.4bn to EUR 6.5bn and free cash flow of EUR 4.7bn to EUR 4.9bn, including about EUR 500m of French surtax. The midpoints sit 2.1% and 1.8% below consensus, so estimates should drift lower. Profit recognition on LEAP-1B maintenance contracts is now expected in early 2027 rather than late 2026: a timing shift that removes a 2026 upside and adds to 2027. In July, management expected heavy CFM56 workscopes to last through 2027 and 2028.",
+ "C1_IMG": "/home/claude/saf/c1_crop.png",
+ "C2_IMG": "/home/claude/saf/c2_crop.png",
+ "C1_ASPECT": 0.312,
+ "C2_ASPECT": 0.5984,
+ "W1": 70,
+ "W2": 88,
+ "C2_COMMENT": "Over 12 months the share price fell 7.9% while consensus forward EPS rose 27.9%: earnings kept rising and the multiple absorbed the whole correction. At 27.0x forward earnings the stock trades 27% above its 21.3x average since 2005, but below its one-year average of 31.7x and its five-year average of 30.0x. The multiple has fallen from 34.9x at the record high of EUR 363.6 on 12 August, and the price sits 10% below its 40-week average of EUR 317. Even a 5% cut to consensus EPS at today’s price would leave the multiple at 28.5x, still below its five-year average.",
+ "DISCLAIMER": [
+  "This communication has been issued and made available to recipients for the purpose of advertising investment services and/or financial instruments. It has been sent for information purposes and cannot be considered as an offer or a personalised recommendation to buy or sell a financial instrument or any other investment or currency. This communication does not constitute investment research within the meaning of regulatory rules applicable in the European Economic Area, or research under the rules of the U.S. Self-Regulatory Organizations.",
+  "This information is made solely for professional and institutional clients as defined by the Swiss Financial Services Act, as well as qualified investors according to the Swiss Collective Investment Schemes Act. It is not intended for retail clients or non-qualified investors and consequently cannot be transmitted to any third party.",
+  "This communication is not directed to any person in any jurisdiction where, by reason of that person’s nationality, residence or otherwise, its dissemination or use is prohibited. It cannot be quoted, reproduced, disclosed, distributed or otherwise referred to, in whole or in part, to any third party without the Bank’s prior written consent.",
+  "This communication may contain information on past performances of a financial product, all kinds of economic and financial valuations and analyses, as well as opinions of the Bank or of third parties. Any market valuations, terms and calculation methods, yields and opinions expressed are subject to change without notice. The information and opinions contained herein have been compiled and provided in good faith, based on information obtained from sources believed to be trustworthy. However, such information has not been independently verified. No guarantee, representation, or warranty of any kind, whether express or implied, is provided by the Bank or by relevant data vendors and other sources with respect to the accuracy, reliability, currentness or exhaustiveness of the information communicated, the methodology employed or the prices contained herein.",
+  "Past performance is not a reliable indicator of current or future results. Any reference to the past performance of an investment does not guarantee its future performance. Fluctuations in exchange rates may adversely affect the value, price or income of any investment.",
+  "Nothing in the present communication constitutes investment, legal, accounting or tax advice. This information is purely objective since it does not take into consideration the personal situation (including financial knowledge and experience), the investment objectives and risk profile of any recipient. Moreover, certain financial instruments mentioned (in particular, but not exclusively, derivatives, options and futures) involve a high risk of loss and may not be suitable. Accordingly, recipients should consult their own advisors on such matters, including but not limited to the possible tax consequences of investing in any financial product mentioned herein, and make their own assessment of the suitability of such investment product.",
+  "Should a recipient make an investment on the basis of the present communication, the recipient alone shall bear the consequences thereof. In no event shall the Bank, its directors, employees, affiliates or agents be held responsible for damages of any kind arising out of the use of all or part of the information provided herein."
+ ]
+}

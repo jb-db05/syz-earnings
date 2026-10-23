@@ -10,7 +10,7 @@ C = {
 "W1": 72, "W2": 94,
 "TITLE": "Safran Q3 2026: a solid engine, no fuel for upgrades",
 
-"QUOTE": "That&rsquo;s what we see, and this is why we are fully confident and basically the end of the year is somehow ballistic now. We are very confident in 2027, and we are still confident in 2028.",
+"QUOTE": "This [the jet fuel price increase] will eat into the profits of the airlines in 2026, but globally, when we compound all the profits of all the airlines, we believe, overall, they are going to stay positive.",
 "QUOTE_WHO": "Olivier Andri&egrave;s, Chief Executive Officer, Q3 2026 revenue call, 23 October 2026",
 
 "TAKEAWAYS": [
@@ -27,7 +27,7 @@ C = {
 ],
 
 "H_P1": "What the quarter means for the investment case",
-"P1_PARAGRAPH": "<p>The quarter was solid: revenue matched consensus and the civil engine aftermarket kept growing strongly. But unchanged guidance offers no catalyst for upgrades, with consensus operating income already above the range. Near term, jet fuel at $100 or more, the proposed extension of the French surtax and GE&rsquo;s caution feed fears of workscope compression and weaker pricing. The call pushed back: workscopes should hold at today&rsquo;s high level, with pricing intact.</p>",
+"P1_PARAGRAPH": "<p>The quarter was solid: revenue matched consensus and the civil engine aftermarket kept growing strongly. But unchanged guidance offers no catalyst for upgrades, with consensus operating income already above the range. Near term, jet fuel at $100 or more, the proposed extension of the French surtax and GE&rsquo;s caution feed fears of workscope compression and weaker pricing. The call pushed back: management expects workscopes to &ldquo;remain at this high level next year&rdquo;.</p>",
 
 "C1_TITLE": "SAF: Q3 2026 revenue and 2026 guidance vs. consensus",
 "C1_SUB": "% vs. consensus &middot; Q3: company-compiled consensus &middot; FY26: guidance midpoints vs. consensus per analyst first takes",
@@ -38,11 +38,11 @@ C = {
 "DOWNSIDE": "Evidence of workscope compression or softer CFM56 pricing in Q4 as airlines absorb jet fuel at $100 or more; the French surtax kept at the 2026 rate, worth EUR 500m or more in 2027; capex above 6% of sales eroding cash conversion.",
 
 "H_A1": "Results: the aftermarket still carries the group",
-"A1_PARAGRAPHS": "<p>Revenue reached EUR 9.0bn, up 14.7% reported and 13.4% organically, in line with the EUR 8.99bn company-compiled consensus; currency added 1.1 points and scope was neutral. Propulsion revenue rose 13% organically to EUR 4.6bn. Civil engine spare parts grew 17% in dollars, below the 24% over nine months because of a strong Q3 2025 base, but up 4% on the second quarter, helped by CFM56 and LEAP pricing. Services grew 19%, led by LEAP maintenance contracts, while military engines declined on the Rafale delivery schedule. LEAP deliveries reached 535, up 5%, and 1,565 over nine months, up 26%, on track for more than 2,100 this year.</p>"
+"A1_PARAGRAPHS": "<p>Revenue reached EUR 9.0bn, up 14.7% reported and 13.4% organically, in line with the EUR 8.99bn company-compiled consensus; currency added 1.1 points and scope was neutral. Propulsion revenue rose 13% organically to EUR 4.6bn. Civil engine spare parts grew 17% in dollars, showing &ldquo;no sign of deceleration&rdquo; according to management: the gap with 24% over nine months reflects a strong Q3 2025 base, and sales rose 4% on Q2. Services grew 19%, led by LEAP maintenance contracts, while military engines declined on the Rafale delivery schedule. LEAP deliveries reached 535, up 5%, and 1,565 over nine months, up 26%, on track for more than 2,100 this year.</p>"
                  "<p>Equipment &amp; Defense revenue rose 16% organically to EUR 3.6bn, ahead of the EUR 3.53bn expected, on strong demand for Hammer guided bombs, optronics, inertial navigation and missile seekers. Aircraft Interiors grew 6% to EUR 751m, against EUR 761m expected; certification still paces seat deliveries and may push some into early 2027. Safran has launched the sale of its cabin business, about EUR 2bn of revenue with positive operating profit and cash flow. Airbus selected the SkyNaute inertial navigation system for the A220, Safran&rsquo;s entry into commercial navigation. No profit figures are reported at the third quarter.</p>",
 
 "H_A2": "Outlook: 2026 held, 2027 rests on price and LEAP",
-"A2_PARAGRAPHS": "<p>Safran confirmed its 2026 targets: revenue growth in the mid-teens, recurring operating income of EUR 6.4bn to EUR 6.5bn and free cash flow of EUR 4.7bn to EUR 4.9bn, despite moving a LEAP-1B profit release in the low hundreds of millions of euros to 2027. Most airlines pass part of the fuel cost on to fares and none has asked to defer deliveries. For 2027, management expects CFM56 shop visits flat at 2,400 and workscopes stable at today&rsquo;s high level, so growth comes from price and LEAP. Capex will exceed 6% of sales every year, and the draft 2027 budget extends the surtax, at a cost of around EUR 400m.</p>",
+"A2_PARAGRAPHS": "<p>Safran confirmed its 2026 targets: revenue growth in the mid-teens, recurring operating income of EUR 6.4bn to EUR 6.5bn and free cash flow of EUR 4.7bn to EUR 4.9bn, despite moving a LEAP-1B profit release in the low hundreds of millions of euros to 2027. Demand for shop visits still &ldquo;exceeds the available capacity&rdquo; and no airline has asked to defer deliveries. For 2027, management expects CFM56 shop visits flat at 2,400 and workscopes stable at today&rsquo;s high level, so growth comes from price and LEAP. Capex will exceed 6% of sales every year, and the draft 2027 budget extends the surtax, at a cost of around EUR 400m.</p>",
 
 "H_C2": "Valuation: the multiple has done the adjusting",
 "C2_TITLE": "SAF: share price vs. consensus earnings and valuation",

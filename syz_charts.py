@@ -174,7 +174,8 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
 def bar_chart(path, labels, values, title, subtitle, footnote, colors=None, fmt="{:+.1f}%", ylabel="",
               zero_line=True, highlight_negative=True):
     """Simple bar archetype for page 1 (e.g. beat/miss by line, revisions by segment). Positive = Blueberry,
-    negative = Tiger Orange (bearish tag colour), unless colors is given."""
+    negative = Tiger Orange (bearish tag colour), unless colors is given. One label size (12) for ticks,
+    category labels and value annotations; the y label takes the legend size (10.5)."""
     vals = np.asarray(values, float)
     if colors is None:
         colors = [ORANGE if (highlight_negative and v < 0) else BLUEB for v in vals]
@@ -188,9 +189,9 @@ def bar_chart(path, labels, values, title, subtitle, footnote, colors=None, fmt=
     for b, v in zip(bars, vals):
         ax.annotate(fmt.format(v), (b.get_x() + b.get_width() / 2, v),
                     xytext=(0, 5 if v >= 0 else -13), textcoords="offset points",
-                    ha="center", fontsize=13, fontweight="bold", color=NAVY)
-    ax.set_xticks(range(len(vals))); ax.set_xticklabels(labels, fontsize=12.5, color=NAVY, fontweight="bold")
-    ax.set_ylabel(ylabel, fontsize=11.5, color=AXIS_TXT, fontweight="bold")
+                    ha="center", fontsize=12, fontweight="bold", color=NAVY)
+    ax.set_xticks(range(len(vals))); ax.set_xticklabels(labels, fontsize=12, color=NAVY, fontweight="bold")
+    ax.set_ylabel(ylabel, fontsize=10.5, color=AXIS_TXT, fontweight="bold")
     header(fig, title, subtitle, footnote)
     fig.savefig(path, dpi=200, facecolor="white"); plt.close(fig)
 

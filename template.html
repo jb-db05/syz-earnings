@@ -6,6 +6,7 @@
 @font-face { font-family: 'Nunito'; src: url('file:///home/claude/fonts/Nunito-Bold.ttf'); font-weight: 700; }
 @font-face { font-family: 'Nunito'; src: url('file:///home/claude/fonts/Nunito-ExtraBold.ttf'); font-weight: 800; }
 
+/* Type scale: exactly four sizes. 17pt titles, 11pt headings, 8.7pt body, 7pt labels/footnotes. */
 @page {
   size: A4;
   margin: 18mm 15mm 12.5mm 15mm;
@@ -25,15 +26,18 @@ body { font-family: 'Nunito'; font-weight: 700; color: #202945; font-size: 8.7pt
 
 .gradbar { height: 3.5px; background: linear-gradient(90deg, #FF6C0E 0%, #FFC545 100%); margin-bottom: 4mm; }
 
-.kicker { font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; color: #FF6C0E; margin-bottom: 1.5mm; }
-.page-title { font-size: 14pt; font-weight: 800; color: #202945; line-height: 1.2; margin-bottom: 3.2mm; }
+.kicker { font-size: 7pt; font-weight: 800; letter-spacing: 1.2px; color: #FF6C0E; margin-bottom: 1.5mm; }
+.page-title { font-size: 17pt; font-weight: 800; color: #202945; line-height: 1.22; margin-bottom: 3.2mm; }
 h1 { font-size: 17pt; font-weight: 800; color: #202945; line-height: 1.22; margin-bottom: 1.5mm; }
-.dateline { font-size: 8.5pt; color: #6B7280; margin-bottom: 3.2mm; }
+.dateline { font-size: 8.7pt; color: #6B7280; margin-bottom: 3.2mm; }
 
 /* Management quote: orange left rule, no fill */
 .quote { border-left: 1.2mm solid #FF6C0E; padding: 1mm 0 1mm 4mm; margin: 0 0 3.2mm 0; }
-.quote p { font-size: 9.8pt; font-weight: 800; color: #202945; line-height: 1.35; text-align: left; margin-bottom: 1mm; }
-.quote .who { font-size: 7.6pt; color: #6B7280; font-weight: 700; }
+.quote p { font-size: 8.7pt; font-weight: 800; color: #202945; line-height: 1.35; text-align: left; margin-bottom: 1mm; }
+.quote .who { font-size: 7pt; color: #6B7280; font-weight: 700; }
+
+/* Company introduction: one short paragraph directly below the quote, body size, no box */
+p.intro { margin-bottom: 3.2mm; }
 
 /* Section heading */
 .sec { break-inside: avoid; break-after: avoid; margin-top: 3.2mm; }
@@ -47,9 +51,9 @@ p { margin-bottom: 2.2mm; text-align: justify; }
 table.kpi { width: 100%; border-collapse: collapse; border: 0.45mm solid #202945; margin: 0 0 3.2mm 0; break-inside: avoid; }
 table.kpi td { width: 25%; padding: 2.2mm 3mm; vertical-align: top; border-left: 0.2mm solid #D6D9DE; }
 table.kpi td:first-child { border-left: none; }
-.kpi .lbl { font-size: 7.2pt; color: #6B7280; margin-bottom: 0.6mm; }
-.kpi .val { font-size: 13pt; font-weight: 800; color: #202945; line-height: 1.1; }
-.kpi .sub { font-size: 7.2pt; margin-top: 0.8mm; color: #4B5F80; }
+.kpi .lbl { font-size: 7pt; color: #6B7280; margin-bottom: 0.6mm; }
+.kpi .val { font-size: 11pt; font-weight: 800; color: #202945; line-height: 1.1; }
+.kpi .sub { font-size: 7pt; margin-top: 0.8mm; color: #4B5F80; }
 .kpi .sub.pos { color: #3BAF90; }
 .kpi .sub.neg { color: #FF6C0E; }
 
@@ -66,21 +70,21 @@ ul.takeaways li span.t { flex: 1 1 auto; text-align: left; }
 table.duo { break-inside: avoid; width: 100%; border-collapse: collapse; margin-top: 1mm; }
 table.duo td { width: 50%; padding: 0 5mm 0 0; vertical-align: top; }
 table.duo td + td { border-left: 0.2mm solid #D6D9DE; padding: 0 0 0 5mm; }
-table.duo .head { font-size: 7.8pt; font-weight: 800; letter-spacing: 1px; color: #FF6C0E; margin-bottom: 1.2mm; }
+table.duo .head { font-size: 7pt; font-weight: 800; letter-spacing: 1px; color: #FF6C0E; margin-bottom: 1.2mm; }
 table.duo p { margin-bottom: 0; text-align: left; }
 
-.chart-title { font-size: 9.5pt; font-weight: 800; color: #202945; margin: 1.5mm 0 1.5mm 0; }
-.chart-sub { font-size: 7.2pt; color: #6B7280; margin: -1mm 0 1.2mm 0; }
+.chart-title { font-size: 8.7pt; font-weight: 800; color: #202945; margin: 1.5mm 0 1.5mm 0; }
+.chart-sub { font-size: 7pt; color: #6B7280; margin: -1mm 0 1.2mm 0; }
 .chart-title .num { color: #FF6C0E; }
 img.chart { width: {{W1}}%; display: block; margin: 0 auto 1.2mm auto; }
 img.c2 { width: {{W2}}%; }
 
 /* Page 3: source + disclaimer, pinned to the bottom of the page */
-.legal { font-size: 6.8pt; color: #9AA0A8; line-height: 1.4; position: absolute; bottom: 0; left: 0; right: 0; }
+.legal { font-size: 7pt; color: #9AA0A8; line-height: 1.4; position: absolute; bottom: 0; left: 0; right: 0; }
 .legal .syz { color: #FF6C0E; font-weight: 800; }
 .legal .src-line { margin-bottom: 4mm; }
 .legal .disc-head { color: #FF6C0E; font-weight: 800; letter-spacing: 1.2px; margin-bottom: 1.5mm; }
-.legal p { font-size: 6.8pt; margin-bottom: 1.6mm; text-align: justify; }
+.legal p { font-size: 7pt; margin-bottom: 1.6mm; text-align: justify; }
 
 .pagebreak { page-break-before: always; }
 </style>
@@ -89,11 +93,13 @@ img.c2 { width: {{W2}}%; }
 
 <!-- PAGE 1: executive investment summary -->
 <div class="gradbar"></div>
-<div class="kicker">{{DOC_TYPE}} &middot; {{THEME}}</div>
+<div class="kicker">{{DOC_TYPE}}</div>
 <h1>{{TITLE}}</h1>
 <div class="dateline">{{DATE}} &middot; Syz Research</div>
 
 {{QUOTE_BLOCK}}
+
+<p class="intro">{{COMPANY_INTRO}}</p>
 
 <div class="sec first"><h2>Key takeaways</h2></div>
 <ul class="takeaways">

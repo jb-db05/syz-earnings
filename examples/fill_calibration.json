@@ -2,11 +2,11 @@
  "LOGO": "/home/claude/syz_logo_hq.png",
  "GRADBAR": "/home/claude/syz_gradbar.png",
  "DOC_TYPE": "Earnings update",
- "THEME": "Semiconductors",
  "DATE": "14 October 2026",
  "TITLE": "ASML Q3 2026: orders confirm the upcycle, valuation leaves little slack",
  "QUOTE": "Illustrative management quote of about twenty to thirty words that captures the tone of the call and the key message to investors.",
  "QUOTE_WHO": "Illustrative Name, CEO, Q3 2026 earnings call, 14 October 2026",
+ "COMPANY_INTRO": "ASML is the sole supplier of extreme ultraviolet lithography systems, the machines that print the most advanced chips. Systems are three quarters of sales; 2025 revenue EUR 32bn. Listed in Amsterdam, market value around EUR 600bn.",
  "TAKEAWAYS": [
   {
    "tag": "pos",
@@ -14,9 +14,9 @@
    "text": "Revenue EUR 9.2bn (+4% vs. consensus) and EPS EUR 7.85 (+6%), driven by EUV mix and services."
   },
   {
-   "tag": "pos",
-   "label": "Raised",
-   "text": "FY26 revenue guide lifted to the top of the EUR 34 to 36bn range; gross margin 52 to 53%."
+   "tag": "neg",
+   "label": "Reaction",
+   "text": "Shares fell 5.1% on the day (sector +0.3%): the Q4 guide, 2% below consensus, outweighed the beat."
   },
   {
    "tag": "neg",
@@ -56,16 +56,16 @@
   }
  ],
  "H_P1": "What the quarter means for the investment case",
- "P1_PARAGRAPH": "Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix shift as structural rather than cyclical, and the guidance for Q4 implies a run-rate above the FY27 consensus. The debate now moves from demand to capacity. Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin.",
+ "P1_PARAGRAPH": "Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix shift as structural rather than cyclical, and the guidance for Q4 implies a run-rate above the FY27 consensus. The debate now moves from demand.",
  "C1_TITLE": "ASML Q3 2026: results vs. consensus",
  "C1_SUB": "Surprise vs. Bloomberg consensus, % · guidance midpoint vs. consensus · illustrative numbers",
  "C1_IMG": "/home/claude/c1_crop.png",
  "C1_ASPECT": 0.312,
- "W1": 74,
- "C1_COMMENT": "Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix shift as structural rather than cyclical, and the guidance for Q4 implies a run-rate above the FY27 consensus. The debate now moves from demand to capacity. Orders of EUR.",
- "BASE_CASE": "Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix shift as structural rather than cyclical, and the guidance for Q4 implies a run-rate above the FY27 consensus. The debate now moves from demand to capacity. Orders of EUR 7.1bn beat consensus by 12%.",
- "UPSIDE": "Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix shift as structural rather than cyclical, and the guidance for Q4 implies a run-rate.",
- "DOWNSIDE": "Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix shift as structural rather than cyclical, and the guidance for Q4 implies a run-rate.",
+ "W1": 66,
+ "C1_COMMENT": "Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix shift as structural rather than cyclical, and the guidance for Q4 implies a run-rate above the FY27 consensus. The.",
+ "BASE_CASE": "Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix shift as structural rather than cyclical, and the guidance for Q4 implies a run-rate above the FY27 consensus. The debate now moves from demand to capacity. Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin.",
+ "UPSIDE": "Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix.",
+ "DOWNSIDE": "Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix.",
  "H_A1": "Results: the beat was mix, not volume",
  "A1_PARAGRAPHS": [
   "Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix shift as structural rather than cyclical, and the guidance for Q4 implies a run-rate above the FY27 consensus. The debate now moves from demand to capacity. Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix shift as structural rather than cyclical, and the guidance for Q4 implies.",
@@ -78,7 +78,7 @@
  "C2_SUB": "ASML NA Equity, weekly · BEst 12m-forward consensus · 40-week simple MA · log scale · P/E shaded above (orange) / below (blue) its 2010 to 2026 average",
  "C2_IMG": "/home/claude/c2_crop.png",
  "C2_ASPECT": 0.5984,
- "W2": 80,
+ "W2": 88,
  "C2_COMMENT": "Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We read the mix shift as structural rather than cyclical, and the guidance for Q4 implies a run-rate above the FY27 consensus. The debate now moves from demand to capacity. Orders of EUR 7.1bn beat consensus by 12% and the EUV share rose to 58%, the highest since Q2 2024, while gross margin reached 53.4% against a guide of 51 to 53%. We.",
  "P2_TITLE": "Beyond the key takeaways",
  "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings",

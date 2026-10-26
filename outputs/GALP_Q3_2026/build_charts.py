@@ -40,9 +40,8 @@ PARAMS = {
     "ticker": "GALP",
     "asof": "26 Oct 2026",
     "window_from": "2022-01-01",          # 2020 EPS collapse pushed the P/E above 130x: anchor on the post-2022 regime
-    # Chart 1: RCA EBITDA, EUR m (company release 26 Oct 2026; consensus as supplied by the user)
-    "c1_labels": ["Q3 2025\nreported", "Q2 2026\nreported", "Q3 2026\nconsensus", "Q3 2026\nreported"],
-    "c1_values": [911, 1272, 1471, 1522],
+    # Chart 1: results-day fall vs. the synergy value analysts assigned to the Moeve deal (EUR per share)
+    "pre_close": 22.96, "post_price": 20.93, "synergy_ps": 1.10,
     "out": "/home/claude/galp",
 }
 
@@ -52,12 +51,16 @@ if __name__ == "__main__":
     daily, w = load_galp(P["xlsx"])
     df = w[w["date"] >= P["window_from"]].reset_index(drop=True)
 
-    sc.bar_chart(f"{P['out']}/GALP_chart1_rca_ebitda.png", P["c1_labels"], P["c1_values"],
-                 f"{P['ticker']}: Q3 2026 RCA EBITDA vs. consensus and history",
-                 "EUR m · replacement cost adjusted (RCA) EBITDA",
-                 sc.source_line("company filings, Bloomberg", P["asof"], "Galp Q3 2026 results release of 26 Oct 2026",
-                                "Consensus: pre-results analyst estimates"),
-                 colors=[sc.BLUEB, sc.BLUEB, sc.BLUEB, sc.ORANGE], fmt="{:,.0f}", zero_line=False)
+    fall = P["pre_close"] - P["post_price"]
+    sc.bar_chart(f"{P['out']}/GALP_chart1_moeve.png",
+                 ["Synergy value\nassigned by analysts", "Results-day\nshare price fall", "Fall beyond\nsynergy value"],
+                 [P["synergy_ps"], fall, fall - P["synergy_ps"]],
+                 f"{P['ticker']}: results-day share price fall vs. lost synergy value",
+                 "EUR per share · Moeve downstream combination terminated on 26 Oct 2026",
+                 sc.source_line("Bloomberg, company filings", P["asof"],
+                                "Synergies: analyst estimates of EUR 750-800m",
+                                "Fall: 23 Oct close to 26 Oct results-day print"),
+                 colors=[sc.BLUEB, sc.ORANGE, sc.ORANGE], fmt="{:.2f}", zero_line=False)
 
     sc._log_ticks = _dense_log_ticks
     with _swap_end_labels():
@@ -68,7 +71,7 @@ if __name__ == "__main__":
                        "200-day (c. 40-week) simple MA", "Log scale",
                        "P/E shaded above (orange) / below (blue) its 2022-26 average"),
         ccy="EUR")
-    sc.crop_for_pdf(f"{P['out']}/GALP_chart1_rca_ebitda.png", f"{P['out']}/c1_crop.png", "bar")
+    sc.crop_for_pdf(f"{P['out']}/GALP_chart1_moeve.png", f"{P['out']}/c1_crop.png", "bar")
     sc.crop_for_pdf(f"{P['out']}/GALP_chart2_price_eps_pe.png", f"{P['out']}/c2_crop.png", "price_eps_pe")
 
     # numbers quoted in the text

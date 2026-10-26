@@ -11,7 +11,7 @@ words = lambda t: len(re.sub(r"<[^>]+>|&\w+;", " ", t).split())
 
 budget = {"QUOTE": (C.QUOTE, 20, 35), "P1": (C.P1, 65, 85), "C1": (C.C1_COMMENT, 55, 65),
           "BASE": (C.BASE_CASE, 95, 110), "UP": (C.UPSIDE, 36, 45), "DOWN": (C.DOWNSIDE, 36, 45),
-          "A1a": (C.A1[0], 100, 115), "A1b": (C.A1[1], 90, 105), "A2": (C.A2, 95, 110), "C2": (C.C2_COMMENT, 85, 100)}
+          "A1a": (C.A1[0], 100, 115), "A1b": (C.A1[1], 90, 105), "A2": (C.A2, 95, 110), "A3": (C.A3, 70, 100), "C2": (C.C2_COMMENT, 85, 100)}
 for k, (t, lo, hi) in budget.items():
     n = words(t); print(f"{k:5s} {n:4d}  [{lo}-{hi}] {'OK' if lo <= n <= hi else 'OUT'}")
 for _, lbl, t in C.TAKEAWAYS:
@@ -28,11 +28,15 @@ fill = {
     "C1_TITLE": C.C1_TITLE, "C1_SUB": C.C1_SUB, "C1_IMG": f"{OUT}/c1_crop.png", "C1_COMMENT": P(C.C1_COMMENT),
     "BASE_CASE": C.BASE_CASE, "UPSIDE": C.UPSIDE, "DOWNSIDE": C.DOWNSIDE,
     "P2_TITLE": C.P2_TITLE, "H_A1": C.H_A1, "A1_PARAGRAPHS": "".join(P(t) for t in C.A1),
-    "H_A2": C.H_A2, "A2_PARAGRAPHS": P(C.A2),
+    "H_A2": C.H_A2, "A2_PARAGRAPHS": P(C.A2), "H_A3": C.H_A3, "A3_PARAGRAPHS": P(C.A3),
     "H_C2": C.H_C2, "C2_TITLE": C.C2_TITLE, "C2_SUB": C.C2_SUB, "C2_IMG": f"{OUT}/c2_crop.png",
     "C2_COMMENT": P(C.C2_COMMENT), "W1": C.W1, "W2": C.W2, "SOURCE_LINE": C.SOURCE_LINE,
 }
 tpl = open("/home/claude/template.html").read()
+if not C.THEME:   # kicker without a sector
+    tpl = tpl.replace("{{DOC_TYPE}} &middot; {{THEME}}</div>", "{{DOC_TYPE}}</div>")
+if C.A3:          # optional third page-2 section (Brazil), same heading and paragraph styles
+    tpl = tpl.replace("{{A2_PARAGRAPHS}}\n", "{{A2_PARAGRAPHS}}\n\n<div class=\"sec\"><h2>{{H_A3}}</h2></div>\n{{A3_PARAGRAPHS}}\n")
 for k, v in fill.items():
     tpl = tpl.replace("{{" + k + "}}", str(v))
 assert "{{" not in tpl, re.findall(r"\{\{(\w+)\}\}", tpl)
@@ -60,7 +64,7 @@ fj = {
     "C1_TITLE": u(C.C1_TITLE), "C1_SUB": u(C.C1_SUB), "C1_IMG": f"{OUT}/c1_crop.png", "C1_ASPECT": asp(f"{OUT}/c1_crop.png"),
     "W1": C.W1_PPTX, "C1_COMMENT": u(C.C1_COMMENT), "BASE_CASE": u(C.BASE_CASE),
     "UPSIDE": u(C.UPSIDE), "DOWNSIDE": u(C.DOWNSIDE), "P2_TITLE": C.P2_TITLE,
-    "H_A1": u(C.H_A1), "A1_PARAGRAPHS": [u(t) for t in C.A1], "H_A2": u(C.H_A2), "A2_PARAGRAPH": u(C.A2),
+    "H_A1": u(C.H_A1), "A1_PARAGRAPHS": [u(t) for t in C.A1], "H_A2": u(C.H_A2), "A2_PARAGRAPH": u(C.A2), "H_A3": u(C.H_A3), "A3_PARAGRAPH": u(C.A3),
     "H_C2": u(C.H_C2), "C2_TITLE": u(C.C2_TITLE), "C2_SUB": u(C.C2_SUB), "C2_IMG": f"{OUT}/c2_crop.png",
     "C2_ASPECT": asp(f"{OUT}/c2_crop.png"), "W2": C.W2_PPTX, "C2_COMMENT": u(C.C2_COMMENT),
     "SOURCE_LINE": u(C.SOURCE_LINE), "DISCLAIMER": [u(" ".join(p.split())) for p in disc],

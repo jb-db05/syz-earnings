@@ -1,0 +1,94 @@
+{
+ "LOGO": "/home/claude/syz_logo_hq.png",
+ "GRADBAR": "/home/claude/syz_gradbar.png",
+ "DOC_TYPE": "Earnings update",
+ "THEME": "Integrated oil and gas",
+ "DATE": "26 October 2026",
+ "TITLE": "Galp Q3 2026: guidance raised, deal dropped, the sell-off goes too far",
+ "QUOTE": "While discussions with Moeve regarding a potential combination of our downstream businesses have concluded without an agreement, Galp’s strategic direction and investment proposition remain unchanged.",
+ "QUOTE_WHO": "Maria João Carioca and João Marques da Silva, co-CEOs, Q3 2026 results release, 26 October 2026",
+ "TAKEAWAYS": [
+  {
+   "tag": "pos",
+   "label": "Beat",
+   "text": "RCA EBITDA of EUR 1,522m rose 67% and came in 3.5% above consensus, led by Bacalhau and refining."
+  },
+  {
+   "tag": "pos",
+   "label": "Raised",
+   "text": "Full-year EBITDA guidance lifted to c.EUR 5bn from c.EUR 4bn, operating cash flow to c.EUR 3.9bn."
+  },
+  {
+   "tag": "neg",
+   "label": "Watch",
+   "text": "Moeve downstream talks ended without a deal, removing c.EUR 1.1 per share of expected synergy value."
+  },
+  {
+   "tag": "neu",
+   "label": "Valuation",
+   "text": "The 8.8% results-day fall leaves 8.4x forward earnings, 27% below the 2022 to 2026 average."
+  }
+ ],
+ "KPIS": [
+  {
+   "label": "RCA EBITDA",
+   "value": "EUR 1,522m",
+   "sub": "+3.5% vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "RCA net income",
+   "value": "EUR 682m",
+   "sub": "+68% year on year",
+   "sign": "pos"
+  },
+  {
+   "label": "FY26 EBITDA guide",
+   "value": "c.EUR 5.0bn",
+   "sub": "+25% vs. prior guide",
+   "sign": "pos"
+  },
+  {
+   "label": "Net debt",
+   "value": "EUR 1.43bn",
+   "sub": "0.35x EBITDA",
+   "sign": "neu"
+  }
+ ],
+ "H_P1": "The debate moves from earnings to Brazil risk",
+ "P1_PARAGRAPH": "Operationally, this was one of Galp’s strongest quarters: the Bacalhau field lifted production 14% and a refining margin of USD 34 per barrel, triple last year’s, drove a 25% guidance upgrade. The market looked past it. The shares fell 8.8% on results day as the end of the Moeve talks removed a catalyst and Brazil’s election-year fiscal noise raised the risk premium on its offshore assets. We think the price now discounts more than the lost deal.",
+ "C1_TITLE": "GALP: Q3 2026 RCA EBITDA vs. consensus and history",
+ "C1_SUB": "EUR m · replacement cost adjusted (RCA) EBITDA, which strips out inventory gains and one-offs · consensus: pre-results analyst estimates",
+ "C1_IMG": "/home/claude/galp/c1_crop.png",
+ "C1_ASPECT": 0.312,
+ "W1": 66,
+ "C1_COMMENT": "RCA EBITDA rose 67% year on year and 20% on the previous quarter to EUR 1,522m, 3.5% ahead of consensus. Upstream contributed EUR 708m and Industrial & Midstream EUR 639m, double last year despite EUR 172m of refining hedge losses. Commercial grew 24% and Renewables tripled to EUR 48m. The beat came from volumes and margins, not one-offs.",
+ "BASE_CASE": "We stay positive on Galp and would use the results-day weakness to add, sized for Brazil political risk. We underwrite the new 2026 guidance of c.EUR 5bn EBITDA and c.EUR 3.9bn operating cash flow, with net debt at 0.35x EBITDA funding a proposed 10% dividend increase to EUR 0.70 and the EUR 250m buyback. The debate is now how much of those earnings Brazil keeps. The 8.8% drop, about EUR 2.0 per share, already exceeds the c.EUR 1.1 of deal value the market had assigned. The next test is Brazil’s post-election stance on the oil export tax.",
+ "UPSIDE": "Brazil lets the temporary oil export tax lapse after the run-off; Bacalhau holds about 160,000 barrels a day gross through the fourth quarter; Q4 EBITDA beats the c.EUR 1.26bn implied by guidance; a larger 2027 buyback at full-year results.",
+ "DOWNSIDE": "The export tax becomes permanent or is raised above 12%, or royalties are reopened under a resource-nationalism agenda; refining margins fall back towards the USD 13 per barrel of the original guidance; capital is redirected into a large, dilutive acquisition after Moeve.",
+ "P2_TITLE": "Beyond the key takeaways",
+ "H_A1": "Results: Bacalhau and refining did the work",
+ "A1_PARAGRAPHS": [
+  "Upstream RCA EBITDA rose 53% to EUR 708m. Working-interest production averaged 131 kboe/d, up 14%, as the Bacalhau FPSO ramped up with four producer wells connected, reaching about 160 kboe/d gross in September and more than offsetting planned turnarounds. Oil realisations rose 32% to USD 87.3/bbl, although the discount to Brent widened to USD 9.7/bbl on freight and softer Asian demand for Brazilian crude. Industrial & Midstream EBITDA doubled to EUR 639m: the refining margin reached USD 34.0/boe against USD 9.5/boe a year ago, on diesel cracks of USD 590/t, with Sines running close to full availability. Margin hedges cost EUR 172m and supply pricing-formula lags a further EUR 125m.",
+  "Commercial EBITDA rose 24% to EUR 147m on B2B sales in Spain; Renewables tripled to EUR 48m on newly acquired wind assets. RCA net income of EUR 682m, about EUR 0.94 per share on our count, rose 68% despite RCA taxes up 79% to EUR 493m, which include Brazil’s temporary oil export tax. IFRS net income was EUR 201m after EUR 453m of special items, mostly derivative mark-to-market. Operating cash flow of EUR 1,223m (+63%) covered EUR 646m of capex, including EUR 420m for Spanish wind, and the EUR 253m interim dividend, leaving net debt at EUR 1.43bn."
+ ],
+ "H_A2": "Outlook: the upgrade leans on the macro deck",
+ "A2_PARAGRAPH": "Management raised 2026 RCA EBITDA guidance to c.EUR 5bn from c.EUR 4bn and operating cash flow to c.EUR 3.9bn from c.EUR 3bn, on Brent at USD 90/bbl (from 80) and a realised refining margin of c.USD 25/boe (from 13). The guide implies Q4 EBITDA of about EUR 1.26bn and, on our arithmetic, a Q4 Brent near USD 78/bbl against USD 97 in Q3. The risk sits in Brazil: the temporary 12% crude export tax costs up to EUR 100m, and the polarised run-off widened the risk premium on pre-salt assets, which in our view complicated valuation talks with Moeve’s shareholders.",
+ "H_C2": "Valuation: earnings ran ahead of the price",
+ "C2_TITLE": "GALP: share price vs. consensus earnings and valuation",
+ "C2_SUB": "GALP PL Equity, weekly from January 2022 (the 2020 earnings collapse lifted the P/E above 130x) · BEst 12m-forward consensus · 200-day (c. 40-week) simple MA · log scale · P/E shaded vs. its 2022 to 2026 average · last price is the 26 October results-day print; consensus EPS not yet revised",
+ "C2_IMG": "/home/claude/galp/c2_crop.png",
+ "C2_ASPECT": 0.5984,
+ "W2": 88,
+ "C2_COMMENT": "Earnings have run well ahead of the share price. Over 12 months, consensus 12m-forward EPS rose 87% to EUR 2.48 while the price gained 24%, so the forward P/E fell from 12.7x to 8.4x, 27% below its 11.6x average since 2022 and under the 10.9x one-year average; results day alone took it down from 9.2x. The price is 10% below its September high of EUR 23.18 but still 6% above its 40-week average. Even if consensus EPS were cut 10% for the export tax, the stock would trade on 9.4x, 19% below its 2022 to 2026 average.",
+ "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings, Galp Q3 2026 results release of 26 October 2026, analyst research notes of 23 October 2026",
+ "DISCLAIMER": [
+  "This communication has been issued and made available to recipients for the purpose of advertising investment services and/or financial instruments. It has been sent for information purposes and cannot be considered as an offer or a personalised recommendation to buy or sell a financial instrument or any other investment or currency. This communication does not constitute investment research within the meaning of regulatory rules applicable in the European Economic Area, or research under the rules of the U.S. Self-Regulatory Organizations.",
+  "This information is made solely for professional and institutional clients as defined by the Swiss Financial Services Act, as well as qualified investors according to the Swiss Collective Investment Schemes Act. It is not intended for retail clients or non-qualified investors and consequently cannot be transmitted to any third party.",
+  "This communication is not directed to any person in any jurisdiction where, by reason of that person’s nationality, residence or otherwise, its dissemination or use is prohibited. It cannot be quoted, reproduced, disclosed, distributed or otherwise referred to, in whole or in part, to any third party without the Bank’s prior written consent.",
+  "This communication may contain information on past performances of a financial product, all kinds of economic and financial valuations and analyses, as well as opinions of the Bank or of third parties. Any market valuations, terms and calculation methods, yields and opinions expressed are subject to change without notice. The information and opinions contained herein have been compiled and provided in good faith, based on information obtained from sources believed to be trustworthy. However, such information has not been independently verified. No guarantee, representation, or warranty of any kind, whether express or implied, is provided by the Bank or by relevant data vendors and other sources with respect to the accuracy, reliability, currentness or exhaustiveness of the information communicated, the methodology employed or the prices contained herein.",
+  "Past performance is not a reliable indicator of current or future results. Any reference to the past performance of an investment does not guarantee its future performance. Fluctuations in exchange rates may adversely affect the value, price or income of any investment.",
+  "Nothing in the present communication constitutes investment, legal, accounting or tax advice. This information is purely objective since it does not take into consideration the personal situation (including financial knowledge and experience), the investment objectives and risk profile of any recipient. Moreover, certain financial instruments mentioned (in particular, but not exclusively, derivatives, options and futures) involve a high risk of loss and may not be suitable. Accordingly, recipients should consult their own advisors on such matters, including but not limited to the possible tax consequences of investing in any financial product mentioned herein, and make their own assessment of the suitability of such investment product.",
+  "Should a recipient make an investment on the basis of the present communication, the recipient alone shall bear the consequences thereof. In no event shall the Bank, its directors, employees, affiliates or agents be held responsible for damages of any kind arising out of the use of all or part of the information provided herein."
+ ]
+}

@@ -31,6 +31,7 @@ Sentence case, no em dashes, Nunito Bold and ExtraBold only, one Space Blue bord
 
 ## Changelog
 
+- **27 Oct 2026**: chart kit accepts a daily Bloomberg export (`load_bloomberg_sheet(..., weekly=True)`, SMAVG (200) as the 40-week MA stand-in), an EPS currency different from the listing currency (`eps_ccy`), a custom MA label (`ma_label`) and a denser EPS tick ladder (`eps_subs`); Novartis Q3 2026 instance in `reports/novartis_q3_2026/`.
 - **26 Oct 2026**: company introduction (25 to 36 words) directly below the quote; mandatory surprise vs. publication-day reaction read, divergence explained with confirmed drivers separated from interpretations; no rating labels or target prices; four-size type scale (17 / 11 / 8.7 / 7 pt) in the PDF template and the PPTX builder; kicker reads "Earnings update" only (no sector, `THEME` removed); page-1 word budgets recalibrated and the PPTX text metric corrected to 0.49 em per character; calibration examples regenerated.
 
 - **15 Oct 2026**: page-2 title "Beyond the key takeaways"; positioning merged into the page-1 base case (no page-2 positioning section); no broker names; quote sourcing order with stockanalysis.com; logo taken from the project file and validated; Chart 1 trading-update variant (order-intake levels); Chart 2 end-label offsets; chart window starts at the first consensus EPS; updated word budgets and W1/W2 ranges; VAT Group Q3 2026 reference instance.

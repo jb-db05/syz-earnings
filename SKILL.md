@@ -148,30 +148,41 @@ def _log_ticks(ax, lo, hi, subs=(1, 2, 5)):
 
 
 # ---------------------------------------------------------------- data loader (Bloomberg weekly export)
-def load_bloomberg_sheet(path, sheet=0):
+def load_bloomberg_sheet(path, sheet=0, weekly=False):
     """Bloomberg export, one row per week, newest first, header row 1:
     Date | <Ticker> - Last Price (R1) | <Ticker> - BEst EPS (L1) | Moving Average(Simple,40,0) | <Ticker> - BEst P/E Ratio
-    Column order is matched by keyword, not position. Returns a DataFrame sorted oldest -> newest."""
+    Column order is matched by keyword, not position. Returns a DataFrame sorted oldest -> newest.
+    A daily export (SMAVG (40) / SMAVG (200) columns) is accepted: the 200-day MA stands in for the 40-week MA
+    and weekly=True keeps the last trading day of each week (EPS forward-filled over Bloomberg gaps)."""
     df = pd.read_excel(path, sheet_name=sheet)
     df = df.dropna(how="all")
     cols = {c: c.lower() for c in df.columns}
-    pick = lambda *keys: next(c for c, l in cols.items() if all(k in l for k in keys))
+    pick = lambda *keys: next((c for c, l in cols.items() if all(k in l for k in keys)), None)
+    ma_col = pick("moving average") or pick("smavg", "200") or pick("smavg")
     out = pd.DataFrame({
         "date": pd.to_datetime(df[pick("date")]),
         "price": pd.to_numeric(df[pick("last price")], errors="coerce"),
         "eps": pd.to_numeric(df[pick("best eps")], errors="coerce"),
-        "ma40": pd.to_numeric(df[pick("moving average")], errors="coerce"),
+        "ma40": pd.to_numeric(df[ma_col], errors="coerce"),
         "pe": pd.to_numeric(df[pick("best p/e")], errors="coerce"),
     }).dropna(subset=["date"]).sort_values("date").reset_index(drop=True)
+    if weekly:
+        out["eps"] = out["eps"].ffill()
+        out = out.dropna(subset=["price"])
+        out = out.groupby(out["date"].dt.to_period("W-FRI")).tail(1).reset_index(drop=True)
     return out
 
 
 # ---------------------------------------------------------------- archetype: price vs. consensus EPS + P/E panel
 def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=None,
-                       p1_title=None, p2_title=None):
+                       p1_title=None, p2_title=None, eps_ccy=None, ma_label="40-week moving average",
+                       eps_subs=(1, 2, 5)):
     """Reference earnings chart. Top: share price (Blueberry, rhs, log) + 40-week MA (dashed) + 12m-forward
     EPS (Orange, lhs, log). Bottom: 12m-forward P/E (Orange) vs. its long-run average (dashed navy), shaded
-    orange above / blue-grey below. df from load_bloomberg_sheet(). Returns the numbers quoted in the labels."""
+    orange above / blue-grey below. df from load_bloomberg_sheet(). Returns the numbers quoted in the labels.
+    eps_ccy: reporting currency of the EPS when it differs from the listing currency (e.g. USD EPS, CHF price).
+    eps_subs: denser ladder (e.g. (1, 2, 3, 5, 7)) when EPS spans less than one decade and shows a single tick."""
+    eps_ccy = eps_ccy or ccy
     x = mdates.date2num(df["date"])
     p1_title = p1_title or f"Share price and consensus 12m-forward EPS (log scale)"
     p2_title = p2_title or "12m-forward P/E"
@@ -186,10 +197,10 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
     # --- top panel: EPS on the left axis, price + MA on a twin right axis, both log
     style_ax(ax1)
     ax1.set_yscale("log")
-    ax1.plot(x, df["eps"], color=ORANGE, linewidth=2.1, zorder=3, label=f"12m-forward EPS, {ccy} (lhs)")
-    ax1.set_ylabel(f"12m-forward EPS ({ccy}, log scale)", fontsize=10, color=ORANGE, fontweight="bold")
+    ax1.plot(x, df["eps"], color=ORANGE, linewidth=2.1, zorder=3, label=f"12m-forward EPS, {eps_ccy} (lhs)")
+    ax1.set_ylabel(f"12m-forward EPS ({eps_ccy}, log scale)", fontsize=10, color=ORANGE, fontweight="bold")
     ax1.tick_params(axis="y", colors=ORANGE)
-    _log_ticks(ax1, float(df["eps"].min()), float(df["eps"].max()))
+    _log_ticks(ax1, float(df["eps"].min()), float(df["eps"].max()), subs=eps_subs)
     ax1.set_title(p1_title, fontsize=12, fontweight="bold", color=NAVY, loc="left", pad=8)
 
     axr = ax1.twinx()
@@ -197,7 +208,7 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
     axr.spines[["top"]].set_visible(False)
     axr.spines[["right", "left", "bottom"]].set_color(SPINE)
     axr.plot(x, df["price"], color=BLUEB, linewidth=1.9, zorder=4, label=f"Share price, {ccy} (rhs)")
-    axr.plot(x, df["ma40"], color=BLUEB, linewidth=1.3, linestyle=DASH, zorder=3, label="40-week moving average (rhs)")
+    axr.plot(x, df["ma40"], color=BLUEB, linewidth=1.3, linestyle=DASH, zorder=3, label=f"{ma_label} (rhs)")
     axr.set_ylabel(f"Share price ({ccy}, log scale)", fontsize=10, color=AXIS_TXT, fontweight="bold")
     axr.tick_params(axis="y", colors=AXIS_TXT, labelsize=9.5, length=3)
     _log_ticks(axr, float(df["price"].min()), float(df["price"].max()), subs=(1, 2.5, 5))

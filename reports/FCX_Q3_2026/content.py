@@ -38,12 +38,12 @@ C1_COMMENT = ("Chart 1 splits the release in two. Everything measured against co
               "sales trimmed by about 2% and 2.5%, and 2027 capital spending raised by USD 0.4bn. Price "
               "flatters the quarter; execution sets the multiple.")
 
-BASE_CASE = ("We stay constructive on Freeport and would add on copper-driven weakness. "
-             "We underwrite volume-led earnings: copper sales up more than 20% in 2027 to about 3.7 "
-             "billion pounds and 10% more in 2028, with Grasberg at 80% of capacity by mid-2027. At USD 6.50 "
-             "copper, management&rsquo;s sensitivities imply roughly USD 17.5bn of annual EBITDA in 2027 to 2028. The "
-             "multiple sits 12% below its 2021 to 2026 average. The next tests "
-             "are the Bagdad investment decision this quarter and fourth-quarter copper sales of 875 million pounds.")
+BASE_CASE = ("We are constructive on Freeport, while the fourth quarter and the short-term copper price are the "
+             "key tests of the investment case. The fourth quarter must deliver 875 million pounds of copper sales, "
+             "29% of the 2026 guide, and keep the USD 1.90 per pound full-year cost guide intact. We underwrite "
+             "volume-led earnings: copper sales up more than 20% in 2027 to about 3.7 billion pounds, with Grasberg at "
+             "80% of capacity by mid-2027. Each USD 0.10 per pound move in copper shifts annual EBITDA by about USD "
+             "390m.")
 UPSIDE = ("Fourth-quarter copper sales at or above 875 million pounds; Grasberg above 70% of capacity at the Q4 "
           "release; Bagdad approved at about USD 4.5bn; 2027 field results that support the 800 million pound "
           "leach aspiration.")

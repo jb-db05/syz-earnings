@@ -8,7 +8,13 @@ from syz_charts import *
 # Short history (Oct 2023 onwards) and a narrow range: denser log ladders and round tick steps, set from here
 # so that the shared kit stays unchanged.
 _log_ticks0, _legend0, _style0 = syz_charts._log_ticks, syz_charts.legend, syz_charts.style_ax
-syz_charts._log_ticks = lambda ax, lo, hi, subs=None: _log_ticks0(ax, lo, hi, (1, 2, 3, 4, 5) if hi < 10 else (1, 2.5, 5, 7.5))
+def _ticks(ax, lo, hi, subs=None):
+    if hi < 10:     # EPS in CHF, 2.5 to 3.7: half steps with one decimal
+        _log_ticks0(ax, lo, hi, (1, 2.5, 3, 3.5, 4))
+        ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f"{v:.1f}"))
+    else:
+        _log_ticks0(ax, lo, hi, (1, 2.5, 5, 7.5))
+syz_charts._log_ticks = _ticks
 def _legend(ax, *a, **k):
     ax.yaxis.set_major_locator(mticker.MultipleLocator(5)); return _legend0(ax, *a, **k)
 def _style(ax, *a, **k):

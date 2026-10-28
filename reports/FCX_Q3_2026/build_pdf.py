@@ -54,7 +54,7 @@ fj = {
     "DOC_TYPE": "Earnings update", "DATE": c.DATE, "TITLE": plain(c.TITLE), "QUOTE": plain(c.QUOTE),
     "QUOTE_WHO": plain(c.QUOTE_WHO), "COMPANY_INTRO": plain(c.COMPANY_INTRO),
     "TAKEAWAYS": [{"tag": t, "label": lab, "text": plain(txt)} for t, lab, txt in c.TAKEAWAYS],
-    "KPIS": [{"label": l, "value": plain(v), "sub": plain(s), "sign": g} for l, v, s, g in c.KPIS],
+    "KPIS": [{"label": plain(l), "value": plain(v), "sub": plain(s), "sign": g} for l, v, s, g in c.KPIS],
     "H_P1": c.H_P1, "P1_PARAGRAPH": plain(c.P1), "C1_TITLE": plain(c.C1_TITLE), "C1_SUB": plain(c.C1_SUB),
     "C1_IMG": fill["C1_IMG"], "C1_ASPECT": aspect(fill["C1_IMG"]), "W1": W1_PPTX, "C1_COMMENT": plain(c.C1_COMMENT),
     "BASE_CASE": plain(c.BASE_CASE), "UPSIDE": plain(c.UPSIDE), "DOWNSIDE": plain(c.DOWNSIDE),

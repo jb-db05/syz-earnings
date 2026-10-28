@@ -7,13 +7,13 @@ QUOTE = ("We can&rsquo;t expect the company to continue to post gross margin rat
 QUOTE_WHO = "Matteo Anversa, Chief Financial Officer, Q2 FY27 earnings call, 27 October 2026"
 
 COMPANY_INTRO = ("Logitech designs mice, keyboards, gaming gear and video-conferencing equipment for consumers and "
-                 "companies, and serves 71% of the Fortune 500. Second-quarter sales were USD 1.22bn. Listed on SIX "
-                 "Swiss Exchange and Nasdaq.")
+                 "companies. Its fiscal year ends in March, so fiscal Q2 2027 covers July to September 2026. Quarterly "
+                 "sales: USD 1.22bn. SIX- and Nasdaq-listed.")
 
 TAKEAWAYS = [
     ("pos", "Beat", "EPS USD 1.51, 15% above consensus; gross margin 45.2% against a guide of about 44%."),
     ("neg", "Reaction", "Shares down 10.5% in early trading on 28 October: the Q3 margin guide outweighed the beat."),
-    ("neg", "Watch", "Q3 gross margin guided at 41% to 42%, about 200bp lower year on year, on freight and components."),
+    ("neg", "Watch", "Q3 (October to December) gross margin guided at 41% to 42%, about 200bp lower year on year."),
     ("neu", "Valuation", "17.5x forward earnings after the fall, 16% below the 2015 to 2026 average of 20.8x."),
 ]
 
@@ -21,33 +21,33 @@ KPIS = [
     ("Adjusted EPS", "USD 1.51", "+15.3% vs. consensus", "pos"),
     ("Sales", "USD 1.22bn", "+0.6% vs. consensus", "pos"),
     ("Gross margin", "45.2%", "About +120bp vs. guide", "pos"),
-    ("Q3 gross margin guide", "41&ndash;42%", "About 370bp below Q2", "neg"),
+    ("Oct&ndash;Dec margin guide", "41&ndash;42%", "About 370bp below Q2", "neg"),
 ]
 
 H_P1 = "What the quarter means for the investment case"
 P1 = ("Earnings per share beat consensus by 15% and sales by 0.6%, yet the shares fell 10.5% in early trading on "
-      "28 October. The guide is the news: third-quarter sales are guided 6% above "
+      "28 October. The guide is the news: October to December sales are guided 6% above "
       "consensus, but gross margin falls to 41% to 42% from 45.2%, and management expects cost pressure to last "
-      "through the fourth quarter.")
+      "until March.")
 
 C1_TITLE = "LOGN: Q2 FY27 results and Q3 guide vs. consensus"
-C1_SUB = ("Surprise in % &middot; guide = midpoint of the range &middot; Q3 operating income vs. consensus from analyst "
-          "first takes")
+C1_SUB = ("Fiscal Q2 = Jul&ndash;Sep 2026, Q3 = Oct&ndash;Dec 2026 &middot; surprise in % &middot; guide = range midpoint "
+          "&middot; Q3 operating income consensus from analyst first takes")
 C1_COMMENT = ("Chart 1 shows why a clean beat did not carry the day. The second-quarter surprises are large, and the "
               "third-quarter sales guide is 6% above consensus because the supplier hit shrank to USD 70m to 80m. Yet "
               "the operating income guide sits 0.7% below consensus: higher sales at a lower margin earn nothing extra.")
 
 BASE_CASE = ("A frustrating quarter: operationally very strong, with share gains and a gross margin well ahead of "
-             "guidance despite weak PC and European markets, yet overshadowed by an outlook clouded by inflation. We "
+             "guidance despite weak PC and European markets, but overshadowed by an inflation-clouded outlook. We "
              "remain constructive, but the fundamental case is exposed to exogenous factors. If freight and "
-             "component inflation persists into fiscal 2028, it would cap the potential for the Swiss-based company. "
-             "Conversely, any easing in inflation would benefit Logitech through logistics and component "
+             "component inflation persists beyond March 2027, the fiscal year-end, it would cap the potential for the Swiss-based company. "
+             "Any easing in inflation would benefit Logitech through logistics and component "
              "costs. We would wait for that signal before adding; the next test is the January release.")
-UPSIDE = ("Fourth-quarter gross margin back above 43% as freight eases; price increases that offset component "
-          "costs; Video Collaboration growth staying above 10%; Europe returning to sales growth after EMEA fell 6% in the "
+UPSIDE = ("January to March gross margin back above 43% as freight eases; price increases that offset component "
+          "costs; Video Collaboration growth above 10%; Europe returning to growth after EMEA fell 6% in the "
           "second quarter.")
-DOWNSIDE = ("Third-quarter gross margin below 41%, or a further cut for the fourth quarter; a full-year operating "
-            "margin below 18%; the supplier shortfall running into the fourth quarter; promotions costing more than "
+DOWNSIDE = ("October to December gross margin below 41%, or a further cut for January to March; a full-year operating "
+            "margin below 18%; the supplier shortfall running into 2027; promotions costing more than "
             "the 50bp guided.")
 
 P2_TITLE = "Beyond the key takeaways"
@@ -67,12 +67,12 @@ A1 = [
      "weeks before the release, to 19.4x forward earnings."),
 ]
 H_A2 = "Outlook: sales resilient, margins step down"
-A2 = ("Third-quarter sales are guided at USD 1,360m to 1,430m, down 5% to flat in constant currency. Management "
-      "puts about 5 points of drag on the supplier incident, now USD 70m to 80m after up to USD 200m in July, and "
+A2 = ("For October to December, sales are guided at USD 1,360m to 1,430m, down 5% to flat in constant currency. Management "
+      "puts about 5 points of drag on the supplier incident, now USD 70m to 80m, and "
       "about 1 point on the Middle East, so underlying demand runs near +4%. Operating income is guided at USD 220m "
       "to 255m. The supplier impact should be largely resolved in the fourth quarter, but freight and component "
       "inflation is expected to persist through year-end. "
-      "The full-year non-GAAP operating margin is still guided to the high end of 15% to 18%, now even excluding "
+      "The full-year non-GAAP operating margin is still guided to the high end of 15% to 18%, even excluding "
       "the USD 61m of tariff refunds.")
 H_C2 = "Valuation: the de-rating has done the work"
 C2_TITLE = "LOGN: share price vs. consensus earnings and valuation"

@@ -37,11 +37,12 @@ C1_COMMENT = ("Chart 1 shows why a clean beat did not carry the day. The second-
               "third-quarter sales guide is 6% above consensus because the supplier hit shrank to USD 70m to 80m. Yet "
               "the operating income guide sits 0.7% below consensus: higher sales at a lower margin earn nothing extra.")
 
-BASE_CASE = ("We remain constructive on Logitech, but would wait for evidence that gross margin stabilises before "
-             "adding. We underwrite flat earnings: a full-year operating margin at the top of the 15% to "
-             "18% range, now without the USD 61m of tariff refunds, while third-quarter gross margin resets to 41% to "
-             "42%. On our arithmetic, 18% needs only about USD 180m of fourth-quarter operating income, below the "
-             "USD 229m to 238m run-rate of the first three quarters. The next test is the January release.")
+BASE_CASE = ("A frustrating quarter: operationally very strong, with share gains and a gross margin well ahead of "
+             "guidance despite weak PC and European markets, yet overshadowed by an outlook clouded by inflation. We "
+             "remain constructive, but the fundamental case is exposed to exogenous factors. If freight and "
+             "component inflation persists into fiscal 2028, it would cap the potential for the Swiss-based company. "
+             "Conversely, any easing in inflation would benefit Logitech through logistics and component "
+             "costs. We would wait for that signal before adding; the next test is the January release.")
 UPSIDE = ("Fourth-quarter gross margin back above 43% as freight eases; price increases that offset component "
           "costs; Video Collaboration growth staying above 10%; Europe returning to sales growth after EMEA fell 6% in the "
           "second quarter.")

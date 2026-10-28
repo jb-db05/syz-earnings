@@ -1,0 +1,94 @@
+{
+ "LOGO": "/home/claude/syz_logo_hq.png",
+ "GRADBAR": "/home/claude/syz_gradbar.png",
+ "DOC_TYPE": "Earnings update",
+ "DATE": "28 October 2026",
+ "TITLE": "Sandoz Q3 2026: margins up, sales miss at a full valuation",
+ "QUOTE": "",
+ "QUOTE_WHO": "",
+ "COMPANY_INTRO": "Sandoz, spun off from Novartis in October 2023, sells generic medicines and biosimilars, copies of biologic drugs. Biosimilars are 34% of sales and Europe 53%. Nine-month 2026 sales USD 8.7bn; SIX-listed, market value around CHF 34bn.",
+ "TAKEAWAYS": [
+  {
+   "tag": "neg",
+   "label": "Miss",
+   "text": "Q3 sales of USD 2.94bn grew 5% at constant currencies, 1.8% below consensus."
+  },
+  {
+   "tag": "neg",
+   "label": "Reaction",
+   "text": "Shares fell 4.0% on 28 October from a record close, after a 42% gain this year."
+  },
+  {
+   "tag": "pos",
+   "label": "Raised",
+   "text": "Core EBITDA margin guide raised to 23.0–23.5% from about 22.7%; sales growth narrowed to 5–6%."
+  },
+  {
+   "tag": "neu",
+   "label": "Valuation",
+   "text": "23.3x forward earnings, 38% above the average since the 2023 listing, after a 23% rise since August."
+  }
+ ],
+ "KPIS": [
+  {
+   "label": "Net sales",
+   "value": "USD 2.94bn",
+   "sub": "-1.8% vs. consensus",
+   "sign": "neg"
+  },
+  {
+   "label": "Biosimilars",
+   "value": "USD 998m",
+   "sub": "-2% vs. consensus",
+   "sign": "neg"
+  },
+  {
+   "label": "2026 sales growth guide",
+   "value": "5–6% CC",
+   "sub": "Narrowed, lower end",
+   "sign": "neg"
+  },
+  {
+   "label": "2026 core EBITDA margin",
+   "value": "23.0–23.5%",
+   "sub": "+55bp vs. prior guide",
+   "sign": "pos"
+  }
+ ],
+ "H_P1": "A margin upgrade meets a full valuation",
+ "P1_PARAGRAPH": "Q3 sales missed consensus by 1.8%, Sandoz narrowed its 2026 growth guide to the low end of its range, and the shares fell 4.0% on 28 October. The fall is large for the size of the miss, since the higher margin guide points to earnings estimates 1% to 3% higher. The stock entered the release at a record 24.3x forward earnings.",
+ "C1_TITLE": "SDZ: Q3 2026 sales growth by business and region",
+ "C1_SUB": "Net sales growth at constant currencies, % · group ex B2B excludes the anti-infective active ingredient headwind · company figures",
+ "C1_IMG": "/home/claude/sdz/c1_crop.png",
+ "C1_ASPECT": 0.312,
+ "W1": 70,
+ "C1_COMMENT": "Biosimilars grew 17% and now make up 34% of sales, carried by Wyost and Jubbonti in North America, where sales rose 20%. Generics were flat, held back by lower penicillin ingredient prices; excluding that B2B headwind, group growth was 7%. Europe grew 1%, slowed by biosimilar supply tightness and a difficult German market.",
+ "BASE_CASE": "We stay positive on Sandoz and keep the position. We underwrite consensus forward EPS of USD 4.08, 27% above a year ago, carried by the biosimilar mix and the higher margin guide. The debate has moved from growth to supply: biosimilar capacity stays tight until 2027 and the German market is unsettled. At 23.3x, the valuation leaves little room for further sales misses, and we expect the shares to follow earnings upgrades from here. The next test is the full-year results in March 2027, with the first 2027 guidance.",
+ "UPSIDE": "Biosimilar supply restored ahead of the 2027 target, with European growth back above 5%; the anti-infective headwind gone in Q4 as guided; a 2027 core EBITDA margin guide above 24%, helped by generic semaglutide launches.",
+ "DOWNSIDE": "Q4 sales growth below 4% at constant currencies, leaving 2026 under the new 5% floor; supply limits lasting into the second half of 2027; further German price cuts or tender losses that keep European growth near zero.",
+ "P2_TITLE": "Beyond the key takeaways",
+ "H_A1": "Results: biosimilars grew, generics stalled",
+ "A1_PARAGRAPHS": [
+  "Net sales rose 4% in dollars and 5% at constant currencies to USD 2.94bn. Biosimilars grew 17% at constant currencies to USD 998m, supported by Wyost and Jubbonti in the US, with shares of 56% and 49% of their biosimilar markets, and by the European launch of Afqlir, at 73% share across 22 markets. Generics were flat at USD 1.94bn: lower prices for penicillin active ingredients, after Chinese suppliers cut prices following US tariffs, weighed on the anti-infective B2B business. Excluding that effect, generics grew 2% and the group 7%. Over nine months, sales rose 5% to USD 8.70bn, with volumes up 10% and prices down 5%.",
+  "Sales were 1.8% below consensus, with biosimilars 2% short and generics 1.8% short, and the shares fell 4.0% on 28 October. The move is large for a sales miss of this size combined with a higher margin guide, so surprise and reaction diverge in degree. The confirmed drivers are the narrowed sales guide, now at the lower end of the earlier range, and the shortfall in European biosimilar supply. We think positioning explains the rest: the shares closed at a record CHF 82.36 two days before the release, up 23% since the H1 results, on 24.5x forward earnings."
+ ],
+ "H_A2": "Outlook: margin guide up, sales range narrowed",
+ "A2_PARAGRAPH": "Sandoz now expects 2026 sales growth of 5% to 6% at constant currencies, against mid-to-high single digits before, and a core EBITDA margin of 23.0% to 23.5%, against an earlier target of about 22.7% and 21.7% in 2025. With a first-half margin of 20.9%, the new range implies a second-half margin of about 25% on our estimates. Management expects the anti-infective headwind to become immaterial from Q4 and the biosimilar supply constraints to ease by 2027 as partners add capacity. Generic semaglutide shipped to Brazil and won approval in Canada; it adds nothing material in 2026 and becomes a growth driver in 2027.",
+ "H_C2": "Valuation: the multiple ran ahead of earnings",
+ "C2_TITLE": "SDZ: share price vs. consensus earnings and valuation",
+ "C2_SUB": "SDZ SW Equity, daily data resampled to weekly, from October 2023 · BEst 12m-forward consensus, EPS converted to CHF as price divided by P/E · 40-week simple MA · log scale · P/E shaded above (orange) / below (blue) its average since October 2023 · last price as of 28 October, the release day",
+ "C2_IMG": "/home/claude/sdz/c2_crop.png",
+ "C2_ASPECT": 0.5984,
+ "W2": 88,
+ "C2_COMMENT": "Over 12 months the share price rose 58% while consensus forward EPS rose 27% in dollars, so most of the gain came from the multiple. Since the H1 results on 5 August the price is up 23% and EPS in francs 4%, taking the forward P/E from 19.8x to a record 24.5x on 26 October. It now stands at 23.3x, 38% above the 16.9x average since the 2023 listing and above the 21.0x one-year average. The price is 17% above its 40-week average of CHF 67.5. A 10% upgrade at today’s price would bring the multiple to 21.2x.",
+ "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings, Sandoz results release of 28 October 2026, Finanz und Wirtschaft and AWP of 28 October 2026, analyst research notes of 16 and 28 October 2026",
+ "DISCLAIMER": [
+  "This communication has been issued and made available to recipients for the purpose of advertising investment services and/or financial instruments. It has been sent for information purposes and cannot be considered as an offer or a personalised recommendation to buy or sell a financial instrument or any other investment or currency. This communication does not constitute investment research within the meaning of regulatory rules applicable in the European Economic Area, or research under the rules of the U.S. Self-Regulatory Organizations.",
+  "This information is made solely for professional and institutional clients as defined by the Swiss Financial Services Act, as well as qualified investors according to the Swiss Collective Investment Schemes Act. It is not intended for retail clients or non-qualified investors and consequently cannot be transmitted to any third party.",
+  "This communication is not directed to any person in any jurisdiction where, by reason of that person’s nationality, residence or otherwise, its dissemination or use is prohibited. It cannot be quoted, reproduced, disclosed, distributed or otherwise referred to, in whole or in part, to any third party without the Bank’s prior written consent.",
+  "This communication may contain information on past performances of a financial product, all kinds of economic and financial valuations and analyses, as well as opinions of the Bank or of third parties. Any market valuations, terms and calculation methods, yields and opinions expressed are subject to change without notice. The information and opinions contained herein have been compiled and provided in good faith, based on information obtained from sources believed to be trustworthy. However, such information has not been independently verified. No guarantee, representation, or warranty of any kind, whether express or implied, is provided by the Bank or by relevant data vendors and other sources with respect to the accuracy, reliability, currentness or exhaustiveness of the information communicated, the methodology employed or the prices contained herein.",
+  "Past performance is not a reliable indicator of current or future results. Any reference to the past performance of an investment does not guarantee its future performance. Fluctuations in exchange rates may adversely affect the value, price or income of any investment.",
+  "Nothing in the present communication constitutes investment, legal, accounting or tax advice. This information is purely objective since it does not take into consideration the personal situation (including financial knowledge and experience), the investment objectives and risk profile of any recipient. Moreover, certain financial instruments mentioned (in particular, but not exclusively, derivatives, options and futures) involve a high risk of loss and may not be suitable. Accordingly, recipients should consult their own advisors on such matters, including but not limited to the possible tax consequences of investing in any financial product mentioned herein, and make their own assessment of the suitability of such investment product.",
+  "Should a recipient make an investment on the basis of the present communication, the recipient alone shall bear the consequences thereof. In no event shall the Bank, its directors, employees, affiliates or agents be held responsible for damages of any kind arising out of the use of all or part of the information provided herein."
+ ]
+}

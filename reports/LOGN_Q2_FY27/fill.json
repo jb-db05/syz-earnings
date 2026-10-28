@@ -1,0 +1,94 @@
+{
+ "LOGO": "/home/claude/syz_logo_hq.png",
+ "GRADBAR": "/home/claude/syz_gradbar.png",
+ "DOC_TYPE": "Earnings update",
+ "DATE": "28 October 2026",
+ "TITLE": "Logitech Q2 FY27: margin beat, then a margin reset",
+ "QUOTE": "We can’t expect the company to continue to post gross margin rates of the tune of 45%. This is simply not reality, right?",
+ "QUOTE_WHO": "Matteo Anversa, Chief Financial Officer, Q2 FY27 earnings call, 27 October 2026",
+ "COMPANY_INTRO": "Logitech designs mice, keyboards, gaming gear and video-conferencing equipment for consumers and companies, and serves 71% of the Fortune 500. Second-quarter sales were USD 1.22bn. Listed on SIX Swiss Exchange and Nasdaq.",
+ "TAKEAWAYS": [
+  {
+   "tag": "pos",
+   "label": "Beat",
+   "text": "EPS USD 1.51, 15% above consensus; gross margin 45.2% against a guide of about 44%."
+  },
+  {
+   "tag": "neg",
+   "label": "Reaction",
+   "text": "Shares down 10.5% in early trading on 28 October: the Q3 margin guide outweighed the beat."
+  },
+  {
+   "tag": "neg",
+   "label": "Watch",
+   "text": "Q3 gross margin guided at 41% to 42%, about 200bp lower year on year, on freight and components."
+  },
+  {
+   "tag": "neu",
+   "label": "Valuation",
+   "text": "17.5x forward earnings after the fall, 16% below the 2015 to 2026 average of 20.8x."
+  }
+ ],
+ "KPIS": [
+  {
+   "label": "Adjusted EPS",
+   "value": "USD 1.51",
+   "sub": "+15.3% vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "Sales",
+   "value": "USD 1.22bn",
+   "sub": "+0.6% vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "Gross margin",
+   "value": "45.2%",
+   "sub": "About +120bp vs. guide",
+   "sign": "pos"
+  },
+  {
+   "label": "Q3 gross margin guide",
+   "value": "41–42%",
+   "sub": "About 370bp below Q2",
+   "sign": "neg"
+  }
+ ],
+ "H_P1": "What the quarter means for the investment case",
+ "P1_PARAGRAPH": "Earnings per share beat consensus by 15% and sales by 0.6%, yet the shares fell 10.5% in early trading on 28 October. The guide is the news: third-quarter sales are guided 6% above consensus, but gross margin falls to 41% to 42% from 45.2%, and management expects cost pressure to last through the fourth quarter.",
+ "C1_TITLE": "LOGN: Q2 FY27 results and Q3 guide vs. consensus",
+ "C1_SUB": "Surprise in % · guide = midpoint of the range · Q3 operating income vs. consensus from analyst first takes",
+ "C1_IMG": "/home/claude/logn/c1_crop.png",
+ "C1_ASPECT": 0.312,
+ "W1": 66,
+ "C1_COMMENT": "Chart 1 shows why a clean beat did not carry the day. The second-quarter surprises are large, and the third-quarter sales guide is 6% above consensus because the supplier hit shrank to USD 70m to 80m. Yet the operating income guide sits 0.7% below consensus: higher sales at a lower margin earn nothing extra.",
+ "BASE_CASE": "We remain constructive on Logitech, but would wait for evidence that gross margin stabilises before adding. We underwrite flat earnings: a full-year operating margin at the top of the 15% to 18% range, now without the USD 61m of tariff refunds, while third-quarter gross margin resets to 41% to 42%. On our arithmetic, 18% needs only about USD 180m of fourth-quarter operating income, below the USD 229m to 238m run-rate of the first three quarters. The next test is the January release.",
+ "UPSIDE": "Fourth-quarter gross margin back above 43% as freight eases; price increases that offset component costs; Video Collaboration growth staying above 10%; Europe returning to sales growth after EMEA fell 6% in the second quarter.",
+ "DOWNSIDE": "Third-quarter gross margin below 41%, or a further cut for the fourth quarter; a full-year operating margin below 18%; the supplier shortfall running into the fourth quarter; promotions costing more than the 50bp guided.",
+ "P2_TITLE": "Beyond the key takeaways",
+ "H_A1": "Results: mix and price drove the beat",
+ "A1_PARAGRAPHS": [
+  "Sales rose 2% in constant currency to USD 1.22bn, inside the 0% to 3% guide; excluding the supplier incident and the Middle East, underlying growth was about 4%. Video Collaboration grew 12%, 60% from price and 40% from units, Gaming 7%, and pointing devices and keyboards 4% while PC shipments fell about 20%. The Americas grew 13%, Asia Pacific fell 2% against a large Japanese education deal and EMEA fell 6%. Gross margin of 45.2%, up 140bp, beat the guide by about 120bp on mix, premium products and lighter promotions. Non-GAAP operating income of USD 231m was USD 21m above the top of the USD 185m to 210m guide.",
+  "A 15% earnings beat met a 10.5% fall in early trading on 28 October: surprise and reaction diverge. The confirmed drivers sit in the guide: third-quarter gross margin of 41% to 42%, about 200bp lower year on year, of which 150bp from freight and materials and 50bp from promotions; an operating income midpoint of USD 238m, 0.7% below consensus according to analyst first takes; and a CFO who called a 45% gross margin unrealistic while inflation lasts. Positioning added to the move, in our reading: the shares had risen 12% in the two weeks before the release, to 19.4x forward earnings."
+ ],
+ "H_A2": "Outlook: sales resilient, margins step down",
+ "A2_PARAGRAPH": "Third-quarter sales are guided at USD 1,360m to 1,430m, down 5% to flat in constant currency. Management puts about 5 points of drag on the supplier incident, now USD 70m to 80m after up to USD 200m in July, and about 1 point on the Middle East, so underlying demand runs near +4%. Operating income is guided at USD 220m to 255m. The supplier impact should be largely resolved in the fourth quarter, but freight and component inflation is expected to persist through year-end. The full-year non-GAAP operating margin is still guided to the high end of 15% to 18%, now even excluding the USD 61m of tariff refunds.",
+ "H_C2": "Valuation: the de-rating has done the work",
+ "C2_TITLE": "LOGN: share price vs. consensus earnings and valuation",
+ "C2_SUB": "Weekly since 2015 · 12m-forward consensus EPS in CHF (price / P/E) · 40-week MA · log scale · last price 28 Oct, early trading",
+ "C2_IMG": "/home/claude/logn/c2_crop.png",
+ "C2_ASPECT": 0.5984,
+ "W2": 88,
+ "C2_COMMENT": "The share price is down 7% over 12 months while consensus 12m-forward EPS in Swiss francs is up 20%, so the multiple has absorbed the disappointment: the forward P/E has fallen from 22.6x a year ago to 17.5x, 16% below its 20.8x average since 2015 and below the one-year average of 18.2x. Before the release it stood at 19.4x. The price remains 3% above its 40-week moving average of CHF 80.0 and 19% below the June high of CHF 101.15. A return to the long-run average on unchanged earnings would imply a share price near CHF 98.",
+ "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings, Logitech Q2 FY27 results and earnings call of 27 October 2026, analyst research notes of 28 October 2026",
+ "DISCLAIMER": [
+  "This communication has been issued and made available to recipients for the purpose of advertising investment services and/or financial instruments. It has been sent for information purposes and cannot be considered as an offer or a personalised recommendation to buy or sell a financial instrument or any other investment or currency. This communication does not constitute investment research within the meaning of regulatory rules applicable in the European Economic Area, or research under the rules of the U.S. Self-Regulatory Organizations.",
+  "This information is made solely for professional and institutional clients as defined by the Swiss Financial Services Act, as well as qualified investors according to the Swiss Collective Investment Schemes Act. It is not intended for retail clients or non-qualified investors and consequently cannot be transmitted to any third party.",
+  "This communication is not directed to any person in any jurisdiction where, by reason of that person’s nationality, residence or otherwise, its dissemination or use is prohibited. It cannot be quoted, reproduced, disclosed, distributed or otherwise referred to, in whole or in part, to any third party without the Bank’s prior written consent.",
+  "This communication may contain information on past performances of a financial product, all kinds of economic and financial valuations and analyses, as well as opinions of the Bank or of third parties. Any market valuations, terms and calculation methods, yields and opinions expressed are subject to change without notice. The information and opinions contained herein have been compiled and provided in good faith, based on information obtained from sources believed to be trustworthy. However, such information has not been independently verified. No guarantee, representation, or warranty of any kind, whether express or implied, is provided by the Bank or by relevant data vendors and other sources with respect to the accuracy, reliability, currentness or exhaustiveness of the information communicated, the methodology employed or the prices contained herein.",
+  "Past performance is not a reliable indicator of current or future results. Any reference to the past performance of an investment does not guarantee its future performance. Fluctuations in exchange rates may adversely affect the value, price or income of any investment.",
+  "Nothing in the present communication constitutes investment, legal, accounting or tax advice. This information is purely objective since it does not take into consideration the personal situation (including financial knowledge and experience), the investment objectives and risk profile of any recipient. Moreover, certain financial instruments mentioned (in particular, but not exclusively, derivatives, options and futures) involve a high risk of loss and may not be suitable. Accordingly, recipients should consult their own advisors on such matters, including but not limited to the possible tax consequences of investing in any financial product mentioned herein, and make their own assessment of the suitability of such investment product.",
+  "Should a recipient make an investment on the basis of the present communication, the recipient alone shall bear the consequences thereof. In no event shall the Bank, its directors, employees, affiliates or agents be held responsible for damages of any kind arising out of the use of all or part of the information provided herein."
+ ]
+}

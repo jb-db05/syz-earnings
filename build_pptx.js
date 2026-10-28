@@ -101,9 +101,9 @@ for (const t of F.TAKEAWAYS) {
 }
 y += 0.08;
 
-// key numbers strip: the only box on the page
+// key numbers strip: first of the two rounded boxes on the page
 const kh = 0.70;
-s.addShape(pres.ShapeType.rect, { x: ML, y, w: CW, h: kh, fill: { color: WHITE }, line: { color: NAVY, width: 1.3 } });
+s.addShape(pres.ShapeType.roundRect, { x: ML, y, w: CW, h: kh, rectRadius: 0.1, fill: { color: WHITE }, line: { color: NAVY, width: 1.3 } });
 F.KPIS.forEach((k, i) => {
   const cx = ML + (CW / 4) * i, cw = CW / 4;
   if (i > 0) s.addShape(pres.ShapeType.line, { x: cx, y: y, w: 0, h: kh, line: { color: HAIR, width: 0.6 } });
@@ -118,18 +118,24 @@ y = para(s, y, F.P1_PARAGRAPH);
 y = chartTitle(s, y, 1, F.C1_TITLE, F.C1_SUB);
 y = chart(s, y, F.C1_IMG, F.W1, F.C1_ASPECT);
 y = para(s, y, F.C1_COMMENT);
-y += 0.04;
-y = h2(s, y, "Base case and implications");
-y = para(s, y, F.BASE_CASE);
-y += 0.04;
-const colW = CW / 2 - 0.2;
+y += 0.02;
+// base case + strengthen/change in one rounded box (padding PX / PY)
+const PX = 0.13, PY = 0.07, BX = ML + PX, BW = CW - 2 * PX;
+const boxTop = y;
+y += PY;
+s.addText("Base case and implications", { x: BX, y, w: BW, h: 0.24, fontFace: FONT, fontSize: T_HEAD, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top" });
+y += 0.24 + 0.03;
+y = para(s, y, F.BASE_CASE, { x: BX, w: BW });
+y += 0.02;
+const colW = BW / 2 - 0.2;
 const uh = hOf(F.UPSIDE, T_BODY, colW), dh = hOf(F.DOWNSIDE, T_BODY, colW), ch = Math.max(uh, dh) + 0.22;
-s.addShape(pres.ShapeType.line, { x: ML + CW / 2, y, w: 0, h: ch, line: { color: HAIR, width: 0.6 } });
-s.addText("What would strengthen our view", { x: ML, y, w: colW, h: 0.17, fontFace: FONT, fontSize: T_LABEL, color: ORANGE, bold: true, charSpacing: 1, margin: 0, isTextBox: true, valign: "top" });
-s.addText(F.UPSIDE, { x: ML, y: y + 0.21, w: colW, h: uh, fontFace: FONT, fontSize: T_BODY, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(LH) });
-s.addText("What would change our view", { x: ML + CW / 2 + 0.2, y, w: colW, h: 0.17, fontFace: FONT, fontSize: T_LABEL, color: ORANGE, bold: true, charSpacing: 1, margin: 0, isTextBox: true, valign: "top" });
-s.addText(F.DOWNSIDE, { x: ML + CW / 2 + 0.2, y: y + 0.21, w: colW, h: dh, fontFace: FONT, fontSize: T_BODY, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(LH) });
-y += ch;
+s.addShape(pres.ShapeType.line, { x: BX + BW / 2, y, w: 0, h: ch, line: { color: HAIR, width: 0.6 } });
+s.addText("What would strengthen our view", { x: BX, y, w: colW, h: 0.17, fontFace: FONT, fontSize: T_LABEL, color: ORANGE, bold: true, charSpacing: 1, margin: 0, isTextBox: true, valign: "top" });
+s.addText(F.UPSIDE, { x: BX, y: y + 0.21, w: colW, h: uh, fontFace: FONT, fontSize: T_BODY, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(LH) });
+s.addText("What would change our view", { x: BX + BW / 2 + 0.2, y, w: colW, h: 0.17, fontFace: FONT, fontSize: T_LABEL, color: ORANGE, bold: true, charSpacing: 1, margin: 0, isTextBox: true, valign: "top" });
+s.addText(F.DOWNSIDE, { x: BX + BW / 2 + 0.2, y: y + 0.21, w: colW, h: dh, fontFace: FONT, fontSize: T_BODY, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(LH) });
+y += ch + PY;
+s.addShape(pres.ShapeType.roundRect, { x: ML, y: boxTop, w: CW, h: y - boxTop, rectRadius: 0.1, fill: { type: "none" }, line: { color: NAVY, width: 1.3 } });
 console.log("page 1 bottom:", y.toFixed(2), "limit:", (H - MB - 0.25).toFixed(2));
 
 // ================= PAGE 2

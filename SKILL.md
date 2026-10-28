@@ -1,6 +1,6 @@
 ---
 name: "syz-earnings"
-description: "Produce Syz post-earnings investment updates (Earnings update as PDF and portrait A4 PowerPoint with the same visual: page 1 executive investment summary for all clients with a company introduction under the quote, page 2 'Beyond the key takeaways' in-depth analysis with the share price vs. consensus EPS and P/E chart, page 3 disclaimer) from a Bloomberg weekly export. Use for any 'Syz Earnings' request or post-results company update; keep using syz-visual for 'Syz Visual' macro Research Comments."
+description: "Produce Syz post-earnings investment updates (Earnings update as PDF and portrait A4 PowerPoint with the same visual: page 1 executive investment summary for all clients with a company introduction under the quote and two rounded boxes (key numbers, base case with the strengthen/change columns), page 2 'Beyond the key takeaways' in-depth analysis with the share price vs. consensus EPS and P/E chart, page 3 disclaimer) from a Bloomberg weekly export. Use for any 'Syz Earnings' request or post-results company update; keep using syz-visual for 'Syz Visual' macro Research Comments."
 ---
 
 # Syz Earnings: post-earnings investment update
@@ -356,9 +356,10 @@ h2 { font-size: 11pt; font-weight: 800; color: #202945; line-height: 1.2; margin
 
 p { margin-bottom: 2.2mm; text-align: justify; }
 
-/* Key numbers: the only boxed element on page 1. One Space Blue border, straight corners, no fill,
+/* Key numbers: first of the two boxes on page 1. One Space Blue border, 2.5mm rounded corners, no fill,
    four columns separated by hairlines */
-table.kpi { width: 100%; border-collapse: collapse; border: 0.45mm solid #202945; margin: 0 0 3.2mm 0; break-inside: avoid; }
+div.kpiwrap { border: 0.45mm solid #202945; border-radius: 2.5mm; margin: 0 0 3.2mm 0; break-inside: avoid; overflow: hidden; }
+table.kpi { width: 100%; border-collapse: collapse; }
 table.kpi td { width: 25%; padding: 2.2mm 3mm; vertical-align: top; border-left: 0.2mm solid #D6D9DE; }
 table.kpi td:first-child { border-left: none; }
 .kpi .lbl { font-size: 7pt; color: #6B7280; margin-bottom: 0.6mm; }
@@ -376,7 +377,9 @@ ul.takeaways li { display: flex; align-items: baseline; margin-bottom: 1.3mm; }
 .tag.neu { color: #4B5F80; }
 ul.takeaways li span.t { flex: 1 1 auto; text-align: left; }
 
-/* Strengthen / change: two text columns with a hairline divider, no boxes */
+/* Base case box: rounded Space Blue border holding the heading, the paragraph and the strengthen / change columns */
+div.casebox { border: 0.45mm solid #202945; border-radius: 2.5mm; padding: 2.4mm 3.2mm 2.6mm 3.2mm; margin-top: 3.2mm; break-inside: avoid; }
+div.casebox .sec { margin-top: 0; }
 table.duo { break-inside: avoid; width: 100%; border-collapse: collapse; margin-top: 1mm; }
 table.duo td { width: 50%; padding: 0 5mm 0 0; vertical-align: top; }
 table.duo td + td { border-left: 0.2mm solid #D6D9DE; padding: 0 0 0 5mm; }
@@ -416,9 +419,9 @@ img.c2 { width: {{W2}}%; }
 {{TAKEAWAYS}}
 </ul>
 
-<table class="kpi"><tr>
+<div class="kpiwrap"><table class="kpi"><tr>
 {{KPI_TILES}}
-</tr></table>
+</tr></table></div>
 
 <div class="sec"><h2>{{H_P1}}</h2></div>
 {{P1_PARAGRAPH}}
@@ -428,13 +431,14 @@ img.c2 { width: {{W2}}%; }
 <img class="chart" src="file://{{C1_IMG}}">
 {{C1_COMMENT}}
 
+<div class="casebox">
 <div class="sec"><h2>Base case and implications</h2></div>
 <p>{{BASE_CASE}}</p>
-
 <table class="duo"><tr>
   <td><div class="head">What would strengthen our view</div><p>{{UPSIDE}}</p></td>
   <td><div class="head">What would change our view</div><p>{{DOWNSIDE}}</p></td>
 </tr></table>
+</div>
 
 <!-- PAGE 2: in-depth analysis -->
 <div class="pagebreak"></div>
@@ -608,9 +612,9 @@ for (const t of F.TAKEAWAYS) {
 }
 y += 0.08;
 
-// key numbers strip: the only box on the page
+// key numbers strip: first of the two rounded boxes on the page
 const kh = 0.70;
-s.addShape(pres.ShapeType.rect, { x: ML, y, w: CW, h: kh, fill: { color: WHITE }, line: { color: NAVY, width: 1.3 } });
+s.addShape(pres.ShapeType.roundRect, { x: ML, y, w: CW, h: kh, rectRadius: 0.1, fill: { color: WHITE }, line: { color: NAVY, width: 1.3 } });
 F.KPIS.forEach((k, i) => {
   const cx = ML + (CW / 4) * i, cw = CW / 4;
   if (i > 0) s.addShape(pres.ShapeType.line, { x: cx, y: y, w: 0, h: kh, line: { color: HAIR, width: 0.6 } });
@@ -625,18 +629,24 @@ y = para(s, y, F.P1_PARAGRAPH);
 y = chartTitle(s, y, 1, F.C1_TITLE, F.C1_SUB);
 y = chart(s, y, F.C1_IMG, F.W1, F.C1_ASPECT);
 y = para(s, y, F.C1_COMMENT);
-y += 0.04;
-y = h2(s, y, "Base case and implications");
-y = para(s, y, F.BASE_CASE);
-y += 0.04;
-const colW = CW / 2 - 0.2;
+y += 0.02;
+// base case + strengthen/change in one rounded box (padding PX / PY)
+const PX = 0.13, PY = 0.07, BX = ML + PX, BW = CW - 2 * PX;
+const boxTop = y;
+y += PY;
+s.addText("Base case and implications", { x: BX, y, w: BW, h: 0.24, fontFace: FONT, fontSize: T_HEAD, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top" });
+y += 0.24 + 0.03;
+y = para(s, y, F.BASE_CASE, { x: BX, w: BW });
+y += 0.02;
+const colW = BW / 2 - 0.2;
 const uh = hOf(F.UPSIDE, T_BODY, colW), dh = hOf(F.DOWNSIDE, T_BODY, colW), ch = Math.max(uh, dh) + 0.22;
-s.addShape(pres.ShapeType.line, { x: ML + CW / 2, y, w: 0, h: ch, line: { color: HAIR, width: 0.6 } });
-s.addText("What would strengthen our view", { x: ML, y, w: colW, h: 0.17, fontFace: FONT, fontSize: T_LABEL, color: ORANGE, bold: true, charSpacing: 1, margin: 0, isTextBox: true, valign: "top" });
-s.addText(F.UPSIDE, { x: ML, y: y + 0.21, w: colW, h: uh, fontFace: FONT, fontSize: T_BODY, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(LH) });
-s.addText("What would change our view", { x: ML + CW / 2 + 0.2, y, w: colW, h: 0.17, fontFace: FONT, fontSize: T_LABEL, color: ORANGE, bold: true, charSpacing: 1, margin: 0, isTextBox: true, valign: "top" });
-s.addText(F.DOWNSIDE, { x: ML + CW / 2 + 0.2, y: y + 0.21, w: colW, h: dh, fontFace: FONT, fontSize: T_BODY, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(LH) });
-y += ch;
+s.addShape(pres.ShapeType.line, { x: BX + BW / 2, y, w: 0, h: ch, line: { color: HAIR, width: 0.6 } });
+s.addText("What would strengthen our view", { x: BX, y, w: colW, h: 0.17, fontFace: FONT, fontSize: T_LABEL, color: ORANGE, bold: true, charSpacing: 1, margin: 0, isTextBox: true, valign: "top" });
+s.addText(F.UPSIDE, { x: BX, y: y + 0.21, w: colW, h: uh, fontFace: FONT, fontSize: T_BODY, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(LH) });
+s.addText("What would change our view", { x: BX + BW / 2 + 0.2, y, w: colW, h: 0.17, fontFace: FONT, fontSize: T_LABEL, color: ORANGE, bold: true, charSpacing: 1, margin: 0, isTextBox: true, valign: "top" });
+s.addText(F.DOWNSIDE, { x: BX + BW / 2 + 0.2, y: y + 0.21, w: colW, h: dh, fontFace: FONT, fontSize: T_BODY, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: mult(LH) });
+y += ch + PY;
+s.addShape(pres.ShapeType.roundRect, { x: ML, y: boxTop, w: CW, h: y - boxTop, rectRadius: 0.1, fill: { type: "none" }, line: { color: NAVY, width: 1.3 } });
 console.log("page 1 bottom:", y.toFixed(2), "limit:", (H - MB - 0.25).toFixed(2));
 
 // ================= PAGE 2
@@ -694,7 +704,7 @@ If a page bottom exceeds the limit, lower `W1`/`W2` by 2 to 4 points (minimum 66
 
 ## Text format
 **Page plan (fixed):**
-- **Page 1, executive investment summary** (for every reader, including private clients; carries ~80% of the message): kicker ("Earnings update", nothing else) → title → dateline → management quote (optional, orange left rule) → **company introduction** (one short paragraph, always present, directly below the quote or, without a quote, below the dateline) → **Key takeaways** heading + 3 to 4 tagged lines → the **key numbers strip** (the only box on the page: one Space Blue border, four columns separated by hairlines) → heading + 1 paragraph on what the quarter means for the investment case, opening with the surprise and the publication-day reaction → Chart 1 + 1 comment paragraph → **Base case and implications** heading + 1 paragraph that carries **our stance and positioning in plain words, never a rating label** (the regime for the stock, the earnings path we underwrite, the catalyst, the tactical qualifier, the next test) → two text columns with a hairline divider, **What would strengthen our view** / **What would change our view**. One box on page 1, never more: structure comes from headings, tags and the column divider.
+- **Page 1, executive investment summary** (for every reader, including private clients; carries ~80% of the message): kicker ("Earnings update", nothing else) → title → dateline → management quote (optional, orange left rule) → **company introduction** (one short paragraph, always present, directly below the quote or, without a quote, below the dateline) → **Key takeaways** heading + 3 to 4 tagged lines → the **key numbers strip** (a rounded box: one Space Blue border, four columns separated by hairlines) → heading + 1 paragraph on what the quarter means for the investment case, opening with the surprise and the publication-day reaction → Chart 1 + 1 comment paragraph → the **base case box**, a second rounded box of the same stroke holding the **Base case and implications** heading + 1 paragraph that carries **our stance in plain words, never a rating label** (the regime for the stock, the earnings path we underwrite, the catalyst, the tactical qualifier, the next test) and, below it, two text columns with a hairline divider, **What would strengthen our view** / **What would change our view**. Exactly two boxes on page 1, the key numbers strip and the base case box, both with 2.5mm rounded corners and no fill; everything else is structured by headings, tags and the column divider.
 - **Page 2, "Beyond the key takeaways"** (fixed page title, 17pt ExtraBold, for readers who want the why): heading + 2 paragraphs on the results and their drivers, the second of which carries the surprise vs. reaction read → heading + 1 paragraph on outlook and guidance → heading + Chart 2 + 1 comment paragraph on valuation. **No positioning or implications section on page 2**: positioning lives in the page-1 base case. Page 2 builds on page 1 without repeating it: page 1 states the conclusion, page 2 shows the evidence.
 - **Page 3:** gradient rule, source line and the fixed disclaimer pinned to the bottom. Nothing else.
 
@@ -713,7 +723,7 @@ If a page bottom exceeds the limit, lower `W1`/`W2` by 2 to 4 points (minimum 66
 | Outlook paragraph (H_A2) | 95 to 110 |
 | Chart 2 comment | 85 to 100 |
 
-With the quote block and the company introduction both present, page 1 is full at these budgets: keep the investment-case paragraph and the two columns at the lower end, and lower `W1` before cutting anything else. Never recover space with a smaller type size. Calibration (26 Oct 2026, text metric at 0.49 em per character): introduction 36 words, investment case 60, Chart 1 comment 55, base case 85, columns 36 each, quote 25, four takeaways, gives a PPTX page-1 bottom of 10.77 vs. the 10.95 guard at `W1` 66, and fits the PDF at `W1` 74 with room to spare.
+With the quote block, the company introduction and the base case box all present, page 1 is full at these budgets: keep the investment-case paragraph, the base case (85 words or fewer) and the two columns at the lower end, and lower `W1` before cutting anything else. The base case box adds about 0.2 in of padding on the slide, so the PPTX guard is the binding constraint. Never recover space with a smaller type size. Calibration (28 Oct 2026, two-box layout, text metric at 0.49 em per character): introduction 36 words, investment case 60, Chart 1 comment 55, base case 85, columns 36 each, quote 25, four takeaways, gives a PPTX page-1 bottom of 10.87 vs. the 10.95 guard at `W1` 66, and fits the PDF at `W1` 74 with room to spare.
 
 **Element rules:**
 - **Title:** `<Company> <Qx YYYY>: <conviction message in sentence case>`, ≤ ~70 characters, e.g. "ASML Q3 2026: orders confirm the upcycle, valuation leaves little slack", "VAT Group Q3 2026: record orders rewrite 2027, upgrades carry the stock". It states the verdict, not the topic. The kicker above it reads "Earnings update" only: no sector, theme, ticker or date appended.
@@ -724,7 +734,7 @@ With the quote block and the company introduction both present, page 1 is full a
 - **Section headings (h2):** four variable ones per document (H_P1, H_A1, H_A2, H_C2), plus the two fixed page-1 headings "Key takeaways" and "Base case and implications" and the fixed page-2 title. Each is a takeaway in sentence case, ≤ ~45 characters, no full stop, e.g. "Results: the beat was mix, not volume", "Outlook: Q4 is capacity-bound, 2027 is reset", "Valuation: the work is done by earnings". Don't repeat the H1's verdict. Plain 11pt ExtraBold Space Blue, no rule or accent.
 - **Chart titles in the PDF:** `<span class="num">Chart N</span> &middot; <Ticker>: <descriptor>`. **Chart sub-line:** one line of methodology (series, window, consensus source, MA, log scale, shading), joined by `&middot;`; disclose stale or partial data here (e.g. "Last price is the 14 October close, before the release"; "Q3 2025 and Q2 2026 derived from reported growth rates").
 - **Surprise vs. market reaction (mandatory, every document):** every mention of a beat or a miss is read **together with the share price move on the publication day**, with both numbers in the same sentence ("Revenue beat consensus by 4% and EPS by 6%, yet the shares fell 5.1% on 15 October, against a sector up 0.3%"). The investment-case paragraph on page 1 opens with this pairing; the second results paragraph on page 2 develops it. When the two **diverge** (beat and down, miss and up, or a move out of proportion to the surprise), the text must name the divergence and explain it, testing in turn: guidance or outlook below expectations; margin or mix deterioration behind the headline; elevated expectations and positioning into the print (the run-up into results, the pre-results multiple vs. its averages, the "whisper" vs. the published consensus); valuation; the quality of the beat (one-offs, FX, tax, pull-forward); disappointing underlying trends (orders, backlog, pricing, cash conversion, a segment); and sector or market moves on the same day. **Separate confirmed drivers from plausible interpretations** with explicit wording: a confirmed driver is a reported number or a management statement ("the Q4 guide of EUR 9.6bn, 2% below consensus", "management said the China mix will fall further"); a plausible interpretation is our reading of positioning, expectations or valuation and is marked as such ("we think", "the most likely reading is", "this is consistent with, but not confirmed by"). Never present an interpretation as a fact and never report a beat or a miss without the reaction. When surprise and reaction are aligned, one sentence pairs them and the paragraph moves on to the drivers.
-- **Base case and implications paragraph:** 4 to 6 sentences: the regime for the stock and what we would do, expressed as a view and an action in plain words ("We stay positive on VAT and would add on ramp-related weakness", "We keep the position and see the risk/reward as balanced at this multiple", "We would wait for the Q4 guide before adding"), the earnings path we underwrite with numbers, where the debate has moved, the catalyst (upgrade cycle, multiple vs. its averages), the tactical qualifier (positioning, expectations into the print), and the next test with its date. **Never use rating labels anywhere in the document**: no "Buy", "Hold", "Sell", "Overweight", "Underweight", "Accumulate", "Reduce", "Outperform", "Neutral" as a rating, and no target price. Stance is conveyed by the verb (stay positive, remain constructive, keep, add, trim, wait, prefer), the earnings path and the risk/reward. No list of triggers inside it; those go in the columns.
+- **Base case and implications paragraph:** 4 to 6 sentences: the regime for the stock and what we would do, expressed as a view and an action in plain words ("We stay positive on VAT and would add on ramp-related weakness", "We keep the position and see the risk/reward as balanced at this multiple", "We would wait for the Q4 guide before adding"). **Positioning verbs (keep, add, trim, stay positive on, the position) are for names on the Syz Equity Focus List or a holding the user names**; for any other company (a client holding, a name covered on request, SK hynix in October 2026) the paragraph states the view without implying a position: "The case remains very constructive and the risk/reward skewed to the upside", "The investment case is intact but the multiple leaves little slack". When unsure whether a name is on the Focus List, use the general wording. The paragraph then gives the earnings path we underwrite with numbers, where the debate has moved, the catalyst (upgrade cycle, multiple vs. its averages), the tactical qualifier (positioning, expectations into the print), and the next test with its date. **Never use rating labels anywhere in the document**: no "Buy", "Hold", "Sell", "Overweight", "Underweight", "Accumulate", "Reduce", "Outperform", "Neutral" as a rating, and no target price. Stance is conveyed by the verb (stay positive, remain constructive, keep, add, trim, wait, prefer), the earnings path and the risk/reward. No list of triggers inside it; those go in the columns.
 - **Strengthen / change columns:** 2 to 3 concrete, observable triggers each (a number, a date, a decision), not generic risk language.
 - **Page 2 valuation comment:** read Chart 2 explicitly: price vs. EPS trend (is price running ahead of earnings? give both 12-month changes), P/E vs. its average and the premium in %, where it came from (previous print, peak), price vs. 40-week MA, and what multiple the base case implies (e.g. "a 10% upgrade at an unchanged price takes the multiple to 36.5x, the long-run average").
 
@@ -734,7 +744,7 @@ With the quote block and the company introduction both present, page 1 is full a
 - **No rating labels or target prices** anywhere in the deliverables (see the base case rule): the words Buy, Hold, Sell, Overweight, Underweight, Accumulate, Reduce and Outperform do not appear as recommendations; a grep in QA must come back clean or every hit must be a non-recommendation use ("sell-through", "holds 40% of the market") and is then rewritten anyway if it could be read as a rating.
 - **No em dashes** anywhere (text, charts, headings). Use a comma, a colon or `&ndash;` only for numeric ranges (2022&ndash;25). Prefer "2010 to 2026" in prose.
 - **Typography**: exactly four sizes, 17 / 11 / 8.7 / 7 pt, with the roles set in the Typography section; Nunito Bold (700) for body and ExtraBold (800) for headings, titles, box heads, KPI values, chart titles and quote text. No Light, Regular or SemiBold anywhere, and no size outside the four.
-- **Boxes**: only the key numbers strip is boxed: Space Blue `#202945` border 0.45mm, straight corners, no fill. No other box on either page, no blue-filled backgrounds, no rounded corners.
+- **Boxes**: exactly two on page 1, the key numbers strip and the base case box (heading, paragraph and the two columns): Space Blue `#202945` border 0.45mm, 2.5mm rounded corners (`rectRadius` 0.1 in in the PPTX), no fill. No other box on either page, no blue-filled backgrounds, no box on page 2.
 - **Negative indicators**: Tiger Orange `#FF6C0E` for bearish or negative tags, bars and KPI deltas, never purple.
 - **Sources**: `Source: Syz Research, Bloomberg…` with no full stop at the end, on page 3 and in every chart footnote.
 - Typography uses HTML entities: `&ndash;` for ranges, `&rsquo;` for apostrophes, `&ldquo;…&rdquo;` for quotes, `&amp;`, `&middot;` for separators, `&minus;` for a minus sign in KPI tiles.
@@ -752,7 +762,7 @@ With the quote block and the company introduction both present, page 1 is full a
 3. **Rasterise all three pages at 100 dpi and look at them.** Check for:
    - logo top-right and gradient rule on every page (a missing logo means a broken PNG, see Setup);
    - kicker reads "Earnings update" only, with nothing after it; the company introduction sits directly below the quote (or below the dateline when there is no quote) and above "Key takeaways";
-   - exactly one box on page 1 (the key numbers strip): Space Blue border, square corners, no fill, four columns in one row, every `sub` line on one line;
+   - exactly two boxes on page 1, the key numbers strip and the base case box, both Space Blue border with rounded corners and no fill; the strip shows four columns in one row with every `sub` line on one line; the base case box holds the heading, the paragraph and the two columns, nothing else sits inside or overlaps it;
    - tags: negative ones in Tiger Orange; no purple anywhere;
    - no em dash in any text or chart; sentence case everywhere; no broker name anywhere (`pdftotext … | grep -i "UBS\|BNP\|Deutsche\|Goldman\|Morgan\|Barclays\|Jefferies"` returns nothing);
    - no rating label anywhere (`pdftotext … | grep -iw "buy\|hold\|sell\|overweight\|underweight\|accumulate\|outperform"` returns nothing, apart from the fixed disclaimer's "buy or sell"; the same grep on `fill.json`);
@@ -762,7 +772,7 @@ With the quote block and the company introduction both present, page 1 is full a
    - Chart 2 legible: legend, end labels (price, EPS, P/E) and the P/E average line visible, no label collisions;
    - page 3: source line (no full stop) followed by the full disclaimer, pinned above the footer.
 4. Run `pdffonts` on the output: only Nunito Bold and Nunito ExtraBold (shown as Nunito-Ultra-Bold) may be embedded. Check the type scale: `grep -o "font-size: [0-9.]*pt" template.html | sort -u` returns exactly 17pt, 11pt, 8.7pt and 7pt, and `grep -o "fontSize: [A-Z_0-9.]*" build_pptx.js | sort -u` returns only `T_TITLE`, `T_HEAD`, `T_BODY`, `T_LABEL` (or `pt` inside `para`). Any other value is a defect to fix before delivery.
-5. **PowerPoint:** `validate.py` passes; `build_pptx.js` reports both page bottoms below the limit; the three LibreOffice-rendered slides show the same layout as the PDF pages (one box on page 1, the introduction under the quote, no text touching the next heading, footer and logo on every slide, disclaimer pinned to the bottom of slide 3); `markitdown` shows three slides with no leftover placeholder text, no broker name and no rating label.
+5. **PowerPoint:** `validate.py` passes; `build_pptx.js` reports both page bottoms below the limit; the three LibreOffice-rendered slides show the same layout as the PDF pages (two rounded boxes on page 1, the introduction under the quote, no text touching the next heading, footer and logo on every slide, disclaimer pinned to the bottom of slide 3); `markitdown` shows three slides with no leftover placeholder text, no broker name and no rating label.
 6. In the reply, report: the data window and last date (and whether the last price is pre-results); the 3 to 5 numbers the document turns on (surprise, publication-day reaction, guidance, P/E and premium); whether surprise and reaction were aligned or divergent and the confirmed driver; the quote source and the source of the company introduction; any figure or quote taken from outside the user's files that needs verifying, including the reaction figure if web-sourced and the broker first takes the neutral wording summarises.
 
 ## Reference instances
@@ -779,3 +789,12 @@ With the quote block and the company introduction both present, page 1 is full a
 - **Chart 1:** `bar_chart` of quarterly order intake in CHF m (Q3 2025 reported, Q2 2026 previous record, Q3 2026 consensus, Q3 2026 reported in orange), title "VACN: Q3 2026 order intake vs. consensus and history".
 - **Title:** "VAT Group Q3 2026: record orders rewrite 2027, upgrades carry the stock". **Headings:** "The debate shifts from demand to delivery" · "Results: orders tripled, sales inflected" · "Outlook: Q4 is capacity-bound, 2027 is reset" · "Valuation: the work is done by earnings".
 - **Fit (pre-introduction layout):** PDF `W1` 72 / `W2` 94; PPTX `W1` 66 / `W2` 90; page bottoms 10.85 and 10.43 vs. the 10.95 guard. With the introduction added, run the PPTX at `W1` 66 and keep page-1 prose at the lower end of the budgets.
+
+**SK hynix Q3 2026 (28 October 2026)**
+- **Data:** `SK Hynix.xlsx`, weekly since 2005, window from 2010; last row is the release-day close (KRW 1,487,000, +10.9% on the day, Kospi +6.6%), 12m-forward EPS KRW 458,910, 40-week MA KRW 1,568,675, 12m-forward P/E 3.2x vs. 8.6x average since 2010 (a 62% discount), one-year average 5.4x.
+- **Cyclical adaptation of Chart 2:** memory names carry loss-making years (2008 to 2009, late 2022 to mid-2023), which break the log EPS axis and blow up the P/E (4,400x in 2008). The kit archetype was kept with two masks, both disclosed in the chart sub-line and footnote: weeks with negative 12m-forward EPS blanked on the log axis, and P/E readings above 40x blanked and excluded from the long-run average (`PE_CLIP` in `build_charts.py`). Prices and EPS were plotted in KRW thousand to keep the 1-2-5 tick ladder readable. Reuse this for Samsung, Micron and other names with a loss history.
+- **Chart 1:** absolute operating-profit variant (Q3 2025, Q2 2026, consensus, reported in orange) because only two consensus-comparable lines were available; Q3 2025 and Q2 2026 derived from the reported +632% and +38% growth rates, disclosed in the sub-line.
+- **Quote:** the user's "transcript" was a Bloomberg automated call summary (no verbatim sentences); the quote block carried the company statement reproduced in the results coverage, with an ellipsis, attributed as a company statement.
+- **Base case wording:** SK hynix is not on the Focus List, so the paragraph reads "The case remains very constructive and the risk/reward skewed to the upside" instead of a positioning verb.
+- **Title:** "SK hynix Q3 2026: sold out to 2029, priced for a downturn". **Headings:** "The debate is duration, not the quarter" · "Results: price and mix did the work" · "Outlook: Q4 record, 2027 under contract" · "Valuation: 3.2x prices the next downturn".
+- **Fit (two-box layout):** PDF `W1` 74 / `W2` 92; PPTX `W1` 66 / `W2` 88 with box padding 0.13 x 0.07 in; page bottoms 10.92 and 10.91 vs. the 10.95 guard, with base case 87 words, columns 35 and 34, introduction 31, quote 29.

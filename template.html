@@ -46,9 +46,10 @@ h2 { font-size: 11pt; font-weight: 800; color: #202945; line-height: 1.2; margin
 
 p { margin-bottom: 2.2mm; text-align: justify; }
 
-/* Key numbers: the only boxed element on page 1. One Space Blue border, straight corners, no fill,
+/* Key numbers: first of the two boxes on page 1. One Space Blue border, 2.5mm rounded corners, no fill,
    four columns separated by hairlines */
-table.kpi { width: 100%; border-collapse: collapse; border: 0.45mm solid #202945; margin: 0 0 3.2mm 0; break-inside: avoid; }
+div.kpiwrap { border: 0.45mm solid #202945; border-radius: 2.5mm; margin: 0 0 3.2mm 0; break-inside: avoid; overflow: hidden; }
+table.kpi { width: 100%; border-collapse: collapse; }
 table.kpi td { width: 25%; padding: 2.2mm 3mm; vertical-align: top; border-left: 0.2mm solid #D6D9DE; }
 table.kpi td:first-child { border-left: none; }
 .kpi .lbl { font-size: 7pt; color: #6B7280; margin-bottom: 0.6mm; }
@@ -66,7 +67,9 @@ ul.takeaways li { display: flex; align-items: baseline; margin-bottom: 1.3mm; }
 .tag.neu { color: #4B5F80; }
 ul.takeaways li span.t { flex: 1 1 auto; text-align: left; }
 
-/* Strengthen / change: two text columns with a hairline divider, no boxes */
+/* Base case box: rounded Space Blue border holding the heading, the paragraph and the strengthen / change columns */
+div.casebox { border: 0.45mm solid #202945; border-radius: 2.5mm; padding: 2.4mm 3.2mm 2.6mm 3.2mm; margin-top: 3.2mm; break-inside: avoid; }
+div.casebox .sec { margin-top: 0; }
 table.duo { break-inside: avoid; width: 100%; border-collapse: collapse; margin-top: 1mm; }
 table.duo td { width: 50%; padding: 0 5mm 0 0; vertical-align: top; }
 table.duo td + td { border-left: 0.2mm solid #D6D9DE; padding: 0 0 0 5mm; }
@@ -106,9 +109,9 @@ img.c2 { width: {{W2}}%; }
 {{TAKEAWAYS}}
 </ul>
 
-<table class="kpi"><tr>
+<div class="kpiwrap"><table class="kpi"><tr>
 {{KPI_TILES}}
-</tr></table>
+</tr></table></div>
 
 <div class="sec"><h2>{{H_P1}}</h2></div>
 {{P1_PARAGRAPH}}
@@ -118,13 +121,14 @@ img.c2 { width: {{W2}}%; }
 <img class="chart" src="file://{{C1_IMG}}">
 {{C1_COMMENT}}
 
+<div class="casebox">
 <div class="sec"><h2>Base case and implications</h2></div>
 <p>{{BASE_CASE}}</p>
-
 <table class="duo"><tr>
   <td><div class="head">What would strengthen our view</div><p>{{UPSIDE}}</p></td>
   <td><div class="head">What would change our view</div><p>{{DOWNSIDE}}</p></td>
 </tr></table>
+</div>
 
 <!-- PAGE 2: in-depth analysis -->
 <div class="pagebreak"></div>

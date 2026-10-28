@@ -1,0 +1,94 @@
+{
+ "LOGO": "/home/claude/syz_logo_hq.png",
+ "GRADBAR": "/home/claude/syz_gradbar.png",
+ "DOC_TYPE": "Earnings update",
+ "DATE": "28 October 2026",
+ "TITLE": "PACCAR Q3 2026: trucks carry the quarter, 2027 rules weigh",
+ "QUOTE": "",
+ "QUOTE_WHO": "",
+ "COMPANY_INTRO": "PACCAR designs and builds Kenworth, Peterbilt and DAF heavy trucks, sells aftermarket parts and finances customers’ vehicles. Trucks were 76% of third-quarter truck and parts sales. Nasdaq-listed, market value around USD 55bn.",
+ "TAKEAWAYS": [
+  {
+   "tag": "pos",
+   "label": "Beat",
+   "text": "Truck pretax profit of USD 455m beat estimates by 43%, lifting net income 44% to USD 848m."
+  },
+  {
+   "tag": "neu",
+   "label": "Reaction",
+   "text": "Shares eased 0.6% on 27 October: EPS met consensus at USD 1.61, sales missed by 1.3%."
+  },
+  {
+   "tag": "neg",
+   "label": "Watch",
+   "text": "Unfinalised 2027 emission penalties delay orders; supplier shortfalls held deliveries 4.5% below guidance."
+  },
+  {
+   "tag": "neu",
+   "label": "Valuation",
+   "text": "17.6x forward earnings, down from 23.9x in July while consensus EPS rose 3%: the derating looks done."
+  }
+ ],
+ "KPIS": [
+  {
+   "label": "Sales ex financial services",
+   "value": "USD 7.38bn",
+   "sub": "-1.3% vs. consensus",
+   "sign": "neg"
+  },
+  {
+   "label": "Diluted EPS",
+   "value": "USD 1.61",
+   "sub": "In line with consensus",
+   "sign": "neu"
+  },
+  {
+   "label": "Truck pretax profit",
+   "value": "USD 455m",
+   "sub": "+43% vs. estimates",
+   "sign": "pos"
+  },
+  {
+   "label": "Q4 delivery guide",
+   "value": "41,000–43,000",
+   "sub": "Midpoint +4.7% vs. Q3",
+   "sign": "neu"
+  }
+ ],
+ "H_P1": "Earnings are recovering, the multiple is not",
+ "P1_PARAGRAPH": "EPS of USD 1.61 met consensus and truck profit beat estimates by 43%, yet sales missed by 1.3% and the shares eased 0.6% on 27 October, a reaction in line with a mixed print. Earnings are recovering on truck margins rather than volume. What holds the stock back is not this print but the unresolved 2027 emission rules and the timing of a pull-forward.",
+ "C1_TITLE": "PCAR: Q3 2026 results vs. consensus and guidance",
+ "C1_SUB": "Surprise vs. pre-results consensus or analyst estimates, % · sales of truck, parts and other · deliveries vs. the ~42,000 company guide",
+ "C1_IMG": "/home/claude/c1_crop.png",
+ "C1_ASPECT": 0.312,
+ "W1": 70,
+ "C1_COMMENT": "The quarter splits in two. Trucks delivered a 43% profit surprise on revenue up 28% year on year, a pretax margin of 8.1%. Parts, the steadiest earner, posted record revenue but pretax profit 14% below estimates. Supplier shortfalls cost about 1,900 deliveries against guidance, which we think explains most of the sales miss.",
+ "BASE_CASE": "We keep the position and would add once the 2027 emission penalties are finalised. We underwrite consensus forward EPS of USD 5.90, 16% above a year ago and 34% below the 2023 peak, carried by truck margins and record Parts revenue. The debate has moved from the freight recession to the 2027 rules and the pull-forward. At 17.6x, the July premium is gone and sentiment is negative, which we think limits the downside. The next test is Q4 deliveries of 41,000 to 43,000, due in late January 2027.",
+ "UPSIDE": "Final EPA non-conformance penalties before year-end that release held-back 2027 orders; Q4 deliveries at the top of the 41,000 to 43,000 range; a Q4 Truck, Parts and Other gross margin at 15%, the top of guidance.",
+ "DOWNSIDE": "Q4 deliveries below 41,000, a sign that supplier constraints run into 2027; a gross margin below the 14% low end of guidance; a 2027 US and Canada market heading below 240,000 units if the pull-forward fails to materialise.",
+ "P2_TITLE": "Beyond the key takeaways",
+ "H_A1": "Results: truck margins beat, parts slipped",
+ "A1_PARAGRAPHS": [
+  "Consolidated revenue rose 19% to USD 7.94bn and net income 44% to USD 847.5m, or USD 1.61 per diluted share against USD 1.12 a year ago. Truck revenue grew 28% to USD 5.6bn on deliveries of 40,100, up 26%, which implies revenue per truck about 2% higher. Truck pretax profit reached USD 454.5m, a margin of 8.1%, against analyst estimates of USD 317m: operating leverage on higher volumes did the work. Parts revenue grew 3.2% to a record USD 1.78bn, but pretax profit of USD 404.4m, a 22.7% margin, came in 14% below estimates. Financial Services added USD 138.1m pretax, up 9.4%, on stable finance margins and a firmer used truck market.",
+  "Against consensus the print was mixed: EPS in line, sales 1.3% short at USD 7.38bn, truck profit ahead, Parts profit behind. The shares eased 0.6% on 27 October, a move in proportion to that mix, so surprise and reaction are aligned. The confirmed drivers are the delivery shortfall, which management attributed to supplier constraints, and an unchanged regulatory picture: customers are still waiting for the EPA’s non-conformance penalties before placing 2027 orders. We think the muted move reflects expectations that were already low: the stock fell 4.8% in the three sessions before the release and trades 25% below its July high."
+ ],
+ "H_A2": "Outlook: Q4 recovers, 2027 hinges on rules",
+ "A2_PARAGRAPH": "Management expects Q4 deliveries of 41,000 to 43,000 as supplier performance improves, a midpoint 5% above Q3, and a Truck, Parts and Other gross margin of 14% to 15%: price-cost is favourable, but production inefficiencies add cost. The 2026 US and Canada heavy truck market was narrowed to 240,000 to 260,000 units, and the first 2027 range of 240,000 to 280,000 has a midpoint 4% higher, supported by infrastructure-led vocational demand, where PACCAR holds a 40% share, and replacement. Europe is seen at 300,000 to 320,000 in both. Capital spending of USD 650m to 700m and research of USD 460m to 500m in 2027 fund clean-diesel, hybrid and battery-electric powertrains.",
+ "H_C2": "Valuation: earnings up, the multiple derated",
+ "C2_TITLE": "PCAR: share price vs. consensus earnings and valuation",
+ "C2_SUB": "PCAR US Equity, daily data resampled to weekly, from January 2011 · BEst 12m-forward consensus · 40-week simple MA · log scale · P/E shaded above (orange) / below (blue) its 2011 to 2026 average · last price is the 27 October close, after the release",
+ "C2_IMG": "/home/claude/c2_crop.png",
+ "C2_ASPECT": 0.5984,
+ "W2": 88,
+ "C2_COMMENT": "Over 12 months consensus forward EPS has risen 16.4% to USD 5.90 while the share price is up only 2.6%, so the multiple has done the adjusting. The derating is recent: at the 28 July peak of USD 138.2, after Q2, the stock traded on 23.9x; it now trades on 17.6x, the lowest since July 2025, 16% above the 15.1x average since 2011 and below the 20.9x one-year average. The price sits 13% below its 40-week average of USD 120. A 10% upgrade at an unchanged price would take the multiple to 16.0x, close to the long-run average.",
+ "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings, PACCAR results release of 27 October 2026, analyst research notes of 8 and 27 October 2026",
+ "DISCLAIMER": [
+  "This communication has been issued and made available to recipients for the purpose of advertising investment services and/or financial instruments. It has been sent for information purposes and cannot be considered as an offer or a personalised recommendation to buy or sell a financial instrument or any other investment or currency. This communication does not constitute investment research within the meaning of regulatory rules applicable in the European Economic Area, or research under the rules of the U.S. Self-Regulatory Organizations.",
+  "This information is made solely for professional and institutional clients as defined by the Swiss Financial Services Act, as well as qualified investors according to the Swiss Collective Investment Schemes Act. It is not intended for retail clients or non-qualified investors and consequently cannot be transmitted to any third party.",
+  "This communication is not directed to any person in any jurisdiction where, by reason of that person’s nationality, residence or otherwise, its dissemination or use is prohibited. It cannot be quoted, reproduced, disclosed, distributed or otherwise referred to, in whole or in part, to any third party without the Bank’s prior written consent.",
+  "This communication may contain information on past performances of a financial product, all kinds of economic and financial valuations and analyses, as well as opinions of the Bank or of third parties. Any market valuations, terms and calculation methods, yields and opinions expressed are subject to change without notice. The information and opinions contained herein have been compiled and provided in good faith, based on information obtained from sources believed to be trustworthy. However, such information has not been independently verified. No guarantee, representation, or warranty of any kind, whether express or implied, is provided by the Bank or by relevant data vendors and other sources with respect to the accuracy, reliability, currentness or exhaustiveness of the information communicated, the methodology employed or the prices contained herein.",
+  "Past performance is not a reliable indicator of current or future results. Any reference to the past performance of an investment does not guarantee its future performance. Fluctuations in exchange rates may adversely affect the value, price or income of any investment.",
+  "Nothing in the present communication constitutes investment, legal, accounting or tax advice. This information is purely objective since it does not take into consideration the personal situation (including financial knowledge and experience), the investment objectives and risk profile of any recipient. Moreover, certain financial instruments mentioned (in particular, but not exclusively, derivatives, options and futures) involve a high risk of loss and may not be suitable. Accordingly, recipients should consult their own advisors on such matters, including but not limited to the possible tax consequences of investing in any financial product mentioned herein, and make their own assessment of the suitability of such investment product.",
+  "Should a recipient make an investment on the basis of the present communication, the recipient alone shall bear the consequences thereof. In no event shall the Bank, its directors, employees, affiliates or agents be held responsible for damages of any kind arising out of the use of all or part of the information provided herein."
+ ]
+}

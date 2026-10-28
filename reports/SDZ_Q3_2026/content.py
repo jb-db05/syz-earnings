@@ -4,9 +4,10 @@ DOC_TYPE = "Earnings update"
 DATE = "28 October 2026"
 TITLE = "Sandoz Q3 2026: margins up, sales miss at a full valuation"
 
-# No verbatim executive quote in the material provided and no transcript reachable: quote block omitted.
-QUOTE = ""
-QUOTE_WHO = ""
+# Opening remarks of the Q3 2026 call (third-party transcript excerpt; check against the Sandoz IR transcript).
+QUOTE = ("Today, we have narrowed our 2026 net sales guidance to 5%&ndash;6% and upgraded our core EBITDA margin "
+         "guidance for the year to 23%&ndash;23.5%. We will enter 2027 with strong momentum.")
+QUOTE_WHO = "Richard Saynor, CEO, Q3 2026 earnings call, 28 October 2026"
 
 COMPANY_INTRO = ("Sandoz, spun off from Novartis in October 2023, sells generic medicines and biosimilars, copies of "
                  "biologic drugs. Biosimilars are 34% of sales and Europe 53%. Nine-month 2026 sales USD 8.7bn; "
@@ -92,7 +93,7 @@ C2_COMMENT = ("Over 12 months the share price rose 58% while consensus forward E
               "one-year average. The price is 17% above its 40-week average of CHF 67.5. A 10% upgrade at "
               "today&rsquo;s price would bring the multiple to 21.2x.")
 
-SOURCE_LINE = ("Source: Syz Research, Bloomberg, company filings, Sandoz results release of 28 October 2026, "
+SOURCE_LINE = ("Source: Syz Research, Bloomberg, company filings, Sandoz results release and earnings call of 28 October 2026, "
                "Finanz und Wirtschaft and AWP of 28 October 2026, analyst research notes of 16 and 28 October 2026")
 
 W1, W2 = 78, 94            # PDF chart widths, % of text width

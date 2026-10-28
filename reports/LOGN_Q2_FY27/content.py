@@ -38,8 +38,8 @@ C1_COMMENT = ("Chart 1 shows why a clean beat did not carry the day. The second-
               "the operating income guide sits 0.7% below consensus: higher sales at a lower margin earn nothing extra.")
 
 BASE_CASE = ("A frustrating quarter: operationally very strong, with share gains and a gross margin well ahead of "
-             "guidance despite weak PC and European markets, but overshadowed by an inflation-clouded outlook. We "
-             "remain constructive, but the fundamental case is exposed to exogenous factors. If freight and "
+             "guidance despite weak PC and European markets, but overshadowed by an inflation-clouded outlook. The "
+             "fundamental case is therefore exposed to exogenous factors. If freight and "
              "component inflation persists beyond March 2027, the fiscal year-end, it would cap the potential for the Swiss-based company. "
              "Any easing in inflation would benefit Logitech through logistics and component "
              "costs. We would wait for that signal before adding; the next test is the January release.")

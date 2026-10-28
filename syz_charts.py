@@ -94,11 +94,12 @@ def load_bloomberg_sheet(path, sheet=0):
 
 # ---------------------------------------------------------------- archetype: price vs. consensus EPS + P/E panel
 def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=None,
-                       p1_title=None, p2_title=None):
+                       p1_title=None, p2_title=None, price_lbl=(10, 10), eps_lbl=(10, -22), eps_ccy=None):
     """Reference earnings chart. Top: share price (Blueberry, rhs, log) + 40-week MA (dashed) + 12m-forward
     EPS (Orange, lhs, log). Bottom: 12m-forward P/E (Orange) vs. its long-run average (dashed navy), shaded
     orange above / blue-grey below. df from load_bloomberg_sheet(). Returns the numbers quoted in the labels."""
     x = mdates.date2num(df["date"])
+    eps_ccy = eps_ccy or ccy   # EPS reported in another currency than the price (UBS: USD EPS, CHF price)
     p1_title = p1_title or f"Share price and consensus 12m-forward EPS (log scale)"
     p2_title = p2_title or "12m-forward P/E"
     start_year, end_year = df["date"].iloc[0].year, df["date"].iloc[-1].year
@@ -112,8 +113,8 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
     # --- top panel: EPS on the left axis, price + MA on a twin right axis, both log
     style_ax(ax1)
     ax1.set_yscale("log")
-    ax1.plot(x, df["eps"], color=ORANGE, linewidth=2.1, zorder=3, label=f"12m-forward EPS, {ccy} (lhs)")
-    ax1.set_ylabel(f"12m-forward EPS ({ccy}, log scale)", fontsize=10, color=ORANGE, fontweight="bold")
+    ax1.plot(x, df["eps"], color=ORANGE, linewidth=2.1, zorder=3, label=f"12m-forward EPS, {eps_ccy} (lhs)")
+    ax1.set_ylabel(f"12m-forward EPS ({eps_ccy}, log scale)", fontsize=10, color=ORANGE, fontweight="bold")
     ax1.tick_params(axis="y", colors=ORANGE)
     _log_ticks(ax1, float(df["eps"].min()), float(df["eps"].max()))
     ax1.set_title(p1_title, fontsize=12, fontweight="bold", color=NAVY, loc="left", pad=8)
@@ -132,10 +133,10 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
     # end labels
     last_p, last_e = float(df["price"].iloc[-1]), float(df["eps"].iloc[-1])
     axr.plot(x[-1], last_p, "o", color=BLUEB, ms=5, zorder=5)
-    axr.annotate(f"{last_p:,.0f}", (x[-1], last_p), xytext=(10, 10), textcoords="offset points",
+    axr.annotate(f"{last_p:,.0f}", (x[-1], last_p), xytext=price_lbl, textcoords="offset points",
                  color=BLUEB, fontsize=10.5, fontweight="bold")
     ax1.plot(x[-1], last_e, "o", color=ORANGE, ms=5, zorder=5)
-    ax1.annotate(f"{last_e:,.1f}", (x[-1], last_e), xytext=(10, -22), textcoords="offset points",
+    ax1.annotate(f"{last_e:,.1f}", (x[-1], last_e), xytext=eps_lbl, textcoords="offset points",
                  color=ORANGE, fontsize=10.5, fontweight="bold")
 
     # one legend combining both axes

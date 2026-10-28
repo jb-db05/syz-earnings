@@ -126,7 +126,8 @@ y += PY;
 s.addText("Base case and implications", { x: BX, y, w: BW, h: 0.24, fontFace: FONT, fontSize: T_HEAD, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top" });
 y += 0.24 + 0.03;
 y = para(s, y, F.BASE_CASE, { x: BX, w: BW });
-y += 0.02;
+s.addShape(pres.ShapeType.line, { x: BX, y, w: BW, h: 0, line: { color: HAIR, width: 0.6 } });   // hairline between the paragraph and the columns
+y += 0.12;
 const colW = BW / 2 - 0.2;
 const uh = hOf(F.UPSIDE, T_BODY, colW), dh = hOf(F.DOWNSIDE, T_BODY, colW), ch = Math.max(uh, dh) + 0.22;
 s.addShape(pres.ShapeType.line, { x: BX + BW / 2, y, w: 0, h: ch, line: { color: HAIR, width: 0.6 } });

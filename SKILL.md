@@ -18,7 +18,7 @@ Where this skill and `syz-house-style` or `syz-visual` differ, **this skill wins
 ## Inputs
 - **Bloomberg weekly export (.xlsx)**, one sheet, newest row first, header row 1, columns matched by keyword (order does not matter):
   `Date | <Ticker> - Last Price (R1) | <Ticker> - BEst EPS (L1) | Moving Average(Simple,40,0) (<Ticker>) | <Ticker> - BEst P/E Ratio`.
-  Reference files: `ASML.xlsx` (877 weekly rows, Jan 2010 to 14 Oct 2026), `VAT.xlsx` (549 rows, Apr 2016 to 15 Oct 2026; consensus EPS only from May 2016). `load_bloomberg_sheet()` below reads it. Trailing empty rows are dropped. **Start the chart window at the first row with consensus EPS** (`df = df[df["eps"].notna()]`), otherwise the log ticks fail on NaN. Check whether the last row is the pre-results close (export taken on results day): if so, say so in the Chart 2 sub-line.
+  Reference files: `ASML.xlsx` (877 weekly rows, Jan 2010 to 14 Oct 2026), `VAT.xlsx` (549 rows, Apr 2016 to 15 Oct 2026; consensus EPS only from May 2016). `load_bloomberg_sheet()` below reads it. Trailing empty rows are dropped. **Start the chart window at the first row with consensus EPS** (`df = df[df["eps"].notna()]`), otherwise the log ticks fail on NaN. Check whether the last row is the pre-results close (export taken on results day) or an intraday level (export taken after a pre-market release): if so, say so in the Chart 2 sub-line. For names whose EPS turns negative in the window (banks in 2008, memory names), start the window later (`window_start` in `PARAMS`, e.g. 2010 for UBS) or apply the SK hynix masks (see Reference instances), and say why in the reply. When EPS is reported in another currency than the price (UBS: USD EPS, CHF price; Bloomberg converts the P/E), pass `eps_ccy` so the chart labels the EPS axis correctly.
 - **Publication-day share price reaction (mandatory):** the close-to-close move on the release day in % (previous close to release-day close), and the same-day move of the local index or sector where available, so the reaction can be read relative to the market. The weekly export does not contain it: take it from the user's material or Bloomberg; if neither is available, take it from a dated web source, date it in the text and flag it in the reply for a Bloomberg check. If the results were published after the close, the reaction day is the next trading day; say which day was used in the text. Store it in `PARAMS` (`reaction_pct`, `reaction_date`, `market_pct`).
 - **Company description material:** the annual report, the IR "at a glance" page or the user's files, for the 25 to 36 word introduction (what the company makes, for whom, where it earns its money, scale). Facts only, no adjectives; no figure that is not sourced.
 - **Results material** the user supplies or points to: press release, presentation, transcript, consensus table, broker first takes. Web-sourced facts (consensus, guidance, quotes) are dated in the text and flagged for a Bloomberg check in the reply. Cross-check the headline figures against the company's own release (EQS/ad hoc feed or the IR site) when the user's material is secondary.
@@ -168,11 +168,12 @@ def load_bloomberg_sheet(path, sheet=0):
 
 # ---------------------------------------------------------------- archetype: price vs. consensus EPS + P/E panel
 def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=None,
-                       p1_title=None, p2_title=None):
+                       p1_title=None, p2_title=None, price_lbl=(10, 10), eps_lbl=(10, -22), eps_ccy=None):
     """Reference earnings chart. Top: share price (Blueberry, rhs, log) + 40-week MA (dashed) + 12m-forward
     EPS (Orange, lhs, log). Bottom: 12m-forward P/E (Orange) vs. its long-run average (dashed navy), shaded
     orange above / blue-grey below. df from load_bloomberg_sheet(). Returns the numbers quoted in the labels."""
     x = mdates.date2num(df["date"])
+    eps_ccy = eps_ccy or ccy   # EPS reported in another currency than the price (UBS: USD EPS, CHF price)
     p1_title = p1_title or f"Share price and consensus 12m-forward EPS (log scale)"
     p2_title = p2_title or "12m-forward P/E"
     start_year, end_year = df["date"].iloc[0].year, df["date"].iloc[-1].year
@@ -186,8 +187,8 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
     # --- top panel: EPS on the left axis, price + MA on a twin right axis, both log
     style_ax(ax1)
     ax1.set_yscale("log")
-    ax1.plot(x, df["eps"], color=ORANGE, linewidth=2.1, zorder=3, label=f"12m-forward EPS, {ccy} (lhs)")
-    ax1.set_ylabel(f"12m-forward EPS ({ccy}, log scale)", fontsize=10, color=ORANGE, fontweight="bold")
+    ax1.plot(x, df["eps"], color=ORANGE, linewidth=2.1, zorder=3, label=f"12m-forward EPS, {eps_ccy} (lhs)")
+    ax1.set_ylabel(f"12m-forward EPS ({eps_ccy}, log scale)", fontsize=10, color=ORANGE, fontweight="bold")
     ax1.tick_params(axis="y", colors=ORANGE)
     _log_ticks(ax1, float(df["eps"].min()), float(df["eps"].max()))
     ax1.set_title(p1_title, fontsize=12, fontweight="bold", color=NAVY, loc="left", pad=8)
@@ -206,10 +207,10 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
     # end labels
     last_p, last_e = float(df["price"].iloc[-1]), float(df["eps"].iloc[-1])
     axr.plot(x[-1], last_p, "o", color=BLUEB, ms=5, zorder=5)
-    axr.annotate(f"{last_p:,.0f}", (x[-1], last_p), xytext=(10, 10), textcoords="offset points",
+    axr.annotate(f"{last_p:,.0f}", (x[-1], last_p), xytext=price_lbl, textcoords="offset points",
                  color=BLUEB, fontsize=10.5, fontweight="bold")
     ax1.plot(x[-1], last_e, "o", color=ORANGE, ms=5, zorder=5)
-    ax1.annotate(f"{last_e:,.1f}", (x[-1], last_e), xytext=(10, -22), textcoords="offset points",
+    ax1.annotate(f"{last_e:,.1f}", (x[-1], last_e), xytext=eps_lbl, textcoords="offset points",
                  color=ORANGE, fontsize=10.5, fontweight="bold")
 
     # one legend combining both axes
@@ -289,7 +290,7 @@ def crop_for_pdf(src, dst, kind):
 
 - **Colour convention:** reference series Blueberry Blue `#4B5F80`; emphasis series Tiger Orange `#FF6C0E`. Dashed lines navy `(0,(5,4))`. **Negative or bearish = Tiger Orange**, never purple. P/E shading: above average orange α 0.12, below average Blueberry α 0.14.
 - **Log axes** use the 1-2-5 ladder (1, 2, 5, 10, 20, 50 for EPS; 25, 50, 100, 250, 500, 1,000 for price), thousands separators, no minor ticks.
-- **End labels** on Chart 2 sit at offsets (10, 10) for the price and (10, -22) for the EPS so they do not collide when both series end at the same height; zoom into the top-right corner of the PNG to check.
+- **End labels** on Chart 2 sit at offsets (10, 10) for the price and (10, -22) for the EPS so they do not collide when both series end at the same height; zoom into the top-right corner of the PNG to check. When the EPS line ends above the price line, swap them with `price_lbl=(10, -16), eps_lbl=(10, 10)`.
 - **Standalone title** = `<Ticker>: <descriptor>` with a colon, sentence case, e.g. "ASML: share price vs. consensus earnings and valuation". No em dashes anywhere. **Footnote** = `source_line(provider, "<D Mon YYYY>", notes…)`, naming the series, the MA, the log scale and the shading rule; **no full stop at the end**. Consensus provenance is described neutrally ("Consensus: Bloomberg pre-results (analyst first takes)"), never by broker name.
 - **Typography in charts:** Nunito Bold for everything, ExtraBold for the figure title (set by `setup_fonts` and `header`). Chart text sizes are the kit's own (the PNG is scaled to 66 to 94% of the text width, so every chart label renders below the document's footnote tier): use only the sizes already in the kit (16.5 standalone title, 12 panel titles and bar labels, 10.5 legends and end labels, 9.5 ticks, 8 footnote) and never introduce another.
 - **Other chart types** (a stacked contribution bar, a revisions line) are allowed only if built with `style_ax` + `header` + `source_line`, 12.5 in wide, 200 dpi, margins `left=0.07, right=0.96`; add a crop preset in `CROPS` and check the crop visually.
@@ -381,6 +382,8 @@ ul.takeaways li span.t { flex: 1 1 auto; text-align: left; }
 div.casebox { border: 0.45mm solid #202945; border-radius: 2.5mm; padding: 2.4mm 3.2mm 2.6mm 3.2mm; margin-top: 3.2mm; break-inside: avoid; }
 div.casebox .sec { margin-top: 0; }
 table.duo { break-inside: avoid; width: 100%; border-collapse: collapse; margin-top: 1mm; }
+div.casebox table.duo { margin-top: 2.2mm; }
+div.casebox table.duo td { border-top: 0.2mm solid #D6D9DE; padding-top: 2.2mm; }
 table.duo td { width: 50%; padding: 0 5mm 0 0; vertical-align: top; }
 table.duo td + td { border-left: 0.2mm solid #D6D9DE; padding: 0 0 0 5mm; }
 table.duo .head { font-size: 7pt; font-weight: 800; letter-spacing: 1px; color: #FF6C0E; margin-bottom: 1.2mm; }
@@ -637,7 +640,8 @@ y += PY;
 s.addText("Base case and implications", { x: BX, y, w: BW, h: 0.24, fontFace: FONT, fontSize: T_HEAD, color: NAVY, bold: true, margin: 0, isTextBox: true, valign: "top" });
 y += 0.24 + 0.03;
 y = para(s, y, F.BASE_CASE, { x: BX, w: BW });
-y += 0.02;
+s.addShape(pres.ShapeType.line, { x: BX, y, w: BW, h: 0, line: { color: HAIR, width: 0.6 } });   // hairline between the paragraph and the columns
+y += 0.12;
 const colW = BW / 2 - 0.2;
 const uh = hOf(F.UPSIDE, T_BODY, colW), dh = hOf(F.DOWNSIDE, T_BODY, colW), ch = Math.max(uh, dh) + 0.22;
 s.addShape(pres.ShapeType.line, { x: BX + BW / 2, y, w: 0, h: ch, line: { color: HAIR, width: 0.6 } });
@@ -744,7 +748,7 @@ With the quote block, the company introduction and the base case box all present
 - **No rating labels or target prices** anywhere in the deliverables (see the base case rule): the words Buy, Hold, Sell, Overweight, Underweight, Accumulate, Reduce and Outperform do not appear as recommendations; a grep in QA must come back clean or every hit must be a non-recommendation use ("sell-through", "holds 40% of the market") and is then rewritten anyway if it could be read as a rating.
 - **No em dashes** anywhere (text, charts, headings). Use a comma, a colon or `&ndash;` only for numeric ranges (2022&ndash;25). Prefer "2010 to 2026" in prose.
 - **Typography**: exactly four sizes, 17 / 11 / 8.7 / 7 pt, with the roles set in the Typography section; Nunito Bold (700) for body and ExtraBold (800) for headings, titles, box heads, KPI values, chart titles and quote text. No Light, Regular or SemiBold anywhere, and no size outside the four.
-- **Boxes**: exactly two on page 1, the key numbers strip and the base case box (heading, paragraph and the two columns): Space Blue `#202945` border 0.45mm, 2.5mm rounded corners (`rectRadius` 0.1 in in the PPTX), no fill. No other box on either page, no blue-filled backgrounds, no box on page 2.
+- **Boxes**: exactly two on page 1, the key numbers strip and the base case box (heading, paragraph and the two columns): Space Blue `#202945` border 0.45mm, 2.5mm rounded corners (`rectRadius` 0.1 in in the PPTX), no fill. Inside the base case box, a horizontal hairline separates the paragraph from the columns and a vertical hairline divides the columns (both `#D6D9DE`, kept by decision of 28 Oct 2026). No other box on either page, no blue-filled backgrounds, no box on page 2.
 - **Negative indicators**: Tiger Orange `#FF6C0E` for bearish or negative tags, bars and KPI deltas, never purple.
 - **Sources**: `Source: Syz Research, Bloomberg…` with no full stop at the end, on page 3 and in every chart footnote.
 - Typography uses HTML entities: `&ndash;` for ranges, `&rsquo;` for apostrophes, `&ldquo;…&rdquo;` for quotes, `&amp;`, `&middot;` for separators, `&minus;` for a minus sign in KPI tiles.
@@ -789,6 +793,13 @@ With the quote block, the company introduction and the base case box all present
 - **Chart 1:** `bar_chart` of quarterly order intake in CHF m (Q3 2025 reported, Q2 2026 previous record, Q3 2026 consensus, Q3 2026 reported in orange), title "VACN: Q3 2026 order intake vs. consensus and history".
 - **Title:** "VAT Group Q3 2026: record orders rewrite 2027, upgrades carry the stock". **Headings:** "The debate shifts from demand to delivery" · "Results: orders tripled, sales inflected" · "Outlook: Q4 is capacity-bound, 2027 is reset" · "Valuation: the work is done by earnings".
 - **Fit (pre-introduction layout):** PDF `W1` 72 / `W2` 94; PPTX `W1` 66 / `W2` 90; page bottoms 10.85 and 10.43 vs. the 10.95 guard. With the introduction added, run the PPTX at `W1` 66 and keep page-1 prose at the lower end of the budgets.
+
+**UBS Group Q3 2026 (28 October 2026)**
+- **Data:** `UBSG.xlsx`, weekly from April 2005; window started at 1 Jan 2010 (`window_start`) because EPS turns negative in 2008 and the P/E is undefined. Last row CHF 38.10 was an intraday level on results day (pre-market release), disclosed in the Chart 2 sub-line; 12m-forward EPS USD 4.10 with `eps_ccy="USD"`, 40-week MA CHF 37.6, P/E 11.2x vs. 11.5x average since 2010 (a 2% discount), one-year average 12.9x, 24.9x peak in March 2024 at the integration earnings trough. EPS ends above the price line: label offsets swapped.
+- **Reaction:** document written before the close, so the intraday move (-1.9%, SMI -0.6%) was used, dated and timed in the text and flagged for the close in the reply. Surprise and reaction diverged (9% underlying beat, shares down): confirmed drivers were the net profit miss on a higher tax charge and the 1% wealth management shortfall; the positioning and regulatory-overhang reading was marked as interpretation.
+- **Inputs:** a Bloomberg broker-research brief (Bloomberg first takes, used for the consensus surprises by line), a Bloomberg automated call summary (not verbatim, so the quote came from a third-party call transcript and was flagged), the ad hoc release text republished by a news site because ubs.com refused the fetch.
+- **Chart 1:** `bar_chart` of surprises by line with one-line labels (two-line labels collide with the footnote at the kit's bottom margin). **Title:** "UBS Q3 2026: the bank delivers, Bern still caps the stock". **Headings:** "Execution is done, regulation sets the price" · "Results: trading and Swiss banking carried it" · "Outlook: targets held, buyback pulled forward" · "Valuation: back to the long-run average".
+- **Fit (two-box layout with hairline):** PDF `W1` 72 / `W2` 92; PPTX `W1` 66 / `W2` 88; page bottoms 10.84 and 10.91 vs. the 10.95 guard, with base case 90 words, columns 30 and 33 (at most ~200 characters each, otherwise a fifth line in PowerPoint touches the box), introduction 34, quote 20.
 
 **SK hynix Q3 2026 (28 October 2026)**
 - **Data:** `SK Hynix.xlsx`, weekly since 2005, window from 2010; last row is the release-day close (KRW 1,487,000, +10.9% on the day, Kospi +6.6%), 12m-forward EPS KRW 458,910, 40-week MA KRW 1,568,675, 12m-forward P/E 3.2x vs. 8.6x average since 2010 (a 62% discount), one-year average 5.4x.

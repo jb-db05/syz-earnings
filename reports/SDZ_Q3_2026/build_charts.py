@@ -20,6 +20,13 @@ def _legend(ax, *a, **k):
 def _style(ax, *a, **k):
     _style0(ax, *a, **k); ax.yaxis.set_major_locator(mticker.MultipleLocator(5))
 syz_charts.legend = _legend
+_header0 = syz_charts.header
+def _header_end2026(fig, *a, **k):
+    # x axis ends on 31 December 2026 (the kit leaves ~11 months of blank space after the last date)
+    for ax in fig.axes:
+        if ax.get_xscale() == "linear" and ax.get_xlim()[1] > mdates.date2num(pd.Timestamp("2026-01-01")):
+            ax.set_xlim(right=mdates.date2num(pd.Timestamp("2026-12-31")))
+    return _header0(fig, *a, **k)
 
 OUT = "/home/user/syz-earnings/reports/SDZ_Q3_2026"
 CROP = "/home/claude/sdz"
@@ -101,6 +108,7 @@ if __name__ == "__main__":
     syz_charts.style_ax = _style0
     plt.rcParams["axes.ymargin"] = 0.05
 
+    syz_charts.header = _header_end2026
     r = price_eps_pe_chart(f"{OUT}/SDZ_chart2_price_eps_pe.png", df, PARAMS["name"],
                            f"{t}: share price vs. consensus earnings and valuation",
                            source_line("Bloomberg", PARAMS["asof"], "SDZ SW Equity, weekly", "BEst 12m-forward consensus",
@@ -108,6 +116,7 @@ if __name__ == "__main__":
                                        "P/E shaded vs. its average since Oct 2023"),
                            ccy=PARAMS["ccy"])
     crop_for_pdf(f"{OUT}/SDZ_chart2_price_eps_pe.png", f"{CROP}/c2_crop.png", "price_eps_pe")
+    syz_charts.header = _header0
     nums.update({f"chart_{k}": v for k, v in r.items()})
     json.dump(nums, open(f"{OUT}/numbers.json", "w"), indent=1, default=float)
     for k, v in nums.items():

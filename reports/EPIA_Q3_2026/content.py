@@ -13,7 +13,7 @@ COMPANY_INTRO = ("Epiroc makes drilling rigs, underground loaders, rock tools an
 
 TAKEAWAYS = [
     ("neg", "Miss", "Revenue SEK 16.8bn, 3.0% below consensus; EPS SEK 2.00, 6.5% below, despite a 20.4% margin."),
-    ("neg", "Reaction", "Shares down 5.1% on 28 October: equipment orders grew 16% organically, against about 26% expected."),
+    ("neu", "Reaction", "Shares down 2.0% on 28 October after 5.1% intraday; we think margins and copper cushioned the miss."),
     ("neg", "Watch", "Operating cash flow fell to SEK 1.4bn from 2.5bn on inventory; 12-month cash conversion 78%."),
     ("neu", "Valuation", "24.8x forward earnings, in line with its average since the 2018 listing; 33.3x in February."),
 ]
@@ -26,9 +26,10 @@ KPIS = [
 ]
 
 H_P1 = "What the quarter means for the investment case"
-P1 = ("Revenue missed consensus by 3.0% and earnings per share by 6.5%, and the shares fell 5.1% by early afternoon "
-      "on 28 October: miss and reaction are aligned. The margin was the bright spot at 20.4%, up from 19.0%, but "
-      "equipment orders grew 16% organically against 30% in the second quarter, and cash conversion weakened sharply.")
+P1 = ("Revenue missed consensus by 3.0% and earnings per share by 6.5%, yet the shares were down only 2.0% later on "
+      "28 October, after falling 5.1% intraday: a muted reaction to a clear miss. The margin was the bright spot at "
+      "20.4%, up from 19.0%, but equipment orders grew 16% organically against 30% in the second quarter, and cash "
+      "conversion weakened sharply.")
 
 C1_TITLE = "EPI A: Q3 2026 vs. consensus"
 C1_SUB = ("Surprise in % &middot; orders consensus from analyst first takes &middot; EPS: basic reported vs. adjusted "
@@ -59,12 +60,13 @@ A1 = [
      "and a base that included more than SEK 300m of Roy Hill automation invoicing, service 10%. Equipment &amp; "
      "Service lifted its adjusted margin to 23.8% from 21.9% on volume and efficiency; Tools &amp; Attachments "
      "reached 13.2%, its best since early 2024. Currency added 3% to orders and revenue."),
-    ("A miss on revenue, operating profit and earnings met a 5.1% fall by 13:27 GMT on 28 October: surprise and "
-     "reaction are aligned. The confirmed drivers go beyond the headline: equipment orders grew 16% organically "
-     "against analyst expectations of about 26%, surface tenders did not convert, the infrastructure outlook was "
-     "trimmed from &ldquo;increase somewhat&rdquo; to &ldquo;remain stable&rdquo;, and operating cash flow fell to "
-     "SEK 1.4bn from 2.5bn. Expectations were already easing, in our reading: the shares had fallen 6.5% in the two "
-     "weeks before the release, which may have limited the move."),
+    ("A miss on revenue, operating profit and earnings met only a 2.0% fall on 28 October, after a 5.1% "
+     "intraday drop: the reaction is small relative to the surprise. The weak points are confirmed: equipment "
+     "orders grew 16% organically against analyst expectations of about 26%, surface tenders did not convert, the "
+     "infrastructure outlook was trimmed to &ldquo;remain stable&rdquo; and operating cash flow fell to SEK 1.4bn from "
+     "2.5bn. The most likely reading is that investors looked through them to the 20.4% margin and a copper pipeline "
+     "management calls very strong; a 6.5% fall in the two weeks before the release had "
+     "also lowered expectations."),
 ]
 H_A2 = "Outlook: copper pipeline strong, timing uncertain"
 A2 = ("Epiroc gives no numeric guidance. It expects mining demand to remain high and infrastructure demand to remain "

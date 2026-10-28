@@ -12,8 +12,8 @@ PARAMS = {
     "ticker": "EPI A", "ccy": "SEK",
     "window_start": "2018-06-18",          # listing date, first consensus EPS
     "asof": "28 Oct 2026",
-    # release 28 Oct 10:30 UTC; reaction SEK 239.20 vs. 252.00 close at 13:27 GMT (StreetAccount)
-    "prev_close": 252.00, "reaction_price": 239.20, "reaction_date": "28 October 2026", "market_pct": None,
+    # release 28 Oct 10:30 UTC; low of SEK 239.20 (-5.1%) at 13:27 GMT (StreetAccount), then SEK 247.0 (export)
+    "prev_close": 252.00, "reaction_price": 247.0, "intraday_low": 239.20, "reaction_date": "28 October 2026", "market_pct": None,
     # surprises vs. consensus in % (orders consensus from analyst first takes; EPS basic vs. adjusted consensus)
     "c1_labels": ["Orders\nvs. consensus", "Revenue\nvs. consensus", "Adjusted EBIT\nvs. consensus",
                   "EPS\nvs. consensus"],

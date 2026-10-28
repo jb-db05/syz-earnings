@@ -4,8 +4,8 @@ from PIL import Image
 import content as c
 
 OUT_PDF = "Earnings_Update_EPIA_Q32026.pdf"
-W1, W2 = 80, 94          # PDF chart widths (% of text width)
-W1_PPTX, W2_PPTX = 70, 88
+W1, W2 = 74, 94          # PDF chart widths (% of text width)
+W1_PPTX, W2_PPTX = 66, 88
 TEMPLATE = "/home/claude/template.html"
 
 li = "\n".join(f'<li><span class="tag {t}">{lab}</span><span class="t">{txt}</span></li>' for t, lab, txt in c.TAKEAWAYS)

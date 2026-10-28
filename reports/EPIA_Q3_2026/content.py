@@ -2,19 +2,20 @@
 DATE = "28 October 2026"
 TITLE = "Epiroc Q3 2026: margins deliver, orders and cash do not"
 
-# No verbatim management statement of 20 to 35 words in the user's material: quote block omitted
-QUOTE = ""
-QUOTE_WHO = ""
+# Verbatim from the raw transcript (closing summary; leading "And" dropped)
+QUOTE = ("The strong order development needs to translate into revenues and cash. And we are focused on improving "
+         "that conversion while continuing to serve our customers well.")
+QUOTE_WHO = "Helena Hedblom, President and Chief Executive Officer, Q3 2026 results call, 28 October 2026"
 
 COMPANY_INTRO = ("Epiroc makes drilling rigs, underground loaders, rock tools and attachments for mining and "
                  "infrastructure customers, and services the installed fleet. Mining accounts for 83% of orders; "
-                 "quarterly revenue is SEK 16.8bn. Listed in Stockholm.")
+                 "quarterly revenue is SEK 16.8bn. Stockholm-listed.")
 
 TAKEAWAYS = [
     ("neg", "Miss", "Revenue SEK 16.8bn, 3.0% below consensus; EPS SEK 2.00, 6.5% below, despite a 20.4% margin."),
     ("neg", "Reaction", "Shares down 5.1% on 28 October: equipment orders grew 16% organically, against about 26% expected."),
     ("neg", "Watch", "Operating cash flow fell to SEK 1.4bn from 2.5bn on inventory; 12-month cash conversion 78%."),
-    ("neu", "Valuation", "24.8x forward earnings, in line with the average since the 2018 listing and down from 33.3x in February."),
+    ("neu", "Valuation", "24.8x forward earnings, in line with its average since the 2018 listing; 33.3x in February."),
 ]
 
 KPIS = [

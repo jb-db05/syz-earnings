@@ -4,9 +4,9 @@
  "DOC_TYPE": "Earnings update",
  "DATE": "28 October 2026",
  "TITLE": "Epiroc Q3 2026: margins deliver, orders and cash do not",
- "QUOTE": "",
- "QUOTE_WHO": "",
- "COMPANY_INTRO": "Epiroc makes drilling rigs, underground loaders, rock tools and attachments for mining and infrastructure customers, and services the installed fleet. Mining accounts for 83% of orders; quarterly revenue is SEK 16.8bn. Listed in Stockholm.",
+ "QUOTE": "The strong order development needs to translate into revenues and cash. And we are focused on improving that conversion while continuing to serve our customers well.",
+ "QUOTE_WHO": "Helena Hedblom, President and Chief Executive Officer, Q3 2026 results call, 28 October 2026",
+ "COMPANY_INTRO": "Epiroc makes drilling rigs, underground loaders, rock tools and attachments for mining and infrastructure customers, and services the installed fleet. Mining accounts for 83% of orders; quarterly revenue is SEK 16.8bn. Stockholm-listed.",
  "TAKEAWAYS": [
   {
    "tag": "neg",
@@ -26,7 +26,7 @@
   {
    "tag": "neu",
    "label": "Valuation",
-   "text": "24.8x forward earnings, in line with the average since the 2018 listing and down from 33.3x in February."
+   "text": "24.8x forward earnings, in line with its average since the 2018 listing; 33.3x in February."
   }
  ],
  "KPIS": [
@@ -61,7 +61,7 @@
  "C1_SUB": "Surprise in % · orders consensus from analyst first takes · EPS: basic reported vs. adjusted consensus",
  "C1_IMG": "/home/claude/epi/c1_crop.png",
  "C1_ASPECT": 0.312,
- "W1": 70,
+ "W1": 66,
  "C1_COMMENT": "Chart 1 shows a miss on every volume line, from orders to earnings per share, against a margin that beat by 20bp. Efficiency gains held the operating profit miss to 2.0%, which included a SEK 135m currency gain that management does not expect to repeat at that scale. Volume, not cost, is the real issue.",
  "BASE_CASE": "We keep our position in Epiroc but would wait for the order rebound before adding. The earnings path we underwrite rests on backlog conversion: consensus expects fourth-quarter revenue of SEK 18.6bn and EPS of SEK 2.35, up 11% and 18% from the third quarter, which needs underground deliveries to accelerate. Margins look durable above 20%, carried by efficiency and pricing. The copper pipeline is the catalyst; the fourth-quarter report in early 2027, with equipment orders and cash conversion, is the next test.",
  "UPSIDE": "Equipment orders back above 20% organic growth in the fourth quarter as copper projects are booked; surface tenders converting into orders; cash conversion back above 90%; an Equipment & Service margin near 23.8% without currency gains.",

@@ -16,7 +16,7 @@ TAKEAWAYS = [
     ("pos", "Beat", "Truck pretax profit of USD 455m beat estimates by 43%, lifting net income 44% to USD 848m."),
     ("neu", "Reaction", "Shares eased 0.6% on 27 October: EPS met consensus at USD 1.61, sales missed by 1.3%."),
     ("neg", "Watch", "Unfinalised 2027 emission penalties delay orders; supplier shortfalls held deliveries 4.5% below guidance."),
-    ("neu", "Valuation", "17.6x forward earnings, down from 23.9x in July while consensus EPS rose 3%: the derating looks done."),
+    ("neu", "Valuation", "17.6x forward earnings, down from 23.9x in July while consensus EPS rose 3% over the same period."),
 ]
 
 KPIS = [
@@ -26,24 +26,24 @@ KPIS = [
     ("Q4 delivery guide", "41,000&ndash;43,000", "Midpoint +4.7% vs. Q3", "neu"),
 ]
 
-H_P1 = "Earnings are recovering, the multiple is not"
+H_P1 = "Earnings recover as the multiple falls"
 P1_PARAGRAPH = ("EPS of USD 1.61 met consensus and truck profit beat estimates by 43%, yet sales missed by 1.3% and "
-                "the shares eased 0.6% on 27 October, a reaction in line with a mixed print. Earnings are "
-                "recovering on truck margins rather than volume. What holds the stock back is not this "
-                "print but the unresolved 2027 emission rules and the timing of a pull-forward.")
+                "the shares eased 0.6% on 27 October, a reaction in line with a mixed print. Higher "
+                "deliveries lifted the truck pretax margin to 8.1%. The stock is held back by the unresolved 2027 "
+                "emission rules and the timing of a pull-forward in orders.")
 
 C1_TITLE = "PCAR: Q3 2026 results vs. consensus and guidance"
 C1_SUB = ("Surprise vs. pre-results consensus or analyst estimates, % &middot; sales of truck, parts and other "
           "&middot; deliveries vs. the ~42,000 company guide")
-C1_COMMENT = ("The quarter splits in two. Trucks delivered a 43% profit surprise on revenue up 28% year on year, a "
-              "pretax margin of 8.1%. Parts, the steadiest earner, posted record revenue but pretax profit 14% below "
+C1_COMMENT = ("Trucks delivered a 43% profit surprise on revenue up 28% year on year, a "
+              "pretax margin of 8.1%. Parts, the steadiest earner, posted record revenue of USD 1.78bn but pretax profit 14% below "
               "estimates. Supplier shortfalls cost about 1,900 deliveries against guidance, which we think explains "
               "most of the sales miss.")
 
-BASE_CASE = ("We keep the position and would add once the 2027 emission penalties are finalised. We underwrite "
+BASE_CASE = ("We keep the position. We underwrite "
              "consensus forward EPS of USD 5.90, 16% above a year ago and 34% below the 2023 peak, "
              "carried by truck margins and record Parts revenue. The debate has moved from the freight recession to "
-             "the 2027 rules and the pull-forward. At 17.6x, the July premium is gone and "
+             "the 2027 rules and the size of a pull-forward in orders. At 17.6x, the July premium is gone and "
              "sentiment is negative, which we think limits the downside. The next test is Q4 deliveries of 41,000 "
              "to 43,000, due in late January 2027.")
 

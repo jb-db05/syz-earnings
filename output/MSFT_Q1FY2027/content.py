@@ -43,7 +43,7 @@ C1_COMMENT = P(
     "prior-year Azure contract. We read this as timing: the part due within 12 months still grew 29%.")
 
 BASE_CASE = (
-    "We keep Microsoft, a Focus List name, and would add on any capex-driven dip. We underwrite Azure growth near "
+    "We are constructive on Microsoft. We underwrite Azure growth near "
     "50% in the first half and Microsoft 365 commercial cloud picking up from 18%, which points to upgrades to the "
     "USD 21.2 forward EPS consensus. The debate has moved from demand to returns on USD 170bn of 2026 capex. At "
     "25.2x, below the five-year average of 28.0x, the multiple does not price the pick-up. Next test: the Q2 print "

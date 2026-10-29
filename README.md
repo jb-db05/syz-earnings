@@ -31,6 +31,7 @@ Sentence case, no em dashes, Nunito Bold and ExtraBold only, exactly two Space B
 
 ## Changelog
 
+- **29 Oct 2026 (c)**: Airbus Q3 / nine-month 2026 reference instance; deliverables and build scripts in `output/AIR_Q32026/`.
 - **29 Oct 2026 (b)**: STMicroelectronics Q3 2026 reference instance; deliverables and build scripts in `output/STMMI_Q32026/`.
 - **29 Oct 2026**: Microsoft Q1 FY2027 reference instance; deliverables and build scripts in `output/MSFT_Q1FY2027/`.
 - **28 Oct 2026 (b)**: hairline between the base case paragraph and the strengthen/change columns inside the second box (PDF template and PPTX builder); chart kit takes `eps_ccy` (EPS axis labelled in the reporting currency when it differs from the price currency) and `price_lbl` / `eps_lbl` end-label offsets; window-start guidance for names with a loss history; UBS Group Q3 2026 reference instance.

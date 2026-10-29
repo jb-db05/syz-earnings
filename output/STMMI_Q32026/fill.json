@@ -1,0 +1,94 @@
+{
+ "LOGO": "/home/claude/syz_logo_hq.png",
+ "GRADBAR": "/home/claude/syz_gradbar.png",
+ "DOC_TYPE": "Earnings update",
+ "DATE": "29 October 2026",
+ "TITLE": "STMicroelectronics Q3 2026: orders surge, margins follow",
+ "QUOTE": "To conclude, we continue to see a very strong demand for our AI datacenters and Low Earth Orbit satellite communications products and technologies, alongside an ongoing cyclical recovery in Automotive and Industrial.",
+ "QUOTE_WHO": "Jean-Marc Chery, President and CEO, Q3 2026 earnings call, 29 October 2026",
+ "COMPANY_INTRO": "STMicroelectronics makes microcontrollers, analog, power, sensor and optical chips. Automotive is about 35% of revenue, industrial about 23%; 2026 revenue about USD 14.5bn. Listed in Paris, Milan and New York.",
+ "TAKEAWAYS": [
+  {
+   "tag": "neu",
+   "label": "Mixed",
+   "text": "Revenue beat consensus by 0.7% and gross margin by 30bp; adjusted EPS of USD 0.37 missed by 10%."
+  },
+  {
+   "tag": "pos",
+   "label": "Orders",
+   "text": "Book-to-bill well above 2 lifts the backlog above USD 20bn, about five quarters of revenue."
+  },
+  {
+   "tag": "pos",
+   "label": "Reaction",
+   "text": "Shares 1.9% higher intraday on 29 October, after opening 1.3% lower before the call."
+  },
+  {
+   "tag": "neu",
+   "label": "Valuation",
+   "text": "19.9x forward earnings, close to the 19.2x average since 2014 and half the June peak."
+  }
+ ],
+ "KPIS": [
+  {
+   "label": "Revenue",
+   "value": "USD 3.76bn",
+   "sub": "+0.7% vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "Gross margin",
+   "value": "37.3%",
+   "sub": "+30bp vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "Adj. EPS",
+   "value": "USD 0.37",
+   "sub": "-9.8% vs. consensus",
+   "sign": "neg"
+  },
+  {
+   "label": "Q4 gross margin guide",
+   "value": "39.0%",
+   "sub": "+90bp vs. consensus",
+   "sign": "pos"
+  }
+ ],
+ "H_P1": "The order book outweighs the EPS miss",
+ "P1_PARAGRAPH": "Revenue beat consensus by 0.7% and gross margin by 30bp, but adjusted EPS missed by 10%; the shares opened 1.3% lower on 29 October, then traded 1.9% higher after the call. The call carried the day: book-to-bill well above 2, a Q4 margin guide 90bp above consensus and a Q1 held at consensus despite fewer days. The recovery now has visibility.",
+ "C1_TITLE": "STMMI: Q3 2026 results and Q4 guide vs. consensus",
+ "C1_SUB": "Reported vs. pre-results consensus, % · Q4 guide at the midpoint · 2026 revenue implied by the Q4 guide · adj.: non-GAAP",
+ "C1_IMG": "/home/claude/stm/c1_crop.png",
+ "C1_ASPECT": 0.312,
+ "W1": 66,
+ "C1_COMMENT": "Adjusted operating income beat by 7%, so the EPS miss sits below the operating line; neither the release nor the call explained it. Every forward line is above consensus: the Q4 revenue guide by 0.7% and the 2026 revenue it implies, about USD 14.5bn, by 0.6%, with the second half about 20% above the first.",
+ "BASE_CASE": "We are constructive on STMicroelectronics. We underwrite a recovery led by AI datacenters, about USD 1.3bn of revenue this year and more than double in 2027, satellites and industrial, with gross margin rising from 39% toward the 44% to 46% model once four legacy fabs close in late 2027 or early 2028. Forward EPS of USD 2.48 is still 43% below the 2023 peak. At 19.9x, upgrades do the work. Next test: the January update with 2027 datacenter targets.",
+ "UPSIDE": "Q4 gross margin at or above 39% and a Q1 revenue guide at or above consensus despite 86 days; a 2027 datacenter target above USD 2.6bn in January; the four legacy fab closures confirmed on schedule.",
+ "DOWNSIDE": "Book-to-bill falling back toward 1 as lead times ease; Q4 gross margin below 38%; fab closures slipping beyond early 2028, or price cuts in the 2027 contract negotiations with European automotive Tier 1 suppliers.",
+ "P2_TITLE": "Beyond the key takeaways",
+ "H_A1": "Results: AI and industrial did the work",
+ "A1_PARAGRAPHS": [
+  "Revenue rose 17.9% to USD 3.76bn, 1.5% above the guide midpoint. Communication equipment and computer peripherals grew 64% on AI datacenter and low Earth orbit satellite chips, and industrial 40% on general-purpose microcontrollers, analog and power; automotive grew only 5% and personal electronics fell 4%. By segment, RF and optical communication rose 46% at a 26.2% operating margin and embedded processing 24% at 23.1%, while power and discrete ran at a loss of 17.1% of sales. Gross margin of 37.3% rose 410bp on lower unused-capacity charges and mix, still carrying about 100bp of transition costs. Free cash flow was USD 351m.",
+  "The reaction diverged from the EPS miss: the shares opened 1.3% lower on 29 October and were 1.9% higher intraday after the call. Confirmed drivers: adjusted operating income of USD 429m beat the estimate by 7%; book-to-bill was well above 2, and above 3 in communications and industrial; and management said it was comfortable delivering Q1 revenue and gross margin at least at consensus despite an 86-day quarter. We think positioning did the rest: the shares had fallen 42% from the June peak to EUR 39.45 a week earlier, taking the multiple to 18.1x."
+ ],
+ "H_A2": "Outlook: Q4 at 39%, Q1 held at consensus",
+ "A2_PARAGRAPH": "ST guides Q4 revenue of USD 4.15bn, up 10.5% sequentially and 24.7% on the year, 0.7% above consensus, and gross margin of 39.0%, 90bp above, still including about 40bp of unused-capacity charges and 30bp of reshaping costs. That implies 2026 revenue of about USD 14.5bn, up 22.8%. Datacenter revenue should reach about USD 1.3bn this year and more than double in 2027; satellite revenue should be at least as large next year, limited by capacity rather than demand. The 400bp structural margin gain from closing four legacy fabs lands as a step in late 2027 or early 2028. Opex rises in 2027, more slowly than sales.",
+ "H_C2": "Valuation: the June premium is gone",
+ "C2_TITLE": "STMMI: share price vs. consensus earnings and valuation",
+ "C2_SUB": "STMMI IM Equity, weekly, January 2014 to October 2026 (window starts after the 2009 loss and the 2012 to 2013 earnings trough) · BEst 12m-forward EPS in USD, price in EUR · 40-week simple MA · log scale · last price EUR 44.21 is a 29 October intraday level, after the release",
+ "C2_IMG": "/home/claude/stm/c2_crop.png",
+ "C2_ASPECT": 0.5984,
+ "W2": 88,
+ "C2_COMMENT": "The multiple has round-tripped: the forward P/E peaked at 42.2x in June 2026, when the shares reached EUR 68.0, and is back to 19.9x, 4% above its 19.2x average since 2014 and well below the one-year average of 27.3x. Over 12 months consensus EPS rose 141% to USD 2.48 and the price 107%, so earnings now lead. Since the July results the price fell 6% while EPS rose 19%. The shares sit on their 40-week average of EUR 44.2. A 10% EPS upgrade at an unchanged price would take the multiple to 18.1x.",
+ "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings, STMicroelectronics Q3 2026 earnings release and call of 29 October 2026, analyst research notes of 27 and 28 October 2026",
+ "DISCLAIMER": [
+  "This communication has been issued and made available to recipients for the purpose of advertising investment services and/or financial instruments. It has been sent for information purposes and cannot be considered as an offer or a personalised recommendation to buy or sell a financial instrument or any other investment or currency. This communication does not constitute investment research within the meaning of regulatory rules applicable in the European Economic Area, or research under the rules of the U.S. Self-Regulatory Organizations.",
+  "This information is made solely for professional and institutional clients as defined by the Swiss Financial Services Act, as well as qualified investors according to the Swiss Collective Investment Schemes Act. It is not intended for retail clients or non-qualified investors and consequently cannot be transmitted to any third party.",
+  "This communication is not directed to any person in any jurisdiction where, by reason of that person’s nationality, residence or otherwise, its dissemination or use is prohibited. It cannot be quoted, reproduced, disclosed, distributed or otherwise referred to, in whole or in part, to any third party without the Bank’s prior written consent.",
+  "This communication may contain information on past performances of a financial product, all kinds of economic and financial valuations and analyses, as well as opinions of the Bank or of third parties. Any market valuations, terms and calculation methods, yields and opinions expressed are subject to change without notice. The information and opinions contained herein have been compiled and provided in good faith, based on information obtained from sources believed to be trustworthy. However, such information has not been independently verified. No guarantee, representation, or warranty of any kind, whether express or implied, is provided by the Bank or by relevant data vendors and other sources with respect to the accuracy, reliability, currentness or exhaustiveness of the information communicated, the methodology employed or the prices contained herein.",
+  "Past performance is not a reliable indicator of current or future results. Any reference to the past performance of an investment does not guarantee its future performance. Fluctuations in exchange rates may adversely affect the value, price or income of any investment.",
+  "Nothing in the present communication constitutes investment, legal, accounting or tax advice. This information is purely objective since it does not take into consideration the personal situation (including financial knowledge and experience), the investment objectives and risk profile of any recipient. Moreover, certain financial instruments mentioned (in particular, but not exclusively, derivatives, options and futures) involve a high risk of loss and may not be suitable. Accordingly, recipients should consult their own advisors on such matters, including but not limited to the possible tax consequences of investing in any financial product mentioned herein, and make their own assessment of the suitability of such investment product.",
+  "Should a recipient make an investment on the basis of the present communication, the recipient alone shall bear the consequences thereof. In no event shall the Bank, its directors, employees, affiliates or agents be held responsible for damages of any kind arising out of the use of all or part of the information provided herein."
+ ]
+}

@@ -5,8 +5,8 @@ DOC_TYPE = "Earnings update"
 DATE = "29 October 2026"
 TITLE = "Airbus Q3 2026: the guide holds, Q4 must deliver"
 
-QUOTE = ("Overall, we feel comfortable with the ramp up. As you see, we are confirming the outlook for this year. "
-         "We were comfortable enough at the Farnborough Airshow to give a 2029 mid-term target.")
+QUOTE = ("Our delivery profile is again backend loaded. As we speak, our teams are fully mobilized for a successful "
+         "year-end run. &hellip; And our 2026 guidance remains unchanged.")
 QUOTE_WHO = "Guillaume Faury, CEO, Q3 2026 earnings call, 28 October 2026"
 
 COMPANY_INTRO = ("Airbus builds commercial aircraft (A220, A320, A330, A350), helicopters and defence and space "

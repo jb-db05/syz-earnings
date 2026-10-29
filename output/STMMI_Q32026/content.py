@@ -14,8 +14,8 @@ COMPANY_INTRO = ("STMicroelectronics makes microcontrollers, analog, power, sens
                  "and New York.")
 
 TAKEAWAYS = [
-    ("neu", "Mixed", "Revenue beat consensus by 0.7% and gross margin by 30bp; adjusted EPS of USD 0.37 missed by 10%."),
     ("pos", "Orders", "Book-to-bill well above 2 lifts the backlog above USD 20bn, about five quarters of revenue."),
+    ("pos", "Photonics", "Datacenter sales more than double in 2027 as silicon photonics capacity rises more than fourfold."),
     ("pos", "Reaction", "Shares 1.9% higher intraday on 29 October, after opening 1.3% lower before the call."),
     ("neu", "Valuation", "19.9x forward earnings, close to the 19.2x average since 2014 and half the June peak."),
 ]
@@ -48,8 +48,8 @@ BASE_CASE = (
     "toward the 44% to 46% model once four legacy fabs close in late 2027 or early 2028. Forward EPS of USD 2.48 "
     "is still 43% below the 2023 peak. At 19.9x, upgrades do the work. Next test: the January update with 2027 "
     "datacenter targets.")
-UPSIDE = ("Q4 gross margin at or above 39% and a Q1 revenue guide at or above consensus despite 86 days; a 2027 "
-          "datacenter target above USD 2.6bn in January; the four legacy fab closures confirmed on schedule.")
+UPSIDE = ("Q4 gross margin at or above 39% and Q1 at consensus despite 86 days; a 2027 datacenter target above "
+          "USD 2.6bn in January with a first photonics revenue figure; fab closures on schedule.")
 DOWNSIDE = ("Book-to-bill falling back toward 1 as lead times ease; Q4 gross margin below 38%; fab closures slipping "
             "beyond early 2028, or price cuts in the 2027 contract negotiations with European automotive Tier 1 suppliers.")
 

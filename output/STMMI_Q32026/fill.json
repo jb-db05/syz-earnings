@@ -9,14 +9,14 @@
  "COMPANY_INTRO": "STMicroelectronics makes microcontrollers, analog, power, sensor and optical chips. Automotive is about 35% of revenue, industrial about 23%; 2026 revenue about USD 14.5bn. Listed in Paris, Milan and New York.",
  "TAKEAWAYS": [
   {
-   "tag": "neu",
-   "label": "Mixed",
-   "text": "Revenue beat consensus by 0.7% and gross margin by 30bp; adjusted EPS of USD 0.37 missed by 10%."
-  },
-  {
    "tag": "pos",
    "label": "Orders",
    "text": "Book-to-bill well above 2 lifts the backlog above USD 20bn, about five quarters of revenue."
+  },
+  {
+   "tag": "pos",
+   "label": "Photonics",
+   "text": "Datacenter sales more than double in 2027 as silicon photonics capacity rises more than fourfold."
   },
   {
    "tag": "pos",
@@ -64,7 +64,7 @@
  "W1": 66,
  "C1_COMMENT": "Adjusted operating income beat by 7%, so the EPS miss sits below the operating line; neither the release nor the call explained it. Every forward line is above consensus: the Q4 revenue guide by 0.7% and the 2026 revenue it implies, about USD 14.5bn, by 0.6%, with the second half about 20% above the first.",
  "BASE_CASE": "We are constructive on STMicroelectronics. We underwrite a recovery led by AI datacenters, about USD 1.3bn of revenue this year and more than double in 2027 as silicon photonics ramps, satellites and industrial, with gross margin rising from 39% toward the 44% to 46% model once four legacy fabs close in late 2027 or early 2028. Forward EPS of USD 2.48 is still 43% below the 2023 peak. At 19.9x, upgrades do the work. Next test: the January update with 2027 datacenter targets.",
- "UPSIDE": "Q4 gross margin at or above 39% and a Q1 revenue guide at or above consensus despite 86 days; a 2027 datacenter target above USD 2.6bn in January; the four legacy fab closures confirmed on schedule.",
+ "UPSIDE": "Q4 gross margin at or above 39% and Q1 at consensus despite 86 days; a 2027 datacenter target above USD 2.6bn in January with a first photonics revenue figure; fab closures on schedule.",
  "DOWNSIDE": "Book-to-bill falling back toward 1 as lead times ease; Q4 gross margin below 38%; fab closures slipping beyond early 2028, or price cuts in the 2027 contract negotiations with European automotive Tier 1 suppliers.",
  "P2_TITLE": "Beyond the key takeaways",
  "H_A1": "Results: AI and industrial did the work",

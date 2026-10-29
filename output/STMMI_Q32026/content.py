@@ -16,7 +16,7 @@ COMPANY_INTRO = ("STMicroelectronics makes microcontrollers, analog, power, sens
 TAKEAWAYS = [
     ("pos", "Orders", "Book-to-bill well above 2 lifts the backlog above USD 20bn, about five quarters of revenue."),
     ("pos", "Photonics", "Datacenter sales more than double in 2027 as silicon photonics capacity rises more than fourfold."),
-    ("pos", "Reaction", "Shares 1.9% higher intraday on 29 October, after opening 1.3% lower before the call."),
+    ("pos", "Reaction", "Shares closed 1.9% higher on 29 October, after opening 1.3% lower before the call."),
     ("neu", "Valuation", "19.9x forward earnings, close to the 19.2x average since 2014 and half the June peak."),
 ]
 
@@ -30,7 +30,7 @@ KPIS = [
 H_P1 = "The order book outweighs the EPS miss"
 P1_PARAGRAPH = P(
     "Revenue beat consensus by 0.7% and gross margin by 30bp, but adjusted EPS missed by 10%; the shares opened "
-    "1.3% lower on 29 October, then traded 1.9% higher after the call. The call carried the day: book-to-bill well "
+    "1.3% lower on 29 October, then closed 1.9% higher. The call carried the day: book-to-bill well "
     "above 2, a Q4 margin guide 90bp above consensus and a Q1 held at consensus despite fewer days. The recovery "
     "now has visibility.")
 
@@ -62,8 +62,8 @@ A1_PARAGRAPHS = [
       "By segment, RF and optical communication rose 46% at a 26.2% operating margin and embedded processing 24% at "
       "23.1%, while power and discrete ran at a loss of 17.1% of sales. Gross margin of 37.3% rose 410bp on lower "
       "unused-capacity charges and mix, still carrying about 100bp of transition costs. Free cash flow was USD 351m."),
-    P("The reaction diverged from the EPS miss: the shares opened 1.3% lower on 29 October and were 1.9% higher "
-      "intraday after the call. Confirmed drivers: adjusted operating income of USD 429m beat the estimate by 7%; "
+    P("The reaction diverged from the EPS miss: the shares opened 1.3% lower on 29 October and closed 1.9% higher "
+      "after the call. Confirmed drivers: adjusted operating income of USD 429m beat the estimate by 7%; "
       "book-to-bill was well above 2, and above 3 in communications and industrial; and management said it was "
       "comfortable delivering Q1 revenue and gross margin at least at consensus despite an 86-day quarter. We think "
       "positioning did the rest: the shares had fallen 42% from the June peak to EUR 39.45 a week earlier, taking "
@@ -83,7 +83,7 @@ H_C2 = "Valuation: the June premium is gone"
 C2_TITLE = "STMMI: share price vs. consensus earnings and valuation"
 C2_SUB = ("STMMI IM Equity, weekly, January 2014 to October 2026 (window starts after the 2009 loss and the 2012 to "
           "2013 earnings trough) &middot; BEst 12m-forward EPS in USD, price in EUR &middot; 40-week simple MA "
-          "&middot; log scale &middot; last price EUR 44.21 is a 29 October intraday level, after the release")
+          "&middot; log scale &middot; last price EUR 44.21 is the 29 October close, after the release")
 C2_COMMENT = P(
     "The multiple has round-tripped: the forward P/E peaked at 42.2x in June 2026, when the shares reached EUR 68.0, "
     "and is back to 19.9x, 4% above its 19.2x average since 2014 and well below the one-year average of 27.3x. Over "

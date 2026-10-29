@@ -12,7 +12,7 @@ PARAMS = {
     "window_start": "2014-01-01",               # EPS negative in 2009, P/E above 100x in 2012-13
     "prev_results": "2026-07-24",               # week of the Q2 2026 results (23 Jul 2026)
     "prev_close": 43.37,                        # 28 Oct 2026 close (Paris), before the release
-    "reaction_pct": 1.9, "reaction_date": "29 Oct 2026 (intraday, Bloomberg last price)", "market_pct": None,
+    "reaction_pct": 1.9, "reaction_date": "29 Oct 2026 (close)", "market_pct": None,
     # Chart 1: surprise vs. pre-results consensus, % (reported / consensus - 1)
     "c1_labels": ["Revenue", "Op. income (adj.)", "Adj. EPS", "Q4 revenue guide", "2026 revenue"],
     "c1_reported": [3.757, 429.0, 0.37, 4.15, 14.5],

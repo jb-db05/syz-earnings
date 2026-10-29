@@ -44,7 +44,7 @@ C1_COMMENT = P(
 
 BASE_CASE = (
     "We are constructive on STMicroelectronics. We underwrite a recovery led by AI datacenters, about USD 1.3bn of "
-    "revenue this year and more than double in 2027, satellites and industrial, with gross margin rising from 39% "
+    "revenue this year and more than double in 2027 as silicon photonics ramps, satellites and industrial, with gross margin rising from 39% "
     "toward the 44% to 46% model once four legacy fabs close in late 2027 or early 2028. Forward EPS of USD 2.48 "
     "is still 43% below the 2023 peak. At 19.9x, upgrades do the work. Next test: the January update with 2027 "
     "datacenter targets.")
@@ -71,12 +71,13 @@ A1_PARAGRAPHS = [
 ]
 H_A2 = "Outlook: Q4 at 39%, Q1 held at consensus"
 A2_PARAGRAPHS = P(
-    "ST guides Q4 revenue of USD 4.15bn, up 10.5% sequentially and 24.7% on the year, 0.7% above consensus, and "
-    "gross margin of 39.0%, 90bp above, still including about 40bp of unused-capacity charges and 30bp of reshaping "
-    "costs. That implies 2026 revenue of about USD 14.5bn, up 22.8%. Datacenter revenue should reach about USD 1.3bn "
-    "this year and more than double in 2027; satellite revenue should be at least as large next year, limited by "
-    "capacity rather than demand. The 400bp structural margin gain from closing four legacy fabs lands as a step in "
-    "late 2027 or early 2028. Opex rises in 2027, more slowly than sales.")
+    "ST guides Q4 revenue of USD 4.15bn, up 10.5% sequentially and 0.7% above consensus, and gross margin of 39.0%, "
+    "90bp above, still absorbing about 70bp of unused-capacity and reshaping costs. That implies 2026 revenue of about "
+    "USD 14.5bn, up 22.8%. Datacenter revenue should reach about USD 1.3bn this year, mostly microcontrollers, "
+    "silicon photonics and BiCMOS chips, and more than double in 2027, when photonics becomes tens of percent of it: "
+    "management sees ST as probably the only 12-inch photonics producer at scale and will lift capacity more "
+    "than fourfold. Satellite revenue should at least match 2026, limited by capacity. The 400bp fab gain lands in "
+    "late 2027 or early 2028.")
 
 H_C2 = "Valuation: the June premium is gone"
 C2_TITLE = "STMMI: share price vs. consensus earnings and valuation"

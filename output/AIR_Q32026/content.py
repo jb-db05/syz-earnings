@@ -5,8 +5,9 @@ DOC_TYPE = "Earnings update"
 DATE = "29 October 2026"
 TITLE = "Airbus Q3 2026: the guide holds, Q4 must deliver"
 
-QUOTE = ""          # no verbatim management quote available (transcript not supplied, stockanalysis.com not reachable)
-QUOTE_WHO = ""
+QUOTE = ("Overall, we feel comfortable with the ramp up. As you see, we are confirming the outlook for this year. "
+         "We were comfortable enough at the Farnborough Airshow to give a 2029 mid-term target.")
+QUOTE_WHO = "Guillaume Faury, CEO, Q3 2026 earnings call, 28 October 2026"
 
 COMPANY_INTRO = ("Airbus builds commercial aircraft (A220, A320, A330, A350), helicopters and defence and space "
                  "systems. Commercial aircraft were 73% of Q3 revenue; nine-month revenue EUR 50.6bn. Listed in "
@@ -29,8 +30,8 @@ KPIS = [
 H_P1 = "Relief on the guide, the cash test is Q4"
 P1_PARAGRAPH = P(
     "Q3 adjusted EBIT matched consensus while revenue missed by 5% and free cash flow by about EUR 0.4bn, yet the "
-    "shares closed 3.3% higher on 29 October, against 0.8% for the Stoxx Europe 600. The guide held and orders keep "
-    "building: 1,105 net orders in nine months, more than double last year. The case now rests on delivering Q4.")
+    "shares closed 3.3% higher on 29 October, against 0.8% for the Stoxx Europe 600. The guide and the buyback plan "
+    "held, and orders keep building: 1,105 net orders in nine months, double last year. The case now rests on delivering Q4.")
 
 C1_TITLE = "AIR: Q3 2026 results and 2026 guide vs. consensus"
 C1_SUB = ("Q3 reported vs. Q3 consensus &middot; maintained 2026 guide vs. 2026 consensus, % &middot; free cash flow "
@@ -45,8 +46,8 @@ BASE_CASE = (
     "and a 2027 ramp paced by engines, backed by a backlog of 9,310 aircraft. Forward EPS of EUR 8.4 is 15% above "
     "its 2019 peak, and defence orders, up 70%, add a second leg. The debate has moved from demand to execution: the Spirit integration and the cash release from "
     "about EUR 10bn of extra inventory. At 23.5x, delivery must follow. Next test: the full-year results in February.")
-UPSIDE = ("Q4 deliveries at or above 323 with free cash flow before customer financing of at least EUR 4.5bn; a "
-          "decision to lift the A350 rate above 12 a month; Project Bromo signed in 2026.")
+UPSIDE = ("Q4 deliveries at or above 323 with free cash flow before customer financing of at least EUR 4.5bn; the "
+          "EUR 5bn buyback launched before year-end; Project Bromo signed in 2026 as planned.")
 DOWNSIDE = ("Deliveries below 850, the low end of the range; free cash flow short of EUR 4bn as inventory fails to "
             "unwind; Spirit costs above the guided effect; fewer engines than planned for 2027.")
 
@@ -61,20 +62,19 @@ A1_PARAGRAPHS = [
       "&minus;102m, as inventory rose about EUR 10bn since January to support the ramp. Net cash fell to EUR 7.0bn "
       "from EUR 12.2bn at end-2025."),
     P("The reaction diverged from the misses: the shares closed 3.3% higher on 29 October, against 0.8% for the "
-      "Stoxx Europe 600. Confirmed drivers: the 2026 guide held; management said the A321 stringer issue would not "
-      "push deliveries toward the low end of the 850 to 890 range nor affect 2027; commercial margins beat; and "
-      "nine-month net orders of 1,105 lifted the backlog to 9,310 aircraft, with defence orders up 70%. We think "
-      "relief did the rest: the shares went into the print 12% below their January peak, at 22.9x, under the "
-      "one-year average of 24.2x."),
+      "Stoxx Europe 600. Confirmed drivers: the guide held; management said the A321 stringer issue would not push "
+      "deliveries toward the low end of the 850 to 890 range nor affect 2027; commercial margins beat; and the CFO "
+      "said the plan to start the EUR 5bn buyback in the second half was unchanged. We think relief did the rest: "
+      "the shares went into the print 12% below their January peak, at 22.9x, under the one-year average of 24.2x."),
 ]
 H_A2 = "Outlook: a heavy fourth quarter"
 A2_PARAGRAPHS = P(
     "The unchanged guide of about 870 deliveries, EUR 7.5bn of adjusted EBIT and EUR 4.5bn of free cash flow before "
     "customer financing leaves a heavy Q4: about 323 deliveries, 37 more than a year earlier; about EUR 3.0bn of "
     "EBIT, roughly flat as the A220 mix, Spirit costs and back-loaded R&amp;D absorb the volume; and about EUR 5.8bn "
-    "of cash, which depends on unwinding the inventory built this year. Engines remain the pacing item in 2027, and "
-    "Airbus will not build extra airframes ahead of them. An A350 rate above 12 is under review. The 2029 outlook "
-    "assumes USD 1.22, each cent worth about EUR 250m of EBIT.")
+    "of cash, which depends on unwinding the inventory built this year. Engines pace 2027, and "
+    "Airbus will not build extra airframes ahead of them. An A350 rate above 12 is under review, and the 2029 target "
+    "set in July, EUR 12bn to 13bn of adjusted EBIT at USD 1.22, stands.")
 
 H_C2 = "Valuation: a premium to history, not to 2026"
 C2_TITLE = "AIR: share price vs. consensus earnings and valuation"
@@ -92,4 +92,4 @@ C2_COMMENT = P(
 SOURCE_LINE = ("Source: Syz Research, Bloomberg, company filings, Airbus nine-month 2026 release and call of "
                "28 October 2026, analyst research notes of 29 October 2026")
 W1, W2 = 80, 92            # PDF chart widths, % of text width
-W1_PPTX, W2_PPTX = 70, 88
+W1_PPTX, W2_PPTX = 66, 88

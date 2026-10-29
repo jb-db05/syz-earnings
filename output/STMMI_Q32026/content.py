@@ -16,7 +16,7 @@ COMPANY_INTRO = ("STMicroelectronics makes microcontrollers, analog, power, sens
 TAKEAWAYS = [
     ("pos", "Orders", "Book-to-bill well above 2 lifts the backlog above USD 20bn, about five quarters of revenue."),
     ("pos", "Photonics", "Datacenter sales more than double in 2027 as silicon photonics capacity rises more than fourfold."),
-    ("pos", "Reaction", "Shares closed 1.9% higher on 29 October, after opening 1.3% lower before the call."),
+    ("pos", "Reaction", "Shares closed 1.9% higher on 29 October, against 0.8% for European tech, after a 1.3% lower open."),
     ("neu", "Valuation", "19.9x forward earnings, close to the 19.2x average since 2014 and half the June peak."),
 ]
 
@@ -30,9 +30,8 @@ KPIS = [
 H_P1 = "The order book outweighs the EPS miss"
 P1_PARAGRAPH = P(
     "Revenue beat consensus by 0.7% and gross margin by 30bp, but adjusted EPS missed by 10%; the shares opened "
-    "1.3% lower on 29 October, then closed 1.9% higher. The call carried the day: book-to-bill well "
-    "above 2, a Q4 margin guide 90bp above consensus and a Q1 held at consensus despite fewer days. The recovery "
-    "now has visibility.")
+    "1.3% lower on 29 October, then closed 1.9% higher, against 0.8% for European tech. The call carried the day: "
+    "book-to-bill well above 2, a Q4 margin guide 90bp above consensus and a Q1 held at consensus despite fewer days.")
 
 C1_TITLE = "STMMI: Q3 2026 results and Q4 guide vs. consensus"
 C1_SUB = ("Reported vs. pre-results consensus, % &middot; Q4 guide at the midpoint &middot; 2026 revenue implied by "
@@ -62,12 +61,12 @@ A1_PARAGRAPHS = [
       "By segment, RF and optical communication rose 46% at a 26.2% operating margin and embedded processing 24% at "
       "23.1%, while power and discrete ran at a loss of 17.1% of sales. Gross margin of 37.3% rose 410bp on lower "
       "unused-capacity charges and mix, still carrying about 100bp of transition costs. Free cash flow was USD 351m."),
-    P("The reaction diverged from the EPS miss: the shares opened 1.3% lower on 29 October and closed 1.9% higher "
-      "after the call. Confirmed drivers: adjusted operating income of USD 429m beat the estimate by 7%; "
+    P("The reaction diverged from the EPS miss: the shares opened 1.3% lower on 29 October and closed 1.9% higher, "
+      "against 0.8% for the Stoxx Europe 600 and its technology sector. Confirmed drivers: adjusted operating income of USD 429m beat the estimate by 7%; "
       "book-to-bill was well above 2, and above 3 in communications and industrial; and management said it was "
       "comfortable delivering Q1 revenue and gross margin at least at consensus despite an 86-day quarter. We think "
-      "positioning did the rest: the shares had fallen 42% from the June peak to EUR 39.45 a week earlier, taking "
-      "the multiple to 18.1x."),
+      "positioning did the rest: the shares had fallen 42% from the June peak to EUR 39.45 a week earlier, an "
+      "18.1x multiple."),
 ]
 H_A2 = "Outlook: Q4 at 39%, Q1 held at consensus"
 A2_PARAGRAPHS = P(

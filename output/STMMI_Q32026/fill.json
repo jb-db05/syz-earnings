@@ -21,7 +21,7 @@
   {
    "tag": "pos",
    "label": "Reaction",
-   "text": "Shares closed 1.9% higher on 29 October, after opening 1.3% lower before the call."
+   "text": "Shares closed 1.9% higher on 29 October, against 0.8% for European tech, after a 1.3% lower open."
   },
   {
    "tag": "neu",
@@ -56,7 +56,7 @@
   }
  ],
  "H_P1": "The order book outweighs the EPS miss",
- "P1_PARAGRAPH": "Revenue beat consensus by 0.7% and gross margin by 30bp, but adjusted EPS missed by 10%; the shares opened 1.3% lower on 29 October, then closed 1.9% higher. The call carried the day: book-to-bill well above 2, a Q4 margin guide 90bp above consensus and a Q1 held at consensus despite fewer days. The recovery now has visibility.",
+ "P1_PARAGRAPH": "Revenue beat consensus by 0.7% and gross margin by 30bp, but adjusted EPS missed by 10%; the shares opened 1.3% lower on 29 October, then closed 1.9% higher, against 0.8% for European tech. The call carried the day: book-to-bill well above 2, a Q4 margin guide 90bp above consensus and a Q1 held at consensus despite fewer days.",
  "C1_TITLE": "STMMI: Q3 2026 results and Q4 guide vs. consensus",
  "C1_SUB": "Reported vs. pre-results consensus, % · Q4 guide at the midpoint · 2026 revenue implied by the Q4 guide · adj.: non-GAAP",
  "C1_IMG": "/home/claude/stm/c1_crop.png",
@@ -70,7 +70,7 @@
  "H_A1": "Results: AI and industrial did the work",
  "A1_PARAGRAPHS": [
   "Revenue rose 17.9% to USD 3.76bn, 1.5% above the guide midpoint. Communication equipment and computer peripherals grew 64% on AI datacenter and low Earth orbit satellite chips, and industrial 40% on general-purpose microcontrollers, analog and power; automotive grew only 5% and personal electronics fell 4%. By segment, RF and optical communication rose 46% at a 26.2% operating margin and embedded processing 24% at 23.1%, while power and discrete ran at a loss of 17.1% of sales. Gross margin of 37.3% rose 410bp on lower unused-capacity charges and mix, still carrying about 100bp of transition costs. Free cash flow was USD 351m.",
-  "The reaction diverged from the EPS miss: the shares opened 1.3% lower on 29 October and closed 1.9% higher after the call. Confirmed drivers: adjusted operating income of USD 429m beat the estimate by 7%; book-to-bill was well above 2, and above 3 in communications and industrial; and management said it was comfortable delivering Q1 revenue and gross margin at least at consensus despite an 86-day quarter. We think positioning did the rest: the shares had fallen 42% from the June peak to EUR 39.45 a week earlier, taking the multiple to 18.1x."
+  "The reaction diverged from the EPS miss: the shares opened 1.3% lower on 29 October and closed 1.9% higher, against 0.8% for the Stoxx Europe 600 and its technology sector. Confirmed drivers: adjusted operating income of USD 429m beat the estimate by 7%; book-to-bill was well above 2, and above 3 in communications and industrial; and management said it was comfortable delivering Q1 revenue and gross margin at least at consensus despite an 86-day quarter. We think positioning did the rest: the shares had fallen 42% from the June peak to EUR 39.45 a week earlier, an 18.1x multiple."
  ],
  "H_A2": "Outlook: Q4 at 39%, Q1 held at consensus",
  "A2_PARAGRAPH": "ST guides Q4 revenue of USD 4.15bn, up 10.5% sequentially and 0.7% above consensus, and gross margin of 39.0%, 90bp above, still absorbing about 70bp of unused-capacity and reshaping costs. That implies 2026 revenue of about USD 14.5bn, up 22.8%. Datacenter revenue should reach about USD 1.3bn this year, mostly microcontrollers, silicon photonics and BiCMOS chips, and more than double in 2027, when photonics becomes tens of percent of it: management sees ST as probably the only 12-inch photonics producer at scale and will lift capacity more than fourfold. Satellite revenue should at least match 2026, limited by capacity. The 400bp fab gain lands in late 2027 or early 2028.",

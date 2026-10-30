@@ -38,6 +38,7 @@ fill = {
  "C2_IMG": "/home/claude/c2_crop.png", "C2_COMMENT": P(B['c2']),
  "P2_TITLE": "Beyond the key takeaways",
  "W1": B['w1'], "W2": B['w2'],
+ "UP_HEAD": "What would strengthen our view", "DOWN_HEAD": "What would change our view",
  "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings",
 }
 html = open("template.html").read()

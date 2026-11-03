@@ -14,7 +14,7 @@ COMPANY_INTRO = ("Apple sells the iPhone, about half of revenue, plus Mac, iPad,
 
 TAKEAWAYS = [
     ("pos", "Beat", "Revenue USD 114.5bn (+1% vs. consensus) and EPS USD 2.10 (+5.5%), led by iPhone and Mac pricing."),
-    ("neg", "Reaction", "Shares fell 3.5% after hours on 2 November: a 45% to 46% margin guide undercut the beat."),
+    ("neg", "Reaction", "Shares down over 4% pre-market on 3 November: a 45% to 46% margin guide undercut the beat."),
     ("neg", "Watch", "Services growth guided to 8% to 9%, from 10%, as licensing and App Store changes bite."),
     ("neu", "Valuation", "35.2x forward earnings, near the highest since 2010: little room for further margin slippage."),
 ]
@@ -27,9 +27,10 @@ KPIS = [
 ]
 
 H_P1 = "The debate moves from demand to cost"
-P1_PARAGRAPH = ("<p>Revenue beat consensus by 1% and EPS by 5.5%, yet the shares fell 3.5% after hours on 2 November. "
-                "The beat leaned on price rises and a USD 0.05 tariff refund; the December-quarter margin guide of "
-                "45% to 46% is 80bp below consensus. Demand is not the issue: Apple is short of supply. "
+P1_PARAGRAPH = ("<p>Revenue beat consensus by 1% and EPS by 5.5%, yet the shares fell 3.5% after hours and more than "
+                "4% pre-market on 3 November. "
+                "The beat leaned on price rises; the December-quarter margin guide of "
+                "45% to 46% is 80bp below consensus. Apple is short of supply, not demand. "
                 "The question is how much memory inflation pricing can absorb.</p>")
 
 C1_TITLE = "AAPL: Q4 2026 results and December-quarter guide vs. consensus"
@@ -60,12 +61,12 @@ A1_PARAGRAPHS = [
      "by advanced-node chip availability. iPad fell 10% and wearables 8% against launches a year ago. Services rose "
      "10% to USD 31.6bn, in line, with paid subscriptions above 1.5bn. Operating expenses rose 21% on research spending, "
      "so operating income grew 10%, and buybacks lifted EPS growth to 14%.</p>"),
-    ("<p>The beat and the 3.5% after-hours fall on 2 November diverge, and the confirmed drivers sit in the margin "
-     "line. Without the 1-point tariff refund, gross margin was about 46.9%, 60bp below consensus, and EPS beat by 3% "
+    ("<p>The beat and the share price fall, 3.5% after hours on 2 November and more than 4% pre-market on 3 November, "
+     "diverge, and the confirmed drivers sit in the margin line. Ex the 1-point tariff refund, gross margin was about 46.9%, 60bp below consensus, and EPS beat by 3% "
      "rather than 5.5%. Management guided the December-quarter margin to 45% to 46% against 46.3% expected, said memory "
-     "prices keep rising beyond December and disclosed USD 33bn of additional purchase obligations since June. We "
+     "prices keep rising beyond December and disclosed USD 33bn more purchase obligations since June. We "
      "think positioning added to the move: the shares had risen 25% in twelve months against 16% for forward "
-     "earnings, and traded at 35.2x into the print.</p>"),
+     "earnings.</p>"),
 ]
 H_A2 = "Outlook: record sales, thinner margin"
 A2_PARAGRAPHS = ("<p>Apple guides December-quarter revenue up 7% to 10%, on top of 16% growth a year ago and against "

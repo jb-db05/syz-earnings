@@ -13,6 +13,7 @@ PARAMS = {
     "asof": "2 Nov 2026",
     "reaction_pct": -3.47,             # after hours, 2 Nov 2026 (user material); replace with 3 Nov close-to-close
     "reaction_date": "2 November 2026 (after hours)",
+    "premarket_pct": -4.0,             # "over 4%" pre-market, 3 Nov 2026 (user); replace with the 3 Nov close
     "market_pct": None,                # not available at the time of writing
     # Chart 1: surprise vs. LSEG consensus (press reports of 2 Nov 2026); % for sales/EPS, points for margins/growth guide
     "c1": [

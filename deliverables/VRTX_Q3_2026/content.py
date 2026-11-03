@@ -5,11 +5,11 @@ QUOTE = ("With the potential povetacicept approval in IgAN coming later this mon
          "nephrology as our fifth commercial franchise&hellip;")
 QUOTE_WHO = "Reshma Kewalramani, CEO and President, Q3 2026 results release, 2 November 2026"
 COMPANY_INTRO = ("Vertex Pharmaceuticals makes medicines for serious diseases. Cystic fibrosis drugs bring 95% of sales; "
-                 "Casgevy (gene editing), Journavx (pain) and Palsonify (acromegaly) add the rest. 2025 revenue $12.0bn; Nasdaq-listed, worth $140bn.")
+                 "Casgevy (gene editing), Journavx (pain) and Palsonify (acromegaly) add the rest. Nasdaq-listed, worth $140bn.")
 TAKEAWAYS = [
     ("pos", "Beat", "Revenue $3.44bn, up 12% and 0.9% above consensus; Alyftrek beat by 8% as patients switch from Trikafta."),
     ("neg", "Miss", "Earnings per share $4.76, 1.2% short: costs up 19% with Crinetics; Journavx sales 13% below consensus."),
-    ("neu", "Reaction", "Shares flat to 1.4% higher after hours on 2 November: the 30 November kidney drug decision matters more."),
+    ("neu", "Reaction", "Shares up 0.33% pre-market on 3 November: still muted, the 30 November kidney drug decision matters more."),
     ("neu", "Valuation", "27.2x forward earnings, 19% above the average since 2020: approval is largely priced, launch uptake is not."),
 ]
 KPIS = [
@@ -19,16 +19,16 @@ KPIS = [
     ("FY26 revenue guide (mid)", "$13.2bn", "&minus;0.6% vs. consensus", "neg"),
 ]
 H_P1 = "A mixed print, a muted move, a bigger date"
-P1 = ("Revenue of $3.44bn beat consensus by 0.9% and non-GAAP earnings per share of $4.76 missed by 1.2%, and the shares were little "
-      "changed after hours on 2 November (flat to +1.4%): a mixed print met by a muted move. Cystic fibrosis "
-      "delivered, Casgevy surprised, Journavx lagged. The 30 November decision on povetacicept (pove), its kidney drug, matters more.")
+P1 = ("Revenue of $3.44bn beat consensus by 0.9% and earnings per share of $4.76 missed by 1.2%, and the shares were flat "
+      "after hours and up 0.33% pre-market on 3 November: a mixed print, a muted move. Cystic fibrosis "
+      "delivered, Casgevy surprised, Journavx lagged. The 30 November decision on its kidney drug povetacicept (pove) matters more.")
 C1_TITLE = "VRTX: Q3 2026 results vs. consensus"
 C1_SUB = ("Reported vs. consensus, % &middot; Casgevy vs. the midpoint of $76&ndash;82m estimates &middot; "
           "FY26 guide: revenue guidance midpoint vs. consensus of $13.28bn")
 C1 = ("Alyftrek, the once-daily successor to Trikafta, beat by 8% and Casgevy by about 26%, while Journavx fell 13% short although "
       "prescriptions rose more than 40% on the quarter. Earnings missed because operating costs rose 19%, mostly for the Crinetics acquisition "
       "and the kidney launch. The guidance midpoint sits 0.6% below consensus.")
-BASE_CASE = ("The case remains constructive and the risk/reward modestly skewed to the upside. We underwrite a cystic fibrosis franchise "
+BASE_CASE = ("The case remains constructive. We underwrite a cystic fibrosis franchise "
              "growing in mid-to-high single digits as patients move to Alyftrek, and new medicines lifting non-cystic fibrosis revenue towards "
              "30% of sales by 2030, an analyst estimate. The catalyst is an on-time pove approval on 30 November, then kidney data in early 2027. "
              "With the shares up 17.5% since early August, approval looks largely priced: launch uptake and the 2027 guidance, due with fourth-quarter results, are the next tests.")
@@ -43,8 +43,8 @@ A1 = [
      "medicines against 8.5% a year ago, and is reimbursed in 32 countries. The switch helps margins, as Alyftrek carries a lighter royalty. "
      "Casgevy reached $99m, up 30% on the quarter, with more than 100 patients starting treatment for a fourth quarter running; Journavx grew 18% "
      "to $58m and Palsonify added $10m in September, its first month."),
-    ("Revenue beat by 0.9% and earnings per share missed by 1.2%, and the shares were broadly unchanged after hours on 2 November: surprise and "
-     "reaction are aligned, a mixed print and a small move. The confirmed driver of the miss is costs, not sales. Combined non-GAAP operating "
+    ("Revenue beat by 0.9% and earnings per share missed by 1.2%, and the shares were broadly unchanged after hours on 2 November and up 0.33% pre-market on 3 November: surprise and "
+     "reaction are aligned. The confirmed driver of the miss is costs, not sales. Combined non-GAAP operating "
      "expenses rose 19% to $1.53bn with Crinetics, the kidney franchise build-out and the Journavx launch, taking the operating margin to 41.0% "
      "from 45.0%, while interest on the $4.5bn term loan cut net income 2%. Journavx revenue grew less than prescriptions; analysts attribute the gap "
      "to patient assistance programmes. We think investors looked through the quarter to 30 November."),

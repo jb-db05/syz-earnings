@@ -1,0 +1,70 @@
+"""content.py: all text for the Vertex (VRTX) Q3 2026 Earnings update (HTML entities; fill.json is derived from it)."""
+DATE = "3 November 2026"
+TITLE = "Vertex Q3 2026: steady CF, the kidney launch sets the price"
+QUOTE = ("With the potential povetacicept approval in IgAN coming later this month, we are well positioned to establish "
+         "nephrology as our fifth commercial franchise&hellip;")
+QUOTE_WHO = "Reshma Kewalramani, CEO and President, Q3 2026 results release, 2 November 2026"
+COMPANY_INTRO = ("Vertex Pharmaceuticals makes medicines for serious diseases. Cystic fibrosis drugs bring 95% of sales; "
+                 "Casgevy (gene editing), Journavx (pain) and Palsonify (acromegaly) add the rest. 2025 revenue $12.0bn; Nasdaq-listed, worth $140bn.")
+TAKEAWAYS = [
+    ("pos", "Beat", "Revenue $3.44bn, up 12% and 0.9% above consensus; Alyftrek beat by 8% as patients switch from Trikafta."),
+    ("neg", "Miss", "Earnings per share $4.76, 1.2% short: costs up 19% with Crinetics; Journavx sales 13% below consensus."),
+    ("neu", "Reaction", "Shares flat to 1.4% higher after hours on 2 November: the 30 November kidney drug decision matters more."),
+    ("neu", "Valuation", "27.2x forward earnings, 19% above the average since 2020: approval is largely priced, launch uptake is not."),
+]
+KPIS = [
+    ("Revenue", "$3.44bn", "+0.9% vs. consensus", "pos"),
+    ("Non-GAAP EPS", "$4.76", "&minus;1.2% vs. consensus", "neg"),
+    ("Alyftrek", "$706m", "+8.3% vs. consensus", "pos"),
+    ("FY26 revenue guide (mid)", "$13.2bn", "&minus;0.6% vs. consensus", "neg"),
+]
+H_P1 = "A mixed print, a muted move, a bigger date"
+P1 = ("Revenue of $3.44bn beat consensus by 0.9% and non-GAAP earnings per share of $4.76 missed by 1.2%, and the shares were little "
+      "changed after hours on 2 November (flat to +1.4%): a mixed print met by a muted move. Cystic fibrosis "
+      "delivered, Casgevy surprised, Journavx lagged. The 30 November decision on povetacicept (pove), its kidney drug, matters more.")
+C1_TITLE = "VRTX: Q3 2026 results vs. consensus"
+C1_SUB = ("Reported vs. consensus, % &middot; Casgevy vs. the midpoint of $76&ndash;82m estimates &middot; "
+          "FY26 guide: revenue guidance midpoint vs. consensus of $13.28bn")
+C1 = ("Alyftrek, the once-daily successor to Trikafta, beat by 8% and Casgevy by about 26%, while Journavx fell 13% short although "
+      "prescriptions rose more than 40% on the quarter. Earnings missed because operating costs rose 19%, mostly for the Crinetics acquisition "
+      "and the kidney launch. The guidance midpoint sits 0.6% below consensus.")
+BASE_CASE = ("The case remains constructive and the risk/reward modestly skewed to the upside. We underwrite a cystic fibrosis franchise "
+             "growing in mid-to-high single digits as patients move to Alyftrek, and new medicines lifting non-cystic fibrosis revenue towards "
+             "30% of sales by 2030, an analyst estimate. The catalyst is an on-time pove approval on 30 November, then kidney data in early 2027. "
+             "With the shares up 17.5% since early August, approval looks largely priced: launch uptake and the 2027 guidance, due with fourth-quarter results, are the next tests.")
+UPSIDE = ("Pove approved on time by 30 November, with no extra monitoring; Journavx revenue catching up with prescriptions in Q4; "
+          "inaxaplin interim kidney data in early 2027 supporting a US filing.")
+DOWNSIDE = ("A delay or a restrictive pove label; Casgevy and Journavx below the ~$134m needed in Q4 for their $500m goal; "
+            "Alyftrek switching slowing; 2027 costs rising above this year's $6bn.")
+H_A1 = "Results: Alyftrek and Casgevy did the work"
+A1 = [
+    ("Total revenue rose 12% to $3.44bn, 10% in the US and 16% outside, where currency helped. Cystic fibrosis revenue grew 7.7% to $3.27bn. "
+     "Trikafta fell 8% to $2.44bn as patients switched to Alyftrek, which nearly tripled to $706m: Alyftrek is now 22.5% of the two "
+     "medicines against 8.5% a year ago, and is reimbursed in 32 countries. The switch helps margins, as Alyftrek carries a lighter royalty. "
+     "Casgevy reached $99m, up 30% on the quarter, with more than 100 patients starting treatment for a fourth quarter running; Journavx grew 18% "
+     "to $58m and Palsonify added $10m in September, its first month."),
+    ("Revenue beat by 0.9% and earnings per share missed by 1.2%, and the shares were broadly unchanged after hours on 2 November: surprise and "
+     "reaction are aligned, a mixed print and a small move. The confirmed driver of the miss is costs, not sales. Combined non-GAAP operating "
+     "expenses rose 19% to $1.53bn with Crinetics, the kidney franchise build-out and the Journavx launch, taking the operating margin to 41.0% "
+     "from 45.0%, while interest on the $4.5bn term loan cut net income 2%. Journavx revenue grew less than prescriptions; analysts attribute the gap "
+     "to patient assistance programmes. We think investors looked through the quarter to 30 November."),
+]
+H_A2 = "Outlook: Palsonify lifts sales and costs"
+A2 = ("Vertex raised its 2026 revenue guidance by $50m to $13.15bn to $13.25bn, matching the $40m to $50m Palsonify is expected to add after "
+      "the 1 September close of the Crinetics acquisition: the guidance for the existing business is unchanged. It implies fourth-quarter revenue "
+      "of $3.39bn to $3.49bn, flat on the third quarter at the midpoint. Casgevy and Journavx are still expected to reach $500m or more together; "
+      "analysts estimate about $134m is needed in the fourth quarter, against $158m in the third. Operating expense guidance rises to about $6.0bn "
+      "from $5.65bn to $5.75bn, all from Crinetics, where analysts expect around a fifth of costs to be saved within a year.")
+H_C2 = "Valuation: a premium the launch must earn"
+C2_TITLE = "VRTX: share price vs. consensus earnings and valuation"
+C2_SUB = ("VRTX US Equity, daily data sampled weekly, 2016 to 2 November 2026 &middot; BEst 12m-forward consensus &middot; 40-week simple MA "
+          "&middot; log scale &middot; P/E shaded vs. its 2020 to 2026 average &middot; last price is the 2 November close, before the release")
+C2 = ("The shares trade at 27.2x 12-month forward earnings, 19% above the 22.9x average since 2020, when Trikafta made Vertex a mature earner, "
+      "and above the 23.8x one-year average. The rerating is recent: the price rose 29.8% over 12 months against 5.2% for consensus earnings, "
+      "and 17.5% since early August against 1.5%. At $553 the stock sits 15% above its 40-week moving average, near its 52-week high. "
+      "Consensus earnings slipped 0.4% on 3 November with the higher cost guidance. At an unchanged price, earnings would need to rise 19% to bring "
+      "the multiple back to its average.")
+SOURCE_LINE = ("Source: Syz Research, Bloomberg, company filings, Vertex Q3 2026 results release of 2 November 2026, "
+               "analyst research notes of 2 and 3 November 2026")
+W1, W2 = 70, 94            # PDF chart widths, % of text width
+W1_PPTX, W2_PPTX = 66, 88  # PowerPoint chart widths

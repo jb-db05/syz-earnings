@@ -1,0 +1,29 @@
+{
+ "price": 270.37,
+ "eps": 8.28,
+ "pe": 32.653,
+ "pe_avg": 18.443178960096734,
+ "pe_premium_pct": 77.04648461443296,
+ "above_ma": true,
+ "ma40": 223.18325,
+ "window": "01 Jan 2010 to 31 Oct 2025",
+ "pe_1y_avg": 29.489000000000004,
+ "pe_5y_avg": 27.307329501915707,
+ "pe_peak": 33.867,
+ "pe_peak_date": "Dec 2024",
+ "price_12m_pct": 21.291104033017817,
+ "eps_12m_pct": 11.200644641418211,
+ "price_since_q3_pct": 33.595216918667845,
+ "eps_since_q3_pct": 6.659796470436685,
+ "pe_at_q3": 26.069,
+ "price_vs_ma_pct": 21.142603667613958,
+ "pe_after_10pct_upgrade": 29.68454545454545,
+ "c1": {
+  "Revenue": 0.22,
+  "iPhone": -2.32,
+  "Services": 2.06,
+  "Gross margin": 0.8,
+  "EPS": 4.52,
+  "Dec-Q guide": 4.28
+ }
+}

@@ -1,0 +1,96 @@
+{
+ "LOGO": "/home/claude/syz_logo_hq.png",
+ "GRADBAR": "/home/claude/syz_gradbar.png",
+ "DOC_TYPE": "Earnings update",
+ "DATE": "3 November 2026",
+ "TITLE": "Apple Q4 2026: price beats, memory caps the margin",
+ "QUOTE": "What we’re seeing with memory pricing right now is unprecedented. … For the December quarter, we expect even higher memory costs, partly offset by a few factors.",
+ "QUOTE_WHO": "John Ternus, CEO, fiscal Q4 2026 earnings call, 2 November 2026",
+ "COMPANY_INTRO": "Apple sells the iPhone, about half of revenue, plus Mac, iPad, wearables and services such as the App Store, across over 2.5bn active devices. Fiscal 2026 revenue USD 479bn; Nasdaq-listed, worth about USD 5tn.",
+ "TAKEAWAYS": [
+  {
+   "tag": "pos",
+   "label": "Beat",
+   "text": "Revenue USD 114.5bn (+1% vs. consensus) and EPS USD 2.10 (+5.5%), led by iPhone and Mac pricing."
+  },
+  {
+   "tag": "neg",
+   "label": "Reaction",
+   "text": "Shares fell 3.5% after hours on 2 November: a 45% to 46% margin guide undercut the beat."
+  },
+  {
+   "tag": "neg",
+   "label": "Watch",
+   "text": "Services growth guided to 8% to 9%, from 10%, as licensing and App Store changes bite."
+  },
+  {
+   "tag": "neu",
+   "label": "Valuation",
+   "text": "35.2x forward earnings, near the highest since 2010: little room for further margin slippage."
+  }
+ ],
+ "KPIS": [
+  {
+   "label": "Q4 revenue",
+   "value": "USD 114.5bn",
+   "sub": "+1.0% vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "Q4 diluted EPS",
+   "value": "USD 2.10",
+   "sub": "+5.5%, +3.0% ex refunds",
+   "sign": "pos"
+  },
+  {
+   "label": "Dec-quarter revenue guide",
+   "value": "+7–10% y/y",
+   "sub": "+2.4pt vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "Dec-quarter margin guide",
+   "value": "45–46%",
+   "sub": "-80bp vs. consensus",
+   "sign": "neg"
+  }
+ ],
+ "H_P1": "The debate moves from demand to cost",
+ "P1_PARAGRAPH": "Revenue beat consensus by 1% and EPS by 5.5%, yet the shares fell 3.5% after hours on 2 November. The beat leaned on price rises and a USD 0.05 tariff refund; the December-quarter margin guide of 45% to 46% is 80bp below consensus. Demand is not the issue: Apple is short of supply. The question is how much memory inflation pricing can absorb.",
+ "C1_TITLE": "AAPL: Q4 2026 results and December-quarter guide vs. consensus",
+ "C1_SUB": "Surprise vs. LSEG consensus of 2 November 2026 · sales and EPS in %, margins and growth guide in points · *ex tariff refunds · guides at midpoint",
+ "C1_IMG": "/home/claude/aapl/c1_crop.png",
+ "C1_ASPECT": 0.312,
+ "W1": 66,
+ "C1_COMMENT": "Hardware carried the quarter: Mac beat by 12% and iPhone by 2%, both supply-constrained after price increases. iPad and wearables missed by 7% and 8% on tough comparisons. Ex tariff refunds, EPS beat by 3% and gross margin fell about 60bp short. The guide splits the same way: sales above consensus, margin below.",
+ "BASE_CASE": "The investment case is intact, but the multiple leaves little slack. Apple has so far passed memory inflation on without hurting demand, and fiscal 2026 EPS rose 20% to USD 8.98. Consensus forward EPS of USD 9.58 implies only 7% growth from here, which we see as achievable with gross margin at 45% to 46%. At 35.2x, that delivery is priced and the risk/reward is balanced. iPhone Duo supply is the catalyst; the next test is the December-quarter margin in early 2027.",
+ "UPSIDE": "December-quarter gross margin at or above 46%; iPhone Duo supply in balance with demand by spring 2027; Services back to 10% growth as Siri AI lifts paid subscriptions and iCloud+.",
+ "DOWNSIDE": "A March-quarter margin guide below 45%; unit declines once the September iPhone price rise works through; further App Store rulings taking Services growth below 8%.",
+ "UPSIDE_HEAD": "What would strengthen our view",
+ "DOWNSIDE_HEAD": "What would change our view",
+ "P2_TITLE": "Beyond the key takeaways",
+ "H_A1": "Results: price and the Mac did the work",
+ "A1_PARAGRAPHS": [
+  "Revenue rose 12% to USD 114.5bn, above the 9% to 11% guide, despite nearly 2 points of sequential currency headwind. iPhone grew 17% to USD 57.6bn, a September-quarter record, with record upgraders in the US, mainland China and India; Mac grew 24% to USD 10.8bn on MacBook Neo and MacBook Pro. Both were supply-constrained, mainly by advanced-node chip availability. iPad fell 10% and wearables 8% against launches a year ago. Services rose 10% to USD 31.6bn, in line, with paid subscriptions above 1.5bn. Operating expenses rose 21% on research spending, so operating income grew 10%, and buybacks lifted EPS growth to 14%.",
+  "The beat and the 3.5% after-hours fall on 2 November diverge, and the confirmed drivers sit in the margin line. Without the 1-point tariff refund, gross margin was about 46.9%, 60bp below consensus, and EPS beat by 3% rather than 5.5%. Management guided the December-quarter margin to 45% to 46% against 46.3% expected, said memory prices keep rising beyond December and disclosed USD 33bn of additional purchase obligations since June. We think positioning added to the move: the shares had risen 25% in twelve months against 16% for forward earnings, and traded at 35.2x into the print."
+ ],
+ "H_A2": "Outlook: record sales, thinner margin",
+ "A2_PARAGRAPH": "Apple guides December-quarter revenue up 7% to 10%, on top of 16% growth a year ago and against 6.1% expected: the midpoint implies about USD 156bn, which management expects to be the best quarter in its history. The guide reflects constrained supply: iPhone Duo is short of demand, and Mac and iPad are now limited by memory. Services should grow 8% to 9%, slowed by third-party licensing, App Store changes and currency. Gross margin of 45% to 46% compares with 48.2% a year ago, with most of the decline from memory plus Siri AI ramp costs. Management says it is too early to read price elasticity.",
+ "H_C2": "Valuation: a peak multiple on slower growth",
+ "C2_TITLE": "AAPL: share price vs. consensus earnings and valuation",
+ "C2_SUB": "Weekly, January 2010 to 2 November 2026 · Bloomberg BEst 12m-forward EPS · 40-week simple MA · log scale · P/E vs. its 2010 to 2026 average · last price: 2 November close, pre-release",
+ "C2_IMG": "/home/claude/aapl/c2_crop.png",
+ "C2_ASPECT": 0.5984,
+ "W2": 88,
+ "C2_COMMENT": "The shares have run ahead of earnings: up 25% over twelve months against 16% for consensus forward EPS. The 12-month forward P/E of 35.2x is 83% above its 19.3x average since 2010, close to the 36.1x peak of 23 October and above the one-year average of 32.1x. The price sits 13% above its 40-week average of USD 301. Consensus EPS slipped 0.4% to USD 9.58 on 3 November; a further 5% cut at an unchanged price would take the multiple to 37x. A return to the one-year average needs a 10% upgrade, which the margin guide does not support.",
+ "SOURCE_LINE": "Source: Syz Research, Bloomberg, LSEG consensus, company filings, Apple fiscal Q4 2026 results release and earnings call of 2 November 2026, analyst research notes of 3 November 2026",
+ "DISCLAIMER": [
+  "This communication has been issued and made available to recipients for the purpose of advertising investment services and/or financial instruments. It has been sent for information purposes and cannot be considered as an offer or a personalised recommendation to buy or sell a financial instrument or any other investment or currency. This communication does not constitute investment research within the meaning of regulatory rules applicable in the European Economic Area, or research under the rules of the U.S. Self-Regulatory Organizations.",
+  "This information is made solely for professional and institutional clients as defined by the Swiss Financial Services Act, as well as qualified investors according to the Swiss Collective Investment Schemes Act. It is not intended for retail clients or non-qualified investors and consequently cannot be transmitted to any third party.",
+  "This communication is not directed to any person in any jurisdiction where, by reason of that person’s nationality, residence or otherwise, its dissemination or use is prohibited. It cannot be quoted, reproduced, disclosed, distributed or otherwise referred to, in whole or in part, to any third party without the Bank’s prior written consent.",
+  "This communication may contain information on past performances of a financial product, all kinds of economic and financial valuations and analyses, as well as opinions of the Bank or of third parties. Any market valuations, terms and calculation methods, yields and opinions expressed are subject to change without notice. The information and opinions contained herein have been compiled and provided in good faith, based on information obtained from sources believed to be trustworthy. However, such information has not been independently verified. No guarantee, representation, or warranty of any kind, whether express or implied, is provided by the Bank or by relevant data vendors and other sources with respect to the accuracy, reliability, currentness or exhaustiveness of the information communicated, the methodology employed or the prices contained herein.",
+  "Past performance is not a reliable indicator of current or future results. Any reference to the past performance of an investment does not guarantee its future performance. Fluctuations in exchange rates may adversely affect the value, price or income of any investment.",
+  "Nothing in the present communication constitutes investment, legal, accounting or tax advice. This information is purely objective since it does not take into consideration the personal situation (including financial knowledge and experience), the investment objectives and risk profile of any recipient. Moreover, certain financial instruments mentioned (in particular, but not exclusively, derivatives, options and futures) involve a high risk of loss and may not be suitable. Accordingly, recipients should consult their own advisors on such matters, including but not limited to the possible tax consequences of investing in any financial product mentioned herein, and make their own assessment of the suitability of such investment product.",
+  "Should a recipient make an investment on the basis of the present communication, the recipient alone shall bear the consequences thereof. In no event shall the Bank, its directors, employees, affiliates or agents be held responsible for damages of any kind arising out of the use of all or part of the information provided herein."
+ ]
+}

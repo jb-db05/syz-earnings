@@ -26,7 +26,7 @@ KPIS = [
     ("Dec-quarter margin guide", "45&ndash;46%", "&minus;80bp vs. consensus", "neg"),
 ]
 
-H_P1 = "The debate moves from demand to cost"
+H_P1 = "Record iPhone cycle, costs outrunning price"
 P1_PARAGRAPH = ("<p>Revenue beat consensus by 1% and EPS by 5.5%, yet the shares fell 3.5% after hours and more than "
                 "4% pre-market on 3 November. "
                 "The beat leaned on price rises; the December-quarter margin guide of "
@@ -40,11 +40,11 @@ C1_COMMENT = ("<p>Hardware carried the quarter: Mac beat by 12% and iPhone by 2%
               "increases. iPad and wearables missed by 7% and 8% on tough comparisons. Ex tariff refunds, EPS beat by 3% and gross margin fell about 60bp short. The guide splits the "
               "same way: sales above consensus, margin below.</p>")
 
-BASE_CASE = ("The investment case is intact, but the multiple leaves little slack. Apple has so far passed memory "
-             "inflation on without hurting demand, and fiscal 2026 EPS rose 20% to USD 8.98. "
-             "Consensus forward EPS of USD 9.58 implies only 7% growth from here, which we see as achievable with gross margin at "
-             "45% to 46%. At 35.2x, that delivery is priced and the risk/reward is balanced. iPhone "
-             "Duo supply is the catalyst; the next test is the December-quarter margin in early 2027.")
+BASE_CASE = ("Apple&rsquo;s hardware cycle is its strongest since fiscal 2021, with revenue up 15% and EPS up 20% "
+             "to USD 8.98, but its pricing power now pays for memory rather than lifting margin. Demand has held "
+             "through the price rises. Consensus forward EPS of USD 9.58 implies only 7% growth, which we see as "
+             "achievable with gross margin at 45% to 46%. At 35.2x, that delivery is priced and the risk/reward is "
+             "balanced. iPhone Duo supply is the catalyst; the next test is the December-quarter margin in early 2027.")
 UP_HEAD = "What would strengthen our view"
 DOWN_HEAD = "What would change our view"
 UPSIDE = ("December-quarter gross margin at or above 46%; iPhone Duo supply in balance with demand by spring "

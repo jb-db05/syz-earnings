@@ -1,7 +1,7 @@
 """content.py: all text for the Arista Networks Q3 2026 Earnings update (HTML entities)."""
 DOC_TYPE = "Earnings update"
 DATE = "4 November 2026"
-TITLE = "Arista Q3 2026: an $18.5bn 2027 guide resets estimates"
+TITLE = "Arista Q3 2026: AI and campus lift next year&rsquo;s estimates"
 
 QUOTE = ("Our first look at 2027 guidance range puts us in the 38%&ndash;40% range for growth annually "
          "to approximately $18.5 billion.")

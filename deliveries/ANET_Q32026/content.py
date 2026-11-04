@@ -15,7 +15,7 @@ TAKEAWAYS = [
     ("pos", "Beat", "Revenue 9.7% above consensus and EPS 11% above the top of the guide; shares up 9% pre-market."),
     ("pos", "Raised", "First 2027 guide, $18.5bn or 38% to 40% growth, sits 14.5% above consensus; AI fabrics double to $7bn."),
     ("neg", "Watch", "Gross margin fell to 64.0% from 65.2% a year ago; 2027 is guided at 62% to 64%."),
-    ("neu", "Valuation", "32.8x forward earnings at the 3 November close; estimates aligned to 2027 guidance would cut it to 29x."),
+    ("neu", "Valuation", "32.2x forward earnings pre-results, close to the 31.7x average since 2015, after 39.5x over the past year."),
 ]
 
 KPIS = [
@@ -39,11 +39,11 @@ C1_COMMENT = ("The largest surprise sits in 2027: the $18.5bn guide is 14.5% abo
               "operating leverage: non-GAAP operating income rose 60.1% to $1.80bn, faster than revenue, for a "
               "49.1% margin, against 48.6% a year ago.")
 
-BASE_CASE = ("The $18.5bn 2027 guide sits 14.5% above consensus at a 49% operating margin, so next year&rsquo;s "
-             "earnings estimates should rise by a similar amount, taking the 32.8x forward multiple to about 29x "
-             "on the pre-results price. The case remains very constructive and the risk/reward skewed to the upside: "
-             "we underwrite 38% to 40% growth led by AI fabrics at $7bn and campus at $2bn. In our view, the 22% "
-             "October fall cleared crowded positioning. The next test is the Q4 report in February.")
+BASE_CASE = ("The $18.5bn 2027 guide sits 14.5% above consensus at a 49% operating margin, and consensus 12-month "
+             "forward EPS is already up 8.6% to $5.45; another 10% upgrade takes the multiple back to its 31.7x "
+             "average after the pre-market gain. The case remains very constructive: we underwrite 38% to "
+             "40% growth led by AI fabrics at $7bn and campus at $2bn. In our view, the 22% October fall cleared "
+             "crowded positioning. The next test is the Q4 report in February.")
 UP_HEAD = "What would strengthen our view"
 DOWN_HEAD = "What would change our view"
 UPSIDE = ("Q4 revenue above the $4.0bn top of the guide; a third and fourth customer above 10% of revenue; "
@@ -77,18 +77,17 @@ A2_PARAGRAPHS = [
      "inventory reached $3.2bn from $2.5bn and the CFO stated confidence in supply."),
 ]
 H_C2 = "Valuation: earnings outran the share price"
-C2_TITLE = "ANET: share price vs. its 200-day moving average"
-C2_SUB = ("Daily closes, March 2015 to 3 November 2026 (last price is the 3 November close, before the release) "
-          "&middot; 200-day simple moving average &middot; Log scale &middot; Premium shaded orange above, blue below "
-          "&middot; 4 November pre-market level indicative")
-C2_COMMENT = ("The share price rose 7.8% over 12 months to $169.91, against Q3 EPS growth of 56%, so the multiple "
-              "absorbed most of the earnings gain. The stock peaked at $216.74 on 9 October and fell 21.6% into the "
-              "print, ending 2.6% above its 200-day moving average of $165.5 and 12.6% below its 40-day average of "
-              "$194.4. The forward P/E stood at 32.8x on the 3 November close. If 2027 earnings estimates rise in "
-              "line with the 14.5% revenue gap, the multiple drops to about 29x at that price and 31x after the "
-              "pre-market gain.")
+C2_TITLE = "ANET: share price vs. consensus earnings and valuation"
+C2_SUB = ("Weekly, January 2015 to 4 November 2026 &middot; Last price is the 3 November close, before the release; "
+          "EPS includes the first post-results revisions &middot; Bloomberg 12m-forward consensus &middot; 40-week "
+          "simple MA &middot; Log scale &middot; P/E shaded above (orange) / below (blue) its 2015&ndash;26 average")
+C2_COMMENT = ("Consensus 12-month forward EPS rose 66.6% over the past year to $5.45, against 26.2% for the share "
+              "price, so the forward P/E fell from 41.2x to 32.2x, 1.6% above its 31.7x average since 2015 and well "
+              "below the 39.5x one-year average. The first post-results revisions lifted EPS 8.6% in a week. The "
+              "price sits 2.3% above its 40-week moving average of $166.2. After the 9% pre-market gain the multiple "
+              "is about 35x; a further 10% upgrade at that price brings it back to the long-run average.")
 
 SOURCE_LINE = ("Source: Syz Research, Bloomberg, company filings, Arista Networks release and earnings call of "
-               "3 November 2026, stockanalysis.com, analyst research notes of 23 October to 4 November 2026")
+               "3 November 2026")
 
 W1, W2 = 74, 94

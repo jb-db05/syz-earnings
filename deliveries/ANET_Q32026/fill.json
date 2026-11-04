@@ -26,7 +26,7 @@
   {
    "tag": "neu",
    "label": "Valuation",
-   "text": "32.8x forward earnings at the 3 November close; estimates aligned to 2027 guidance would cut it to 29x."
+   "text": "32.2x forward earnings pre-results, close to the 31.7x average since 2015, after 39.5x over the past year."
   }
  ],
  "KPIS": [
@@ -63,7 +63,7 @@
  "C1_ASPECT": 0.312,
  "W1": 66,
  "C1_COMMENT": "The largest surprise sits in 2027: the $18.5bn guide is 14.5% above the $16.2bn consensus, and management raised its 2026 outlook for the fourth time this year, to $13.3bn. The quarter came with operating leverage: non-GAAP operating income rose 60.1% to $1.80bn, faster than revenue, for a 49.1% margin, against 48.6% a year ago.",
- "BASE_CASE": "The $18.5bn 2027 guide sits 14.5% above consensus at a 49% operating margin, so next year’s earnings estimates should rise by a similar amount, taking the 32.8x forward multiple to about 29x on the pre-results price. The case remains very constructive and the risk/reward skewed to the upside: we underwrite 38% to 40% growth led by AI fabrics at $7bn and campus at $2bn. In our view, the 22% October fall cleared crowded positioning. The next test is the Q4 report in February.",
+ "BASE_CASE": "The $18.5bn 2027 guide sits 14.5% above consensus at a 49% operating margin, and consensus 12-month forward EPS is already up 8.6% to $5.45; another 10% upgrade takes the multiple back to its 31.7x average after the pre-market gain. The case remains very constructive: we underwrite 38% to 40% growth led by AI fabrics at $7bn and campus at $2bn. In our view, the 22% October fall cleared crowded positioning. The next test is the Q4 report in February.",
  "UPSIDE": "Q4 revenue above the $4.0bn top of the guide; a third and fourth customer above 10% of revenue; the $11.4bn of purchase commitments shipping with gross margin at 63% or more.",
  "DOWNSIDE": "A 2027 gross margin below the 62% floor; inventory, now $3.2bn, rising faster than revenue; a capex cut at one of the large cloud customers or deferred revenue below $6.8bn.",
  "UPSIDE_HEAD": "What would strengthen our view",
@@ -77,13 +77,13 @@
  "H_A2": "Outlook: a fourth raise and 38% to 40% next",
  "A2_PARAGRAPH": "For Q4, management guides to revenue of $3.9bn to $4.0bn, gross margin of 63% to 64%, an operating margin of 48% to 49% and EPS of $1.26 to $1.30 on 1.28bn shares, which puts 2026 revenue just over $13.3bn, up 48%. The first 2027 guide calls for 38% to 40% growth to $18.5bn, with AI fabrics doubling to about $7bn, campus up 60% to about $2bn, gross margin of 62% to 64% and an operating margin near 49%. Scale-up trials start in 2027 and production in 2028, so the guide excludes material scale-up revenue. Supply is better covered: inventory reached $3.2bn from $2.5bn and the CFO stated confidence in supply.",
  "H_C2": "Valuation: earnings outran the share price",
- "C2_TITLE": "ANET: share price vs. its 200-day moving average",
- "C2_SUB": "Daily closes, March 2015 to 3 November 2026 (last price is the 3 November close, before the release) · 200-day simple moving average · Log scale · Premium shaded orange above, blue below · 4 November pre-market level indicative",
+ "C2_TITLE": "ANET: share price vs. consensus earnings and valuation",
+ "C2_SUB": "Weekly, January 2015 to 4 November 2026 · Last price is the 3 November close, before the release; EPS includes the first post-results revisions · Bloomberg 12m-forward consensus · 40-week simple MA · Log scale · P/E shaded above (orange) / below (blue) its 2015–26 average",
  "C2_IMG": "/home/claude/work/c2_crop.png",
  "C2_ASPECT": 0.5984,
  "W2": 88,
- "C2_COMMENT": "The share price rose 7.8% over 12 months to $169.91, against Q3 EPS growth of 56%, so the multiple absorbed most of the earnings gain. The stock peaked at $216.74 on 9 October and fell 21.6% into the print, ending 2.6% above its 200-day moving average of $165.5 and 12.6% below its 40-day average of $194.4. The forward P/E stood at 32.8x on the 3 November close. If 2027 earnings estimates rise in line with the 14.5% revenue gap, the multiple drops to about 29x at that price and 31x after the pre-market gain.",
- "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings, Arista Networks release and earnings call of 3 November 2026, stockanalysis.com, analyst research notes of 23 October to 4 November 2026",
+ "C2_COMMENT": "Consensus 12-month forward EPS rose 66.6% over the past year to $5.45, against 26.2% for the share price, so the forward P/E fell from 41.2x to 32.2x, 1.6% above its 31.7x average since 2015 and well below the 39.5x one-year average. The first post-results revisions lifted EPS 8.6% in a week. The price sits 2.3% above its 40-week moving average of $166.2. After the 9% pre-market gain the multiple is about 35x; a further 10% upgrade at that price brings it back to the long-run average.",
+ "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings, Arista Networks release and earnings call of 3 November 2026",
  "DISCLAIMER": [
   "This communication has been issued and made available to recipients for the purpose of advertising investment services and/or financial instruments. It has been sent for information purposes and cannot be considered as an offer or a personalised recommendation to buy or sell a financial instrument or any other investment or currency. This communication does not constitute investment research within the meaning of regulatory rules applicable in the European Economic Area, or research under the rules of the U.S. Self-Regulatory Organizations.",
   "This information is made solely for professional and institutional clients as defined by the Swiss Financial Services Act, as well as qualified investors according to the Swiss Collective Investment Schemes Act. It is not intended for retail clients or non-qualified investors and consequently cannot be transmitted to any third party.",

@@ -5,7 +5,7 @@ W1, W2 = int(sys.argv[1]), int(sys.argv[2])
 tmpl = open("/home/user/syz-earnings/template.html").read()
 P = lambda t: f"<p>{t}</p>"
 fill = {
- "DOC_TYPE": "Earnings update", "DATE": C["DATE"], "COMPANY_INTRO": C["COMPANY_INTRO"], "TITLE": C["TITLE"], "QUOTE_BLOCK": "",
+ "DOC_TYPE": "Earnings update", "DATE": C["DATE"], "COMPANY_INTRO": C["COMPANY_INTRO"], "TITLE": C["TITLE"], "QUOTE_BLOCK": f'<div class="quote"><p>&ldquo;{C["QUOTE"]}&rdquo;</p><div class="who">{C["QUOTE_WHO"]}</div></div>',
  "TAKEAWAYS": "\n".join(f'<li><span class="tag {t}">{l}</span><span class="t">{x}</span></li>' for t, l, x in C["TAKEAWAYS"]),
  "KPI_TILES": "\n".join(f'<td><div class="lbl">{l}</div><div class="val">{v}</div><div class="sub {s}">{x}</div></td>' for l, v, x, s in C["KPIS"]),
  "H_P1": C["H_P1"], "P1_PARAGRAPH": P(C["P1"]), "C1_TITLE": C["C1_TITLE"], "C1_SUB": C["C1_SUB"],
@@ -31,7 +31,7 @@ disc = [un(re.sub(r"<[^>]+>", "", m)) for m in re.findall(r"<p>(This .*?|Past .*
 leg = re.search(r'<div class="legal">(.*)</div>', tmpl, re.S).group(1)
 disc = [un(m) for m in re.findall(r"<p>(.*?)</p>", leg, re.S)]
 j = {"LOGO": "/home/claude/syz_logo_hq.png", "GRADBAR": "/home/claude/syz_gradbar.png", "DOC_TYPE": "Earnings update", "DATE": C["DATE"],
- "TITLE": C["TITLE"], "QUOTE": "", "QUOTE_WHO": "", "COMPANY_INTRO": C["COMPANY_INTRO"],
+ "TITLE": C["TITLE"], "QUOTE": C["QUOTE"], "QUOTE_WHO": C["QUOTE_WHO"], "COMPANY_INTRO": C["COMPANY_INTRO"],
  "TAKEAWAYS": [{"tag": t, "label": l, "text": un(x)} for t, l, x in C["TAKEAWAYS"]],
  "KPIS": [{"label": l, "value": v, "sub": un(x), "sign": s} for l, v, x, s in C["KPIS"]],
  "H_P1": C["H_P1"], "P1_PARAGRAPH": un(C["P1"]), "C1_TITLE": un(C["C1_TITLE"]), "C1_SUB": un(C["C1_SUB"]),

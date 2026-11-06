@@ -1,0 +1,96 @@
+{
+ "LOGO": "/home/claude/syz_logo_hq.png",
+ "GRADBAR": "/home/claude/syz_gradbar.png",
+ "DOC_TYPE": "Earnings update",
+ "DATE": "6 November 2026",
+ "TITLE": "McKesson Q2 2027: a 9% EPS beat and higher guide meet a full multiple",
+ "QUOTE": "",
+ "QUOTE_WHO": "",
+ "COMPANY_INTRO": "McKesson distributes medicines and medical supplies to pharmacies, hospitals and clinics, and runs oncology and prescription technology businesses. North American Pharmaceutical is 82% of revenue. Q2 2027 revenue was $111bn. Listed in New York.",
+ "TAKEAWAYS": [
+  {
+   "tag": "pos",
+   "label": "Result",
+   "text": "Adjusted EPS of $11.68 beat consensus by 9.0% and grew 18% year on year."
+  },
+  {
+   "tag": "pos",
+   "label": "Engine",
+   "text": "North American Pharmaceutical profit rose 22% to $1.04bn, 14.8% above consensus."
+  },
+  {
+   "tag": "pos",
+   "label": "Guidance",
+   "text": "Fiscal 2027 adjusted EPS guide raised 3.1% at the midpoint, to $45.60–46.40."
+  },
+  {
+   "tag": "neu",
+   "label": "Reaction",
+   "text": "Shares rose 0.24% on 5 November, 7.2% since 3 November: the beat looks priced in."
+  }
+ ],
+ "KPIS": [
+  {
+   "label": "Revenue",
+   "value": "$110.96bn",
+   "sub": "+0.9% vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "Adjusted EPS",
+   "value": "$11.68",
+   "sub": "+9.0% vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "Adjusted operating profit",
+   "value": "$1.85bn",
+   "sub": "+7.4% vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "FY27 EPS guide, midpoint",
+   "value": "$46.00",
+   "sub": "+3.1% vs. prior guide",
+   "sign": "pos"
+  }
+ ],
+ "H_P1": "Results: the beat was large, the reaction small",
+ "P1_PARAGRAPH": "Adjusted EPS beat consensus by 9.0% and revenue by 0.9%, yet the shares rose only 0.24% on 5 November, taking the gain since the 3 November close to 7.2%. Forward EPS rose 2.4% over the same days, so the multiple did most of the work: 21.7x, a 55% premium to the 14.0x average since 2005. We think the beat was largely in the price.",
+ "C1_TITLE": "MCK: Q2 2027 results vs. Bloomberg consensus",
+ "C1_SUB": "Surprise vs. Bloomberg consensus, % · revenue, adjusted operating profit by segment, adjusted EPS",
+ "C1_IMG": "/home/claude/c1_crop.png",
+ "C1_ASPECT": 0.312,
+ "W1": 66,
+ "C1_COMMENT": "Every profit line beat except Medical-Surgical, which came in 14.8% below consensus. North American Pharmaceutical beat by 14.8%, Prescription Technology Solutions by 5.5% and Oncology and Multispecialty by 3.6%. The EPS beat of 9.0% exceeds the 7.4% operating profit beat, helped by a 6% lower diluted share count. Operating leverage was visible: operating expenses fell 141bp as a share of gross profit.",
+ "BASE_CASE": "We underwrite 12-month forward EPS of about $51, 3% above consensus, in line with the 3.1% lift in the guide midpoint to $46.00. At 21x that gives about $1,070, today’s price, so we see the risk/reward as balanced. Upside is $1,150 (EPS of $53 at 21.7x, +7%). Downside is $945 (today’s EPS at the one-year average P/E of 19.1x, −12%), level with the 40-day average of $943. Next tests: the Q3 print and the Medical-Surgical separation terms.",
+ "UPSIDE_HEAD": "What would strengthen our view",
+ "DOWNSIDE_HEAD": "What would change our view",
+ "UPSIDE": "North American Pharmaceutical profit growth of 20% or more in Q3, after 22% in Q2. Consensus fiscal 2027 EPS above $46.40, the top of the guide. Medical-Surgical profit holding above $225m.",
+ "DOWNSIDE": "North American Pharmaceutical profit growth below 15% as GLP-1 volumes normalise. Prescription Technology profit growth below 10%. A price above $1,150 without an EPS upgrade.",
+ "H_A1": "Results: pharma distribution did the work",
+ "A1_PARAGRAPHS": [
+  "North American Pharmaceutical revenue rose 6% to $91.36bn and adjusted operating profit rose 22% to $1.04bn, from 19% growth in Q1, on higher volumes from health systems, retail national accounts and specialty products. GLP-1 distribution revenue reached $16bn, up 26%. Oncology and Multispecialty revenue grew 24% to $14.98bn and profit 8% to $427m; excluding a $51m net gain in the prior year, profit grew 23%, although margin fell 45bp. Prescription Technology Solutions profit grew 18% to $307m, helped by Medicare GLP-1 Bridge enrolment while prior-authorisation volumes began to normalise. Medical-Surgical profit fell 10% to $225m on ambulatory product mix and separation charges.",
+  "Surprise and reaction diverge: a 9.0% EPS beat produced a 0.24% gain on 5 November. The confirmed facts are the 7.2% rise from the 3 November close, which took the P/E from 20.7x to 21.7x, and consensus EPS rising only 2.4% over the same days. The most likely reading is that positioning had already absorbed the beat; this is consistent with, but not confirmed by, the price standing 13.7% above its 40-day average. Medical-Surgical profit, 14.8% below consensus, also tempered the print. Forward EPS of $49.4 already sits 7% above the guide midpoint, so the market is valuing fiscal 2028 earnings."
+ ],
+ "H_A2": "Outlook: guide raised, deals add from fiscal 2028",
+ "A2_PARAGRAPH": "Management lifted fiscal 2027 adjusted EPS guidance to $45.60–46.40 from $44.20–45.00, which implies 19% to 21% growth, above the long-term 13% to 16% target. The company closed the $2.25bn acquisition of Precision Medicine Group and announced a $1.4bn investment for a 49% stake in Option Care Health. The CVS Health contract now runs through 2032. Analysts estimate accretion from Precision Medicine Group at $1.60–1.80 per share by year three. Prescription Technology Solutions targets 10% to 13% profit growth and delivered 18%; the Bridge program added an estimated 3 to 4 points, so we model growth easing towards the target range.",
+ "H_C2": "Valuation: 55% above the long-run average",
+ "C2_TITLE": "MCK: share price vs. consensus earnings and valuation",
+ "C2_SUB": "MCK US Equity, daily · BEst 12m-forward consensus · 40-day simple MA · log scale · P/E shaded above (orange) / below (blue) its 2005 to 2026 average · last price is the 5 November close",
+ "C2_IMG": "/home/claude/c2_crop.png",
+ "C2_ASPECT": 0.5984,
+ "W2": 88,
+ "C2_COMMENT": "Over 12 months the price rose 27% to $1,072 and 12-month forward EPS rose 19% to $49.4, so earnings carried most of the move. The P/E stands at 21.7x, a 55% premium to the 14.0x average since 2005, 13% above its one-year average of 19.1x and just below the 22.7x peak of 3 March 2026. The price is 13.7% above its 40-day average of $943. A 10% EPS upgrade at an unchanged price would bring the P/E to 19.7x, close to the one-year average.",
+ "P2_TITLE": "Beyond the key takeaways",
+ "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings, analyst research as of 5 November 2026",
+ "DISCLAIMER": [
+  "This communication has been issued and made available to recipients for the purpose of advertising investment services and/or financial instruments. It has been sent for information purposes and cannot be considered as an offer or a personalised recommendation to buy or sell a financial instrument or any other investment or currency. This communication does not constitute investment research within the meaning of regulatory rules applicable in the European Economic Area, or research under the rules of the U.S. Self-Regulatory Organizations.",
+  "This information is made solely for professional and institutional clients as defined by the Swiss Financial Services Act, as well as qualified investors according to the Swiss Collective Investment Schemes Act. It is not intended for retail clients or non-qualified investors and consequently cannot be transmitted to any third party.",
+  "This communication is not directed to any person in any jurisdiction where, by reason of that person’s nationality, residence or otherwise, its dissemination or use is prohibited. It cannot be quoted, reproduced, disclosed, distributed or otherwise referred to, in whole or in part, to any third party without the Bank’s prior written consent.",
+  "This communication may contain information on past performances of a financial product, all kinds of economic and financial valuations and analyses, as well as opinions of the Bank or of third parties. Any market valuations, terms and calculation methods, yields and opinions expressed are subject to change without notice. The information and opinions contained herein have been compiled and provided in good faith, based on information obtained from sources believed to be trustworthy. However, such information has not been independently verified. No guarantee, representation, or warranty of any kind, whether express or implied, is provided by the Bank or by relevant data vendors and other sources with respect to the accuracy, reliability, currentness or exhaustiveness of the information communicated, the methodology employed or the prices contained herein.",
+  "Past performance is not a reliable indicator of current or future results. Any reference to the past performance of an investment does not guarantee its future performance. Fluctuations in exchange rates may adversely affect the value, price or income of any investment.",
+  "Nothing in the present communication constitutes investment, legal, accounting or tax advice. This information is purely objective since it does not take into consideration the personal situation (including financial knowledge and experience), the investment objectives and risk profile of any recipient. Moreover, certain financial instruments mentioned (in particular, but not exclusively, derivatives, options and futures) involve a high risk of loss and may not be suitable. Accordingly, recipients should consult their own advisors on such matters, including but not limited to the possible tax consequences of investing in any financial product mentioned herein, and make their own assessment of the suitability of such investment product.",
+  "Should a recipient make an investment on the basis of the present communication, the recipient alone shall bear the consequences thereof. In no event shall the Bank, its directors, employees, affiliates or agents be held responsible for damages of any kind arising out of the use of all or part of the information provided herein."
+ ]
+}

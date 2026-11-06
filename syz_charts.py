@@ -82,11 +82,12 @@ def load_bloomberg_sheet(path, sheet=0):
     df = df.dropna(how="all")
     cols = {c: c.lower() for c in df.columns}
     pick = lambda *keys: next(c for c, l in cols.items() if all(k in l for k in keys))
+    ma_key = ("moving average",) if any("moving average" in l for l in cols.values()) else ("smavg", "(40)")
     out = pd.DataFrame({
         "date": pd.to_datetime(df[pick("date")]),
         "price": pd.to_numeric(df[pick("last price")], errors="coerce"),
         "eps": pd.to_numeric(df[pick("best eps")], errors="coerce"),
-        "ma40": pd.to_numeric(df[pick("moving average")], errors="coerce"),
+        "ma40": pd.to_numeric(df[pick(*ma_key)], errors="coerce"),
         "pe": pd.to_numeric(df[pick("best p/e")], errors="coerce"),
     }).dropna(subset=["date"]).sort_values("date").reset_index(drop=True)
     return out
@@ -94,7 +95,7 @@ def load_bloomberg_sheet(path, sheet=0):
 
 # ---------------------------------------------------------------- archetype: price vs. consensus EPS + P/E panel
 def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=None,
-                       p1_title=None, p2_title=None, price_lbl=(10, 10), eps_lbl=(10, -22), eps_ccy=None):
+                       p1_title=None, p2_title=None, price_lbl=(10, 10), eps_lbl=(10, -22), eps_ccy=None, ma_label="40-week moving average"):
     """Reference earnings chart. Top: share price (Blueberry, rhs, log) + 40-week MA (dashed) + 12m-forward
     EPS (Orange, lhs, log). Bottom: 12m-forward P/E (Orange) vs. its long-run average (dashed navy), shaded
     orange above / blue-grey below. df from load_bloomberg_sheet(). Returns the numbers quoted in the labels."""
@@ -124,7 +125,7 @@ def price_eps_pe_chart(path, df, name, title, footnote, ccy="EUR", pe_avg_from=N
     axr.spines[["top"]].set_visible(False)
     axr.spines[["right", "left", "bottom"]].set_color(SPINE)
     axr.plot(x, df["price"], color=BLUEB, linewidth=1.9, zorder=4, label=f"Share price, {ccy} (rhs)")
-    axr.plot(x, df["ma40"], color=BLUEB, linewidth=1.3, linestyle=DASH, zorder=3, label="40-week moving average (rhs)")
+    axr.plot(x, df["ma40"], color=BLUEB, linewidth=1.3, linestyle=DASH, zorder=3, label=f"{ma_label} (rhs)")
     axr.set_ylabel(f"Share price ({ccy}, log scale)", fontsize=10, color=AXIS_TXT, fontweight="bold")
     axr.tick_params(axis="y", colors=AXIS_TXT, labelsize=9.5, length=3)
     _log_ticks(axr, float(df["price"].min()), float(df["price"].max()), subs=(1, 2.5, 5))
@@ -185,6 +186,8 @@ def bar_chart(path, labels, values, title, subtitle, footnote, colors=None, fmt=
     style_ax(ax)
     ax.tick_params(labelsize=12)
     bars = ax.bar(range(len(vals)), vals, color=colors, width=0.62, linewidth=0, zorder=3)
+    lo, hi = float(vals.min()), float(vals.max())
+    ax.set_ylim(lo * 1.25 if lo < 0 else 0, hi * 1.15 if hi > 0 else 0)
     if zero_line:
         ax.axhline(0, color=NAVY, linewidth=1.0, zorder=2)
     for b, v in zip(bars, vals):

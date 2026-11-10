@@ -1,0 +1,94 @@
+{
+ "LOGO": "/home/claude/syz_logo_hq.png",
+ "GRADBAR": "/home/claude/syz_gradbar.png",
+ "DOC_TYPE": "Earnings update",
+ "DATE": "10 November 2026",
+ "TITLE": "Embraer Q3 2026: operations beat, the profit miss is noise",
+ "QUOTE": "We delivered record third quarter revenue of $2.3 billion with revenue and margin expansion across all our businesses. Our backlog reached a new all time high of $35.7 billion for the eighth consecutive quarter.",
+ "QUOTE_WHO": "Francisco Gomes Neto, President and CEO, Q3 2026 earnings call, 10 November 2026",
+ "COMPANY_INTRO": "Embraer, based in Brazil, builds regional jets, business jets and defence aircraft such as the KC-390, and services their fleets. Commercial jets were 30% of Q3 revenue. Listed in São Paulo and New York.",
+ "TAKEAWAYS": [
+  {
+   "tag": "pos",
+   "label": "Beat",
+   "text": "Revenue USD 2.35bn (+11% vs. consensus) and adjusted EBIT USD 255m (+22%), a 10.9% margin."
+  },
+  {
+   "tag": "pos",
+   "label": "Raised",
+   "text": "Free cash flow guide lifted to USD 700m or more, from USD 400m; revenue guide also raised."
+  },
+  {
+   "tag": "pos",
+   "label": "Reaction",
+   "text": "Shares rose 5.9% intraday on 10 November although adjusted net income missed consensus by 50%."
+  },
+  {
+   "tag": "neu",
+   "label": "Valuation",
+   "text": "13.1x forward earnings, 9% below the 14.3x average since 2014: the upgrades are not yet priced."
+  }
+ ],
+ "KPIS": [
+  {
+   "label": "Revenue",
+   "value": "USD 2.35bn",
+   "sub": "+11% vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "Adj. EBIT margin",
+   "value": "10.9%",
+   "sub": "+90bp vs. consensus",
+   "sign": "pos"
+  },
+  {
+   "label": "Adj. net income",
+   "value": "USD 74m",
+   "sub": "-50% vs. consensus",
+   "sign": "neg"
+  },
+  {
+   "label": "FY26 FCF guide",
+   "value": "≥ USD 700m",
+   "sub": "Up from ≥ USD 400m",
+   "sign": "pos"
+  }
+ ],
+ "H_P1": "Cash, not net income, sets the tone",
+ "P1_PARAGRAPH": "Revenue beat consensus by 11% and adjusted EBIT by 22%, while adjusted net income fell 50% short, yet the shares rose 5.9% intraday on 10 November. We read the divergence as justified: the miss came from a non-cash revaluation of the share-linked incentive plan and higher tax, while USD 628m of free cash flow and the raised cash guide are recurring.",
+ "C1_TITLE": "EMBJ3: Q3 2026 surprises vs. consensus and guide revisions",
+ "C1_SUB": "Q3 lines vs. press-reported consensus (revenue and EBIT in USD, net income in BRL) · FY26 guides vs. the previous guide (revenue midpoint, free cash flow floor)",
+ "C1_IMG": "/home/claude/c1_crop.png",
+ "C1_ASPECT": 0.312,
+ "W1": 66,
+ "C1_COMMENT": "The operating lines and the cash guide carry the chart; the miss sits below operating profit. Adjusted net income of USD 74m absorbed USD 159m of net financial costs, mainly the incentive-plan revaluation, which rises with the share price. Free cash flow of USD 628m, twice last year’s, came from pre-delivery payments.",
+ "BASE_CASE": "The case remains very constructive and the risk/reward skewed to the upside. We underwrite an adjusted EBIT margin of about 10% for 2026, rising with mix as business jets and services, at 16% to 17% margins, outgrow commercial jets at 2.4%. The USD 35.7bn backlog, about four years of revenue, gives visibility to 2030. At 13.1x forward earnings, below the long-run average, the rerating has room. The next test is the Q4 print and the 2027 guide.",
+ "UPSIDE": "Firm orders from the large Indian and European jet campaigns; a Q4 EBIT margin above the implied 9%; business jet output moving toward the 200-unit target for 2028.",
+ "DOWNSIDE": "Supply delays leaving Q4 short of the 80 to 85 commercial jets guided; commercial margins sliding back toward zero; new-programme spending lifting capex above USD 550m.",
+ "P2_TITLE": "Beyond the key takeaways",
+ "H_A1": "Results: every division widened its margin",
+ "A1_PARAGRAPHS": [
+  "Revenue rose 17% to USD 2.35bn, a record for a third quarter, and adjusted EBIT 48% to USD 255m, lifting the margin to 10.9% from 8.6%. Commercial aviation grew 13% to USD 696m with a 2.4% margin, helped by supplier compensation. Business jets grew 12% to USD 655m at 16%, about 430bp higher, on price, mix and the absence of last year’s US import tariffs. Defence grew 22% to USD 341m at 15.7% on KC-390 volumes. Services and support grew 30% to USD 638m at 17%, about 330bp higher on operating leverage. Nine-month revenue of USD 6.0bn is above 70% of the guidance midpoint.",
+  "The quarter beat on revenue, operating margin and free cash flow and missed on earnings: adjusted net income of USD 74m was 13% below last year and about 50% below consensus, yet the shares rose 5.9% by 10:24 on 10 November. Management named the drivers of the miss: USD 159m of net financial costs, mainly the mark-to-market of the long-term incentive plan, and higher taxes. Neither touches operations or cash. The rise is consistent with investors looking through a charge that grows with the share price, but we cannot confirm positioning: the stock had already gained 16% in the two weeks before the print."
+ ],
+ "H_A2": "Outlook: cash guide up 75%, margins held",
+ "A2_PARAGRAPH": "Embraer raised its 2026 revenue guide to USD 8.4 to 8.6bn, from 8.2 to 8.5bn, and its adjusted free cash flow guide, excluding Eve, to USD 700m or more, from USD 400m, the second upgrade this year. The 10.0% to 10.6% EBIT margin range and the delivery guides, 80 to 85 commercial and 160 to 170 business jets, are unchanged. After 10.7% over nine months, the range implies about 9% in Q4 at the midpoints, partly as defence margins normalise. Beyond 2026, capex rises to USD 500 to 550m in 2027 and 2028 for the 200-unit business jet target, and Eve, the air mobility unit, should contribute only after 2029.",
+ "H_C2": "Valuation: below the long-run multiple",
+ "C2_TITLE": "EMBJ3: share price vs. consensus earnings and valuation",
+ "C2_SUB": "EMBJ3 BZ, weekly, Sep 2014 to 10 Nov 2026, BRL · Bloomberg 12m-forward consensus · 40-week simple MA · log scale · Jan 2019 to Jun 2022 earnings trough blanked and excluded from the P/E average · last price BRL 113.45 is an intraday level on results day",
+ "C2_IMG": "/home/claude/c2_crop.png",
+ "C2_ASPECT": 0.5984,
+ "W2": 88,
+ "C2_COMMENT": "Over 12 months the price rose 31% and consensus EPS 29%, so the move has been earnings-led. At 13.1x 12m-forward earnings, the multiple sits 9% below its 14.3x average since 2014, with the 2019 to 2022 earnings trough excluded, and above its 11.7x one-year average, but well under the 22.1x peak of July 2025. The price is 31% above its 40-week average, a stretched short-term trend. A return to the long-run average would add 9% at unchanged earnings; a 10% EPS upgrade at today’s price would take the multiple to 11.9x.",
+ "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings, Embraer Q3 2026 earnings call of 10 November 2026, analyst research notes of 10 November 2026",
+ "DISCLAIMER": [
+  "This communication has been issued and made available to recipients for the purpose of advertising investment services and/or financial instruments. It has been sent for information purposes and cannot be considered as an offer or a personalised recommendation to buy or sell a financial instrument or any other investment or currency. This communication does not constitute investment research within the meaning of regulatory rules applicable in the European Economic Area, or research under the rules of the U.S. Self-Regulatory Organizations.",
+  "This information is made solely for professional and institutional clients as defined by the Swiss Financial Services Act, as well as qualified investors according to the Swiss Collective Investment Schemes Act. It is not intended for retail clients or non-qualified investors and consequently cannot be transmitted to any third party.",
+  "This communication is not directed to any person in any jurisdiction where, by reason of that person’s nationality, residence or otherwise, its dissemination or use is prohibited. It cannot be quoted, reproduced, disclosed, distributed or otherwise referred to, in whole or in part, to any third party without the Bank’s prior written consent.",
+  "This communication may contain information on past performances of a financial product, all kinds of economic and financial valuations and analyses, as well as opinions of the Bank or of third parties. Any market valuations, terms and calculation methods, yields and opinions expressed are subject to change without notice. The information and opinions contained herein have been compiled and provided in good faith, based on information obtained from sources believed to be trustworthy. However, such information has not been independently verified. No guarantee, representation, or warranty of any kind, whether express or implied, is provided by the Bank or by relevant data vendors and other sources with respect to the accuracy, reliability, currentness or exhaustiveness of the information communicated, the methodology employed or the prices contained herein.",
+  "Past performance is not a reliable indicator of current or future results. Any reference to the past performance of an investment does not guarantee its future performance. Fluctuations in exchange rates may adversely affect the value, price or income of any investment.",
+  "Nothing in the present communication constitutes investment, legal, accounting or tax advice. This information is purely objective since it does not take into consideration the personal situation (including financial knowledge and experience), the investment objectives and risk profile of any recipient. Moreover, certain financial instruments mentioned (in particular, but not exclusively, derivatives, options and futures) involve a high risk of loss and may not be suitable. Accordingly, recipients should consult their own advisors on such matters, including but not limited to the possible tax consequences of investing in any financial product mentioned herein, and make their own assessment of the suitability of such investment product.",
+  "Should a recipient make an investment on the basis of the present communication, the recipient alone shall bear the consequences thereof. In no event shall the Bank, its directors, employees, affiliates or agents be held responsible for damages of any kind arising out of the use of all or part of the information provided herein."
+ ]
+}

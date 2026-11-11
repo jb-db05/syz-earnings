@@ -16,7 +16,7 @@
   {
    "tag": "neu",
    "label": "Reaction",
-   "text": "Shares up 2.1% on 11 November, DAX about +1%: a measured response to a trading-led beat."
+   "text": "Shares up 1.9% on 11 November, DAX about +1%: a measured response to a trading-led beat."
   },
   {
    "tag": "pos",
@@ -56,7 +56,7 @@
   }
  ],
  "H_P1": "Earnings, not the multiple, carry the stock",
- "P1_PARAGRAPH": "Adjusted EBITDA beat the company-collected consensus by 3% and adjusted net income by 8%, and the shares rose 2.1% on 11 November against a DAX up about 1%: an aligned but measured reaction. The beat came mostly from trading, which management does not extrapolate, while renewables grew on new capacity and normal wind. The quarter confirms the earnings path.",
+ "P1_PARAGRAPH": "Adjusted EBITDA beat the company-collected consensus by 3% and adjusted net income by 8%, and the shares rose 1.9% on 11 November against a DAX up about 1%: an aligned but measured reaction. The beat came mostly from trading, which management does not extrapolate, while renewables grew on new capacity and normal wind. The quarter confirms the earnings path.",
  "C1_TITLE": "RWE: 9M 2026 adjusted net income vs. consensus and prior year",
  "C1_SUB": "Adjusted net income, EUR m · consensus: company-collected poll · 9M 2025 derived from the reported +42.8% growth",
  "C1_IMG": "/home/claude/rwe/c1_crop.png",
@@ -72,10 +72,10 @@
  "H_A1": "Results: trading beat, wind delivered growth",
  "A1_PARAGRAPHS": [
   "Adjusted EBITDA rose 35% to EUR 4.6bn. Offshore wind grew to EUR 1,110m from EUR 915m on normalised wind and the ramp-up of Sofia, Thor and Nordseecluster A. Onshore wind and solar rose to EUR 1,497m from EUR 1,242m on new capacity and better European wind, despite a weaker US dollar. Flexible generation delivered EUR 1,343m, helped by higher margins, UK capacity payments and a one-off EUR 332m compensation from the Dutch state for the 2022 Eemshaven restriction. Supply and trading recovered from first-quarter losses on gas and CO2 positions to EUR 543m, against EUR 150m a year earlier. Adjusted EPS rose 42% to EUR 2.52.",
-  "Surprise and reaction are aligned: an 8% beat on adjusted net income met a 2.1% rise on 11 November, about one point better than the DAX. The reasons the move stayed measured are confirmed in the release and the call: guidance was confirmed at the upper end rather than raised, the Eemshaven payment is a one-off, and management keeps EUR 300m as the normal trading result, so the trading swing is not extrapolated. We think positioning also played a part: the stock had rerated to 21.6x in May and entered the print 39% higher over twelve months."
+  "Surprise and reaction are aligned: an 8% beat on adjusted net income met a 1.9% rise on 11 November, close to one point better than the DAX. The reasons the move stayed measured are confirmed in the release and the call: guidance was confirmed at the upper end rather than raised, the Eemshaven payment is a one-off, and management keeps EUR 300m as the normal trading result, so the trading swing is not extrapolated. We think positioning also played a part: the stock had rerated to 21.6x in May and entered the print 39% higher over twelve months."
  ],
  "H_A2": "Outlook: upper end now, 2027 is the question",
- "A2_PARAGRAPH": "RWE confirmed its 2026 ranges and now expects the upper end: adjusted EBITDA EUR 5.75bn to 6.35bn, adjusted net income EUR 1.95bn to 2.45bn and adjusted EPS EUR 2.6 to 3.3, with the EUR 1.32 dividend confirmed. The CFO said the guide assumes average fourth-quarter wind and excludes the strong trading seen in the quarter, while the other segments should land around their midpoints. Net debt of EUR 17bn at September should fall to around EUR 12bn by December as the Vanguard projects are deconsolidated after the KKR joint venture. Commodity assumptions have not been updated; new price sensitivities and 2027 guidance come with the full-year results in early March.",
+ "A2_PARAGRAPH": "RWE confirmed its 2026 ranges and now expects the upper end: adjusted EBITDA EUR 5.75bn to 6.35bn, adjusted net income EUR 1.95bn to 2.45bn and adjusted EPS EUR 2.6 to 3.3, with the EUR 1.32 dividend confirmed. The CFO said the guide assumes average fourth-quarter wind and excludes the strong trading seen in the quarter, while the other segments should land around their midpoints. Net debt of EUR 17bn at September should fall to around EUR 12bn by December, mainly because some activities will be deconsolidated, that is, taken off the balance sheet. Commodity assumptions have not been updated; new price sensitivities and 2027 guidance come with the full-year results in early March.",
  "H_C2": "Valuation: earnings did the work this year",
  "C2_TITLE": "RWE: share price vs. consensus earnings and valuation",
  "C2_SUB": "RWE GY Equity, weekly, Sep 2014 to 11 Nov 2026 · BEst 12m-forward consensus · 40-week simple MA · log scale · P/E shaded above (orange) / below (blue) its 2014 to 2026 average · last point is the 11 November (results day) level",

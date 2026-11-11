@@ -4,7 +4,7 @@ from syz_charts import *
 PARAMS = dict(
     xlsx="/root/.claude/uploads/d6e40b82-0167-56c5-a6e6-2a07b9bf16f6/c0e5e945-RWE.xlsx",
     ticker="RWE", asof="11 Nov 2026", window_start=None,
-    reaction_pct=2.1, reaction_date="11 November 2026", market_pct=1.0,   # last Bloomberg row 59.34 vs 58.14 close on 10 Nov (web); DAX ~+1% (web)
+    reaction_pct=1.9, reaction_date="11 November 2026", market_pct=1.0,   # close-to-close move verified on Bloomberg; DAX ~+1% (web)
     # Chart 1: adjusted net income, EUR m (9M 2025 derived from the reported +42.8%; consensus = company-collected poll)
     c1_labels=["9M 2025 reported", "9M 2026 consensus", "9M 2026 reported"], c1_values=[1293, 1709, 1846],
 )

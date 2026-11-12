@@ -39,11 +39,12 @@ C1_COMMENT = ("The orders beat is large but mixed in quality: Mobility booked mo
               "rolling stock and service contracts, while Smart Infrastructure orders rose 39% on data centres. Revenue was "
               "only 1% ahead, so the profit beat came from margins, led by Digital Industries at 21.9% before severance.")
 
-BASE_CASE = ("Siemens has moved from a cyclical recovery story to a structural growth one, and the new targets make that "
-             "explicit. We underwrite fiscal 2027 EPS of EUR 10.20 to 10.80 excluding Healthineers, up 13% at the midpoint, "
+BASE_CASE = ("Siemens has moved from a cyclical recovery story to a structural growth one."
+             " We underwrite fiscal 2027 EPS of EUR 10.20 to 10.80 excluding Healthineers, up 13% at the midpoint, "
              "with upside if US and China automation keep their pace. The case remains constructive, but at 21.6x forward earnings the "
-             "risk/reward is balanced: further gains need upgrades, not a higher multiple. The next tests are the spin-off "
-             "report on 10 December and the February shareholder votes.")
+             "risk/reward is balanced: further gains need upgrades, not a higher multiple. The next tests are the "
+             "10 December spin-off report, setting out how Siemens shareholders receive Healthineers shares, and the "
+             "February votes approving it.")
 UP_HEAD = "What would strengthen our view"
 DOWN_HEAD = "What would change our view"
 UPSIDE = ("Digital Industries Q1 growth inside its 8% to 12% range despite October pre-buying; data centre orders "
@@ -70,10 +71,10 @@ A1_PARAGRAPHS = [
 H_A2 = "Outlook: a 13% EPS step without Healthineers"
 A2_PARAGRAPHS = [
     ("For fiscal 2027, excluding Siemens Healthineers, Siemens guides comparable revenue growth of 9% to 11%, a "
-     "book-to-bill above 1 and EPS before purchase price allocation of EUR 10.20 to 10.80, up 13% at the midpoint. Digital Industries 8% to 12% at a 20% to 22% margin, with moderate Q1 software growth before a "
-     "renewal-heavy Q4; Smart Infrastructure 11% to 13% at 19.5% to 20.5%, carried by electrification; Mobility 6% to 8% "
+     "book-to-bill above 1 and EPS before purchase price allocation of EUR 10.20 to 10.80, up 13% at the midpoint. Digital Industries 8% to 12% at a 20% to 22% margin; Smart Infrastructure 11% to 13% at 19.5% to 20.5%, carried by electrification; Mobility 6% to 8% "
      "at 8% to 10%, held back by Mermec integration costs. Management expects about 70% of the data centre backlog to "
-     "convert in fiscal 2027. The 34.1% Healthineers stake is due to be spun off in late spring 2027."),
+     "convert in fiscal 2027. In late spring 2027 Siemens will hand a 34.1% "
+     "Healthineers stake directly to its shareholders, one Healthineers share for every two Siemens shares."),
 ]
 H_C2 = "Valuation: earnings must now do the work"
 C2_TITLE = "SIE: share price vs. consensus earnings and valuation"

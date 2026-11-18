@@ -38,11 +38,12 @@ C1_COMMENT = ("The beat was broad: revenue, data centre, margin and EPS all clea
               "by 4% with no China Hopper sales in it. The outlier is cash: free cash flow of USD 43.8bn fell 23% short "
               "as receivables rose almost a third to USD 81bn. Earnings quality is the next debate.")
 
-BASE_CASE = ("We keep the position and would add on governance-driven weakness: at 10.6x forward earnings, the "
-             "market prices a lasting governance discount rather than a weaker franchise. We underwrite FY2028 revenue "
-             "growth of about 75% and consensus EPS near USD 16.3, with gross margin back to 72&ndash;73% after the Q4 "
-             "trough. The debate has moved from demand to leadership and China. The catalyst is a "
-             "credible permanent CEO; the USD 227bn buyback cushions the wait. The next test is the Q4 report in February 2027.")
+BASE_CASE = ("We remain constructive on the franchise, but NVIDIA&rsquo;s place on the Focus List is under review. "
+             "At 10.6x forward earnings, the market prices a lasting governance discount rather than a weaker business: "
+             "we underwrite FY2028 revenue growth of about 75%, consensus EPS near USD 16.3 and gross margin back to "
+             "72&ndash;73% after the Q4 trough. The debate has moved from demand to leadership, China and customer "
+             "financing, where political decisions weigh more than fundamentals. A credible permanent CEO remains the "
+             "main catalyst, and the USD 227bn buyback cushions the wait.")
 
 UP_HEAD = "What would strengthen our view"
 DOWN_HEAD = "What would change our view"

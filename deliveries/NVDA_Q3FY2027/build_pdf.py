@@ -13,7 +13,7 @@ def words(s): return len(re.sub(r"&\w+;", " ", s).split())
 def budgets():
     chk = {"quote": (C.QUOTE, 20, 35), "intro": (C.COMPANY_INTRO, 25, 36), "P1": (C.P1_PARAGRAPH, 55, 65),
            "C1": (C.C1_COMMENT, 50, 55), "base": (C.BASE_CASE, 80, 90), "A1a": (C.A1_PARAGRAPHS[0], 100, 115),
-           "A1b": (C.A1_PARAGRAPHS[1], 90, 105), "A2": (C.A2_PARAGRAPH, 95, 110), "C2": (C.C2_COMMENT, 85, 100)}
+           "A1b": (C.A1_PARAGRAPHS[1], 90, 105), "A2": (C.A2_PARAGRAPH, 95, 110), "C2": (C.C2_COMMENT, 85, 100), "CS": (C.CS_COMMENT, 55, 75)}
     for k, (t, lo, hi) in chk.items():
         n = words(t); print(f"{k:6s} {n:4d}  [{lo}-{hi}]", "" if lo <= n <= hi else "<-- OUT")
     for k, t in [("up", C.UPSIDE), ("down", C.DOWNSIDE)]:
@@ -54,7 +54,11 @@ def write_fill_json(tpl):
          "UPSIDE": u(C.UPSIDE), "DOWNSIDE": u(C.DOWNSIDE), "P2_TITLE": C.P2_TITLE, "H_A1": u(C.H_A1),
          "A1_PARAGRAPHS": [u(x) for x in C.A1_PARAGRAPHS], "H_A2": u(C.H_A2), "A2_PARAGRAPH": u(C.A2_PARAGRAPH),
          "H_C2": u(C.H_C2), "C2_TITLE": u(C.C2_TITLE), "C2_SUB": u(C.C2_SUB), "C2_IMG": C2, "C2_ASPECT": asp(C2),
-         "W2": C.W2_PPTX, "C2_COMMENT": u(C.C2_COMMENT), "SOURCE_LINE": u(C.SOURCE_LINE), "DISCLAIMER": disc}
+         "W2": C.W2_PPTX, "C2_COMMENT": u(C.C2_COMMENT),
+         "CS_TITLE": u(C.CS_TITLE), "CS_IMG": "/home/claude/nvda/c2_tall_crop.png",
+         "CS_ASPECT": asp("/home/claude/nvda/c2_tall_crop.png"), "CS_LEAD": u(C.CS_LEAD), "CS_COMMENT": u(C.CS_COMMENT),
+         "CS_KPIS": [{"label": l, "value": u(v), "sub": u(x), "sign": g} for l, v, x, g in C.CS_KPIS],
+         "SOURCE_LINE": u(C.SOURCE_LINE), "DISCLAIMER": disc}
     json.dump(F, open("/home/claude/nvda/fill.json", "w"), ensure_ascii=False, indent=1)
 
 if __name__ == "__main__":

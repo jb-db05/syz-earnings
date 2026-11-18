@@ -93,3 +93,19 @@ SOURCE_LINE = ("Source: Syz Research, Bloomberg, company filings, NVIDIA Q3 FY20
 
 W1, W2 = 74, 94            # PDF chart widths, % of text width
 W1_PPTX, W2_PPTX = 66, 88  # PPTX chart widths
+
+# ---- PowerPoint-only valuation slide (slide 3 of 4)
+CS_TITLE = "Valuation: 10.6x, the cheapest multiple since 2014"
+CS_LEAD = ("Consensus earnings more than doubled in 12 months while the share price fell: the derating, not the "
+           "earnings path, explains the stock.")
+CS_KPIS = [
+    ("12m-forward EPS", "USD 14.8", "+134% over 12 months", "pos"),
+    ("Share price", "USD 155", "&minus;18% over 12 months", "neg"),
+    ("12m-forward P/E", "10.6x", "&minus;67% vs. 32.1x average", "neg"),
+    ("Price vs. 40-week MA", "&minus;23%", "MA at USD 203", "neg"),
+]
+CS_COMMENT = ("Read in reverse, the price discounts an earnings collapse that nothing in the quarter supports: at the "
+              "32.1x long-run average, USD 155 would justify 12m-forward EPS of only USD 4.8, a third of consensus. "
+              "Even a 25% cut to consensus leaves the stock on 14.0x, and FY2028 consensus EPS of USD 16.3 puts it on "
+              "9.5x. We read the derating as a governance and policy discount, which a credible CEO appointment would "
+              "start to close.")

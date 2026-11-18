@@ -68,6 +68,19 @@ def main():
         ccy="USD", price_lbl=(10, -22), eps_lbl=(10, 10))
     crop_for_pdf("/home/claude/nvda/c2.png", "/home/claude/nvda/c2_crop.png", "price_eps_pe")
 
+    # taller variant of the same chart for the PowerPoint-only valuation slide (figure height 11.8 in)
+    _subplots = plt.subplots
+    plt.subplots = lambda *a, **k: _subplots(*a, **{**k, "figsize": (12.5, 11.8)})
+    try:
+        price_eps_pe_chart(
+            "/home/claude/nvda/c2_tall.png", df, "NVIDIA", "NVDA: share price vs. consensus earnings and valuation",
+            source_line("Bloomberg", P["asof"], "NVDA US Equity, weekly", "BEst 12m-forward consensus",
+                        "40-week simple MA", "Log scale", "P/E shaded above (orange) / below (blue) its 2014-26 average"),
+            ccy="USD", price_lbl=(10, -22), eps_lbl=(10, 10))
+    finally:
+        plt.subplots = _subplots
+    crop_for_pdf("/home/claude/nvda/c2_tall.png", "/home/claude/nvda/c2_tall_crop.png", "price_eps_pe")
+
     last = df.iloc[-1]
     yr = df[df["date"] >= last["date"] - pd.Timedelta(days=365)]
     ago = df[df["date"] <= last["date"] - pd.Timedelta(days=364)].iloc[-1]

@@ -4,8 +4,8 @@ AlphaSense summary supplied by the user (Q1 guidance, prior FY27 guidance, analy
 DOC_TYPE = "Earnings update"
 DATE = "19 November 2026"
 TITLE = "Palo Alto Networks Q1 FY27: beat, raise and a bet on AI"
-QUOTE = ("NGS ARR was up 66%, and we delivered one of the largest NGS ARR beats in our history. &hellip; That momentum "
-         "gives us confidence to materially raise our guidance for the year.")
+QUOTE = ("We beat guidance across every metric. &hellip; That momentum gives us confidence to materially raise our "
+         "guidance for the year. Top-line strength also translated directly to the bottom line.")
 QUOTE_WHO = "Nikesh Arora, Chairman and Chief Executive Officer, fiscal Q1 2027 earnings call, 18 November 2026"
 COMPANY_INTRO = ("Palo Alto Networks sells cybersecurity platforms for networks, security operations and identity, with "
                  "nearly 70,000 network security customers. Network and AI security is two thirds of revenue. "
@@ -18,7 +18,7 @@ TAKEAWAYS = [
 ]
 KPIS = [
     ("Q1 revenue", "USD 3.44bn", "+3.9% vs. top of guide", "pos"),
-    ("Q1 NGS ARR", "USD 9.73bn", "+1.8% vs. top of guide", "pos"),
+    ("Q1 recurring revenue (ARR)", "USD 9.73bn", "+1.8% vs. top of guide", "pos"),
     ("Q1 non-GAAP EPS", "USD 1.05", "+7.1% vs. top of guide", "pos"),
     ("FY27 revenue guide", "USD 14.55bn", "+2.8% vs. prior guide", "pos"),
 ]
@@ -36,9 +36,9 @@ C1_COMMENT = ("Every line beat, but the beat sits mainly in earnings rather than
 BASE_CASE = ("The investment case remains constructive: AI raises both the volume of attacks and the cost of fragmented defences, "
              "and Palo Alto is the main consolidator. We underwrite the fiscal 2027 guide of USD 4.26 to 4.30 of EPS and 26% to 27% "
              "revenue growth, with Applied Compute an option on secure enterprise AI, not a core driver. At 80.5x forward "
-             "earnings the risk/reward is balanced: the multiple already pays for upgrades. Next test: NGS ARR vs. the "
+             "earnings the risk/reward is balanced: the multiple already pays for upgrades. Next test: recurring revenue vs. the "
              "USD 10.20 to 10.22bn fiscal Q2 guide.")
-UPSIDE = ("NGS ARR above the USD 10.22bn top of the Q2 guide; operating margin held at 29.5% despite component costs; "
+UPSIDE = ("Recurring revenue above the USD 10.22bn top of the Q2 guide; operating margin held at 29.5% despite component costs; "
           "Applied Compute closing in fiscal Q3 2027 with early ARR visibility.")
 DOWNSIDE = ("Net-new platformizations back below 100 a quarter from 170 in Q1; gross margin, 75.2%, under 74% on SaaS mix and memory "
             "costs; deal dilution beyond the 200bp guided for fiscal 2028.")

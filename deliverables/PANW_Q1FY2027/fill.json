@@ -26,7 +26,7 @@
   {
    "tag": "neu",
    "label": "Valuation",
-   "text": "80.5x forward earnings, 63% above the 2016 to 2026 average: the price has run ahead of earnings."
+   "text": "81.3x forward earnings, 64% above the 2016 to 2026 average: the price has run ahead of earnings."
   }
  ],
  "KPIS": [
@@ -56,14 +56,14 @@
   }
  ],
  "H_P1": "AI-driven threats are turning into budgets",
- "P1_PARAGRAPH": "Revenue came 3.9% above the top of guidance and EPS 7.1% above, and the shares rose 11.2% in the week to 19 November, the day after the release: surprise and reaction are aligned. AI-assisted attacks are turning into spending, with a record 170 customers consolidating. The case now runs on two engines: consolidation and a costly AI bet.",
+ "P1_PARAGRAPH": "Revenue came 3.9% above the top of guidance and EPS 7.1% above, and the shares rose 6.4% on 19 November, the day after the release, on top of 9.9% the day before: surprise and reaction are aligned. AI-assisted attacks are turning into spending, with a record 170 customers consolidating. The case now runs on two engines: consolidation and a costly AI bet.",
  "C1_TITLE": "PANW: Q1 vs. guidance and fiscal 2027 guidance raise",
  "C1_SUB": "Q1 vs. top of company guidance · FY27 guidance midpoints vs. prior guidance · % (operating margin in percentage points) · Non-GAAP",
  "C1_IMG": "/home/claude/c1_crop.png",
  "C1_ASPECT": 0.312,
  "W1": 66,
  "C1_COMMENT": "Every line beat, but the beat sits mainly in earnings rather than recurring revenue: EPS came 7.1% and operating margin 124bp above guidance, while next-generation security annualised recurring revenue (NGS ARR), came 1.8% above. The fiscal 2027 revenue raise, USD 395m at the midpoint, is three times the Q1 beat.",
- "BASE_CASE": "The investment case remains constructive: AI raises both the volume of attacks and the cost of fragmented defences, and Palo Alto is the main consolidator. We underwrite the fiscal 2027 guide of USD 4.26 to 4.30 of EPS and 26% to 27% revenue growth, with Applied Compute an option on secure enterprise AI, not a core driver. At 80.5x forward earnings the risk/reward is balanced: the multiple already pays for upgrades. Next test: recurring revenue vs. the USD 10.20 to 10.22bn fiscal Q2 guide.",
+ "BASE_CASE": "The investment case remains constructive: AI raises both the volume of attacks and the cost of fragmented defences, and Palo Alto is the main consolidator. We underwrite the fiscal 2027 guide of USD 4.26 to 4.30 of EPS and 26% to 27% revenue growth, with Applied Compute an option on secure enterprise AI, not a core driver. At 81.3x forward earnings the risk/reward is balanced: the multiple already pays for upgrades. Next test: recurring revenue vs. the USD 10.20 to 10.22bn fiscal Q2 guide.",
  "UPSIDE": "Recurring revenue above the USD 10.22bn top of the Q2 guide; operating margin held at 29.5% despite component costs; Applied Compute closing in fiscal Q3 2027 with early ARR visibility.",
  "DOWNSIDE": "Net-new platformizations back below 100 a quarter from 170 in Q1; gross margin, 75.2%, under 74% on SaaS mix and memory costs; deal dilution beyond the 200bp guided for fiscal 2028.",
  "UPSIDE_HEAD": "What would strengthen our view",
@@ -72,17 +72,17 @@
  "H_A1": "Results: every platform accelerated",
  "A1_PARAGRAPHS": [
   "Revenue rose 39% to USD 3.44bn, lifted by the CyberArk acquisition, now the Idira identity segment, and growth accelerated in all three segments. Network and AI security, two thirds of revenue, grew 20% to USD 2.3bn, with secure access service edge (SASE) ARR up 30% and software firewall ARR up 34%, a third consecutive acceleration. Cortex, the security operations platform, grew 53% (40% pro forma), with XSIAM ARR up over 65% to about USD 800m. Idira grew 23% pro forma and logged more than 100 cross-sell wins from the core base. Prisma AIRS, the AI security product, reached about USD 170m of ARR within five quarters, the fastest ramp in company history.",
-  "The reaction is aligned with the surprise. EPS of USD 1.05 beat the top of the USD 0.96 to 0.98 guide by 7%, and the shares rose 11.2% in the week to 19 November, a move that includes three sessions before the release; 12m-forward consensus EPS rose 1.6% over the same week. The confirmed drivers are the guidance raise and NGS ARR growth of 66%, with net-new ARR more than doubling. The beat is of good quality: operating margin rose 50bp to 30.7% even as gross margin fell 170bp to 75.2% on component costs and SaaS mix, the main operational risk in analyst first takes."
+  "The reaction is aligned. EPS of USD 1.05 beat the top of the USD 0.96 to 0.98 guide by 7%, and the shares rose 6.4% on 19 November, the first session after the release, on top of 9.9% on 18 November, before the numbers; we read that gain as positioning into the print, not a confirmed driver. The confirmed drivers are the guidance raise and NGS ARR growth of 66%. The beat is of good quality: operating margin rose 50bp to 30.7% even as gross margin fell 170bp to 75.2% on component costs and SaaS mix, the main operational risk in analyst first takes."
  ],
  "H_A2": "Outlook: guide raised, the AI deal adds cost",
  "A2_PARAGRAPH": "The fiscal 2027 guide, excluding Applied Compute, is now revenue USD 14.52 to 14.57bn (26% to 27% growth), NGS ARR USD 11.475 to 11.525bn, EPS USD 4.26 to 4.30, operating margin 29.5% and adjusted free cash flow margin 38%. The Q2 guide is revenue of USD 3.53 to 3.55bn and EPS of USD 1.01 to 1.03. Applied Compute, a USD 4.5bn all-stock deal with USD 100m of annualised revenue, should add USD 1bn of NGS ARR by fiscal 2029. The cost is up to 100bp of operating margin in fiscal 2027 and 200bp in fiscal 2028, plus under USD 3bn of capital spending through fiscal 2030.",
  "H_C2": "Valuation: the multiple ran ahead of earnings",
  "C2_TITLE": "PANW: share price vs. consensus earnings and valuation",
- "C2_SUB": "Weekly, January 2016 to 19 November 2026 · Bloomberg 12m-forward consensus EPS · 40-week simple moving average · Log scale · Last price 19 November, after the release",
+ "C2_SUB": "Weekly, January 2016 to 19 November 2026 · Bloomberg 12m-forward consensus EPS · 40-week simple moving average · Log scale · Last price is the 19 November close, after the release",
  "C2_IMG": "/home/claude/c2_crop.png",
  "C2_ASPECT": 0.5984,
  "W2": 88,
- "C2_COMMENT": "The share price rose 75% over 12 months while 12m-forward consensus EPS rose 13%: the rerating, not earnings, did most of the work. At 80.5x, the forward P/E sits 63% above its 49.5x average since 2016, below the 97.1x peak of 9 October 2026 but well above the 63.1x one-year average. Since mid-August, before the previous results, EPS has risen 7% and the price has fallen 7%, so the derating has started. The price is 26% above its 40-week average. At an unchanged price, EPS would need to rise 28% to bring the multiple back to its one-year average.",
+ "C2_COMMENT": "The share price rose 76% over 12 months while 12m-forward consensus EPS rose 13%: the rerating, not earnings, did most of the work. At 81.3x, the forward P/E sits 64% above its 49.5x average since 2016, below the 97.1x peak of 9 October 2026 but well above the 63.1x one-year average. Since mid-August, before the previous results, EPS has risen 7% and the price has fallen 6%, so the derating has started. The price is 27% above its 40-week average. At an unchanged price, EPS would need to rise 29% to bring the multiple back to its one-year average.",
  "SOURCE_LINE": "Source: Syz Research, Bloomberg, company filings, Palo Alto Networks fiscal Q1 2027 earnings call of 18 November 2026, AlphaSense, analyst research notes of 16 to 19 November 2026",
  "DISCLAIMER": [
   "This communication has been issued and made available to recipients for the purpose of advertising investment services and/or financial instruments. It has been sent for information purposes and cannot be considered as an offer or a personalised recommendation to buy or sell a financial instrument or any other investment or currency. This communication does not constitute investment research within the meaning of regulatory rules applicable in the European Economic Area, or research under the rules of the U.S. Self-Regulatory Organizations.",

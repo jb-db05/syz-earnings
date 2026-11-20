@@ -1,11 +1,11 @@
 """PANW fiscal Q1 2027 charts. python3 build_charts.py"""
 import sys; sys.path.insert(0, "/home/claude"); sys.path.insert(0, "/home/claude/panw")
 from syz_charts import *
-from load import load   # mixed Excel-serial / datetime dates in this export
+from load import load_closed as load   # mixed Excel-serial / datetime dates in this export
 
 PARAMS = dict(
     ticker="PANW", name="Palo Alto Networks", ccy="USD", asof="19 Nov 2026",
-    reaction_pct=11.2, reaction_date="13 to 19 Nov 2026 (weekly, Bloomberg)", market_pct=None,  # 18 Nov close not in the export
+    reaction_pct=6.42, reaction_date="19 Nov 2026 (close 339.92 -> 361.73, Bloomberg daily)", market_pct=None,  # pre-release day 18 Nov: +9.90%
     # surprises, % : Q1 vs consensus (rev 3.44 vs 3.31, EPS 1.05 vs 0.97), NGS ARR vs top of guide (9.73 vs 9.56),
     # FY27 guide midpoints vs prior guide midpoints (rev 14.545 vs 14.15, NGS ARR 11.5 vs 11.125, EPS 4.28 vs 4.175)
     window_start="2016-01-01",
@@ -35,7 +35,7 @@ df = df[df["date"] >= P["window_start"]].reset_index(drop=True)
 out = price_eps_pe_chart("/home/claude/c2.png", df, P["name"],
     "PANW: share price vs. consensus earnings and valuation",
     source_line("Bloomberg", P["asof"], "PANW US Equity, weekly, split-adjusted", "BEst 12m-forward consensus",
-                "40-week simple MA", "Log scale", "P/E shaded vs. its 2016-26 average", "Last point 19 Nov 2026, after the release"),
+                "40-week simple MA", "Log scale", "P/E shaded vs. its 2016-26 average", "Last point 19 Nov 2026 close"),
     ccy="USD", price_lbl=(10, -16), eps_lbl=(10, 10))
 crop_for_pdf("/home/claude/c2.png", "/home/claude/c2_crop.png", "price_eps_pe")
 print({k: round(v, 2) if isinstance(v, float) else v for k, v in out.items()})
